@@ -10,33 +10,41 @@ import com.nocountry.ecommerce.util.enums.Entities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
 public class AccountServiceImpl implements AccountService {
     @Autowired
     private CustomerRepository customerRepository;
-
+    @Autowired
     private AccountRepository accountRepository;
+    
+    private int numeracionAutomatica = 1;
 
     @Override
     public CustomerRegistration createCustomer(Customers customers){
         CustomerRegistration customerRegistration = new CustomerRegistration();
+        int anoActual = LocalDate.now().getYear();
+        String numeracion = obtenerNumeracionAutomatica();
+        
         String email = customers.getEmail();
         customerRegistration.setEmail(email);
         String password = customers.getPassword();
         customerRegistration.setPassword(password);
         String name = customers.getName();
-        String lastName = customers.getLastname();
+        String lastName = customers.getLastName();
         String fullName = name + " " + lastName;
         customerRegistration.setFullName(fullName);
 
-        Customers saveCustomer = new Customers();
+        Customers saveCustomer = new Customers(email, password);
         saveCustomer.setEmail(email);
         saveCustomer.setPassword(password);
         saveCustomer.setName(name);
-        saveCustomer.setLastname(lastName);
+        saveCustomer.setLastName(lastName);
         saveCustomer.setEntity(Entities.CUSTOMER);
+        String customerNumber = anoActual + " - " + numeracion;
+        saveCustomer.setNumber(customerNumber);
 
         customerRepository.save(saveCustomer);
 
@@ -55,5 +63,11 @@ public class AccountServiceImpl implements AccountService {
         } catch (Exception e) {
             throw new RuntimeException("Error finding account by email", e);
         }
+    }
+    
+    private String obtenerNumeracionAutomatica(){
+        String numeracion = String.format("%4d", numeracionAutomatica);
+        numeracionAutomatica++;
+        return numeracion;
     }
 }

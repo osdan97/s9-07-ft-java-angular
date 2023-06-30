@@ -20,7 +20,6 @@ public class AuthenticationController {
 
     @PostMapping("sign-up")
     public ResponseEntity<?> signUp(@RequestBody Customers customer){
-        try {
             if (customer.getEmail() == null || customer.getEmail().isEmpty()) {
                 return new ResponseEntity<>("Email can't be empty", HttpStatus.BAD_REQUEST);
             }
@@ -30,7 +29,7 @@ public class AuthenticationController {
             if (customer.getName() == null || customer.getName().isEmpty()) {
                 return new ResponseEntity<>("Name can't be empty", HttpStatus.BAD_REQUEST);
             }
-            if (customer.getLastname() == null || customer.getLastname().isEmpty()) {
+            if (customer.getLastName() == null || customer.getLastName().isEmpty()) {
                 return new ResponseEntity<>("Lastname can't be empty", HttpStatus.BAD_REQUEST);
             }
             if (accountService.findByEmail(customer.getEmail()).isPresent()) {
@@ -38,10 +37,5 @@ public class AuthenticationController {
             } else {
                 return new ResponseEntity<>(accountService.createCustomer(customer), HttpStatus.CREATED);
             }
-
-        } catch (Exception e) {
-            var safeErrorMessage = MessageFormat.format("Error while saving. Please check email format or password ", customer);
-            return new ResponseEntity<>(safeErrorMessage, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
     }
 }

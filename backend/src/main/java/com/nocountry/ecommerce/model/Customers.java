@@ -15,6 +15,7 @@ import java.util.List;
 @ToString
 @Entity
 public class Customers extends Account{
+
     @Column(name = "number")
     private String number;
     @Column(name = "entidad")
@@ -22,13 +23,17 @@ public class Customers extends Account{
     @Column(name = "name")
     private String name;
     @Column(name = "lastname")
-    private String lastname;
+    private String lastName;
     @Column(name = "address")
     private String address;
 
     @Column(name = "country")
     private String country;
     @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "number", referencedColumnName = "number", nullable = false)
+    @JoinColumn(name = "number", referencedColumnName = "number")
     private List<Phones> phonesList;
+    
+    public Customers(String email, String password){
+        super(email,password);
+    }
 }
