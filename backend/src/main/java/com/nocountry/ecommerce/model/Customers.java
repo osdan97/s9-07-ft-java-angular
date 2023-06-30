@@ -1,6 +1,7 @@
 package com.nocountry.ecommerce.model;
 
 import com.nocountry.ecommerce.util.enums.Entities;
+import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,6 +11,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Data
+@DiscriminatorValue("CUSTOMER")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
@@ -18,8 +20,6 @@ public class Customers extends Account{
 
     @Column(name = "number")
     private String number;
-    @Column(name = "entidad")
-    private Entities entity;
     @Column(name = "name")
     private String name;
     @Column(name = "lastname")

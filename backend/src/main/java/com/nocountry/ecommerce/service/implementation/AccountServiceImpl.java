@@ -6,7 +6,6 @@ import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.service.AccountService;
-import com.nocountry.ecommerce.util.enums.Entities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +41,6 @@ public class AccountServiceImpl implements AccountService {
         saveCustomer.setPassword(password);
         saveCustomer.setName(name);
         saveCustomer.setLastName(lastName);
-        saveCustomer.setEntity(Entities.CUSTOMER);
         String customerNumber = anoActual + " - " + numeracion;
         saveCustomer.setNumber(customerNumber);
 
