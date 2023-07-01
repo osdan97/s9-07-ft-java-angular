@@ -1,11 +1,14 @@
 package com.nocountry.ecommerce.service.implementation;
 
 import com.nocountry.ecommerce.dto.CustomerRegistration;
+import com.nocountry.ecommerce.dto.CustomerUpdate;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.service.AccountService;
+import jakarta.persistence.EntityExistsException;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,10 +65,42 @@ public class AccountServiceImpl implements AccountService {
             throw new RuntimeException("Error finding account by email", e);
         }
     }
-    
+
+    @Override
+    public CustomerUpdate updateCustomer(Customers customer) {
+        if(customerRepository.findByEmail(String.valueOf(customer.getEmail())).isEmpty()){
+            throw new IllegalStateException("Customer does not exists");
+        }
+
+        Optional<Customers> existingCustomer = customerRepository.findByEmail(customer.getEmail());
+        Customers customerUpdated = existingCustomer.get();
+
+        CustomerUpdate customerDto = new CustomerUpdate();
+        String name = customer.getName();
+        customerDto.setName(name);
+        String lastName = customer.getLastName();
+        customerDto.setLastName(lastName);
+        String country = customer.getCountry();
+        customerDto.setCountry(country);
+        String address = customer.getAddress();
+        customerDto.setAddress(address);
+
+        customerUpdated.setName(name);
+        customerUpdated.setLastName(lastName);
+        customerUpdated.setCountry(country);
+        customerUpdated.setAddress(address);
+
+        customerRepository.save(customerUpdated);
+
+        return customerDto;
+    }
+
     private String obtenerNumeracionAutomatica(){
-        String numeracion = String.format("%4d", numeracionAutomatica);
-        numeracionAutomatica++;
+        String maxNumber = accountRepository.findByNumber();
+        String numberStr = maxNumber.substring(8);
+        int number = Integer.valueOf(numberStr.trim());
+        number++;
+        String numeracion = String.valueOf(number);
         return numeracion;
     }
 }

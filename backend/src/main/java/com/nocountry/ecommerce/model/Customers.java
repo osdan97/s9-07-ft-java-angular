@@ -26,7 +26,6 @@ public class Customers extends Account{
     private String lastName;
     @Column(name = "address")
     private String address;
-
     @Column(name = "country")
     private String country;
     @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
