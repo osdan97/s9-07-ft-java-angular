@@ -44,7 +44,8 @@ public class Account {
     private boolean active;
     @Column(name = "verification_code", updatable = false)
     private String verificationCode;
-
+    @Transient
+    private String token;
 
     public Account(String email, String password){
         this.accountUuid = UUID.randomUUID().toString();

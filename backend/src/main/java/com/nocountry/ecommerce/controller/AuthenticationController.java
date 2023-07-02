@@ -1,7 +1,9 @@
 package com.nocountry.ecommerce.controller;
 
+import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.service.AccountService;
+import com.nocountry.ecommerce.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,9 @@ import java.text.MessageFormat;
 @RestController
 @RequestMapping("api/authentication")
 public class AuthenticationController {
+
+    @Autowired
+    private AuthenticationService authenticationService;
     @Autowired
     private AccountService accountService;
 
@@ -37,5 +42,14 @@ public class AuthenticationController {
             } else {
                 return new ResponseEntity<>(accountService.createCustomer(customer), HttpStatus.CREATED);
             }
+    }
+
+    @PostMapping("sign-in")
+    public ResponseEntity<?> signIn(@RequestBody Account account){
+        Account signInAccount = authenticationService.signInAndReturnJWT(account);
+        if(signInAccount.isActive()){
+            return new ResponseEntity<>("Account is not active", HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(signInAccount, HttpStatus.OK);
     }
 }
