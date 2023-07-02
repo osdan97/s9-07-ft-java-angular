@@ -9,13 +9,18 @@ import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.util.enums.Role;
-import jakarta.persistence.EntityExistsException;
-import jakarta.persistence.EntityNotFoundException;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+import jakarta.transaction.Transactional;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.util.Optional;
 
@@ -29,6 +34,12 @@ public class AccountServiceImpl implements AccountService {
     private JwtProvider jwtProvider;
     @Autowired
     private AccountRepository accountRepository;
+    @Value("${verification.base-url}")
+    protected String baseUrl;
+    @Autowired
+    private JavaMailSender javaMailSender;
+    @Value("${spring.mail.username}")
+    private String emailFrom;
 
     @Override
     public CustomerRegistration createCustomer(Customers customers){
@@ -60,6 +71,13 @@ public class AccountServiceImpl implements AccountService {
         String jwt = jwtProvider.generateToken(saveCustomer);
         customerRegistration.setToken(jwt);
 
+        try {
+            this.sendVerificationCodeToEmail(saveCustomer);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
         customerRepository.save(saveCustomer);
 
         return customerRegistration;
@@ -122,6 +140,62 @@ public class AccountServiceImpl implements AccountService {
             } else {
                 return "1";
             }
+        }
+    }
+    
+    public void sendVerificationCodeToEmail(Customers customers) throws MessagingException, UnsupportedEncodingException {
+        String subject = " Please verify your registration";
+        String senderName = "Ecommerce";
+        String mailContent = "<head>";
+        mailContent += "<style>";
+        mailContent += "a{";
+        mailContent += "display: block;";
+        mailContent += "width: 200px;";
+        mailContent += "font-family: Arial, Helvetica, sans-serif;";
+        mailContent += "font-weight: 700;";
+        mailContent += "color: #FFB344;";
+        mailContent += "background-color: #00A19D;";
+        mailContent += "border-radius: 10px;";
+        mailContent += "padding: 15px 30px;";
+        mailContent += "margin: 20px 20px;";
+        mailContent += "text-align: center;";
+        mailContent += "text-decoration: none;";
+        mailContent += "}";
+        mailContent += "a:hover{";
+        mailContent += "background-color: #FFB344;";
+        mailContent += "border: 2px solid #00A19D;";
+        mailContent += "color: #00A19D;";
+        mailContent += "}";
+        mailContent += "</style>";
+        mailContent += "</head>";
+        mailContent += "<p> Dear " + customers.getName() + " " + customers.getLastName() + ",</p>";
+        mailContent += "<p> Please click the link below to verify to your registration:</p>";
+        
+        String verifyURL = baseUrl + "/verify/" + customers.getVerificationCode();
+        mailContent += "<h3><a href=\"" + verifyURL + "\" target=_blank >Click to verify your account</a></h3>";
+        
+        mailContent +=  "<p> Thanks you <br> Ecommerce Team </p>";
+
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+        
+        helper.setFrom(emailFrom,senderName);
+        helper.setTo(customers.getEmail());
+        helper.setSubject(subject);
+        helper.setText(mailContent,true);
+        
+        javaMailSender.send(message);
+    }
+    @Transactional
+    @Override
+    public boolean verifyAccount(String verificationCode) {
+        Account account = accountRepository.findByVerificationCode(verificationCode);
+
+        if (account == null || account.isActive()) {
+            return false;
+        } else {
+            account.setActive(true);
+            return true;
         }
     }
 }

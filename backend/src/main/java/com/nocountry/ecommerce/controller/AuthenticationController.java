@@ -8,10 +8,7 @@ import com.nocountry.ecommerce.service.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/authentication")
@@ -51,4 +48,22 @@ public class AuthenticationController {
         }
         return new ResponseEntity<>(signInAccount, HttpStatus.OK);
     }
+
+    @GetMapping("/verify/{verificationCode}")
+    public ResponseEntity<?> verifyAccount(@PathVariable String verificationCode) {
+        try {
+            if (verificationCode == null) {
+                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Verification Failed");
+            } else {
+                boolean verified = accountService.verifyAccount(verificationCode);
+                if (verified) {
+                    return ResponseEntity.ok("Verification Succeeded");
+                } else {
+                    return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Verification Failed");
+                }
+            }
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("An error occurred while verify the account" + e.getMessage());
+        }
+    }    
 }
