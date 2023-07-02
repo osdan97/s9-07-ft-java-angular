@@ -44,7 +44,7 @@ public class AccountServiceImpl implements AccountService {
         saveCustomer.setPassword(password);
         saveCustomer.setName(name);
         saveCustomer.setLastName(lastName);
-        String customerNumber = anoActual + " - " + numeracion;
+        String customerNumber = anoActual + "-" + numeracion;
         saveCustomer.setNumber(customerNumber);
 
         customerRepository.save(saveCustomer);
@@ -95,12 +95,20 @@ public class AccountServiceImpl implements AccountService {
         return customerDto;
     }
 
-    private String obtenerNumeracionAutomatica(){
+    private String obtenerNumeracionAutomatica() {
         String maxNumber = accountRepository.findByNumber();
-        String numberStr = maxNumber.substring(8);
-        int number = Integer.valueOf(numberStr.trim());
-        number++;
-        String numeracion = String.valueOf(number);
-        return numeracion;
+        if (maxNumber == null || maxNumber.isEmpty()) {
+            return "1";
+        } else {
+            int separatorIndex = maxNumber.indexOf("-");
+            if (separatorIndex != -1 && separatorIndex + 1 < maxNumber.length()) {
+                String numeracion = maxNumber.substring(separatorIndex + 1);
+                int number = Integer.parseInt(numeracion.trim());
+                number++;
+                return String.valueOf(number);
+            } else {
+                return "1";
+            }
+        }
     }
 }

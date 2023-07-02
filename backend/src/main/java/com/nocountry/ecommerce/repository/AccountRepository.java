@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface AccountRepository extends JpaRepository<Account, String> {
     Optional<Account> findByEmail(String email);
 
-    @Query(value = "SELECT MAX(a.number) FROM Account a WHERE a.DTYPE = 'customer'", nativeQuery = true)
+    @Query(value = "SELECT MAX(a.number) FROM ecommercedb.ACCOUNT a WHERE a.entity = 'customer'", nativeQuery = true)
     String findByNumber();
 }

@@ -11,7 +11,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Data
-@DiscriminatorValue("CUSTOMER")
+@DiscriminatorValue("customer")
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
