@@ -6,10 +6,14 @@ import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.CustomerRepository;
+import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AccountService;
+import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
+import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -20,9 +24,11 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private CustomerRepository customerRepository;
     @Autowired
+    private PasswordEncoder passwordEncoder;
+    @Autowired
+    private JwtProvider jwtProvider;
+    @Autowired
     private AccountRepository accountRepository;
-    
-    private int numeracionAutomatica = 1;
 
     @Override
     public CustomerRegistration createCustomer(Customers customers){
@@ -32,12 +38,15 @@ public class AccountServiceImpl implements AccountService {
         
         String email = customers.getEmail();
         customerRegistration.setEmail(email);
-        String password = customers.getPassword();
+        String password = passwordEncoder.encode(customers.getPassword());
         customerRegistration.setPassword(password);
         String name = customers.getName();
         String lastName = customers.getLastName();
         String fullName = name + " " + lastName;
         customerRegistration.setFullName(fullName);
+        String verificationCode = RandomString.make(64);
+        customerRegistration.setVerificationCode(verificationCode);
+        
 
         Customers saveCustomer = new Customers(email, password);
         saveCustomer.setEmail(email);
@@ -45,7 +54,11 @@ public class AccountServiceImpl implements AccountService {
         saveCustomer.setName(name);
         saveCustomer.setLastName(lastName);
         String customerNumber = anoActual + "-" + numeracion;
+        saveCustomer.setRol(Role.USER);
         saveCustomer.setNumber(customerNumber);
+        saveCustomer.setVerificationCode(verificationCode);
+        String jwt = jwtProvider.generateToken(saveCustomer);
+        customerRegistration.setToken(jwt);
 
         customerRepository.save(saveCustomer);
 

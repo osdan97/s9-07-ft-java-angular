@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.model;
 
+import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,9 @@ public class Account {
 
     @Column(name = "password", nullable = false)
     private String password;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rol", nullable = false)
+    private Role rol;
 
     @Column(name = "created_date", nullable = false, updatable = false)
     private LocalDateTime createdDate;
@@ -38,6 +42,8 @@ public class Account {
 
     @Column(name = "active")
     private boolean active;
+    @Column(name = "verification_code", updatable = false)
+    private String verificationCode;
 
 
     public Account(String email, String password){
