@@ -1,6 +1,8 @@
 package com.nocountry.ecommerce.service.implementation;
 
+import com.nocountry.ecommerce.dto.CustomerLoginResponse;
 import com.nocountry.ecommerce.model.Account;
+import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.security.UserPrincipal;
 import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AuthenticationService;
@@ -19,7 +21,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private JwtProvider jwtProvider;
 
     @Override
-    public Account signInAndReturnJWT(Account signInRequest){
+    public CustomerLoginResponse signInAndReturnJWT(Account signInRequest){
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(signInRequest.getEmail(), signInRequest.getPassword())
         );
@@ -30,6 +32,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         Account signInUser = userPrincipal.getAccount();
         signInUser.setToken(jwt);
 
-        return signInUser;
+        CustomerLoginResponse response = new CustomerLoginResponse();
+        String email = signInUser.getEmail();
+        response.setEmail(email);
+        String token = jwt;
+        response.setToken(token);
+        boolean active = signInUser.isActive();
+        response.setActive(active);
+        return response;
     }
 }
