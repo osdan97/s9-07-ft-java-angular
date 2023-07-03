@@ -214,6 +214,7 @@ public class AccountServiceImpl implements AccountService {
         if (account == null || account.isActive()) {
             return false;
         } else {
+            account.setVerificationCode(null);
             account.setActive(true);
             return true;
         }
@@ -235,7 +236,7 @@ public class AccountServiceImpl implements AccountService {
         
         UUID uuid = UUID.randomUUID();
         String tokenPassword = uuid.toString();
-        emailValues.setToken(tokenPassword);
+        emailValues.setTokenPassword(tokenPassword);
         customersRequest.setTokenPassword(tokenPassword);
 
         String subject = "Password recovery by Ecommerce Team";

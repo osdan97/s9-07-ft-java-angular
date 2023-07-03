@@ -5,8 +5,10 @@ import com.nocountry.ecommerce.dto.CustomerLoginResponse;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.repository.AccountRepository;
+import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.AuthenticationService;
+import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,9 @@ public class AuthenticationController {
     private AccountService accountService;
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtProvider jwtProvider;
 
     @PostMapping("sign-up")
     public ResponseEntity<?> signUp(@RequestBody Customers customer){
@@ -96,11 +101,22 @@ public class AuthenticationController {
         String token = changePassword.getTokenPassword();
         Account account = accountService.findByTokenPassword(token)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + token));
+        
+        String uuid = account.getAccountUuid();
+        account.setAccountUuid(uuid);
+        String email = account.getEmail();
+        account.setEmail(email);
 
-        String newPassword = passwordEncoder.encode(token);
+        account.setRol(Role.USER);
+
+        String newPassword = passwordEncoder.encode(changePassword.getPassword());
         account.setPassword(newPassword);
-        account.setToken(null);
-        accountRepository.save(account);
-        return ResponseEntity.ok("Updated password");
+        account.setTokenPassword(null);
+
+        String jwt = jwtProvider.generateToken(account);
+        account.setToken(jwt);
+        changePassword.setToken(jwt);
+        
+        return new ResponseEntity<>(accountRepository.save(account), HttpStatus.CREATED);
     }
 }

@@ -17,4 +17,6 @@ public class ChangePassword {
     private String confirmPassword;
     @NotBlank
     private String tokenPassword;
+
+    private String token;
 }

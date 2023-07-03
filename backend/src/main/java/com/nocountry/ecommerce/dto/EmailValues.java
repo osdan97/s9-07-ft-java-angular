@@ -14,5 +14,5 @@ public class EmailValues {
     private String mailTo;
     private String subject;
     private String fullName;
-    private String token;
+    private String tokenPassword;
 }
