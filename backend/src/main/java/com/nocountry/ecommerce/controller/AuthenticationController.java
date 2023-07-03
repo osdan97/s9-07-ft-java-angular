@@ -1,14 +1,24 @@
 package com.nocountry.ecommerce.controller;
 
+import com.nocountry.ecommerce.dto.ChangePassword;
 import com.nocountry.ecommerce.dto.CustomerLoginResponse;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
+import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.AuthenticationService;
+import jakarta.mail.MessagingException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/authentication")
@@ -17,7 +27,11 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
     @Autowired
+    private AccountRepository accountRepository;
+    @Autowired
     private AccountService accountService;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @PostMapping("sign-up")
     public ResponseEntity<?> signUp(@RequestBody Customers customer){
@@ -49,7 +63,7 @@ public class AuthenticationController {
         return new ResponseEntity<>(signInAccount, HttpStatus.OK);
     }
 
-    @GetMapping("/verify/{verificationCode}")
+    @GetMapping("verify/{verificationCode}")
     public ResponseEntity<?> verifyAccount(@PathVariable String verificationCode) {
         try {
             if (verificationCode == null) {
@@ -65,5 +79,28 @@ public class AuthenticationController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("An error occurred while verify the account" + e.getMessage());
         }
-    }    
+    }
+    @PostMapping("forgot-password")
+    public ResponseEntity<?> sendEmailForgotPassword(@RequestBody Customers customers) throws MessagingException, UnsupportedEncodingException {
+        return new ResponseEntity<>(accountService.sendPasswordRecoveryToEmail(customers), HttpStatus.OK);
+    }
+    
+    @PostMapping("change-password")
+    public ResponseEntity<?> changePassword(@Valid @RequestBody ChangePassword changePassword, BindingResult bindingResult){
+        if (bindingResult.hasErrors()){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Misplaced fields");
+        }
+        if (!changePassword.getPassword().equals(changePassword.getConfirmPassword())){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Passwords do not match");
+        }
+        String token = changePassword.getTokenPassword();
+        Account account = accountService.findByTokenPassword(token)
+                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + token));
+
+        String newPassword = passwordEncoder.encode(token);
+        account.setPassword(newPassword);
+        account.setToken(null);
+        accountRepository.save(account);
+        return ResponseEntity.ok("Updated password");
+    }
 }

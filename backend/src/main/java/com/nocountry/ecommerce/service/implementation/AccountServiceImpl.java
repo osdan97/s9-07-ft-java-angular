@@ -2,12 +2,14 @@ package com.nocountry.ecommerce.service.implementation;
 
 import com.nocountry.ecommerce.dto.CustomerRegistration;
 import com.nocountry.ecommerce.dto.CustomerUpdate;
+import com.nocountry.ecommerce.dto.EmailValues;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AccountService;
+import com.nocountry.ecommerce.service.EmailService;
 import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -17,12 +19,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -40,6 +44,8 @@ public class AccountServiceImpl implements AccountService {
     private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String emailFrom;
+    @Autowired
+    private EmailService emailService;
 
     @Override
     public CustomerRegistration createCustomer(Customers customers){
@@ -97,6 +103,20 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+    @Override
+    public Optional<Account> findByTokenPassword(String tokenPassword) {
+        try {
+            if (tokenPassword == null || tokenPassword.isEmpty()) {
+                throw new IllegalArgumentException("Token cannot be empty");
+            }
+            return accountRepository.findByTokenPassword(tokenPassword);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Error finding Token by email: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException("Error finding Token by email", e);
+        }
+    }
+    
     @Override
     public CustomerUpdate updateCustomer(Customers customer) {
         if(customerRepository.findByEmail(String.valueOf(customer.getEmail())).isEmpty()){
@@ -171,7 +191,7 @@ public class AccountServiceImpl implements AccountService {
         mailContent += "<p> Dear " + customers.getName() + " " + customers.getLastName() + ",</p>";
         mailContent += "<p> Please click the link below to verify to your registration:</p>";
         
-        String verifyURL = baseUrl + "/verify/" + customers.getVerificationCode();
+        String verifyURL = baseUrl + "verify/" + customers.getVerificationCode();
         mailContent += "<h3><a href=\"" + verifyURL + "\" target=_blank >Click to verify your account</a></h3>";
         
         mailContent +=  "<p> Thanks you <br> Ecommerce Team </p>";
@@ -197,5 +217,33 @@ public class AccountServiceImpl implements AccountService {
             account.setActive(true);
             return true;
         }
+    }
+    @Override
+    public EmailValues sendPasswordRecoveryToEmail(Customers emailRecoverPass) throws MessagingException, UnsupportedEncodingException {
+        String email = emailRecoverPass.getEmail();
+        
+        Customers customersRequest = customerRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + email));
+
+
+        EmailValues emailValues = new EmailValues();
+        
+        emailValues.setMailTo(customersRequest.getEmail());
+        
+        String fullName = customersRequest.getName() + " " + customersRequest.getLastName();
+        emailValues.setFullName(fullName);
+        
+        UUID uuid = UUID.randomUUID();
+        String tokenPassword = uuid.toString();
+        emailValues.setToken(tokenPassword);
+        customersRequest.setTokenPassword(tokenPassword);
+
+        String subject = "Password recovery by Ecommerce Team";
+        emailValues.setSubject(subject);
+        
+        customerRepository.save(customersRequest);
+        emailService.sendEmailForgotPassword(emailValues);
+        
+        return emailValues;
     }
 }
