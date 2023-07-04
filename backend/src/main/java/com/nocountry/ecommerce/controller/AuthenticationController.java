@@ -11,10 +11,12 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/authentication")
@@ -49,6 +51,7 @@ public class AuthenticationController {
     @PostMapping("sign-in")
     public ResponseEntity<?> signIn(@RequestBody Account account){
         CustomerLoginResponse signInAccount = authenticationService.signInAndReturnJWT(account);
+        
         if(!signInAccount.isActive()){
             return new ResponseEntity<>("Account is not active", HttpStatus.BAD_REQUEST);
         }
