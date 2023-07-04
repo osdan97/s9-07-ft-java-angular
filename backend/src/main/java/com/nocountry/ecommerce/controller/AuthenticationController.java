@@ -4,23 +4,17 @@ import com.nocountry.ecommerce.dto.ChangePassword;
 import com.nocountry.ecommerce.dto.CustomerLoginResponse;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
-import com.nocountry.ecommerce.repository.AccountRepository;
-import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.AuthenticationService;
-import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/authentication")
@@ -29,14 +23,7 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService authenticationService;
     @Autowired
-    private AccountRepository accountRepository;
-    @Autowired
     private AccountService accountService;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private JwtProvider jwtProvider;
 
     @PostMapping("sign-up")
     public ResponseEntity<?> signUp(@RequestBody Customers customer){
@@ -98,25 +85,7 @@ public class AuthenticationController {
         if (!changePassword.getPassword().equals(changePassword.getConfirmPassword())){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Passwords do not match");
         }
-        String token = changePassword.getTokenPassword();
-        Account account = accountService.findByTokenPassword(token)
-                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + token));
         
-        String uuid = account.getAccountUuid();
-        account.setAccountUuid(uuid);
-        String email = account.getEmail();
-        account.setEmail(email);
-
-        account.setRol(Role.USER);
-
-        String newPassword = passwordEncoder.encode(changePassword.getPassword());
-        account.setPassword(newPassword);
-        account.setTokenPassword(null);
-
-        String jwt = jwtProvider.generateToken(account);
-        account.setToken(jwt);
-        changePassword.setToken(jwt);
-        
-        return new ResponseEntity<>(accountRepository.save(account), HttpStatus.CREATED);
+        return new ResponseEntity<>(accountService.changePassword(changePassword), HttpStatus.CREATED);
     }
 }
