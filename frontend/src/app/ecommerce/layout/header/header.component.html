@@ -1,1 +1,24 @@
-<p>header works!</p>
+<header>
+  <div class="header__content">
+    <span class="logo">LOGO</span>
+  </div>
+
+  <nav class="navbar">
+    <div class="navbar__content">
+      <div class="info__producs">
+        <button>Productos</button>
+        <button>Info de Envíos</button>
+      </div>
+
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText [(ngModel)]="value" />
+      </span>
+
+      <div class="option__user">
+        <i class="pi pi-user"></i>
+        <i class="pi pi-shopping-cart"></i>
+      </div>
+    </div>
+  </nav>
+</header>

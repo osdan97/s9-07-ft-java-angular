@@ -1,0 +1,61 @@
+@import "src/styles.scss";
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .header__content {
+    width: 100%;
+    height: $heigth-header;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9d9d9;
+  }
+
+  .navbar {
+    width: 100%;
+    height: $heigth-navbar;
+    background-color: #bfbfbf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .navbar__content {
+      width: 95%;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+
+      .info__producs {
+        button {
+          border: none;
+          background-color: #d2d2d2;
+          padding: 0.4rem 2rem;
+          border-radius: 4px;
+        }
+      }
+
+      .info__producs,
+      .option__user {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .option__user {
+        i {
+          background-color: #fff;
+          padding: 0.4rem;
+          border-radius: 7px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

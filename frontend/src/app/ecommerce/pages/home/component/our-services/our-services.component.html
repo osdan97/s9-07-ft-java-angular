@@ -1,0 +1,15 @@
+<section class="services__content">
+  <article class="services__card" *ngFor="let item of servicesContent()">
+    <div class="card__icon">
+      <img [src]="item.icon" [alt]="item.title" />
+    </div>
+    <h2>{{ item.title }}</h2>
+    <p>{{ item.description }}</p>
+    <p-button
+      class="btn"
+      label="Submit"
+      styleClass="p-button-raised p-button-danger"
+      [style]="{ padding: '2px' }"
+    ></p-button>
+  </article>
+</section>
