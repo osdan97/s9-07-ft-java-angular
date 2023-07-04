@@ -30,6 +30,8 @@ public class Product {
     private Double weight;
     @Column(name = "country", nullable = false)
     private String country;
+    @Column(name = "min_stock", nullable = false)
+    private Integer minStock;
     @Column(name = "state", nullable = false)
     private Boolean state;
     @ManyToOne

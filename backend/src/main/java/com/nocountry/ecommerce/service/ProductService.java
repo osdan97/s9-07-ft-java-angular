@@ -9,6 +9,7 @@ import java.util.List;
 public interface ProductService {
     Product createProduct(ProductDto productDto);
     Product updateProduct(String id, ProductDto productDto);
+    void changeStateProduct (String id);
     void deleteProduct(String id);
     List<Product> getProducts(ProductPageble productPageble);
 }

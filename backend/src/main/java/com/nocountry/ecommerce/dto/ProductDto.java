@@ -18,4 +18,5 @@ public class ProductDto {
     private Double weight;
     private String country;
     private String category;
+    private Integer minStock;
 }

@@ -25,6 +25,12 @@ public class ProductController {
         return new ResponseEntity<>(productService.updateProduct(id, productDto), HttpStatus.OK);
     }
 
+    @PatchMapping("/update-state/{id}")
+    public ResponseEntity<?> chageStateProduct(@PathVariable String id){
+        productService.changeStateProduct(id);
+        return new ResponseEntity<>("The product state changed", HttpStatus.OK);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable String id){
         productService.deleteProduct(id);

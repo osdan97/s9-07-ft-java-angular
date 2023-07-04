@@ -44,6 +44,8 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setWeight(weight);
         String country = productDto.getCountry();
         saveProduct.setCountry(country);
+        Integer minStock = productDto.getMinStock();
+        saveProduct.setMinStock(minStock);
         Boolean state = true;
         saveProduct.setState(state);
         String category = productDto.getCategory();
@@ -76,6 +78,8 @@ public class ProductServiceImpl implements ProductService {
         productUpdated.setWeight(weight);
         String country = productDto.getCountry();
         productUpdated.setCountry(country);
+        Integer minStock = productDto.getMinStock();
+        productUpdated.setMinStock(minStock);
         Boolean state = true;
         productUpdated.setState(state);
         String category = productDto.getCategory();
@@ -84,6 +88,20 @@ public class ProductServiceImpl implements ProductService {
 
         productRepository.save(productUpdated);
         return productUpdated;
+    }
+
+    @Override
+    public void changeStateProduct(String id) {
+        if(!productRepository.existsById(id)){
+            throw new IllegalStateException("Product does not exists");
+        }
+        Optional<Product> existingProduct = productRepository.findById(id);
+        Product productToChangeState = existingProduct.get();
+
+        Boolean state = !productToChangeState.getState();
+
+        productToChangeState.setState(state);
+        productRepository.save(productToChangeState);
     }
 
     @Override
