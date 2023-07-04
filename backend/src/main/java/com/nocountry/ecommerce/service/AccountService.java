@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.service;
 
+import com.nocountry.ecommerce.dto.ChangePassword;
 import com.nocountry.ecommerce.dto.CustomerRegistration;
 import com.nocountry.ecommerce.dto.CustomerUpdate;
 import com.nocountry.ecommerce.dto.EmailValues;
@@ -23,4 +24,6 @@ public interface AccountService {
     boolean verifyAccount(String verificationCode);
 
     abstract EmailValues sendPasswordRecoveryToEmail(Customers emailRecoverPass) throws MessagingException, UnsupportedEncodingException;
+
+    Account changePassword(ChangePassword changePassword);
 }

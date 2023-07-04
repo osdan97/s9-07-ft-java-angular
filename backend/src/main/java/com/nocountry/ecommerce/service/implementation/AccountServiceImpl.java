@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.service.implementation;
 
+import com.nocountry.ecommerce.dto.ChangePassword;
 import com.nocountry.ecommerce.dto.CustomerRegistration;
 import com.nocountry.ecommerce.dto.CustomerUpdate;
 import com.nocountry.ecommerce.dto.EmailValues;
@@ -12,13 +13,11 @@ import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.EmailService;
 import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
 import jakarta.transaction.Transactional;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -52,7 +51,7 @@ public class AccountServiceImpl implements AccountService {
         CustomerRegistration customerRegistration = new CustomerRegistration();
         int anoActual = LocalDate.now().getYear();
         String numeracion = obtenerNumeracionAutomatica();
-        
+
         String email = customers.getEmail();
         customerRegistration.setEmail(email);
         String password = passwordEncoder.encode(customers.getPassword());
@@ -63,7 +62,7 @@ public class AccountServiceImpl implements AccountService {
         customerRegistration.setFullName(fullName);
         String verificationCode = RandomString.make(64);
         customerRegistration.setVerificationCode(verificationCode);
-        
+
 
         Customers saveCustomer = new Customers(email, password);
         saveCustomer.setEmail(email);
@@ -116,7 +115,7 @@ public class AccountServiceImpl implements AccountService {
             throw new RuntimeException("Error finding Token by email", e);
         }
     }
-    
+
     @Override
     public CustomerUpdate updateCustomer(Customers customer) {
         if(customerRepository.findByEmail(String.valueOf(customer.getEmail())).isEmpty()){
@@ -162,50 +161,29 @@ public class AccountServiceImpl implements AccountService {
             }
         }
     }
-    
-    public void sendVerificationCodeToEmail(Customers customers) throws MessagingException, UnsupportedEncodingException {
-        String subject = " Please verify your registration";
-        String senderName = "Ecommerce";
-        String mailContent = "<head>";
-        mailContent += "<style>";
-        mailContent += "a{";
-        mailContent += "display: block;";
-        mailContent += "width: 200px;";
-        mailContent += "font-family: Arial, Helvetica, sans-serif;";
-        mailContent += "font-weight: 700;";
-        mailContent += "color: #FFB344;";
-        mailContent += "background-color: #00A19D;";
-        mailContent += "border-radius: 10px;";
-        mailContent += "padding: 15px 30px;";
-        mailContent += "margin: 20px 20px;";
-        mailContent += "text-align: center;";
-        mailContent += "text-decoration: none;";
-        mailContent += "}";
-        mailContent += "a:hover{";
-        mailContent += "background-color: #FFB344;";
-        mailContent += "border: 2px solid #00A19D;";
-        mailContent += "color: #00A19D;";
-        mailContent += "}";
-        mailContent += "</style>";
-        mailContent += "</head>";
-        mailContent += "<p> Dear " + customers.getName() + " " + customers.getLastName() + ",</p>";
-        mailContent += "<p> Please click the link below to verify to your registration:</p>";
-        
-        String verifyURL = baseUrl + "verify/" + customers.getVerificationCode();
-        mailContent += "<h3><a href=\"" + verifyURL + "\" target=_blank >Click to verify your account</a></h3>";
-        
-        mailContent +=  "<p> Thanks you <br> Ecommerce Team </p>";
 
-        MimeMessage message = javaMailSender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(message);
-        
-        helper.setFrom(emailFrom,senderName);
-        helper.setTo(customers.getEmail());
-        helper.setSubject(subject);
-        helper.setText(mailContent,true);
-        
-        javaMailSender.send(message);
+    public EmailValues sendVerificationCodeToEmail(Customers emailVerificationCode) throws MessagingException, UnsupportedEncodingException {
+
+        String email = emailVerificationCode.getEmail();
+
+        EmailValues emailValues = new EmailValues();
+
+        emailValues.setMailTo(email);
+
+        String fullName = emailVerificationCode.getName() + " " + emailVerificationCode.getLastName();
+        emailValues.setFullName(fullName);
+
+        String verificationCode = emailVerificationCode.getVerificationCode();
+        emailValues.setToken(verificationCode);
+
+        String subject = " Please verify your registration";
+        emailValues.setSubject(subject);
+
+        emailService.sendEmailVerificationCode(emailValues);
+
+        return  emailValues;
     }
+
     @Transactional
     @Override
     public boolean verifyAccount(String verificationCode) {
@@ -215,24 +193,25 @@ public class AccountServiceImpl implements AccountService {
             return false;
         } else {
             account.setActive(true);
+            accountRepository.updateVerificationCode(account.getEmail());
             return true;
         }
     }
     @Override
     public EmailValues sendPasswordRecoveryToEmail(Customers emailRecoverPass) throws MessagingException, UnsupportedEncodingException {
         String email = emailRecoverPass.getEmail();
-        
+
         Customers customersRequest = customerRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + email));
 
 
         EmailValues emailValues = new EmailValues();
-        
+
         emailValues.setMailTo(customersRequest.getEmail());
-        
+
         String fullName = customersRequest.getName() + " " + customersRequest.getLastName();
         emailValues.setFullName(fullName);
-        
+
         UUID uuid = UUID.randomUUID();
         String tokenPassword = uuid.toString();
         emailValues.setToken(tokenPassword);
@@ -240,10 +219,28 @@ public class AccountServiceImpl implements AccountService {
 
         String subject = "Password recovery by Ecommerce Team";
         emailValues.setSubject(subject);
-        
+
         customerRepository.save(customersRequest);
         emailService.sendEmailForgotPassword(emailValues);
-        
+
         return emailValues;
+    }
+    @Override
+    public Account changePassword(ChangePassword changePassword){
+
+        String token = changePassword.getTokenPassword();
+        Account account = accountRepository.findByTokenPassword(token)
+                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + token));
+
+        String newPassword = passwordEncoder.encode(changePassword.getPassword());
+        account.setPassword(newPassword);
+        account.setTokenPassword(null);
+
+        String jwt = jwtProvider.generateToken(account);
+        account.setToken(jwt);
+        changePassword.setToken(jwt);
+        accountRepository.save(account);
+
+        return account;
     }
 }
