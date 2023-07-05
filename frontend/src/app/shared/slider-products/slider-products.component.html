@@ -4,10 +4,11 @@
   <p-carousel
     [value]="products()"
     [numVisible]="4"
-    [numScroll]="4"
+    [numScroll]="1"
     [circular]="true"
     [responsiveOptions]="responsiveOptions"
     [indicatorsContentStyle]="{ display: 'none' }"
+    [autoplayInterval]="5000"
   >
     <ng-template let-product pTemplate="item">
       <div
