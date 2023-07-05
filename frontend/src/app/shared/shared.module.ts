@@ -4,10 +4,11 @@ import { CommonModule } from '@angular/common';
 
 import { SliderProductsComponent } from './slider-products/slider-products.component';
 import { CardComponent } from './card/card.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
-  declarations: [CardComponent, SliderProductsComponent],
+  declarations: [CardComponent, SliderProductsComponent, FooterComponent],
   imports: [CommonModule, PrimeNgModule],
-  exports: [CardComponent, SliderProductsComponent],
+  exports: [CardComponent, SliderProductsComponent, FooterComponent],
 })
 export class SharedModule {}
