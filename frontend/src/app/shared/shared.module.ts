@@ -6,10 +6,23 @@ import { SliderProductsComponent } from './slider-products/slider-products.compo
 import { CardComponent } from './card/card.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentCardComponent } from './content-card/content-card.component';
+import { OurServicesComponent } from './our-services/our-services.component';
 
 @NgModule({
-  declarations: [CardComponent, SliderProductsComponent, FooterComponent, ContentCardComponent],
+  declarations: [
+    CardComponent,
+    SliderProductsComponent,
+    FooterComponent,
+    ContentCardComponent,
+    OurServicesComponent,
+  ],
   imports: [CommonModule, PrimeNgModule],
-  exports: [CardComponent, SliderProductsComponent, FooterComponent, ContentCardComponent],
+  exports: [
+    CardComponent,
+    SliderProductsComponent,
+    FooterComponent,
+    ContentCardComponent,
+    OurServicesComponent,
+  ],
 })
 export class SharedModule {}

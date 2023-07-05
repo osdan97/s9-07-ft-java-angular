@@ -14,23 +14,20 @@ section {
 
 h2 {
   //styleName: Heading 1 - titulos;
-font-family: Quicksand;
-font-size: 26px;
-font-weight: 500;
-line-height: 33px;
-letter-spacing: 0em;
-text-align: left;
-
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 label {
   //styleName: Heading 3 - texto y botones;
-font-family: Quicksand;
-font-size: 16px;
-font-weight: 500;
-line-height: 20px;
-letter-spacing: 0em;
-text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 select {
@@ -38,14 +35,13 @@ select {
   height: 45px;
   border-radius: 7px;
   border: 1px solid #000;
-  background-color: #FFF;
+  background-color: #fff;
   //styleName: Heading 3 - texto y botones;
-font-family: Quicksand;
-font-size: 16px;
-font-weight: 500;
-line-height: 20px;
-letter-spacing: 0em;
-text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
 .list-card {

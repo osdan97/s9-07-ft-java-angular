@@ -7,15 +7,9 @@ import { HomeComponent } from './home.component';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 import { CategoriesComponent } from './component/categories/categories.component';
 import { NewsComponent } from './component/news/news.component';
-import { OurServicesComponent } from './component/our-services/our-services.component';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    CategoriesComponent,
-    NewsComponent,
-    OurServicesComponent,
-  ],
+  declarations: [HomeComponent, CategoriesComponent, NewsComponent],
   imports: [CommonModule, HomeRoutingModule, PrimeNgModule, SharedModule],
 })
 export class HomeModule {}

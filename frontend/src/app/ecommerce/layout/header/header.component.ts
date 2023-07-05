@@ -12,10 +12,8 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event']) activeFixedHeader() {
     if (window.scrollY >= 119) {
       this.headerFixed.set(true);
-      console.log(this.headerFixed());
     } else {
       this.headerFixed.set(false);
-      console.log(this.headerFixed());
     }
   }
 }

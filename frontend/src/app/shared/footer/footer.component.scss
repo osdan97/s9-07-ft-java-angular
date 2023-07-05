@@ -1,7 +1,7 @@
 @import "src/styles.scss";
 
 footer {
-  background-color: #AAA;
+  background-color: #aaa;
   margin: 0;
   padding: 0;
   min-height: 172px;
@@ -24,7 +24,6 @@ footer {
 }
 
 h4 {
-  font-family: Quicksand;
   font-size: 13px;
   font-weight: 700;
   line-height: 16px;
@@ -32,8 +31,8 @@ h4 {
   text-align: left;
 }
 
-p, a {
-  font-family: Quicksand;
+p,
+a {
   font-size: 13px;
   font-weight: 400;
   line-height: 16px;
@@ -49,7 +48,7 @@ p, a {
 }
 
 .icon div {
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 .anchor {
@@ -68,17 +67,16 @@ a:visited {
   color: #202020;
 }
 
-.title{
+.title {
   padding-bottom: 10px;
 }
 
 input {
   width: 137px;
   height: 25px;
-  background-color: #D2D2D2;
+  background-color: #d2d2d2;
   text-align: center;
   //styleName: Heading 5 - detalles menores;
-  font-family: Quicksand;
   font-size: 10px;
   font-weight: 500;
   line-height: 13px;
