@@ -17,6 +17,7 @@ import java.io.Serializable;
 @Table(name = "PHONE")
 public class Phones implements Serializable {
     @Id
+    @Column(name = "phoneUuid")
     private String phoneUuid;
     @Enumerated(EnumType.STRING)
     private PhoneLabel phoneLabel;

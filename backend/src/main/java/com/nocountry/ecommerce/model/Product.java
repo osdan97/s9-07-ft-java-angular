@@ -33,6 +33,7 @@ public class Product {
     private String country;
     @Column(name = "min_stock", nullable = false)
     private Integer minStock;
+    @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
     private ProductState state;
     @ManyToOne

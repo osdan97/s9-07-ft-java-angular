@@ -46,8 +46,7 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setCountry(country);
         Integer minStock = productDto.getMinStock();
         saveProduct.setMinStock(minStock);
-        //char state = (ProductState.UNAVAILABLE.getProduct());
-        saveProduct.setState(ProductState.UNAVAILABLE);
+        saveProduct.setState(ProductState.U);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
         saveProduct.setCategory(categoryEntity);
@@ -98,13 +97,13 @@ public class ProductServiceImpl implements ProductService {
         Integer minStock = productToChangeState.getMinStock();
 
         if(stock > minStock) {
-            productToChangeState.setState(ProductState.AVAILABLE);
+            productToChangeState.setState(ProductState.A);
         }
         if(stock < minStock) {
-            productToChangeState.setState(ProductState.WARNING);
+            productToChangeState.setState(ProductState.W);
         }
         if(stock == 0) {
-            productToChangeState.setState(ProductState.UNAVAILABLE);
+            productToChangeState.setState(ProductState.U);
         }
     }
 
