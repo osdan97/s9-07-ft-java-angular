@@ -7,6 +7,7 @@ import com.nocountry.ecommerce.model.Product;
 import com.nocountry.ecommerce.repository.CategoryRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.ProductService;
+import com.nocountry.ecommerce.util.enums.ProductState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -34,8 +35,7 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setName(name);
         String description = productDto.getDescription();
         saveProduct.setDescription(description);
-        Integer stock = productDto.getStock();
-        saveProduct.setStock(stock);
+        saveProduct.setStock(0);
         String image = productDto.getImage();
         saveProduct.setImage(image);
         Double price = productDto.getPrice();
@@ -46,8 +46,8 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setCountry(country);
         Integer minStock = productDto.getMinStock();
         saveProduct.setMinStock(minStock);
-        Boolean state = true;
-        saveProduct.setState(state);
+        //char state = (ProductState.UNAVAILABLE.getProduct());
+        saveProduct.setState(ProductState.UNAVAILABLE);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
         saveProduct.setCategory(categoryEntity);
@@ -68,8 +68,6 @@ public class ProductServiceImpl implements ProductService {
         productUpdated.setName(name);
         String description = productDto.getDescription();
         productUpdated.setDescription(description);
-        Integer stock = productDto.getStock();
-        productUpdated.setStock(stock);
         String image = productDto.getImage();
         productUpdated.setImage(image);
         Double price = productDto.getPrice();
@@ -80,8 +78,6 @@ public class ProductServiceImpl implements ProductService {
         productUpdated.setCountry(country);
         Integer minStock = productDto.getMinStock();
         productUpdated.setMinStock(minStock);
-        Boolean state = true;
-        productUpdated.setState(state);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
         productUpdated.setCategory(categoryEntity);
@@ -98,10 +94,18 @@ public class ProductServiceImpl implements ProductService {
         Optional<Product> existingProduct = productRepository.findById(id);
         Product productToChangeState = existingProduct.get();
 
-        Boolean state = !productToChangeState.getState();
+        Integer stock = productToChangeState.getStock();
+        Integer minStock = productToChangeState.getMinStock();
 
-        productToChangeState.setState(state);
-        productRepository.save(productToChangeState);
+        if(stock > minStock) {
+            productToChangeState.setState(ProductState.AVAILABLE);
+        }
+        if(stock < minStock) {
+            productToChangeState.setState(ProductState.WARNING);
+        }
+        if(stock == 0) {
+            productToChangeState.setState(ProductState.UNAVAILABLE);
+        }
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.model;
 
+import com.nocountry.ecommerce.util.enums.ProductState;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,7 @@ public class Product {
     private String name;
     @Column(name = "description", nullable = false)
     private String description;
-    @Column(name = "stock", nullable = false)
+    @Column(name = "stock")
     private Integer stock;
     @Column(name = "image", nullable = false)
     private String image;
@@ -33,7 +34,7 @@ public class Product {
     @Column(name = "min_stock", nullable = false)
     private Integer minStock;
     @Column(name = "state", nullable = false)
-    private Boolean state;
+    private ProductState state;
     @ManyToOne
     @JoinColumn(name = "category_uuid")
     private Category category;
