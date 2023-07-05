@@ -1,4 +1,4 @@
-.card {
+ .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,22 +6,13 @@
   width: 246px;
   height: 336px;
   border: 1px solid #000;
-  padding: 22px;
   border-radius: 7px;
+  overflow: hidden;
 }
 
 .imagen-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 10px;
-  gap: 10px;
-}
-
-.icon {
-  width: 10px;
-  height: 10px;
+  width: 100%;
+  height: 162px;
 }
 
 .card .text {
@@ -30,24 +21,21 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 
 .class-add {
   display: flex;
   flex-direction: row;
-  column-gap: 12px;
+  column-gap: 5px;
 }
+
 p {
-  font-family: inter;
   font-weight: 500;
   font-size: 24px;
   line-height: 29.05px;
 }
 
 .p-small {
-  font-family: inter;
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
@@ -59,7 +47,6 @@ span {
   justify-content: center;
   align-items: center;
   background-color: #EAEAEA;
-  font-family: inter;
   font-weight: 400;
   font-size: 10px;
   line-height: 12.1px;
@@ -69,39 +56,49 @@ span {
   border-radius: 3px;
 }
 
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contenido {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
 .description {
   font-size: 14px;
-  font-weight: 400;
-  font-family: inter;
+  font-weight: 500;
   line-height: 16.94px;
 }
 
-.class-add input {
-  width: 20px;
-}
-
-img {
-  width: 198px;
-  height: 134px;
-  border-radius: 7px;
-}
 .select-down {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 3px;
+  height: 39.95;
 }
 
 .down {
-  height: 14px;
-  width: 14px;
+  height: 10px;
+  width: 24px;
   margin: 0;
   padding: 0;
   border: 0px;
   background-color: transparent;
 }
 
+.down img {
+  height: 10px;
+  width: 16px;
+}
+
 input {
-  width: 33.27px;
+  width: 37px;
   height: 40px;
   border-radius: 7px;
   border: 1px solid #000;
@@ -110,7 +107,7 @@ input {
 
 .btn {
   width: 137.86px;
-  height: 39.95px;
+  height: 40px;
   border-radius: 7px;
   border: 1px solid #000;
   font-family: inter;

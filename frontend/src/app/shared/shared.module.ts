@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { SliderProductsComponent } from './slider-products/slider-products.component';
 import { CardComponent } from './card/card.component';
-import { FooterComponent } from './footer/footer.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { OurServicesComponent } from './our-services/our-services.component';
 
@@ -12,7 +11,6 @@ import { OurServicesComponent } from './our-services/our-services.component';
   declarations: [
     CardComponent,
     SliderProductsComponent,
-    FooterComponent,
     ContentCardComponent,
     OurServicesComponent,
   ],
@@ -20,7 +18,6 @@ import { OurServicesComponent } from './our-services/our-services.component';
   exports: [
     CardComponent,
     SliderProductsComponent,
-    FooterComponent,
     ContentCardComponent,
     OurServicesComponent,
   ],
