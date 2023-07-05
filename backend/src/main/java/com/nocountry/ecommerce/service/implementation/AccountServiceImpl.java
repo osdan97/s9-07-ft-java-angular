@@ -184,6 +184,7 @@ public class AccountServiceImpl implements AccountService {
         return  emailValues;
     }
 
+
     @Transactional
     @Override
     public boolean verifyAccount(String verificationCode) {
@@ -244,3 +245,4 @@ public class AccountServiceImpl implements AccountService {
         return account;
     }
 }
+
