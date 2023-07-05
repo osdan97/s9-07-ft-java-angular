@@ -12,9 +12,11 @@
     padding-left: 3.8rem;
     font-weight: 400;
   }
-  .surface-border {
-    margin: 0 1rem;
-    cursor: pointer;
+  .card__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
     .car__image {
       width: 100%;
       height: 400px;
