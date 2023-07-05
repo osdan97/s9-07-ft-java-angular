@@ -1,0 +1,63 @@
+section {
+  width: 90%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-card {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 30px;
+}
+
+h2 {
+  //styleName: Heading 1 - titulos;
+font-family: Quicksand;
+font-size: 26px;
+font-weight: 500;
+line-height: 33px;
+letter-spacing: 0em;
+text-align: left;
+
+}
+
+label {
+  //styleName: Heading 3 - texto y botones;
+font-family: Quicksand;
+font-size: 16px;
+font-weight: 500;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+}
+
+select {
+  width: 250px;
+  height: 45px;
+  border-radius: 7px;
+  border: 1px solid #000;
+  background-color: #FFF;
+  //styleName: Heading 3 - texto y botones;
+font-family: Quicksand;
+font-size: 16px;
+font-weight: 500;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: center;
+}
+
+.list-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  row-gap: 60px;
+  column-gap: 60px;
+}
+
+.paginador {
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
