@@ -26,4 +26,6 @@ public interface AccountService {
     abstract EmailValues sendPasswordRecoveryToEmail(Customers emailRecoverPass) throws MessagingException, UnsupportedEncodingException;
 
     Account changePassword(ChangePassword changePassword);
+
 }
+

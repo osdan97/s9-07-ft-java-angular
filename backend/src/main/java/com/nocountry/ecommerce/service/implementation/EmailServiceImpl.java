@@ -125,3 +125,4 @@ public class EmailServiceImpl implements EmailService {
         javaMailSender.send(message);
     }
 }
+

@@ -9,10 +9,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailValues {
-    private String mailFrom;
-    private String mailTo;
-    private String subject;
-    private String fullName;
-    private String token;
+public class ProductPageble {
+    private int page;
+    private String category;
+    private String country;
 }

@@ -51,7 +51,7 @@ public class AccountServiceImpl implements AccountService {
         CustomerRegistration customerRegistration = new CustomerRegistration();
         int anoActual = LocalDate.now().getYear();
         String numeracion = obtenerNumeracionAutomatica();
-        
+
         String email = customers.getEmail();
         customerRegistration.setEmail(email);
         String password = passwordEncoder.encode(customers.getPassword());
@@ -62,7 +62,7 @@ public class AccountServiceImpl implements AccountService {
         customerRegistration.setFullName(fullName);
         String verificationCode = RandomString.make(64);
         customerRegistration.setVerificationCode(verificationCode);
-        
+
 
         Customers saveCustomer = new Customers(email, password);
         saveCustomer.setEmail(email);
@@ -115,7 +115,7 @@ public class AccountServiceImpl implements AccountService {
             throw new RuntimeException("Error finding Token by email", e);
         }
     }
-    
+
     @Override
     public CustomerUpdate updateCustomer(Customers customer) {
         if(customerRepository.findByEmail(String.valueOf(customer.getEmail())).isEmpty()){
@@ -161,7 +161,7 @@ public class AccountServiceImpl implements AccountService {
             }
         }
     }
-    
+
     public EmailValues sendVerificationCodeToEmail(Customers emailVerificationCode) throws MessagingException, UnsupportedEncodingException {
 
         String email = emailVerificationCode.getEmail();
@@ -172,7 +172,7 @@ public class AccountServiceImpl implements AccountService {
 
         String fullName = emailVerificationCode.getName() + " " + emailVerificationCode.getLastName();
         emailValues.setFullName(fullName);
-        
+
         String verificationCode = emailVerificationCode.getVerificationCode();
         emailValues.setToken(verificationCode);
 
@@ -180,10 +180,11 @@ public class AccountServiceImpl implements AccountService {
         emailValues.setSubject(subject);
 
         emailService.sendEmailVerificationCode(emailValues);
-        
+
         return  emailValues;
     }
-    
+
+
     @Transactional
     @Override
     public boolean verifyAccount(String verificationCode) {
@@ -200,18 +201,18 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public EmailValues sendPasswordRecoveryToEmail(Customers emailRecoverPass) throws MessagingException, UnsupportedEncodingException {
         String email = emailRecoverPass.getEmail();
-        
+
         Customers customersRequest = customerRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + email));
 
 
         EmailValues emailValues = new EmailValues();
-        
+
         emailValues.setMailTo(customersRequest.getEmail());
-        
+
         String fullName = customersRequest.getName() + " " + customersRequest.getLastName();
         emailValues.setFullName(fullName);
-        
+
         UUID uuid = UUID.randomUUID();
         String tokenPassword = uuid.toString();
         emailValues.setToken(tokenPassword);
@@ -219,15 +220,15 @@ public class AccountServiceImpl implements AccountService {
 
         String subject = "Password recovery by Ecommerce Team";
         emailValues.setSubject(subject);
-        
+
         customerRepository.save(customersRequest);
         emailService.sendEmailForgotPassword(emailValues);
-        
+
         return emailValues;
     }
     @Override
     public Account changePassword(ChangePassword changePassword){
-        
+
         String token = changePassword.getTokenPassword();
         Account account = accountRepository.findByTokenPassword(token)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + token));
@@ -240,7 +241,8 @@ public class AccountServiceImpl implements AccountService {
         account.setToken(jwt);
         changePassword.setToken(jwt);
         accountRepository.save(account);
-        
+
         return account;
     }
 }
+
