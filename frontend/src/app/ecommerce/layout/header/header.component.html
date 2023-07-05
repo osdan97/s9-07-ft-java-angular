@@ -1,9 +1,9 @@
 <header>
-  <div class="header__content">
+  <div class="header__content" [ngClass]="{ padding__header: headerFixed() }">
     <span class="logo">LOGO</span>
   </div>
 
-  <nav class="navbar">
+  <nav class="navbar" [ngClass]="{ navbar__fixed: headerFixed() }">
     <div class="navbar__content">
       <div class="info__producs">
         <button>Productos</button>

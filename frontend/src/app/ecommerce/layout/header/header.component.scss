@@ -6,6 +6,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 
   .header__content {
     width: 100%;
@@ -16,6 +17,10 @@ header {
     background-color: #d9d9d9;
   }
 
+  .padding__header {
+    margin-bottom: $heigth-navbar;
+  }
+
   .navbar {
     width: 100%;
     height: $heigth-navbar;
@@ -23,7 +28,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-
     .navbar__content {
       width: 95%;
       max-width: 1400px;
@@ -57,5 +61,11 @@ header {
         }
       }
     }
+  }
+
+  .navbar__fixed {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
   }
 }
