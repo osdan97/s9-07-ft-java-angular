@@ -31,7 +31,7 @@ public class Product {
     private Double weight;
     @Column(name = "country", nullable = false)
     private String country;
-    @Column(name = "min_stock", nullable = false)
+    @Column(name = "min_stock", nullable = true)
     private Integer minStock;
     @Column(name = "state", nullable = false)
     private ProductState state;
