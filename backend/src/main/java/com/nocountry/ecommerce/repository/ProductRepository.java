@@ -9,5 +9,5 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     Page<Product> findAllByCountry(String country, Pageable pageable);
     Page<Product> findAllByCategoryName(String category, Pageable pageable);
     Page<Product> findAllByCountryAndCategoryName(String country, String category, Pageable pageable);
-
+    Product findByName(String name);
 }

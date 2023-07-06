@@ -27,8 +27,9 @@ public class OrderDetails implements Serializable {
     private Double price;
     @Column(name = "total_amount")
     private Double totalAmount;
-    @Column(name = "taxes")
-    private Double taxes;
+    @Column(name = "taxes_amount")
+    private Double taxesAmount;
     @Column(name = "total")
     private Double total;
+    
 }

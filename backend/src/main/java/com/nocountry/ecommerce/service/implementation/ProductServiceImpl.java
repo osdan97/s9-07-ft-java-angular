@@ -138,4 +138,11 @@ public class ProductServiceImpl implements ProductService {
         productPage = productRepository.findAll(pageRequest);
         return productPage.getContent();
     }
+
+    @Override
+    public Product getProduct(String name) {
+        return productRepository.findByName(name);
+    }
+
+
 }

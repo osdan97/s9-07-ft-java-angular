@@ -8,7 +8,9 @@ import com.nocountry.ecommerce.model.Orders;
 import com.nocountry.ecommerce.model.Product;
 import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.repository.OrdersRepository;
+import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.OrdersService;
+import com.nocountry.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -24,16 +26,17 @@ public class OrdersServiceImpl implements OrdersService {
 
     @Autowired
     private OrdersRepository ordersRepository;
-
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private ProductService productService;
     @Override
-    public OrderRegistration createOrder(Orders order, Customers customers, List<Product> productList) {
+    public OrderRegistration createOrder(Orders order) {
 
-        String customerUuid = customers.getAccountUuid();
-        Customers customersRequest = customerRepository.findCustomersByAccountUuid(customerUuid)
-                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + customerUuid));
+        String customerEmail = order.getCustomers().getEmail();
+        Customers customersRequest = customerRepository.findByEmail(customerEmail)
+                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + customerEmail));
 
         OrderRegistration orderRegistration = new OrderRegistration();
 
@@ -65,10 +68,18 @@ public class OrdersServiceImpl implements OrdersService {
                 String orderDetailsUuid = UUID.randomUUID().toString();
                 orderDetail.setOrderDetailUuid(orderDetailsUuid);
 
+                String productName = orderDetailsRegistration.getProductName();
+                orderDetailsRegistration.setProductName(productName);
+                Product product = productService.getProduct(orderDetailsRegistration.getProductName());
+                orderDetail.setProduct(product);
+
+
                 int quantity = orderDetailsRegistration.getQuantity();
+                orderDetailsRegistration.setQuantity(quantity);
                 orderDetail.setQuantity(quantity);
 
                 Double price = orderDetailsRegistration.getPrice();
+                orderDetailsRegistration.setPrice(price);
                 orderDetail.setPrice(price);
 
                 double tax = 19.00;
@@ -77,11 +88,13 @@ public class OrdersServiceImpl implements OrdersService {
                 orderDetail.setTotalAmount(amountTotal);
 
                 double amountTaxes = calculateTax(amountTotal,tax);
-                orderDetail.setTaxes(amountTaxes);
+                orderDetail.setTaxesAmount(amountTaxes);
 
                 double total = amountTotal + amountTaxes;
+                orderDetailsRegistration.setTotal(total);
                 orderDetail.setTotal(total);
 
+                orderDetailsRegistrationList.add(orderDetailsRegistration);
                 orderDetails.add(orderDetail);
             }
         }
@@ -121,7 +134,7 @@ public class OrdersServiceImpl implements OrdersService {
     private Double calculateTotaltaxesForOrderDetails(List<OrderDetails> orderDetails) {
         Double total = 0.0;
         for (OrderDetails orderDetail : orderDetails) {
-            total += orderDetail.getTaxes();
+            total += orderDetail.getTaxesAmount();
         }
         return total;
     }

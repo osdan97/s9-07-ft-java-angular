@@ -8,5 +8,5 @@ import com.nocountry.ecommerce.model.Product;
 import java.util.List;
 
 public interface OrdersService {
-    OrderRegistration createOrder(Orders order, Customers customers, List<Product> productList);
+    OrderRegistration createOrder(Orders order);
 }

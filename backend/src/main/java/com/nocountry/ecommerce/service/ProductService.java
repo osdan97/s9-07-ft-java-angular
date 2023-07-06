@@ -12,5 +12,6 @@ public interface ProductService {
     void changeStateProduct (String id);
     void deleteProduct(String id);
     List<Product> getProducts(ProductPageble productPageble);
+    Product getProduct(String name);
 }
 
