@@ -6,6 +6,7 @@ import { SliderProductsComponent } from './slider-products/slider-products.compo
 import { CardComponent } from './card/card.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { OurServicesComponent } from './our-services/our-services.component';
+import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { OurServicesComponent } from './our-services/our-services.component';
     SliderProductsComponent,
     ContentCardComponent,
     OurServicesComponent,
+    DetalleProductoComponent,
   ],
   imports: [CommonModule, PrimeNgModule],
   exports: [
@@ -20,6 +22,7 @@ import { OurServicesComponent } from './our-services/our-services.component';
     SliderProductsComponent,
     ContentCardComponent,
     OurServicesComponent,
+    DetalleProductoComponent
   ],
 })
 export class SharedModule {}
