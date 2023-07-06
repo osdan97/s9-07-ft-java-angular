@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Data
 @AllArgsConstructor
@@ -29,4 +30,11 @@ public class Transactions {
     @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
     private TransactionState transactionState;
+
+    public Transactions(Double total){
+        this.transactionUuid = UUID.randomUUID().toString();
+        this.total = total;
+        this.createdDate = LocalDateTime.now();
+        this.transactionState = TransactionState.valueOf(TransactionState.ON_HOLD.getValue());
+    }
 }

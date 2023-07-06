@@ -29,7 +29,7 @@ public class Customers extends Account{
     @Column(name = "country")
     private String country;
     @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "number", referencedColumnName = "number")
+    @JoinColumn(name = "account_uuid", referencedColumnName = "account_uuid")
     private List<Phones> phonesList;
     
     public Customers(String email, String password){

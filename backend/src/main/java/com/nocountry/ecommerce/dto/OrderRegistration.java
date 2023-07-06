@@ -15,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderRegistration {
     private String number;
+    private String fullName;
     private Double shippingCost;
     private Double amountTaxes;
     private Double amountTotal;
