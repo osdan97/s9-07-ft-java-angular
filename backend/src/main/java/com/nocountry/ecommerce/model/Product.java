@@ -7,13 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Serializable {
     @Id
     @Column(name = "product_uuid")
     private String id;

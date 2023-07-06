@@ -11,14 +11,20 @@ import com.nocountry.ecommerce.repository.OrdersRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.service.ProductService;
+import com.nocountry.ecommerce.util.enums.TransactionState;
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.criteria.Order;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -28,131 +34,154 @@ public class OrdersServiceImpl implements OrdersService {
     private OrdersRepository ordersRepository;
     @Autowired
     private CustomerRepository customerRepository;
-
     @Autowired
     private ProductService productService;
     @Override
-    public OrderRegistration createOrder(Orders order) {
+    public OrderRegistration createOrder(Orders orderRequest) {
 
-        String customerEmail = order.getCustomers().getEmail();
+        String customerEmail = orderRequest.getCustomers().getEmail();
         Customers customersRequest = customerRepository.findByEmail(customerEmail)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + customerEmail));
 
+        Orders order = new Orders();
         OrderRegistration orderRegistration = new OrderRegistration();
+
+        String transactionUuid = UUID.randomUUID().toString();
+        order.setTransactionUuid(transactionUuid);
+
+        LocalDateTime createdDate = LocalDateTime.now();
+        order.setCreatedDate(createdDate);
+        orderRegistration.setCreatedDate(createdDate);
+
+        order.setTransactionState(TransactionState.ON_HOLD);
+        orderRegistration.setTransactionState(TransactionState.ON_HOLD);
 
         int anoActual = LocalDate.now().getYear();
         String numeracion = obtenerNumeracionAutomatica();
-
         String number = anoActual + "-" + numeracion;
+        order.setNumber(number);
         orderRegistration.setNumber(number);
 
         String name = customersRequest.getName();
         String lastName = customersRequest.getLastName();
 
         String fullName = name + " " + lastName;
+        order.setCustomers(customersRequest);
         orderRegistration.setFullName(fullName);
 
         Double shippingCost = order.getShippingCost();
         orderRegistration.setShippingCost(shippingCost);
 
+        List<OrderDetails> orderDetailsList = orderRequest.getOrderDetailsList();
+        List<OrderDetailsRegistration> orderDetailsRegistrationList = new ArrayList<>();
 
-        List<OrderDetails> orderDetails = order.getOrderDetailsList();
+        if (orderDetailsList != null && !orderDetailsList.isEmpty()) {
+            for (OrderDetails orderDetail : orderDetailsList) {
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+                OrderDetailsRegistration orderDetailsRegistration = new OrderDetailsRegistration();
+                String productName = orderDetail.getProduct().getName();
 
-        if (orderDetails == null || orderDetails.isEmpty()){
-            orderDetails = new ArrayList<>();
-            List<OrderDetailsRegistration> orderDetailsRegistrationList = orderRegistration.getOrderDetailsRegistrationList();
+                Product product = productService.getProduct(productName)
+                        .orElseThrow(() -> new EntityNotFoundException("The account does not exist." + productName));
 
-            for (OrderDetailsRegistration orderDetailsRegistration : orderDetailsRegistrationList){
+                orderDetailsRegistration.setProductName(product.getName());
 
-                OrderDetails orderDetail = new OrderDetails();
-                String orderDetailsUuid = UUID.randomUUID().toString();
-                orderDetail.setOrderDetailUuid(orderDetailsUuid);
-
-                String productName = orderDetailsRegistration.getProductName();
-                orderDetailsRegistration.setProductName(productName);
-                Product product = productService.getProduct(orderDetailsRegistration.getProductName());
-                orderDetail.setProduct(product);
-
-
-                int quantity = orderDetailsRegistration.getQuantity();
+                int quantity = orderDetail.getQuantity();
                 orderDetailsRegistration.setQuantity(quantity);
-                orderDetail.setQuantity(quantity);
 
-                Double price = orderDetailsRegistration.getPrice();
+                Double price = product.getPrice();
                 orderDetailsRegistration.setPrice(price);
-                orderDetail.setPrice(price);
 
                 double tax = 19.00;
+                double amountTotal = calculateTotal(price, quantity);
+                orderDetailsRegistration.setTotalAmount(amountTotal);
 
-                double amountTotal = calculateTotal(price,quantity);
-                orderDetail.setTotalAmount(amountTotal);
-
-                double amountTaxes = calculateTax(amountTotal,tax);
-                orderDetail.setTaxesAmount(amountTaxes);
+                double amountTaxes = calculateTax(amountTotal, tax);
+                orderDetailsRegistration.setTaxesAmount(amountTaxes);
 
                 double total = amountTotal + amountTaxes;
-                orderDetailsRegistration.setTotal(total);
-                orderDetail.setTotal(total);
+                orderDetailsRegistration.setTotal(Double.valueOf(decimalFormat.format(total)));
 
                 orderDetailsRegistrationList.add(orderDetailsRegistration);
-                orderDetails.add(orderDetail);
             }
-            orderRegistration.setOrderDetailsRegistrationList(orderDetailsRegistrationList);
+
+            // Asignar la lista orderDetailsRegistrationList a orderDetailsList
+            List<OrderDetails> updatedOrderDetailsList = new ArrayList<>();
+            for (OrderDetailsRegistration registration : orderDetailsRegistrationList) {
+                DecimalFormat decimalFormat = new DecimalFormat("#.##");
+
+                OrderDetails orderDetails = new OrderDetails();
+                orderDetails.setOrderDetailUuid(UUID.randomUUID().toString());
+                String productName = registration.getProductName();
+                Product product = productService.getProduct(productName)
+                        .orElseThrow(() -> new EntityNotFoundException("The account does not exist." + productName));
+                orderDetails.setProduct(product);
+                orderDetails.setQuantity(registration.getQuantity());
+                orderDetails.setPrice(registration.getPrice());
+                orderDetails.setTotalAmount(registration.getTotalAmount());
+                orderDetails.setTaxesAmount(registration.getTaxesAmount());
+                orderDetails.setTotal(registration.getTotal());
+                updatedOrderDetailsList.add(orderDetails);
+            }
+
+            order.setOrderDetailsList(updatedOrderDetailsList);
+
+            Double amountTotal = calculateTotalPriceForOrderDetails(updatedOrderDetailsList);
+            order.setAmountTotal(amountTotal);
+            orderRegistration.setAmountTotal(amountTotal);
+
+            Double amountTaxes = calculateTotaltaxesForOrderDetails(updatedOrderDetailsList);
+            order.setAmountTaxes(amountTaxes);
+            orderRegistration.setAmountTaxes(amountTaxes);
+
+            Double total = calculateTotalForOrderDetails(updatedOrderDetailsList);
+            order.setTotal(total);
+            orderRegistration.setTotal(total);
         }
 
-        Double total = calculateTotalForOrderDetails(orderDetails);
-        orderRegistration.setTotal(total);
+        orderRegistration.setOrderDetailsRegistrationList(orderDetailsRegistrationList);
 
-        Orders saveOrder = new Orders(total);
-        saveOrder.setNumber(number);
-        saveOrder.setTotal(total);
-
-        Double amountTotal = calculateTotalPriceForOrderDetails(orderDetails);
-        saveOrder.setAmountTotal(amountTotal);
-
-        Double amountTaxes = calculateTotaltaxesForOrderDetails(orderDetails);
-        saveOrder.setAmountTaxes(amountTaxes);
-
-        saveOrder.setCustomers(customersRequest);
-
-
-        order.setOrderDetailsList(orderDetails);
         ordersRepository.save(order);
 
         return orderRegistration;
     }
 
     private double calculateTotal(Double price, int quantity) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         Double amount = price * quantity;
-        return amount;
+        return Double.parseDouble(decimalFormat.format(amount));
     }
 
     private double calculateTax(double amount, double tax) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         Double percentageTax = (double) (tax/100);
         Double amountTaxes = amount * percentageTax;
 
-        return amountTaxes;
+        return Double.parseDouble(decimalFormat.format(amountTaxes));
     }
     private Double calculateTotaltaxesForOrderDetails(List<OrderDetails> orderDetails) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         Double total = 0.0;
         for (OrderDetails orderDetail : orderDetails) {
             total += orderDetail.getTaxesAmount();
         }
-        return total;
+        return Double.valueOf(decimalFormat.format(total));
     }
     private Double calculateTotalPriceForOrderDetails(List<OrderDetails> orderDetails) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         Double total = 0.0;
         for (OrderDetails orderDetail : orderDetails) {
             total += orderDetail.getTotalAmount();
         }
-        return total;
+        return Double.valueOf(decimalFormat.format(total));
     }
     private Double calculateTotalForOrderDetails(List<OrderDetails> orderDetails) {
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         Double total = 0.0;
         for (OrderDetails orderDetail : orderDetails) {
             total += orderDetail.getTotal();
         }
-        return total;
+        return Double.valueOf(decimalFormat.format(total));
     }
     private String obtenerNumeracionAutomatica() {
         String maxNumber = ordersRepository.findByNumber();

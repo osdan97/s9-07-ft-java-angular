@@ -15,6 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="transaction", discriminatorType= DiscriminatorType.STRING)
 @Entity
 @Table(name = "TRANSACTIONS")

@@ -13,7 +13,7 @@ import java.io.Serializable;
 @ToString
 @Entity
 @Table(name = "ORDERDETAILS")
-public class OrderDetails implements Serializable {
+public class OrderDetails {
 
     @Id
     @Column(name = "orderdetail_uuid")
@@ -31,5 +31,5 @@ public class OrderDetails implements Serializable {
     private Double taxesAmount;
     @Column(name = "total")
     private Double total;
-    
+
 }

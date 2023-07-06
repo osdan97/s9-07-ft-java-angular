@@ -14,6 +14,7 @@ public class OrderDetailsRegistration {
     private String productName;
     private int quantity;
     private Double price;
-    private Double taxes;
+    private Double totalAmount;
+    private Double taxesAmount;
     private Double total;
 }

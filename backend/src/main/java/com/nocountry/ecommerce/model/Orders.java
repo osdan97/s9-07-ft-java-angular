@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -16,12 +17,12 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Orders extends Transactions{
+public class Orders extends Transactions implements Serializable {
 
     @Column(name = "number")
     private String number;
     @ManyToOne
-    @JoinColumn(name = "account_uuid")
+    @JoinColumn(name = "customer_uuid")
     private Customers customers;
     @Column(name = "shipping_cost")
     private Double shippingCost;
@@ -32,11 +33,11 @@ public class Orders extends Transactions{
     @Column(name = "amount_total")
     private Double amountTotal;
 
-    @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "number", referencedColumnName = "number")
+    @OneToMany(targetEntity = OrderDetails.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "transaction_uuid", referencedColumnName = "transaction_uuid")
     private List<OrderDetails> orderDetailsList;
-    @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "number", referencedColumnName = "number")
+    @OneToMany(targetEntity = ShippingDetails.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "transaction_uuid", referencedColumnName = "transaction_uuid")
     private List<ShippingDetails> shippingDetailsList;
 
     public Orders(Double total){
