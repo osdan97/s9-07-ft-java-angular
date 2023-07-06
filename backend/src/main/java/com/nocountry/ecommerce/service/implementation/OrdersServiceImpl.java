@@ -97,6 +97,7 @@ public class OrdersServiceImpl implements OrdersService {
                 orderDetailsRegistrationList.add(orderDetailsRegistration);
                 orderDetails.add(orderDetail);
             }
+            orderRegistration.setOrderDetailsRegistrationList(orderDetailsRegistrationList);
         }
 
         Double total = calculateTotalForOrderDetails(orderDetails);
@@ -113,6 +114,7 @@ public class OrdersServiceImpl implements OrdersService {
         saveOrder.setAmountTaxes(amountTaxes);
 
         saveOrder.setCustomers(customersRequest);
+
 
         order.setOrderDetailsList(orderDetails);
         ordersRepository.save(order);
