@@ -1,4 +1,4 @@
- .card {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +8,7 @@
   border: 1px solid #000;
   border-radius: 7px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .imagen-text {
@@ -46,7 +47,7 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   font-weight: 400;
   font-size: 10px;
   line-height: 12.1px;

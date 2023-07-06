@@ -7,6 +7,7 @@ import { CardComponent } from './card/card.component';
 import { ContentCardComponent } from './content-card/content-card.component';
 import { OurServicesComponent } from './our-services/our-services.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,13 +17,13 @@ import { DetalleProductoComponent } from './detalle-producto/detalle-producto.co
     OurServicesComponent,
     DetalleProductoComponent,
   ],
-  imports: [CommonModule, PrimeNgModule],
+  imports: [CommonModule, PrimeNgModule, RouterModule],
   exports: [
     CardComponent,
     SliderProductsComponent,
     ContentCardComponent,
     OurServicesComponent,
-    DetalleProductoComponent
+    DetalleProductoComponent,
   ],
 })
 export class SharedModule {}
