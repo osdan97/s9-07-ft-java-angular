@@ -32,17 +32,13 @@ public class FavoritesController {
            return new ResponseEntity(new Mensaje("product id is required"), HttpStatus.BAD_REQUEST);
        else {
            favoritesService.save(favoritesDto);
-           return new ResponseEntity(new Mensaje("favorite created successfully"), HttpStatus.OK);
+           return new ResponseEntity(favoritesService.save(favoritesDto), HttpStatus.OK);
        }
     }
     @PutMapping("/updatebyid/{id}")
     public ResponseEntity<?> updateById(@PathVariable("id") String id, @RequestBody FavoritesDto favoritesDto) {
         favoritesService.updateById(id, favoritesDto);
-        return new ResponseEntity(new Mensaje("favorite does not exist"), HttpStatus.OK);
-        //Favorites favorites = favoritesService.getOne(id).get();//
-       // favoritesService.save(favorites);
-       // return new ResponseEntity(new Mensaje("favorites updated successfully"), HttpStatus.OK);
-
+        return new ResponseEntity(new Mensaje("Favorite updated"), HttpStatus.OK);
     }
 
     @DeleteMapping("/deletebyid/{id}")

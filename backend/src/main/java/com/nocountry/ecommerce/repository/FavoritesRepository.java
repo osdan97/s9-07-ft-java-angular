@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface FavoritesRepository extends JpaRepository<Favorites,String> {
     List<Favorites> findAllByCustomersAccountUuid(String customerId);
+    //Boolean existByCustomersAccountUuidAndProductProductUuid(String customerId, String productId);
 }
-
