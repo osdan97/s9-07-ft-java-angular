@@ -1,0 +1,21 @@
+@import "src/styles.scss";
+
+.navbar__categories {
+  display: flex;
+  gap: 0.5rem;
+
+  .categories__content {
+    cursor: pointer;
+
+    .categories__card {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background-color: #9a9595;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}

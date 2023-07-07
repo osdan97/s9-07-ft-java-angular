@@ -1,10 +1,13 @@
 <header>
   <div class="header__content" [ngClass]="{ padding__header: headerFixed() }">
-    <span class="logo">LOGO</span>
+    <span class="logo" routerLink="">LOGO</span>
   </div>
 
   <nav class="navbar" [ngClass]="{ navbar__fixed: headerFixed() }">
     <div class="navbar__content">
+      <div *ngIf="showCategories()">
+        <app-navbar-categories></app-navbar-categories>
+      </div>
       <div class="info__producs">
         <button>Productos</button>
         <button>Info de Envíos</button>

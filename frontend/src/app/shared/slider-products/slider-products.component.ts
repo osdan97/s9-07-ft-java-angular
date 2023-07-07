@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, signal } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 interface ResponsiveOptions {
   breakpoint: string;
@@ -13,34 +13,7 @@ interface ResponsiveOptions {
 })
 export class SliderProductsComponent implements OnInit {
   @Input() title!: string;
-  // @Input() products!: any[];
-
-  products = signal([
-    {
-      name: 'product 1',
-      image: 'assets/images/argentina.png',
-    },
-    {
-      name: 'product 2',
-      image: 'assets/images/argentina.png',
-    },
-    {
-      name: 'product 3',
-      image: 'assets/images/argentina.png',
-    },
-    {
-      name: 'product 4',
-      image: 'assets/images/argentina.png',
-    },
-    {
-      name: 'product 5',
-      image: 'assets/images/argentina.png',
-    },
-    {
-      name: 'product 6',
-      image: 'assets/images/argentina.png',
-    },
-  ]);
+  @Input() products!: any[];
 
   responsiveOptions!: ResponsiveOptions[];
 

@@ -1,0 +1,12 @@
+<form [formGroup]="addCartForm" class="class-add" (ngSubmit)="addToCart()">
+  <input type="number" formControlName="quantity" min="1" minlength="1" />
+  <div class="select-down">
+    <button type="button" class="down" (click)="changeValue(+1)">
+      <img src="../../../assets/mas.png" alt="" class="icon" />
+    </button>
+    <button type="button" class="down" (click)="changeValue(-1)">
+      <img src="../../../assets/menos.png" alt="" class="icon" />
+    </button>
+  </div>
+  <button type="submit" class="btn">Añadir al carrito</button>
+</form>

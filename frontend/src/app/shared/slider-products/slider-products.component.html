@@ -2,17 +2,17 @@
   <h2>{{ title }}</h2>
 
   <p-carousel
-    [value]="products()"
+    [value]="products"
     [numVisible]="4"
     [numScroll]="1"
     [circular]="true"
     [responsiveOptions]="responsiveOptions"
-    [indicatorsContentStyle]="{ display: 'none' }"
+    [showIndicators]="false"
     [autoplayInterval]="5000"
   >
     <ng-template let-product pTemplate="item">
       <div class="card__container">
-        <app-card></app-card>
+        <app-card [product]="product"></app-card>
       </div>
     </ng-template>
   </p-carousel>

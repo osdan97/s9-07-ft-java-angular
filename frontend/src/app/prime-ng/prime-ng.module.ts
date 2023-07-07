@@ -7,7 +7,16 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CarouselModule } from 'primeng/carousel';
 import { PaginatorModule } from 'primeng/paginator';
 
+import { MessagesModule } from 'primeng/messages';
+
 @NgModule({
-  exports: [ButtonModule, RippleModule, InputTextModule, CarouselModule, PaginatorModule],
+  exports: [
+    ButtonModule,
+    RippleModule,
+    InputTextModule,
+    CarouselModule,
+    PaginatorModule,
+    MessagesModule,
+  ],
 })
 export class PrimeNgModule {}

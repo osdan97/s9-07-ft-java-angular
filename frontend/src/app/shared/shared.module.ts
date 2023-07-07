@@ -8,6 +8,8 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { OurServicesComponent } from './our-services/our-services.component';
 import { DetalleProductoComponent } from './detalle-producto/detalle-producto.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputCartComponent } from './input-cart/input-cart.component';
 
 @NgModule({
   declarations: [
@@ -16,8 +18,15 @@ import { RouterModule } from '@angular/router';
     ContentCardComponent,
     OurServicesComponent,
     DetalleProductoComponent,
+    InputCartComponent,
   ],
-  imports: [CommonModule, PrimeNgModule, RouterModule],
+  imports: [
+    CommonModule,
+    PrimeNgModule,
+    RouterModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   exports: [
     CardComponent,
     SliderProductsComponent,

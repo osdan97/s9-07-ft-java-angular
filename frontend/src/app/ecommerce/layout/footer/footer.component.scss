@@ -17,7 +17,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
-  max-width: 1400px;
+  max-width: $max-width;
   width: 95%;
   margin: 0 auto;
   gap: 3px;

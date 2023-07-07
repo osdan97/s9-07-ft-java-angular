@@ -1,14 +1,14 @@
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss'],
+  selector: 'app-input-cart',
+  templateUrl: './input-cart.component.html',
+  styleUrls: ['./input-cart.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class InputCartComponent implements OnInit {
   @Input() product!: any;
   addCartForm!: FormGroup;
 

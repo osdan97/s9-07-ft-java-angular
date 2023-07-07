@@ -3,6 +3,7 @@
 
 $heigth-header: 150px;
 $heigth-navbar: 50px;
+$max-width: 1400px;
 
 * {
   margin: 0;
@@ -16,4 +17,10 @@ body {
 
 button {
   cursor: pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

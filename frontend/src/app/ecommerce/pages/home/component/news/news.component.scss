@@ -2,7 +2,7 @@
 
 .carousel__container {
   width: 95%;
-  max-width: 1400px;
+  max-width: $max-width;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

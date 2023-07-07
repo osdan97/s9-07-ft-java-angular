@@ -15,6 +15,10 @@ header {
     justify-content: center;
     align-items: center;
     background-color: #d9d9d9;
+
+    .logo {
+      cursor: pointer;
+    }
   }
 
   .padding__header {
@@ -30,7 +34,7 @@ header {
     align-items: center;
     .navbar__content {
       width: 95%;
-      max-width: 1400px;
+      max-width: $max-width;
       margin: 0 auto;
       display: flex;
       justify-content: center;
