@@ -15,5 +15,7 @@ public interface ProductService {
     List<Product> getProducts(ProductPageble productPageble);
 
     Optional<Product> getProduct(String product);
+
+    Optional<Product> getProductByUuid(String id);
 }
 

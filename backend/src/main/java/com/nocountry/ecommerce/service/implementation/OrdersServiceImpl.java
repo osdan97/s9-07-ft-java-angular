@@ -56,9 +56,9 @@ public class OrdersServiceImpl implements OrdersService {
         order.setTransactionState(TransactionState.ON_HOLD);
         orderRegistration.setTransactionState(TransactionState.ON_HOLD);
 
-        int anoActual = LocalDate.now().getYear();
-        String numeracion = obtenerNumeracionAutomatica();
-        String number = anoActual + "-" + numeracion;
+        int currentYear = LocalDate.now().getYear();
+        String numeration = obtenerNumeracionAutomatica();
+        String number = currentYear + "-" + numeration;
         order.setNumber(number);
         orderRegistration.setNumber(number);
 
@@ -79,10 +79,10 @@ public class OrdersServiceImpl implements OrdersService {
             for (OrderDetails orderDetail : orderDetailsList) {
                 DecimalFormat decimalFormat = new DecimalFormat("#.##");
                 OrderDetailsRegistration orderDetailsRegistration = new OrderDetailsRegistration();
-                String productName = orderDetail.getProduct().getName();
+                String productUuid = orderDetail.getProduct().getId();
 
-                Product product = productService.getProduct(productName)
-                        .orElseThrow(() -> new EntityNotFoundException("The account does not exist." + productName));
+                Product product = productService.getProductByUuid(productUuid)
+                        .orElseThrow(() -> new EntityNotFoundException("The account does not exist." + productUuid));
 
                 orderDetailsRegistration.setProductName(product.getName());
 
@@ -104,11 +104,10 @@ public class OrdersServiceImpl implements OrdersService {
 
                 orderDetailsRegistrationList.add(orderDetailsRegistration);
             }
+            order.setOrderDetailsList(orderDetailsList);
 
-            // Asignar la lista orderDetailsRegistrationList a orderDetailsList
             List<OrderDetails> updatedOrderDetailsList = new ArrayList<>();
             for (OrderDetailsRegistration registration : orderDetailsRegistrationList) {
-                DecimalFormat decimalFormat = new DecimalFormat("#.##");
 
                 OrderDetails orderDetails = new OrderDetails();
                 orderDetails.setOrderDetailUuid(UUID.randomUUID().toString());

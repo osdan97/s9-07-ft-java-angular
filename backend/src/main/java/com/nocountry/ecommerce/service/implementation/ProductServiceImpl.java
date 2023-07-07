@@ -8,12 +8,10 @@ import com.nocountry.ecommerce.repository.CategoryRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.ProductService;
 import com.nocountry.ecommerce.util.enums.ProductState;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -145,6 +143,9 @@ public class ProductServiceImpl implements ProductService {
     public Optional<Product> getProduct(String productName) {
         return productRepository.findByName(productName);
     }
-
+    @Override
+    public Optional<Product> getProductByUuid(String id) {
+        return productRepository.findById(id);
+    }
 
 }
