@@ -1,9 +1,6 @@
 package com.nocountry.ecommerce.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,7 +27,7 @@ public class ShippingDetails implements Serializable {
     private String address1;
     @Column(name="address2")
     private String address2;
-    @Column(name = "postalCode")
+    @Column(name = "postal_code")
     private String postalCode;
     @Column(name = "provincia")
     private String provincia;
@@ -40,4 +37,7 @@ public class ShippingDetails implements Serializable {
     private String country;
     @Column(name = "gift")
     private boolean gift;
+    @OneToOne
+    @JoinColumn(name = "transaction_uuid", referencedColumnName = "transaction_uuid")
+    private Orders order;
 }

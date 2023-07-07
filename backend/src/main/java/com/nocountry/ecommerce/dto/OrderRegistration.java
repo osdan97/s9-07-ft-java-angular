@@ -23,5 +23,5 @@ public class OrderRegistration {
     private LocalDateTime createdDate;
     private TransactionState transactionState;
     private List<OrderDetailsRegistration> orderDetailsRegistrationList;
-    private List<ShippingDetailsRegistration> shippingDetailsRegistrationList;
+    private ShippingDetailsRegistration shippingDetailsRegistration;
 }

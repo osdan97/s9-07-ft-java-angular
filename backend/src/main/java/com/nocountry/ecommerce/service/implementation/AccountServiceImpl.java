@@ -252,5 +252,19 @@ public class AccountServiceImpl implements AccountService {
         user.setToken(jwt);
         return user;
     }
+
+    @Override
+    public Optional<Customers> findByUuid(String uuid) {
+        try {
+            if (uuid == null || uuid.isEmpty()) {
+                throw new IllegalArgumentException("Email cannot be empty");
+            }
+            return customerRepository.findByAccountUuid(uuid);
+        } catch (IllegalArgumentException e) {
+            throw new RuntimeException("Error finding account by email: " + e.getMessage(), e);
+        } catch (Exception e) {
+            throw new RuntimeException("Error finding account by email", e);
+        }
+    }
 }
 

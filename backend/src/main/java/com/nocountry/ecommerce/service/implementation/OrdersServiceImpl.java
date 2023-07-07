@@ -2,18 +2,20 @@ package com.nocountry.ecommerce.service.implementation;
 
 import com.nocountry.ecommerce.dto.OrderDetailsRegistration;
 import com.nocountry.ecommerce.dto.OrderRegistration;
-import com.nocountry.ecommerce.model.Customers;
-import com.nocountry.ecommerce.model.OrderDetails;
-import com.nocountry.ecommerce.model.Orders;
-import com.nocountry.ecommerce.model.Product;
+import com.nocountry.ecommerce.dto.ShippingDetailsRegistration;
+import com.nocountry.ecommerce.model.*;
 import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.repository.OrdersRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
+import com.nocountry.ecommerce.repository.ShippingDetailsRepository;
+import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.service.ProductService;
 import com.nocountry.ecommerce.util.enums.TransactionState;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.criteria.Order;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -33,15 +35,19 @@ public class OrdersServiceImpl implements OrdersService {
     @Autowired
     private OrdersRepository ordersRepository;
     @Autowired
-    private CustomerRepository customerRepository;
+    private AccountService accountService;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ShippingDetailsRepository shippingDetailsRepository;
+
+    @Transactional
     @Override
     public OrderRegistration createOrder(Orders orderRequest) {
 
-        String customerEmail = orderRequest.getCustomers().getEmail();
-        Customers customersRequest = customerRepository.findByEmail(customerEmail)
-                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + customerEmail));
+        String uuid = orderRequest.getCustomers().getAccountUuid();
+        Customers customersRequest = accountService.findByUuid(uuid)
+                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + uuid));
 
         Orders order = new Orders();
         OrderRegistration orderRegistration = new OrderRegistration();
@@ -139,8 +145,57 @@ public class OrdersServiceImpl implements OrdersService {
         }
 
         orderRegistration.setOrderDetailsRegistrationList(orderDetailsRegistrationList);
-
         ordersRepository.save(order);
+
+        ShippingDetails shippingDetailsRequest = orderRequest.getShippingDetails();
+        ShippingDetailsRegistration shippingDetailsRegistration = new ShippingDetailsRegistration();
+
+        if (shippingDetailsRequest != null){
+            ShippingDetails shippingDetails = new ShippingDetails();
+            String shippingDetailsUuid = UUID.randomUUID().toString();
+            shippingDetails.setShippingDetailUuid(shippingDetailsUuid);
+
+            String nameShipping = shippingDetailsRequest.getName();
+            shippingDetails.setName(nameShipping);
+
+            String lastNameShipping = shippingDetailsRequest.getLastName();
+            shippingDetails.setLastName(lastNameShipping);
+
+            String fullNameShipping = nameShipping + " " + lastNameShipping;
+            shippingDetailsRegistration.setFullName(fullNameShipping);
+
+            String company = shippingDetailsRequest.getCompany();
+            shippingDetailsRegistration.setCompany(company);
+
+            String address1 = shippingDetailsRequest.getAddress1();
+            shippingDetails.setAddress1(address1);
+            shippingDetailsRegistration.setAddress(address1);
+
+            String address2 = shippingDetailsRequest.getAddress2();
+            shippingDetails.setAddress2(address2);
+            shippingDetailsRegistration.setAddress2(address2);
+
+            String postalCode = shippingDetailsRequest.getPostalCode();
+            shippingDetails.setPostalCode(postalCode);
+            shippingDetailsRegistration.setPostalCode(postalCode);
+
+            String provincia = shippingDetailsRequest.getProvincia();
+            shippingDetails.setProvincia(provincia);
+            shippingDetailsRegistration.setProvincia(provincia);
+
+            String city = shippingDetailsRequest.getCity();
+            shippingDetails.setCity(city);
+            shippingDetailsRegistration.setCity(city);
+
+            String country = shippingDetailsRequest.getCountry();
+            shippingDetails.setCountry(country);
+            shippingDetailsRegistration.setCountry(country);
+
+            shippingDetails.setOrder(order);
+            shippingDetailsRepository.save(shippingDetails);
+
+        }
+        orderRegistration.setShippingDetailsRegistration(shippingDetailsRegistration);
 
         return orderRegistration;
     }

@@ -36,9 +36,8 @@ public class Orders extends Transactions implements Serializable {
     @OneToMany(targetEntity = OrderDetails.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "transaction_uuid", referencedColumnName = "transaction_uuid")
     private List<OrderDetails> orderDetailsList;
-    @OneToMany(targetEntity = ShippingDetails.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "transaction_uuid", referencedColumnName = "transaction_uuid")
-    private List<ShippingDetails> shippingDetailsList;
+    @OneToOne(mappedBy = "order")
+    private ShippingDetails shippingDetails;
 
     public Orders(Double total){
         super(total);

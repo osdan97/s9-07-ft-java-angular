@@ -28,5 +28,7 @@ public interface AccountService {
     Account changePassword(ChangePassword changePassword);
 
     Account findByUsernameReturnToken(String username);
+
+    Optional<Customers> findByUuid(String uuid);
 }
 

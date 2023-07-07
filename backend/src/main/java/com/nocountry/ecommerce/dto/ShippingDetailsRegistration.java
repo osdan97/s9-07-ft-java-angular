@@ -13,8 +13,6 @@ import lombok.Setter;
 public class ShippingDetailsRegistration {
     private String fullName;
     private String company;
-    private String name;
-    private String lastname;
     private String address;
     private String address2;
     private String postalCode;
