@@ -244,5 +244,13 @@ public class AccountServiceImpl implements AccountService {
 
         return account;
     }
+    @Override
+    public Account findByUsernameReturnToken(String username){
+        Account user = accountRepository.findByEmail(username)
+                .orElseThrow(() -> new UsernameNotFoundException("El usuario no existe" + username));
+        String jwt = jwtProvider.generateToken(user);
+        user.setToken(jwt);
+        return user;
+    }
 }
 

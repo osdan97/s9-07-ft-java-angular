@@ -4,6 +4,7 @@ import com.nocountry.ecommerce.dto.ChangePassword;
 import com.nocountry.ecommerce.dto.CustomerLoginResponse;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
+import com.nocountry.ecommerce.security.UserPrincipal;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.AuthenticationService;
 import jakarta.mail.MessagingException;
@@ -11,6 +12,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -89,5 +91,9 @@ public class AuthenticationController {
         }
 
         return new ResponseEntity<>(accountService.changePassword(changePassword), HttpStatus.CREATED);
+    }
+    @GetMapping()
+    public ResponseEntity<?> getCurrentUser(@AuthenticationPrincipal UserPrincipal userPrincipal){
+        return new ResponseEntity<>(accountService.findByUsernameReturnToken(userPrincipal.getUsername()), HttpStatus.OK);
     }
 }
