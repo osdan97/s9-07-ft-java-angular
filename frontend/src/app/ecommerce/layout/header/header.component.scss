@@ -59,6 +59,7 @@ header {
       }
 
       .option__user {
+        position: relative;
         h3 {
           display: flex;
           align-items: center;
@@ -75,6 +76,14 @@ header {
           border-radius: 7px;
           cursor: pointer;
         }
+
+        .cart__container {
+          width: 350px;
+          position: absolute;
+          top: 50px;
+          right: 0px;
+          // max-width: 350px;
+        }
       }
     }
   }
@@ -84,4 +93,11 @@ header {
     top: 0;
     z-index: 1000;
   }
+}
+
+.login__container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

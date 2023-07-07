@@ -22,11 +22,35 @@
         <h3>
           <!-- <span>Hola, Mariano</span> -->
           <!-- <i class="pi pi-user"></i> -->
-          <img src="../../../../assets/images/user.svg" width="18px" alt="" />
+          <img
+            src="../../../../assets/images/user.svg"
+            width="18px"
+            alt="user icon"
+            (click)="showDialog()"
+          />
         </h3>
         <!-- <i class="pi pi-shopping-cart"></i> -->
-        <img src="../../../../assets/images/cart.svg" width="18px" alt="" />
+        <img
+          src="../../../../assets/images/cart.svg"
+          width="18px"
+          alt="cart icon"
+          (click)="showDialogCart()"
+        />
+
+        <div class="cart__container" *ngIf="visibleCart()">
+          <app-cart (visibleCart)="emitirValor($event)"></app-cart>
+        </div>
       </div>
     </div>
   </nav>
 </header>
+
+<p-dialog
+  [(visible)]="visible"
+  [style]="{ width: '400px' }"
+  [breakpoints]="{ '450px': '95vw' }"
+>
+  <div class="login__container">
+    <app-login></app-login>
+  </div>
+</p-dialog>

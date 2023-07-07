@@ -10,6 +10,8 @@ export class HeaderComponent implements OnInit {
   value: string | undefined;
   headerFixed = signal<boolean>(false);
   showCategories = signal<boolean>(false);
+  visible = false;
+  visibleCart = signal<boolean>(false);
 
   router = inject(Router);
 
@@ -27,6 +29,19 @@ export class HeaderComponent implements OnInit {
     } else {
       this.showCategories.set(true);
     }
+  }
+
+  showDialog() {
+    this.visible = true;
+    console.log('asd');
+  }
+
+  showDialogCart() {
+    this.visibleCart.update((value) => !value);
+  }
+
+  emitirValor(valor: boolean) {
+    this.visibleCart.set(valor);
   }
 
   @HostListener('window:scroll', ['$event']) activeFixedHeader() {

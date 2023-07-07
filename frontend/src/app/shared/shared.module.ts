@@ -10,6 +10,7 @@ import { DetalleProductoComponent } from './detalle-producto/detalle-producto.co
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputCartComponent } from './input-cart/input-cart.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { InputCartComponent } from './input-cart/input-cart.component';
     OurServicesComponent,
     DetalleProductoComponent,
     InputCartComponent,
+    CartComponent,
   ],
   imports: [
     CommonModule,
@@ -33,6 +35,7 @@ import { InputCartComponent } from './input-cart/input-cart.component';
     ContentCardComponent,
     OurServicesComponent,
     DetalleProductoComponent,
+    CartComponent,
   ],
 })
 export class SharedModule {}
