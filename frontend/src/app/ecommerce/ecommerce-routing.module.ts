@@ -17,6 +17,11 @@ const routes: Routes = [
         loadChildren: () =>
         import('./pages/producto/producto.module').then((m) => m.ProductoModule),
       },
+      {
+        path:'fin-compra',
+        loadChildren: () =>
+        import('./pages/fin-compra/fin-compra.module').then((m) => m.FinCompraModule),
+      },
     ],
   },
 ];
