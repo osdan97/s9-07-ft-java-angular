@@ -7,9 +7,9 @@ import { NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  value: string | undefined;
   headerFixed = signal<boolean>(false);
   showCategories = signal<boolean>(false);
+  value: string | undefined;
   visible = false;
   visibleCart = signal<boolean>(false);
 
@@ -17,12 +17,13 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.getCurrentRoute();
-      }
+      this.getCurrentRoute();
+      // if (event instanceof NavigationEnd) {
+      // }
     });
   }
 
+  //Función para verificar si no se encuentra en la ruta principal para mostrar el header con el menú de categorías
   getCurrentRoute() {
     if (this.router.url === '/') {
       this.showCategories.set(false);
@@ -31,19 +32,28 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  //Función para mostrar el modal de login
   showDialog() {
-    this.visible = true;
-    console.log('asd');
+    this.visible = !this.visible;
+    if (this.visibleCart() === true) {
+      this.visibleCart.set(false);
+    }
   }
 
+  //Función para mostrar el modal del carrito
   showDialogCart() {
     this.visibleCart.update((value) => !value);
+    if (this.visible === true) {
+      this.visible = false;
+    }
   }
 
+  //Función para recibir el valor del modal del carrito
   emitirValor(valor: boolean) {
     this.visibleCart.set(valor);
   }
 
+  //funcion para saber la posición del scroll y mostrar el header fijo
   @HostListener('window:scroll', ['$event']) activeFixedHeader() {
     if (window.scrollY >= 119) {
       this.headerFixed.set(true);
