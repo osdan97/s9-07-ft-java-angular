@@ -1,17 +1,20 @@
 @import "src/styles.scss";
-
+.contenedora{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 .fin-compra{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     margin-bottom: 96px;
     
 }
 .titulo-fin-compra{
   display: flex;
   flex-direction: row;
-  max-width: 1400px;
-  margin: 36px 0px 36px 420px;
+  margin: 36px 0px;
   
   h2{
     font-size: 26px;
