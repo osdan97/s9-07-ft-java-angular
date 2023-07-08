@@ -13,14 +13,18 @@ const routes: Routes = [
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path:'producto/:id',
+        path: 'producto/:id',
         loadChildren: () =>
-        import('./pages/producto/producto.module').then((m) => m.ProductoModule),
+          import('./pages/producto/producto.module').then(
+            (m) => m.ProductoModule
+          ),
       },
       {
-        path:'fin-compra',
+        path: 'fin-compra',
         loadChildren: () =>
-        import('./pages/fin-compra/fin-compra.module').then((m) => m.FinCompraModule),
+          import('./pages/fin-compra/fin-compra.module').then(
+            (m) => m.FinCompraModule
+          ),
       },
     ],
   },

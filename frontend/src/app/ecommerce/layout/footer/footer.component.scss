@@ -21,6 +21,12 @@ footer {
   width: 95%;
   margin: 0 auto;
   gap: 3px;
+
+  .contact__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
 }
 
 h4 {
@@ -44,11 +50,17 @@ a {
   display: flex;
   flex-direction: row;
   gap: 6px;
-  padding-bottom: 3px;
+  // padding-bottom: 3px;
 }
 
 .icon div {
+  padding: 0.2rem 0.3rem;
   background-color: #fff;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
 .anchor {
