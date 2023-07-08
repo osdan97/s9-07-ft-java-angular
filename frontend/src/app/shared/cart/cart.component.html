@@ -1,5 +1,6 @@
 <article class="cart__container">
   <div class="cart__cross" (click)="emitirValor()">x</div>
+  <h2>Tu carrito</h2>
   <div class="cart__content" *ngFor="let item of cart()">
     <div class="logo__cart">
       <!-- <img src="" alt=""> -->
@@ -7,7 +8,7 @@
     <div class="text__cart">
       <h3>{{ item.name }}</h3>
       <p>
-        x1<span>${{ item.price }}</span>
+        x1<span>€{{ item.price }}</span>
       </p>
     </div>
     <div class="trash__cart">
@@ -17,10 +18,10 @@
 
   <div class="cart__subtotal">
     <span>Subtotal</span>
-    <span>$8</span>
+    <span>€8</span>
   </div>
   <div class="cart__button">
-    <button>Ver carrito</button>
+    <button>Agregar producto</button>
     <button>Finalizar compra</button>
   </div>
 </article>

@@ -45,12 +45,18 @@ a {
   flex-direction: row;
   gap: 6px;
   padding-bottom: 3px;
+  margin-top: 3px;
 }
 
 .icon div {
   background-color: #fff;
+  border-radius: 2px;
+  width: 24px;
+  height: 24px;
 }
-
+.icono{
+  margin: 5px 0px 0px 5px;
+}
 .anchor {
   padding-top: 8px;
   display: flex;
@@ -81,4 +87,9 @@ input {
   font-weight: 500;
   line-height: 13px;
   letter-spacing: 0em;
+}
+h5{
+  font-size: 10px;
+  color: #fff;
+  align-items: center;
 }

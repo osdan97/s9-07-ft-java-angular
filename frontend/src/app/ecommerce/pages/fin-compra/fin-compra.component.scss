@@ -4,28 +4,36 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 110px 20px;
+    margin-bottom: 96px;
     
 }
-
+.titulo-fin-compra{
+  display: flex;
+  flex-direction: row;
+  max-width: 1400px;
+  margin: 36px 0px 36px 420px;
+  
+  h2{
+    font-size: 26px;
+  }
+}
 
 .carrito{
-    width: 514px;
-    height: 378px; 
-    margin-right: 21px; 
+    width: 514px; 
+    margin-right: 11px; 
 }
 
 .login__container {
-    width: 100%;
-    max-width: 514px;
-    height: 350px;
+    width: 514px;
+    height: 396px;
     padding: 2rem;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
+    margin-left: 11px;
     border: 1px solid black;
   
     .login__header {
@@ -75,7 +83,7 @@
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
-  
+        padding: 3rem 0rem 0rem 0rem;
         button {
           border-radius: 7px;
           padding: 10px 100px;
