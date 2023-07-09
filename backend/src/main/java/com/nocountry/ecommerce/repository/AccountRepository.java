@@ -13,7 +13,7 @@ public interface AccountRepository extends JpaRepository<Account, String> {
 
     Optional<Account> findByTokenPassword(String token);
 
-    @Query(value = "SELECT MAX(a.number) FROM ecommercedb.ACCOUNT a WHERE a.entity = 'customer'", nativeQuery = true)
+    @Query(value = "SELECT MAX(a.number) FROM ACCOUNT a WHERE a.entity = 'customer'", nativeQuery = true)
     String findByNumber();
 
     @Query("select a from Account a where a.verificationCode=:verificationCode")
