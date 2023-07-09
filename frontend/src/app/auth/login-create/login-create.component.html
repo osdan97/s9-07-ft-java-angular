@@ -1,0 +1,71 @@
+<section>
+  <form [formGroup]="form" (ngSubmit)="form.valid && login_create()" novalidate>
+    <h2>Crear Cuenta</h2>
+    <div class="contenedor1">
+      <p class="title">1. Datos personales</p>
+      <div class="input-label">
+        <label>
+          Nombre/s
+          <input type="text" [formControl]="name" required>
+        </label>
+        <label>
+          Apellido/s
+          <input type="text">
+        </label>
+      </div>
+      <div class="input-label">
+        <label>
+          Correo electronico
+          <input type="email">
+        </label>
+        <label>
+          Movil
+          <input type="tel">
+        </label>
+      </div>
+    </div>
+    <div class="contenedor2">
+      <p class="title">2. Dirección</p>
+      <div class="input-label">
+        <label>
+          Pais
+          <input type="text">
+        </label>
+        <label>
+          Provincia/ Comunidad
+          <input type="text">
+        </label>
+      </div>
+      <div class="input-label">
+        <label>
+          Codigo postal
+          <input type="number">
+        </label>
+        <label>
+          Ciudad
+          <input type="text">
+        </label>
+      </div>
+      <div class="input-label">
+        <label>
+          Dirección
+          <input type="text">
+        </label>
+        <label>
+          Detalles de dirección
+          <input type="tel">
+        </label>
+      </div>
+      <div class="">
+        <label class="check">
+          <input type="checkbox" class="check-input">
+          Utilizar esta dirección para los datos de facturación
+        </label>
+      </div>
+      <div class="space-buton">
+        <button type="submit">Crear cuenta</button>
+      </div>
+    </div>
+
+  </form>
+</section>

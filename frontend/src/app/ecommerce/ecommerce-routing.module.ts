@@ -26,6 +26,13 @@ const routes: Routes = [
             (m) => m.FinCompraModule
           ),
       },
+      {
+        path: 'create-user',
+        loadChildren: () =>
+          import('./pages/create-user/create-user.module').then(
+            (m) => m.CreateUserModule
+          )
+      },
     ],
   },
 ];
