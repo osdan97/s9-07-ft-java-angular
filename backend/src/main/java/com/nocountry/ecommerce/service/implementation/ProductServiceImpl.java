@@ -49,6 +49,10 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setState(ProductState.U);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
+
+        if(categoryEntity == null){
+            throw new IllegalStateException("Category can't be empty");
+        }
         saveProduct.setCategory(categoryEntity);
 
         productRepository.save(saveProduct);

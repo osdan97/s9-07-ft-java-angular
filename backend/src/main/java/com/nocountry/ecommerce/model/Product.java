@@ -39,6 +39,6 @@ public class Product implements Serializable {
     @Column(name = "state", nullable = false)
     private ProductState state;
     @ManyToOne
-    @JoinColumn(name = "category_uuid")
+    @JoinColumn(name = "category_uuid", nullable = false)
     private Category category;
 }

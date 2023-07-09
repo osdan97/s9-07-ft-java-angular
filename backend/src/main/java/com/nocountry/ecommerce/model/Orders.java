@@ -22,7 +22,7 @@ public class Orders extends Transactions implements Serializable {
     @Column(name = "number")
     private String number;
     @ManyToOne
-    @JoinColumn(name = "customer_uuid")
+    @JoinColumn(name = "customer_uuid", nullable = false)
     private Customers customers;
     @Column(name = "shipping_cost")
     private Double shippingCost;

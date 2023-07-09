@@ -1,20 +1,20 @@
 package com.nocountry.ecommerce.service.implementation;
 
-import com.nocountry.ecommerce.dto.ChangePassword;
-import com.nocountry.ecommerce.dto.CustomerRegistration;
-import com.nocountry.ecommerce.dto.CustomerUpdate;
-import com.nocountry.ecommerce.dto.EmailValues;
+import com.nocountry.ecommerce.dto.*;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
+import com.nocountry.ecommerce.model.Phones;
 import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.EmailService;
+import com.nocountry.ecommerce.util.enums.PhoneLabel;
 import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.mail.MessagingException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -24,8 +24,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
 import java.time.LocalDate;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class AccountServiceImpl implements AccountService {
@@ -115,14 +114,16 @@ public class AccountServiceImpl implements AccountService {
             throw new RuntimeException("Error finding Token by email", e);
         }
     }
-
+    @Transactional
     @Override
     public CustomerUpdate updateCustomer(Customers customer) {
-        if(customerRepository.findByEmail(String.valueOf(customer.getEmail())).isEmpty()){
+        String uuidCustomer = customer.getAccountUuid();
+
+        if(customerRepository.findByAccountUuid(String.valueOf(uuidCustomer)).isEmpty()){
             throw new IllegalStateException("Customer does not exists");
         }
 
-        Optional<Customers> existingCustomer = customerRepository.findByEmail(customer.getEmail());
+        Optional<Customers> existingCustomer = customerRepository.findByAccountUuid(uuidCustomer);
         Customers customerUpdated = existingCustomer.get();
 
         CustomerUpdate customerDto = new CustomerUpdate();
@@ -139,6 +140,51 @@ public class AccountServiceImpl implements AccountService {
         customerUpdated.setLastName(lastName);
         customerUpdated.setCountry(country);
         customerUpdated.setAddress(address);
+
+        List<Phones> phonesList = customer.getPhonesList();
+
+        if (phonesList != null && !phonesList.isEmpty()) {
+            List<PhonesDto> phonesDtoList = new ArrayList<>();
+
+            for (Phones phone : phonesList) {
+                PhonesDto newPhone = new PhonesDto();
+                newPhone.setPhoneLabel(phone.getPhoneLabel());
+                newPhone.setPhoneNumber(phone.getPhoneNumber());
+                newPhone.setCityCode(phone.getCityCode());
+                newPhone.setCountryCode(phone.getCountryCode());
+                phonesDtoList.add(newPhone);
+            }
+
+            List<Phones> updatedPhones = new ArrayList<>();
+            Set<PhoneLabel> existingPhoneLabels = new HashSet<>();
+
+            for (PhonesDto phoneDto : phonesDtoList) {
+                PhoneLabel phoneLabel = phoneDto.getPhoneLabel();
+                String phoneNumber = phoneDto.getPhoneNumber();
+
+                Phones existingPhone = customerUpdated.getPhonesList().stream()
+                        .filter(phone -> phone.getPhoneLabel() == phoneLabel)
+                        .findFirst()
+                        .orElseGet(() -> {
+                            Phones newPhone = new Phones();
+                            newPhone.setPhoneUuid(UUID.randomUUID().toString());
+                            newPhone.setPhoneLabel(phoneLabel);
+                            existingPhoneLabels.add(phoneLabel);
+                            return newPhone;
+                        });
+
+                existingPhone.setPhoneNumber(phoneNumber);
+                existingPhone.setCityCode(phoneDto.getCityCode());
+                existingPhone.setCountryCode(phoneDto.getCountryCode());
+                updatedPhones.add(existingPhone);
+            }
+
+            List<Phones> existingPhones = customer.getPhonesList();
+            existingPhones.removeIf(phone -> !existingPhoneLabels.contains(phone.getPhoneLabel()));
+
+            customerUpdated.setPhonesList(updatedPhones);
+            customerDto.setPhonesList(phonesDtoList);
+        }
 
         customerRepository.save(customerUpdated);
 

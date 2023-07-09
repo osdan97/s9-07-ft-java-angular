@@ -26,7 +26,6 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -110,7 +109,6 @@ public class OrdersServiceImpl implements OrdersService {
 
                 orderDetailsRegistrationList.add(orderDetailsRegistration);
             }
-            order.setOrderDetailsList(orderDetailsList);
 
             List<OrderDetails> updatedOrderDetailsList = new ArrayList<>();
             for (OrderDetailsRegistration registration : orderDetailsRegistrationList) {
