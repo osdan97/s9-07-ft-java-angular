@@ -7,10 +7,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-public enum ProductState {
-    U("UNAVAILABLE"),
-    W("WARNING"),
-    A("AVAILABLE");
-
-    private String product;
+public enum TransactionState {
+    ON_HOLD,
+    COMPLETED;
+    private String value;
 }

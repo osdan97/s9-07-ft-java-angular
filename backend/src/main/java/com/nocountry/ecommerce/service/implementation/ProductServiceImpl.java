@@ -46,10 +46,13 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setCountry(country);
         Integer minStock = productDto.getMinStock();
         saveProduct.setMinStock(minStock);
-        //char state = (ProductState.UNAVAILABLE.getProduct());
-        saveProduct.setState(ProductState.UNAVAILABLE);
+        saveProduct.setState(ProductState.U);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
+
+        if(categoryEntity == null){
+            throw new IllegalStateException("Category can't be empty");
+        }
         saveProduct.setCategory(categoryEntity);
 
         productRepository.save(saveProduct);
@@ -98,13 +101,13 @@ public class ProductServiceImpl implements ProductService {
         Integer minStock = productToChangeState.getMinStock();
 
         if(stock > minStock) {
-            productToChangeState.setState(ProductState.AVAILABLE);
+            productToChangeState.setState(ProductState.A);
         }
         if(stock < minStock) {
-            productToChangeState.setState(ProductState.WARNING);
+            productToChangeState.setState(ProductState.W);
         }
         if(stock == 0) {
-            productToChangeState.setState(ProductState.UNAVAILABLE);
+            productToChangeState.setState(ProductState.U);
         }
     }
 
@@ -139,4 +142,14 @@ public class ProductServiceImpl implements ProductService {
         productPage = productRepository.findAll(pageRequest);
         return productPage.getContent();
     }
+
+    @Override
+    public Optional<Product> getProduct(String productName) {
+        return productRepository.findByName(productName);
+    }
+    @Override
+    public Optional<Product> getProductByUuid(String id) {
+        return productRepository.findById(id);
+    }
+
 }

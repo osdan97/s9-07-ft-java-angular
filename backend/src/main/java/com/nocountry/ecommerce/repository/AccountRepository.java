@@ -15,6 +15,7 @@ public interface AccountRepository extends JpaRepository<Account, String> {
 
     @Query(value = "SELECT MAX(a.number) FROM ACCOUNT a WHERE a.entity = 'customer'", nativeQuery = true)
     String findByNumber();
+    
 
     @Query("select a from Account a where a.verificationCode=:verificationCode")
     Account findByVerificationCode(@Param("verificationCode") String verificationCode);

@@ -13,9 +13,9 @@ public class CustomerController {
     @Autowired
     private AccountService accountService;
 
-    @PutMapping("/update/{email}")
-    public ResponseEntity<?> updateCustomer(@PathVariable String email, @RequestBody Customers customer){
-        customer.setEmail(email);
+    @PutMapping("/update/{uuid}")
+    public ResponseEntity<?> updateCustomer(@PathVariable String uuid, @RequestBody Customers customer){
+        customer.setAccountUuid(uuid);
         return new ResponseEntity<>(accountService.updateCustomer(customer), HttpStatus.OK);
     }
 }
