@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.model;
 
+import com.nocountry.ecommerce.util.enums.ProductState;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,7 +37,7 @@ public class Product implements Serializable {
     private Integer minStock;
     @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
-    private Boolean state;
+    private ProductState state;
     @ManyToOne
     @JoinColumn(name = "category_uuid", nullable = false)
     private Category category;
