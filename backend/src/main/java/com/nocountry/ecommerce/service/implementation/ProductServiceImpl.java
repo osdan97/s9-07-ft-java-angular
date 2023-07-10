@@ -7,7 +7,6 @@ import com.nocountry.ecommerce.model.Product;
 import com.nocountry.ecommerce.repository.CategoryRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.ProductService;
-import com.nocountry.ecommerce.util.enums.ProductState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,7 +34,8 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setName(name);
         String description = productDto.getDescription();
         saveProduct.setDescription(description);
-        saveProduct.setStock(0);
+        Integer stock = productDto.getStock();
+        saveProduct.setStock(stock);
         String image = productDto.getImage();
         saveProduct.setImage(image);
         Double price = productDto.getPrice();
@@ -71,6 +71,8 @@ public class ProductServiceImpl implements ProductService {
         productUpdated.setName(name);
         String description = productDto.getDescription();
         productUpdated.setDescription(description);
+        Integer stock = productDto.getStock();
+        productUpdated.setStock(stock);
         String image = productDto.getImage();
         productUpdated.setImage(image);
         Double price = productDto.getPrice();
@@ -79,8 +81,8 @@ public class ProductServiceImpl implements ProductService {
         productUpdated.setWeight(weight);
         String country = productDto.getCountry();
         productUpdated.setCountry(country);
-        Integer minStock = productDto.getMinStock();
-        productUpdated.setMinStock(minStock);
+        Boolean state = true;
+        productUpdated.setState(state);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
         productUpdated.setCategory(categoryEntity);

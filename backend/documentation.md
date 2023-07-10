@@ -385,4 +385,109 @@ Example output
     }
   }
 ]
+ ``` 
+# Favorites
+## Save Favorites
+POST
+http://localhost:8080/api/favorites/create
+```
+```
+Example input 
+```Json
+
+{
+"customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
+"product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
+}
+```
+Example output
+```Json
+{
+"id": "75b29a68-5901-4555-8060-58ffc1ea44c2",
+"customers": {
+"accountUuid": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
+"email": "example@example.com",
+"password": "$2a$10$jddKF6mfC.30UUmei.ZWueQK6xFaox6wNm6RgRHTVfxU99dVgCtLG",
+"rol": "USER",
+"createdDate": "2023-07-07T15:00:39",
+"lastSessionDate": "2023-07-07T15:00:39",
+"active": true,
+"verificationCode": null,
+"tokenPassword": null,
+"token": null,
+"number": "2023-1",
+"name": "Juan",
+"lastName": "Peréz",
+"address": null,
+"country": null,
+"phonesList": []
+},
+"product": {
+"id": "ae98190b-f1ce-46ab-9896-90e39731c17c",
+"name": "product4",
+"description": "description4",
+"stock": 150,
+"image": "imagen4.jpg",
+"price": 2.5,
+"weight": 10.0,
+"country": "country2",
+"state": true,
+"category": {
+"id": "a186c52f-75b3-497c-b31d-5c5523cb2988",
+"name": "bebidas",
+"description": "bebidas regionales de diversos paises",
+"number": "b001",
+"state": true
+}
+}
+}
+```
+
+## List Favorites
+GET
+Example input
+http://localhost:8080/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
+```Json
+{
+  "customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
+  "product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
+
+}
+```
+Example Output
+[]
+```
+```
+## Update Favorite
+PUT
+http://localhost:8080/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
+
+Example input
+```Json
+{
+"customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
+"product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
+
+}
+```
+
+
+Example output
+```Json
+{
+"mensaje": "favorite updated"
+}
+```
+
+## Delete Favorite
+DELETE
+http://localhost:8080/api/favorites/deletebyid/75b29a68-5901-4555-8060-58ffc1ea44c2
+
+Example input
+
+Example output
+```Json
+{
+    "mensaje": "favorites deleted successfully"
+}
 ```
