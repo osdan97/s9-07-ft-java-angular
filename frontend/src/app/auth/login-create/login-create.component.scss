@@ -111,3 +111,7 @@ font-weight: 500;
 line-height: 18px;
 letter-spacing: 0em;
 }
+
+input.ng-touched.ng-invalid{
+  border-color: red;
+}

@@ -6,21 +6,21 @@
       <div class="input-label">
         <label>
           Nombre/s
-          <input type="text" [formControl]="name" required>
+          <input type="text" [formControl]="name">
         </label>
         <label>
           Apellido/s
-          <input type="text">
+          <input type="text" [formControl]="lastname">
         </label>
       </div>
       <div class="input-label">
         <label>
           Correo electronico
-          <input type="email">
+          <input type="email" [formControl]="email" autocomplete>
         </label>
         <label>
           Movil
-          <input type="tel">
+          <input type="number" [formControl]="tel">
         </label>
       </div>
     </div>
@@ -29,36 +29,36 @@
       <div class="input-label">
         <label>
           Pais
-          <input type="text">
+          <input type="text" [formControl]="pais">
         </label>
         <label>
           Provincia/ Comunidad
-          <input type="text">
+          <input type="text" [formControl]="provincia">
         </label>
       </div>
       <div class="input-label">
         <label>
           Codigo postal
-          <input type="number">
+          <input type="number" [formControl]="postal">
         </label>
         <label>
           Ciudad
-          <input type="text">
+          <input type="text" [formControl]="ciudad">
         </label>
       </div>
       <div class="input-label">
         <label>
           Dirección
-          <input type="text">
+          <input type="text" [formControl]="direccion">
         </label>
         <label>
           Detalles de dirección
-          <input type="tel">
+          <input type="text" [formControl]="detalle_dir">
         </label>
       </div>
       <div class="">
         <label class="check">
-          <input type="checkbox" class="check-input">
+          <input type="checkbox" class="check-input" [formControl]="check_fact">
           Utilizar esta dirección para los datos de facturación
         </label>
       </div>
