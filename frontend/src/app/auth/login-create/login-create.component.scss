@@ -115,3 +115,7 @@ letter-spacing: 0em;
 input.ng-touched.ng-invalid{
   border-color: red;
 }
+
+input.ng-dirty.ng-invalid{
+  border-color: red;
+}
