@@ -82,8 +82,6 @@ public class ProductServiceImpl implements ProductService {
         productUpdated.setWeight(weight);
         String country = productDto.getCountry();
         productUpdated.setCountry(country);
-        Boolean state = true;
-        productUpdated.setState(state);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
         productUpdated.setCategory(categoryEntity);
