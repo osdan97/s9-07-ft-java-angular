@@ -35,8 +35,7 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setName(name);
         String description = productDto.getDescription();
         saveProduct.setDescription(description);
-        Integer stock = productDto.getStock();
-        saveProduct.setStock(stock);
+        saveProduct.setStock(0);
         String image = productDto.getImage();
         saveProduct.setImage(image);
         Double price = productDto.getPrice();
