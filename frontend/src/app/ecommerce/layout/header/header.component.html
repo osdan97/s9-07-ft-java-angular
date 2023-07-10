@@ -37,7 +37,7 @@
           alt="cart icon"
           (click)="showDialogCart()"
         />-->
-        <i class="pi pi-shopping-cart"  width="18px" alt="cart icon" (click)="showDialogCart()"></i>
+        <i class="pi pi-shopping-cart" id="imgCart" width="18px" alt="cart icon" (click)="showDialogCart()"></i>
 
         <div class="cart__container" *ngIf="visibleCart()">
           <app-cart (visibleCart)="emitirValor($event)"></app-cart>

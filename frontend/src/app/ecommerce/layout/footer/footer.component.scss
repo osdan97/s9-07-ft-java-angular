@@ -1,7 +1,7 @@
 @import "src/styles.scss";
 
 footer {
-  background-color: #aaa;
+  background-color: #374664;
   margin: 0;
   padding: 0;
   min-height: 172px;
@@ -35,6 +35,7 @@ h4 {
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
+  color: #fff;
 }
 
 p,
@@ -44,6 +45,7 @@ a {
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
+  color: #fff;
 }
 
 .icon {
@@ -79,11 +81,11 @@ a {
 
 a:link {
   text-decoration: none;
-  color: #202020;
+  color: white;
 }
 
 a:visited {
-  color: #202020;
+  color: white;
 }
 
 .title {
@@ -100,9 +102,15 @@ input {
   font-weight: 500;
   line-height: 13px;
   letter-spacing: 0em;
+
 }
+input::placeholder{
+  font-weight: 500px;
+  color:#202020;
+}
+
 h5{
-  font-size: 10px;
+  font-size: 12px;
   color: #fff;
   align-items: center;
 }

@@ -6,9 +6,10 @@
 }
 .fin-compra{
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    //justify-content: space-between;
     margin-bottom: 96px;
+    align-items: center;
     
 }
 .titulo-fin-compra{
@@ -23,7 +24,7 @@
 
 .carrito{
     width: 514px; 
-    margin-right: 11px; 
+    margin: 11px; 
 }
 
 .login__container {

@@ -14,7 +14,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #d9d9d9;
+    background-color: #374664;
 
     .logo {
       cursor: pointer;
@@ -28,7 +28,8 @@ header {
   .navbar {
     width: 100%;
     height: $heigth-navbar;
-    background-color: #bfbfbf;
+    background-color: #374664;
+    border:0.5px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +50,7 @@ header {
           // background-color: #d2d2d2;
           // padding: 0.4rem 2rem;
           border-radius: 4px;
+          color:#fff ;
         }
       }
 
@@ -56,6 +58,7 @@ header {
       .option__user {
         display: flex;
         gap: 1rem;
+       
       }
 
       .option__user {
@@ -66,6 +69,8 @@ header {
           font-size: 1rem;
           font-weight: 400;
           gap: calc(24px - 0.5rem);
+          background-color: white;
+          border-radius: 2px;
         }
         img {
           cursor: pointer;
@@ -76,7 +81,10 @@ header {
           border-radius: 7px;
           cursor: pointer;
         }
-
+        #imgCart{
+          background-color: white;
+          border-radius: 2px;
+        }
         .cart__container {
           width: 350px;
           position: absolute;
