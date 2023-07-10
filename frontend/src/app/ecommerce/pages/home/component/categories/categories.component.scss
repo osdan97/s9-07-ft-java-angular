@@ -1,0 +1,31 @@
+@import "src/styles.scss";
+
+.categories__container {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 80px;
+
+  .categories__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+
+    .categories__card {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #9a9595;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+}

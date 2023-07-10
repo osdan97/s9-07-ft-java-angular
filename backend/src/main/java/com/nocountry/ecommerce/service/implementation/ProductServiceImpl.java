@@ -44,10 +44,15 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setWeight(weight);
         String country = productDto.getCountry();
         saveProduct.setCountry(country);
-        Boolean state = true;
-        saveProduct.setState(state);
+        Integer minStock = productDto.getMinStock();
+        saveProduct.setMinStock(minStock);
+        saveProduct.setState(ProductState.U);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
+
+        if(categoryEntity == null){
+            throw new IllegalStateException("Category can't be empty");
+        }
         saveProduct.setCategory(categoryEntity);
 
         productRepository.save(saveProduct);
@@ -87,6 +92,28 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public void changeStateProduct(String id) {
+        if(!productRepository.existsById(id)){
+            throw new IllegalStateException("Product does not exists");
+        }
+        Optional<Product> existingProduct = productRepository.findById(id);
+        Product productToChangeState = existingProduct.get();
+
+        Integer stock = productToChangeState.getStock();
+        Integer minStock = productToChangeState.getMinStock();
+
+        if(stock > minStock) {
+            productToChangeState.setState(ProductState.A);
+        }
+        if(stock < minStock) {
+            productToChangeState.setState(ProductState.W);
+        }
+        if(stock == 0) {
+            productToChangeState.setState(ProductState.U);
+        }
+    }
+
+    @Override
     public void deleteProduct(String id) {
         if(!productRepository.existsById(id)){
             throw new IllegalStateException("Product does not exists");
@@ -117,4 +144,14 @@ public class ProductServiceImpl implements ProductService {
         productPage = productRepository.findAll(pageRequest);
         return productPage.getContent();
     }
+
+    @Override
+    public Optional<Product> getProduct(String productName) {
+        return productRepository.findByName(productName);
+    }
+    @Override
+    public Optional<Product> getProductByUuid(String id) {
+        return productRepository.findById(id);
+    }
+
 }

@@ -17,7 +17,11 @@ public class ProductController {
 
     @PostMapping("")
     public ResponseEntity<?> saveProduct(@RequestBody ProductDto productDto){
-        return new ResponseEntity<>(productService.createProduct(productDto), HttpStatus.CREATED);
+        try {
+            return new ResponseEntity<>(productService.createProduct(productDto), HttpStatus.CREATED);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     @PutMapping("/update/{id}")

@@ -6,13 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Serializable {
     @Id
     @Column(name = "product_uuid")
     private String id;
@@ -30,9 +32,12 @@ public class Product {
     private Double weight;
     @Column(name = "country", nullable = false)
     private String country;
+    @Column(name = "min_stock", nullable = false)
+    private Integer minStock;
+    @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
     private Boolean state;
     @ManyToOne
-    @JoinColumn(name = "category_uuid")
+    @JoinColumn(name = "category_uuid", nullable = false)
     private Category category;
 }

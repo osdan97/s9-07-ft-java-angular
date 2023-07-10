@@ -2,13 +2,15 @@ package com.nocountry.ecommerce.util.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 public enum ProductState {
-    UNAVAILABLE("U"),
-    WARNING("W"),
-    AVAILABLE("A"),;
+    U("UNAVAILABLE"),
+    W("WARNING"),
+    A("AVAILABLE");
 
     private String product;
 }

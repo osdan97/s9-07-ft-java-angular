@@ -1,0 +1,29 @@
+<header>
+  <div class="header__content" [ngClass]="{ padding__header: headerFixed() }">
+    <span class="logo">LOGO</span>
+  </div>
+
+  <nav class="navbar" [ngClass]="{ navbar__fixed: headerFixed() }">
+    <div class="navbar__content">
+      <div class="info__producs">
+        <button>Productos</button>
+        <button>Info de Envíos</button>
+      </div>
+
+      <span class="p-input-icon-right">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText [(ngModel)]="value" />
+      </span>
+
+      <div class="option__user">
+        <h3>
+          <!-- <span>Hola, Mariano</span> -->
+          <!-- <i class="pi pi-user"></i> -->
+          <img src="../../../../assets/images/user.svg" width="18px" alt="" />
+        </h3>
+        <!-- <i class="pi pi-shopping-cart"></i> -->
+        <img src="../../../../assets/images/cart.svg" width="18px" alt="" />
+      </div>
+    </div>
+  </nav>
+</header>
