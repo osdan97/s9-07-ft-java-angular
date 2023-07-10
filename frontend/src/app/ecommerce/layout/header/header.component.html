@@ -21,21 +21,23 @@
       <div class="option__user">
         <h3>
           <!-- <span>Hola, Mariano</span> -->
-          <!-- <i class="pi pi-user"></i> -->
-          <img
+           <!-- <i class="pi pi-user" ></i> -->
+           <i class="pi pi-user" width="18px" alt="user icon" (click)="showDialog()"></i>
+        <!--  <img
             src="../../../../assets/images/user.svg"
             width="18px"
             alt="user icon"
             (click)="showDialog()"
-          />
+          />-->
         </h3>
         <!-- <i class="pi pi-shopping-cart"></i> -->
-        <img
+        <!--<img
           src="../../../../assets/images/cart.svg"
           width="18px"
           alt="cart icon"
           (click)="showDialogCart()"
-        />
+        />-->
+        <i class="pi pi-shopping-cart"  width="18px" alt="cart icon" (click)="showDialogCart()"></i>
 
         <div class="cart__container" *ngIf="visibleCart()">
           <app-cart (visibleCart)="emitirValor($event)"></app-cart>
