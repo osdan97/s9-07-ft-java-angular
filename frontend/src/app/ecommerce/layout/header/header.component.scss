@@ -15,6 +15,7 @@ header {
     justify-content: center;
     align-items: center;
     background-color: #374664;
+    z-index: 1000;
 
     .logo {
       cursor: pointer;
@@ -58,7 +59,7 @@ header {
       .option__user {
         display: flex;
         gap: 1rem;
-       
+
       }
 
       .option__user {
@@ -90,6 +91,7 @@ header {
           position: absolute;
           top: 50px;
           right: 0px;
+          z-index: 1000;
           // max-width: 350px;
         }
       }
