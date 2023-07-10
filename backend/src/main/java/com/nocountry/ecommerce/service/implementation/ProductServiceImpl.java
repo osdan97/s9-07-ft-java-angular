@@ -7,6 +7,7 @@ import com.nocountry.ecommerce.model.Product;
 import com.nocountry.ecommerce.repository.CategoryRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.ProductService;
+import com.nocountry.ecommerce.util.enums.ProductState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
