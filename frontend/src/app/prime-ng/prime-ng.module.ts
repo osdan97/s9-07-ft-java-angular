@@ -11,6 +11,8 @@ import { MessagesModule } from 'primeng/messages';
 
 import { DialogModule } from 'primeng/dialog';
 
+import { AccordionModule } from 'primeng/accordion';
+
 @NgModule({
   exports: [
     ButtonModule,
@@ -20,6 +22,7 @@ import { DialogModule } from 'primeng/dialog';
     PaginatorModule,
     MessagesModule,
     DialogModule,
+    AccordionModule,
   ],
 })
 export class PrimeNgModule {}
