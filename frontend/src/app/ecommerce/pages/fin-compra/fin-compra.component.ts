@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./fin-compra.component.scss']
 })
 export class FinCompraComponent {
-
+  
 }
