@@ -17,7 +17,11 @@ public class ProductController {
 
     @PostMapping("")
     public ResponseEntity<?> saveProduct(@RequestBody ProductDto productDto){
-        return new ResponseEntity<>(productService.createProduct(productDto), HttpStatus.CREATED);
+        try {
+            return new ResponseEntity<>(productService.createProduct(productDto), HttpStatus.CREATED);
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+        }
     }
 
     @PutMapping("/update/{id}")
@@ -26,9 +30,9 @@ public class ProductController {
     }
 
     @PatchMapping("/update-state/{id}")
-    public ResponseEntity<?> chageStateProduct(@PathVariable String id){
+    public ResponseEntity<?> changeStateProduct(@PathVariable String id){
         productService.changeStateProduct(id);
-        return new ResponseEntity<>("The product state changed", HttpStatus.OK);
+        return new ResponseEntity<>("Product state changed", HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{id}")

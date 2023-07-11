@@ -1,0 +1,31 @@
+<section>
+  <div class="filter-card">
+    <h2>Todos los productos</h2>
+    <div>
+      <label for="filter">
+        Ordenar por:
+        <select name="filter" id="filter">
+          <option value="prime1">Precio: menoar a mayor</option>
+          <option value="prime1">prime1</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="list-card">
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+    <app-card></app-card>
+  </div>
+</section>
+<div class="paginador">
+  <div class="flex align-items-center justify-content-center">
+    <div class="flex-1">
+      <p-paginator [rows]="10" [totalRecords]="120" [showFirstLastIcon]="false"></p-paginator>
+    </div>
+  </div>
+</div>

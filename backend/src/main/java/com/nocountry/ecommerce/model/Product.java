@@ -7,13 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
 @Table(name = "PRODUCT")
-public class Product {
+public class Product implements Serializable {
     @Id
     @Column(name = "product_uuid",nullable = false,unique = true)
     private String id;
@@ -21,7 +23,7 @@ public class Product {
     private String name;
     @Column(name = "description", nullable = false)
     private String description;
-    @Column(name = "stock")
+    @Column(name = "stock", nullable = false)
     private Integer stock;
     @Column(name = "image", nullable = false)
     private String image;
@@ -33,9 +35,10 @@ public class Product {
     private String country;
     @Column(name = "min_stock", nullable = true)
     private Integer minStock;
+    @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
     private ProductState state;
     @ManyToOne
-    @JoinColumn(name = "category_uuid")
+    @JoinColumn(name = "category_uuid", nullable = false)
     private Category category;
 }

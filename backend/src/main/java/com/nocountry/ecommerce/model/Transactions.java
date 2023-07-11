@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -36,7 +35,7 @@ public class Transactions {
 
     public Transactions(Double total){
         this.transactionUuid = UUID.randomUUID().toString();
-        this.total=total;
+        this.total = total;
         this.createdDate = LocalDateTime.now();
         this.transactionState = TransactionState.valueOf(TransactionState.ON_HOLD.getValue());
     }
