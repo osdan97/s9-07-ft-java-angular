@@ -107,6 +107,7 @@ public class ProductServiceImpl implements ProductService {
         if(stock == 0) {
             productToChangeState.setState(ProductState.U);
         }
+        productRepository.save(productToChangeState);
     }
 
     @Override
