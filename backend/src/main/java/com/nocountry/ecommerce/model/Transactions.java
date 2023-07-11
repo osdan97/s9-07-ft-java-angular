@@ -7,7 +7,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -22,10 +21,12 @@ import java.util.UUID;
 public class Transactions {
 
     @Id
-    @Column(name = "transaction_uuid")
+    @Column(name = "transaction_uuid",nullable = false,unique = true)
     private String transactionUuid;
+
     @Column(name = "total", nullable = false, updatable = false)
     private Double total;
+
     @Column(name = "created_date", nullable = false, updatable = false)
     private LocalDateTime createdDate;
     @Enumerated(EnumType.STRING)

@@ -17,9 +17,9 @@ import java.io.Serializable;
 @Table(name = "PRODUCT")
 public class Product implements Serializable {
     @Id
-    @Column(name = "product_uuid")
+    @Column(name = "product_uuid",nullable = false,unique = true)
     private String id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false,unique = true)
     private String name;
     @Column(name = "description", nullable = false)
     private String description;
@@ -33,7 +33,7 @@ public class Product implements Serializable {
     private Double weight;
     @Column(name = "country", nullable = false)
     private String country;
-    @Column(name = "min_stock", nullable = false)
+    @Column(name = "min_stock", nullable = true)
     private Integer minStock;
     @Enumerated(EnumType.STRING)
     @Column(name = "state", nullable = false)
