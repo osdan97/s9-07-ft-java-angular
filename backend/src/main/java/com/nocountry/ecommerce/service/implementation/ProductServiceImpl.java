@@ -71,8 +71,6 @@ public class ProductServiceImpl implements ProductService {
         productUpdated.setName(name);
         String description = productDto.getDescription();
         productUpdated.setDescription(description);
-        Integer stock = productDto.getStock();
-        productUpdated.setStock(stock);
         String image = productDto.getImage();
         productUpdated.setImage(image);
         Double price = productDto.getPrice();
