@@ -6,13 +6,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
 @Table(name = "SHIPPING_DETAILS_CUSTOMER")
-public class ShippingDetailsCustomer {
+public class ShippingDetailsCustomer implements Serializable {
     @Id
     @Column(name = "shippingdetail_uuid")
     private String shippingDetailUuid;
