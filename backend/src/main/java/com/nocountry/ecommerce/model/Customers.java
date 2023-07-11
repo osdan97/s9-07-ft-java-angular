@@ -32,7 +32,8 @@ public class Customers extends Account implements Serializable {
     @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "account_uuid", referencedColumnName = "account_uuid")
     private List<Phones> phonesList;
-    @OneToMany(mappedBy = "customer")
+    //Implementación Bidireccional de shippingDetailsList
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<ShippingDetailsCustomer> shippingDetailsList;
     public Customers(String email, String password){
         super(email,password);

@@ -37,8 +37,8 @@ public class ShippingDetailsCustomer implements Serializable {
     private String city;
     @Column(name = "country")
     private String country;
+    //Implementación Bidireccional de shippingDetailsList
     @ManyToOne
-    @JoinColumn(name = "account_uuid")
     private Customers customer;
     @Column(name = "active")
     private boolean active;
