@@ -21,9 +21,14 @@
       <div class="option__user">
         <h3>
           <!-- <span>Hola, Mariano</span> -->
-           <!-- <i class="pi pi-user" ></i> -->
-           <i class="pi pi-user" width="18px" alt="user icon" (click)="showDialog()"></i>
-        <!--  <img
+          <!-- <i class="pi pi-user" ></i> -->
+          <i
+            class="pi pi-user"
+            width="18px"
+            alt="user icon"
+            (click)="showDialog()"
+          ></i>
+          <!--  <img
             src="../../../../assets/images/user.svg"
             width="18px"
             alt="user icon"
@@ -37,9 +42,15 @@
           alt="cart icon"
           (click)="showDialogCart()"
         />-->
-        <i class="pi pi-shopping-cart" id="imgCart" width="18px" alt="cart icon" (click)="showDialogCart()"></i>
+        <i
+          class="pi pi-shopping-cart"
+          id="imgCart"
+          width="18px"
+          alt="cart icon"
+          (click)="showDialogCart()"
+        ></i>
 
-        <div class="cart__container" *ngIf="visibleCart()">
+        <div class="cart__container" *ngIf="visibleCart()" #menuContainer>
           <app-cart (visibleCart)="emitirValor($event)"></app-cart>
         </div>
       </div>
@@ -52,7 +63,7 @@
   [style]="{ width: '400px' }"
   [breakpoints]="{ '450px': '95vw' }"
 >
-  <div class="login__container">
+  <div class="login__container" #menuContainer>
     <app-login></app-login>
   </div>
 </p-dialog>

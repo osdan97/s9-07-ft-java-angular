@@ -1,4 +1,12 @@
-import { Component, HostListener, OnInit, inject, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  Renderer2,
+  inject,
+  signal,
+} from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -14,6 +22,8 @@ export class HeaderComponent implements OnInit {
   visibleCart = signal<boolean>(false);
 
   router = inject(Router);
+  renderer = inject(Renderer2);
+  elementRef = inject(ElementRef);
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
@@ -21,6 +31,8 @@ export class HeaderComponent implements OnInit {
       // if (event instanceof NavigationEnd) {
       // }
     });
+
+    this.clickOutMenu();
   }
 
   //Función para verificar si no se encuentra en la ruta principal para mostrar el header con el menú de categorías
@@ -60,5 +72,18 @@ export class HeaderComponent implements OnInit {
     } else {
       this.headerFixed.set(false);
     }
+  }
+
+  //Función para cerrar el modal del login y carrito al dar click fuera de él
+  clickOutMenu() {
+    this.renderer.listen('document', 'click', (event: MouseEvent) => {
+      const clickedInsideMenu = this.elementRef.nativeElement.contains(
+        event.target
+      );
+      if (!clickedInsideMenu) {
+        this.visibleCart.set(false);
+        this.visible = false;
+      }
+    });
   }
 }
