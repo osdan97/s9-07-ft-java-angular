@@ -21,7 +21,7 @@
     <span>€8</span>
   </div>
   <div class="cart__button">
-    <button>Agregar producto</button>
-    <button routerLink="fin-compra">Finalizar compra</button>
+    <button routerLink="fin-compra" class="boton1">{{boton1}}</button>
+    <button routerLink="fin-compra" (click)="emitirValor()">{{boton2}}</button>
   </div>
 </article>

@@ -7,6 +7,8 @@ import { Component, EventEmitter, Output, signal } from '@angular/core';
 })
 export class CartComponent {
   @Output() visibleCart = new EventEmitter<boolean>();
+  boton1 = "Ver detalle";
+  boton2 = "Finalizar compra";
 
   cart = signal<any>([
     {
@@ -28,4 +30,7 @@ export class CartComponent {
   emitirValor() {
     this.visibleCart.emit(false);
   }
+
+
+
 }
