@@ -32,11 +32,11 @@ public class InventoryController {
     }
 
 
-    @DeleteMapping("/delete/{id}")
+   /* @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable String id){
         inventoryService.deleteInventory(id);
         return new ResponseEntity<>("Inventory delete successfully", HttpStatus.OK);
-    }
+    }*/
 
     @GetMapping("/list")
     public ResponseEntity<?> listInventory(){

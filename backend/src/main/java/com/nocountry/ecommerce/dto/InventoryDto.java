@@ -12,5 +12,9 @@ import lombok.Setter;
 public class InventoryDto {
 
     private String name;
-    private int cant;
+    private int stock_inventory;
+    private String product_name;
+    private String image;
+    private Double purchase_price;
+
 }

@@ -15,9 +15,9 @@ import lombok.ToString;
 @Table(name = "PRODUCT")
 public class Product {
     @Id
-    @Column(name = "product_uuid")
+    @Column(name = "product_uuid",nullable = false,unique = true)
     private String id;
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false,unique = true)
     private String name;
     @Column(name = "description", nullable = false)
     private String description;

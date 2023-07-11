@@ -9,11 +9,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TransactionDto {
-    private String name_operation;
-    private int cant;
+public class TransactionsDto {
+    private Integer quantity;
     private String description;
-    private String inventory;
-    private String product;
-
 }
