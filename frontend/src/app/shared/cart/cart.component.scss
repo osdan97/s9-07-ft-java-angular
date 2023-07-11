@@ -81,11 +81,22 @@
     button {
       padding: 13px 32px;
       border-radius: 7px;
-     // background-color: #d8d8d8;
+      // background-color: #d8d8d8;
       font-weight: 500;
       &:nth-child(2) {
-       // background-color: #b6b6b6;
+        // background-color: #b6b6b6;
       }
     }
   }
+}
+
+.button__view--two {
+  width: 240px;
+  height: 40px;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
 }

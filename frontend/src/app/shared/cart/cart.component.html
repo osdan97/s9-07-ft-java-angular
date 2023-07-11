@@ -8,7 +8,7 @@
     <div class="text__cart">
       <h3>{{ item.name }}</h3>
       <p>
-        x1<span>€{{ item.price }}</span>
+        <app-input-cart [showButton]="false"></app-input-cart>
       </p>
     </div>
     <div class="trash__cart">
@@ -16,12 +16,39 @@
     </div>
   </div>
 
-  <div class="cart__subtotal">
+  <div class="cart__subtotal" *ngIf="changeButton; else contentn2">
     <span>Subtotal</span>
     <span>€8</span>
   </div>
-  <div class="cart__button">
-    <button routerLink="fin-compra" class="boton1" (click)="emitirValor()">{{boton1}}</button>
-    <button routerLink="fin-compra" (click)="emitirValor()">{{boton2}}</button>
+  <div class="cart__button" *ngIf="changeButton; else button2">
+    <button routerLink="fin-compra" class="boton1" (click)="emitirValor()">
+      {{ boton1 }}
+    </button>
+    <button routerLink="fin-compra" (click)="emitirValor()">
+      {{ boton2 }}
+    </button>
   </div>
 </article>
+
+<ng-template #button2>
+  <button (click)="backHistory()" class="button__view--two">
+    <!-- <i class="pi pi-arrow-left"></i> -->
+    <img src="../../../assets/images/arrow.svg" alt="" />
+    Seguir comprando
+  </button>
+</ng-template>
+
+<ng-template #contentn2>
+  <div class="cart__subtotal">
+    <span>4 artículos</span>
+    <span>€8</span>
+  </div>
+  <div class="cart__subtotal">
+    <span>Costo de envío aproximado</span>
+    <span>€7.95</span>
+  </div>
+  <div class="cart__subtotal">
+    <span>Total</span>
+    <span>€21.95</span>
+  </div>
+</ng-template>

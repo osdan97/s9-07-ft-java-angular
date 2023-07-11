@@ -10,6 +10,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 })
 export class InputCartComponent implements OnInit {
   @Input() product!: any;
+  @Input() showButton = true;
   addCartForm!: FormGroup;
 
   quantity = signal<number>(1);

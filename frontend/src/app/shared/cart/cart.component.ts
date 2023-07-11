@@ -1,14 +1,24 @@
-import { Component, EventEmitter, Output, signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  inject,
+  signal,
+} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   @Output() visibleCart = new EventEmitter<boolean>();
-  boton1 = "Ver detalle";
-  boton2 = "Finalizar compra";
+  @Input() changeButton = true;
+  boton1 = 'Ver detalle';
+  boton2 = 'Finalizar compra';
 
   cart = signal<any>([
     {
@@ -27,10 +37,13 @@ export class CartComponent {
     },
   ]);
 
+  ngOnInit(): void {}
+
   emitirValor() {
     this.visibleCart.emit(false);
   }
 
-
-
+  backHistory() {
+    window.history.back();
+  }
 }

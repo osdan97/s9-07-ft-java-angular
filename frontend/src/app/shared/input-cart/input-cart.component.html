@@ -8,5 +8,7 @@
       <img src="../../../assets/menos.png" alt="" class="icon" />
     </button>
   </div>
-  <button type="submit" class="btn">Añadir al carrito</button>
+  <button *ngIf="showButton" type="submit" class="btn">
+    Añadir al carrito
+  </button>
 </form>
