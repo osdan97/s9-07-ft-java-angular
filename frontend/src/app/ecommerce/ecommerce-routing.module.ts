@@ -27,6 +27,14 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'pais',
+        loadChildren: () =>
+          import('./pages/pais/pais.module').then(
+            (m) => m.PaisModule
+          ),
+      },
+      
+      {
         path: 'create-user',
         loadChildren: () =>
           import('./pages/create-user/create-user.module').then(
