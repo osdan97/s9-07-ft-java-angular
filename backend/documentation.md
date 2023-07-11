@@ -1,7 +1,7 @@
 # Category:
 ## List Categories
 GET
-http://localhost:8080/api/category/list
+https://delatinos.up.railway.app/api/category/list
 
 Example output
 
@@ -19,7 +19,7 @@ Example output
 
 ## Create a new category
 POST
-http://localhost:8080/api/category/create
+https://delatinos.up.railway.app/api/category/create
 
 Example input:
 ```Json
@@ -39,11 +39,11 @@ Example output:
 
 ## Edit a category
 PUT
-http://localhost:8080/api/category/updatebyname/{categoryName}
+https://delatinos.up.railway.app/api/category/updatebyname/{categoryName}
 
 Example input:
 
-http://localhost:8080/api/category/updatebyname/dulces
+https://delatinos.up.railway.app/api/category/updatebyname/dulces
 
 ```Json
 {
@@ -61,11 +61,11 @@ Example output:
 ```
 
 ## Delete a category
-DELETE http://localhost:8080/api/category/deletebyname/{categoryName}
+DELETE https://delatinos.up.railway.app/api/category/deletebyname/{categoryName}
 
 Example input:
 
-http://localhost:8080/api/category/deletebyname/bebidas
+https://delatinos.up.railway.app/api/category/deletebyname/bebidas
 
 Example output:
 ```Json
@@ -76,11 +76,11 @@ Example output:
 
 ## Get by name
 GET
-http://localhost:8080/api/category/detail/{categoryName}
+https://delatinos.up.railway.app/api/category/detail/{categoryName}
 
 Example input:
 
-http://localhost:8080/api/category/detail/dulces
+https://delatinos.up.railway.app/api/category/detail/dulces
 
 Example output:
 ```Json
@@ -97,7 +97,7 @@ Example output:
 
 ## Register
 POST
-http://localhost:8080/api/authentication/sign-up
+https://delatinos.up.railway.app/api/authentication/sign-up
 
 Example input:
 ```Json
@@ -121,11 +121,11 @@ Example output:
 
 ## Account verification
 GET
-http://localhost:8080/api/authentication/verify/{verificationCode}
+https://delatinos.up.railway.app/api/authentication/verify/{verificationCode}
 
 Example input:
 
-http://localhost:8080/api/authentication/verify/BFhUIMZCvLaRGRKAC9g9LqltlXLqzqopJiSY1G2BevotUt6YsfjKtigeUI2mqzSh
+https://delatinos.up.railway.app/api/authentication/verify/BFhUIMZCvLaRGRKAC9g9LqltlXLqzqopJiSY1G2BevotUt6YsfjKtigeUI2mqzSh
 
 Example output:
 ```Text
@@ -134,7 +134,7 @@ Verification Succeeded
 
 ## Log in
 POST
-http://localhost:8080/api/authentication/sign-in
+https://delatinos.up.railway.app/api/authentication/sign-in
 
 Example input: 
 ```Json
@@ -154,11 +154,11 @@ Example Output
 
 ## Update account
 PUT
-http://localhost:8080/api/customer/update/{email}
+https://delatinos.up.railway.app/api/customer/update/{email}
 
 Example input:
 
-http://localhost:8080/api/customer/update/example@example.com
+https://delatinos.up.railway.app/api/customer/update/example@example.com
 
 ```Json
 {
@@ -180,7 +180,7 @@ Example output:
 
 ## Forgot Password
 POST
-http://localhost:8080/api/authentication/forgot-password
+https://delatinos.up.railway.app/api/authentication/forgot-password
 
 Example input:
 ```Json
@@ -201,7 +201,7 @@ Example output:
 
 ## Reset Password
 POST
-http://localhost:8080/api/authentication/change-password
+https://delatinos.up.railway.app/api/authentication/change-password
 
 Example input:
 ```Json
@@ -237,7 +237,7 @@ Example output:
 
 ## Save Product
 POST
-http://localhost:8080/api/products
+https://delatinos.up.railway.app/api/products
 
 Example input:
 ```Json
@@ -278,12 +278,12 @@ Example output:
 ```
 
 ## Update Product
-PUT 
-http://localhost:8080/api/products/update/{productId}
+PUT
+https://delatinos.up.railway.app/api/products/update/{productId}
 
 Example input:
 
-http://localhost:8080/api/products/update/b8ab31b0-5bd5-45b1-8abd-b20c9bec3969
+https://delatinos.up.railway.app/api/products/update/b8ab31b0-5bd5-45b1-8abd-b20c9bec3969
 
 ```Json
 {
@@ -301,11 +301,11 @@ http://localhost:8080/api/products/update/b8ab31b0-5bd5-45b1-8abd-b20c9bec3969
 
 ## Change state product
 PATCH
-http://localhost:8080/api/products/update-state/{productId}
+https://delatinos.up.railway.app/api/products/update-state/{productId}
 
 Example input:
 
-http://localhost:8080/api/products/update-state/b8ab31b0-5bd5-45b1-8abd-b20c9bec3969
+https://delatinos.up.railway.app/api/products/update-state/b8ab31b0-5bd5-45b1-8abd-b20c9bec3969
 
 Example output:
 ```Text
@@ -314,11 +314,11 @@ The product state changed
 
 ## Delete product
 PATCH
-http://localhost:8080/api/products/delete/{productId}
+https://delatinos.up.railway.app/api/products/delete/{productId}
 
 Example input:
 
-http://localhost:8080/api/products/delete/00a2e79a-2e10-4776-a968-04f9864835ea
+https://delatinos.up.railway.app/api/products/delete/00a2e79a-2e10-4776-a968-04f9864835ea
 
 Example output:
 ```Text
@@ -327,7 +327,7 @@ The product state changed
 
 ## List Products pageable
 GET
-http://localhost:8080/api/products
+https://delatinos.up.railway.app/api/products
 
 Example input without filter
 ```Json
@@ -389,10 +389,12 @@ Example output
 # Favorites
 ## Save Favorites
 POST
-http://localhost:8080/api/favorites/create
+https://delatinos.up.railway.app/api/favorites/create
 ```
 ```
-Example input 
+Example input
+https://delatinos.up.railway.app/api/favorites/create
+
 ```Json
 
 {
@@ -445,8 +447,11 @@ Example output
 
 ## List Favorites
 GET
+https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
+
+
 Example input
-http://localhost:8080/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
+https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
 ```Json
 {
   "customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
@@ -460,9 +465,11 @@ Example Output
 ```
 ## Update Favorite
 PUT
-http://localhost:8080/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
+https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
 
 Example input
+https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
+
 ```Json
 {
 "customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
@@ -481,9 +488,11 @@ Example output
 
 ## Delete Favorite
 DELETE
-http://localhost:8080/api/favorites/deletebyid/75b29a68-5901-4555-8060-58ffc1ea44c2
+https://delatinos.up.railway.app/api/favorites/deletebyid/75b29a68-5901-4555-8060-58ffc1ea44c2
 
 Example input
+https://delatinos.up.railway.app/api/favorites/deletebyid/75b29a68-5901-4555-8060-58ffc1ea44c2
+
 
 Example output
 ```Json
@@ -491,3 +500,181 @@ Example output
     "mensaje": "favorites deleted successfully"
 }
 ```
+# Inventory
+## List Inventory
+GET
+https://delatinos.up.railway.app/api/inventory/list
+```Json
+```
+
+Example input
+https://delatinos.up.railway.app/api/inventory/list
+
+```Json
+```
+
+Example output
+```
+
+
+```
+
+
+## Create Inventory
+POST
+https://delatinos.up.railway.app/api/inventory/create
+
+
+Example input
+https://delatinos.up.railway.app/api/inventory/create
+```Json
+{
+    "name":"Inventory Product7",
+    "stock_inventory":50,
+    "product_name":"product7",
+    "image":"image.jpg",
+    "purchase_price":10
+}
+```
+
+Example output
+```
+```
+
+
+## Update Inventory
+PUT
+https://delatinos.up.railway.app/api/inventory/update/aa788793-3607-40dd-b26c-1d6d00107e30
+Example input
+```Json
+{
+  "purchase_price":30,
+  "image":"image5"
+}
+```
+
+Example output
+```
+
+```
+
+
+##  Create Inventory Transaction 
+https://delatinos.up.railway.app/api/transaction/inventory
+POST
+
+Example input
+https://delatinos.up.railway.app/api/transaction/inventory
+```Json
+{
+    "quantity":15,
+    "inventory":"Inventory Product7",
+    "transaction_type":"COMPRA",
+    "description":"Compra de product6 por motivo de agotamiento de stock"
+}
+```
+
+Example output
+```
+```
+##  List Inventory Transaction
+https://delatinos.up.railway.app/api/transaction/inventory/listPOST
+GET
+
+Example input
+https://delatinos.up.railway.app/api/transaction/inventory/list```Json
+
+
+
+Example output
+```
+
+```
+
+# ORDERS
+## Create Order
+https://delatinos.up.railway.app/api/orders
+POST
+
+Example input
+https://delatinos.up.railway.app/api/orders
+
+```JSON
+{
+"customers": {
+"accountUuid":"45f60e43-619d-4031-a3c7-aacca8ed26e0"
+},
+"shippingCost": 15,
+"orderDetailsList": [
+{
+"product": {
+"id": "f0bcc4f4-d8f7-44c4-92d9-4c066dfe742e"
+},
+"quantity": 2
+},
+{
+"product": {
+"id": "99968e9d-725c-4951-bf00-8275f0a8d266"
+},
+"quantity": 4
+}
+],
+"shippingDetails": {
+"name": "Ana",
+"lastName": "Reyes",
+"company": "",
+"address1": "Calle Mercedes No. 24",
+"address2": "Zona Colonial",
+"postalCode": "22243",
+"provincia": "Santo Domingo",
+"city": "Distrito Nacional",
+"country": "Republica Dominicana",
+"gift": false
+}
+}
+```
+
+Example output
+```JSON
+{
+    "number": "2023-2",
+    "fullName": "Felipe Castro",
+    "shippingCost": null,
+    "amountTaxes": 2.85,
+    "amountTotal": 15.0,
+    "total": 17.85,
+    "createdDate": "2023-07-11T15:05:24.496416873",
+    "transactionState": "ON_HOLD",
+    "orderDetailsRegistrationList": [
+        {
+            "productName": "azucar",
+            "quantity": 2,
+            "price": 2.5,
+            "totalAmount": 5.0,
+            "taxesAmount": 0.95,
+            "total": 5.95
+        },
+        {
+            "productName": "product2",
+            "quantity": 4,
+            "price": 2.5,
+            "totalAmount": 10.0,
+            "taxesAmount": 1.9,
+            "total": 11.9
+        }
+    ],
+    "shippingDetailsRegistration": {
+        "fullName": "Ana Reyes",
+        "company": "",
+        "address": "Calle Mercedes No. 24",
+        "address2": "Zona Colonial",
+        "postalCode": "22243",
+        "provincia": "Santo Domingo",
+        "city": "Distrito Nacional",
+        "country": "Republica Dominicana"
+    }
+}
+
+```
+# Shipping Details
+
