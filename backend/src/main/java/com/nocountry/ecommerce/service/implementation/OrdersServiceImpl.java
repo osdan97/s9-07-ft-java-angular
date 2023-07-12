@@ -74,6 +74,10 @@ public class OrdersServiceImpl implements OrdersService {
         order.setCustomers(customersRequest);
         orderRegistration.setFullName(fullName);
 
+        order.setDescription("");
+        order.setQuantity(0);
+        order.setTransaction_type("ORDEN DE VENTA");
+
         Double shippingCost = order.getShippingCost();
         orderRegistration.setShippingCost(shippingCost);
 

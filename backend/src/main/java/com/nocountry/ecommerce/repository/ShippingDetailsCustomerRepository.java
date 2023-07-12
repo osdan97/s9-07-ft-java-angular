@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ShippingDetailsCustomerRepository extends JpaRepository<ShippingDetailsCustomer, String> {
     @Query(
-            value = "select * from ShippingDetailsCustomer s where s.accountUuid=:customerUuid",
+            value = "select * from SHIPPING_DETAILS_CUSTOMER s where s.account_uuid=:customerUuid",
             nativeQuery = true
     )
     List<ShippingDetailsCustomer> findByCustomerAccountUuid(String customerUuid);

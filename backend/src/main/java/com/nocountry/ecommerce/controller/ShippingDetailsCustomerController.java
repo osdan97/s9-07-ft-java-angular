@@ -39,11 +39,7 @@ public class ShippingDetailsCustomerController {
 
     @GetMapping("/customer/{customerUuid}")
     public ResponseEntity<List<ShippingDetailsCustomerName>> findShippingDetailsCustomerByName(@PathVariable String customerUuid) {
-        try {
             List<ShippingDetailsCustomerName> shippingDetailsDTOList = shippingDetailsService.findShippingDetailsCustomerByName(customerUuid);
             return ResponseEntity.ok(shippingDetailsDTOList);
-        }catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body((List<ShippingDetailsCustomerName>) new Mensaje("Failed to retrieve shipping details for customer with UUID: " + customerUuid));
-        }
     }
 }

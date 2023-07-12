@@ -32,6 +32,13 @@ public class Orders extends Transactions implements Serializable {
 
     @Column(name = "amount_total")
     private Double amountTotal;
+    @Column(name="description", nullable = false)
+    private String description;
+
+    @Column(name = "quantity", nullable = false, updatable = false)
+    private Integer quantity;
+    @Column(name="transaction_type",nullable = false)
+    public String transaction_type;
 
     @OneToMany(targetEntity = OrderDetails.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "transaction_uuid", referencedColumnName = "transaction_uuid")

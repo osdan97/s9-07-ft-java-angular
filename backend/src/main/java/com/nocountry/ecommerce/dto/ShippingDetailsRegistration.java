@@ -12,7 +12,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ShippingDetailsRegistration {
     private String fullName;
-    private String company;
     private String address;
     private String address2;
     private String postalCode;

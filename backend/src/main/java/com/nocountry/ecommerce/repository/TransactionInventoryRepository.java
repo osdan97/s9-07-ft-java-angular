@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 public interface  TransactionInventoryRepository extends JpaRepository<TransactionInventory,String> {
 
 
-    @Query(value = "SELECT MAX(a.number) FROM ecommercedb.TRANSACTIONS a WHERE a.transaction = 'transactionInventory'", nativeQuery = true)
+    @Query(value = "SELECT MAX(a.number) FROM TRANSACTIONS a WHERE a.transaction = 'transactionInventory'", nativeQuery = true)
     String findByNumber();
 }

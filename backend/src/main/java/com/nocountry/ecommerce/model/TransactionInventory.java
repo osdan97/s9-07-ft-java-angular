@@ -29,7 +29,7 @@ public class TransactionInventory extends Transactions {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="inventory_uuid",nullable = false)
+    @JoinColumn(name="inventory_uuid")
     public Inventory inventory;
 
 public TransactionInventory (Double total){
