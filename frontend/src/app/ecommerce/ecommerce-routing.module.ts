@@ -20,17 +20,24 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'fin-compra',
+        path: 'cart-unlogged',
         loadChildren: () =>
-          import('./pages/fin-compra/fin-compra.module').then(
-            (m) => m.FinCompraModule
+          import('./pages/cart-unlogged/cart-unlogged.module').then(
+            (m) => m.CartUnloggedModule
           ),
       },
       {
-        path: 'pais',
+        path: 'cart-logged',
         loadChildren: () =>
-          import('./pages/pais/pais.module').then(
-            (m) => m.PaisModule
+          import('./pages/cart-logged/cart-logged.module').then(
+            (m) => m.CartLoggedModule
+          ),
+      },
+      {
+        path: 'country',
+        loadChildren: () =>
+          import('./pages/country/country.module').then(
+            (m) => m.CountryModule
           ),
       },
       

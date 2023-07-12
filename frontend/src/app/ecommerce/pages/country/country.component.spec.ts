@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FinCompraComponent } from './fin-compra.component';
+import { CountryComponent } from './country.component';
 
-describe('FinCompraComponent', () => {
-  let component: FinCompraComponent;
-  let fixture: ComponentFixture<FinCompraComponent>;
+describe('CountryComponent', () => {
+  let component: CountryComponent;
+  let fixture: ComponentFixture<CountryComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [FinCompraComponent]
+      declarations: [CountryComponent]
     });
-    fixture = TestBed.createComponent(FinCompraComponent);
+    fixture = TestBed.createComponent(CountryComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
