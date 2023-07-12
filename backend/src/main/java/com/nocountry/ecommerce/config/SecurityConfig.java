@@ -49,16 +49,50 @@ public class SecurityConfig {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeHttpRequests()
-                .requestMatchers(HttpMethod.PUT,"/api/account/change/**","api/account/findallcustomerlist").hasRole(Role.ADMIN.name())
+                .requestMatchers(HttpMethod.PUT,"/api/account/change/**",
+                        "api/account/findallcustomerlist",
+                        "api/category/updatebyname/**",
+                        "api/category/update/**",
+                        "api/inventory/update/**",
+                        "api/products/update/**")
+                .hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.POST,"api/inventory/create",
+                        "api/category/create",
+                        "api/products",
+                        "api/transaction/inventory")
+                .hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.GET, "api/inventory/list",
+                        "api/products",
+                        "api/transaction/inventory/**").hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.DELETE,"api/category/delete/**",
+                        "api/category/deletebyname/**",
+                        "api/products/delete/**")
+                .hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.PATCH, "api/products/update-state/**").hasRole(Role.USER.name())
+
                 .requestMatchers(HttpMethod.PUT, "/api/account/updateAccount/**").hasRole(Role.USER.name())
-                .requestMatchers(HttpMethod.POST,"/api/wishlist/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.POST, "api/orders",
+                        "/api/shipping-details/**")
+                .hasRole(Role.USER.name())
+                .requestMatchers(HttpMethod.GET, "/customer/**").hasRole(Role.USER.name())
+
+                .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+                .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+                .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
                 .requestMatchers("/api/authentication/sign-in",
                         "/api/authentication/sign-up",
+                        "/api/authentication/forgot-password",
+                        "/api/authentication/change-password",
                         "/swagger-ui/**",
                         "/v3/**",
-                        "/api/account/updateAccount/**",
-                        "/pet/**",
-                        "/api/account/verify/**"
+                        "api/category/detail/**",
+                        "/api/authentication/verify/**"
                 ).permitAll()
                 .anyRequest().authenticated();
 

@@ -20,15 +20,12 @@ public class CategoryController {
     @Autowired
     CategoryService categoryService;
 
-    //@PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/list")
     public ResponseEntity<List<Category>> list() {
         List<Category> list = categoryService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    //@PreAuthorize("hasAnyRole('ADMIN','USER')")
-    //@PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody Category categoriaEnt) {
 
@@ -62,7 +59,6 @@ public class CategoryController {
         categoryService.save(category);
         return new ResponseEntity(new Mensaje("category updated successfully"), HttpStatus.OK);
     }
-    //@PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody Category categoriaEnt) {
         if (!categoryService.existsById(id))
@@ -78,7 +74,6 @@ public class CategoryController {
         return new ResponseEntity(new Mensaje("category updated successfully"), HttpStatus.OK);
     }
 
-   // @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") String id) {
         if (!categoryService.existsById(id))
