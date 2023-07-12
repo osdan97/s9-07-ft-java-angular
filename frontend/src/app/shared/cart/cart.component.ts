@@ -17,6 +17,8 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
   @Output() visibleCart = new EventEmitter<boolean>();
   @Input() changeButton = true;
+  @Input() showBorder = false;
+
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';
 

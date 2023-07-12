@@ -1,4 +1,4 @@
-<article class="cart__container">
+<article class="cart__container" [ngClass]="{'borderDisabled': showBorder}">
   <div class="cart__cross" (click)="emitirValor()">x</div>
   <h2>Tu carrito</h2>
   <div class="cart__content" *ngFor="let item of cart()">
@@ -21,10 +21,10 @@
     <span>€8</span>
   </div>
   <div class="cart__button" *ngIf="changeButton; else button2">
-    <button routerLink="fin-compra" class="boton1" (click)="emitirValor()">
+    <button routerLink="cart-unlogged" class="boton1" (click)="emitirValor()">
       {{ boton1 }}
     </button>
-    <button routerLink="fin-compra" (click)="emitirValor()">
+    <button routerLink="cart-unlogged" (click)="emitirValor()">
       {{ boton2 }}
     </button>
   </div>
