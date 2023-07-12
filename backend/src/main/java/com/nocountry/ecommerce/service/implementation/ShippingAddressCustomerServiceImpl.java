@@ -4,6 +4,7 @@ import com.nocountry.ecommerce.dto.ShippingDetailsCustomerName;
 import com.nocountry.ecommerce.dto.ShippingDetailsCustomerRegistration;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.model.ShippingDetailsCustomer;
+import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.ShippingDetailsCustomerRepository;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.ShippingDetailsCustomerService;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -21,29 +23,42 @@ public class ShippingAddressCustomerServiceImpl implements ShippingDetailsCustom
     @Autowired
     private AccountService accountService;
     @Autowired
+    private AccountRepository accountRepository;
+    @Autowired
     private ShippingDetailsCustomerRepository shippingDetailsCustomerRepository;
     @Transactional
     @Override
     public ShippingDetailsCustomerRegistration addShippingAddress(String accountUuid, ShippingDetailsCustomer shippingDetails) {
 
-        Customers customer = accountService.findByUuid(accountUuid)
+        Customers customerResponse = accountService.findByUuid(accountUuid)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + accountUuid));
 
-        if (!customer.isActive()) {
+        if (!customerResponse.isActive()) {
             throw new IllegalStateException("Account is not active.");
         }
+        String getShippingDetailsName = shippingDetails.getShippingDetailsName();
 
+        List<ShippingDetailsCustomer> existingAddresses = customerResponse.getShippingDetailsList();
+        if (existingAddresses != null) {
+            boolean nameExists = existingAddresses.stream()
+                    .anyMatch(address -> address.getShippingDetailsName().equals(getShippingDetailsName));
+
+            if (nameExists) {
+                throw new IllegalArgumentException("The shipping details name already exists. Please choose a different name.");
+            }
+        }
 
         if (shippingDetails.isPrimaryAddress()) {
             // Desactivar direcciones anteriores como primary
-            List<ShippingDetailsCustomer> existingAddresses = customer.getShippingDetailsList();
-            existingAddresses.forEach(address -> address.setPrimaryAddress(false));
+            List<ShippingDetailsCustomer> stateAddresses = customerResponse.getShippingDetailsList();
+            stateAddresses.forEach(address -> address.setPrimaryAddress(false));
         }
 
         ShippingDetailsCustomer shippingDetailsRequest = new ShippingDetailsCustomer();
         shippingDetailsRequest.setShippingDetailUuid(UUID.randomUUID().toString());
 
         String shippingDetailsName = shippingDetails.getShippingDetailsName();
+
         shippingDetailsRequest.setShippingDetailsName(shippingDetailsName);
 
         String name = shippingDetails.getName();
@@ -70,15 +85,21 @@ public class ShippingAddressCustomerServiceImpl implements ShippingDetailsCustom
         String country = shippingDetails.getCountry();
         shippingDetailsRequest.setCountry(country);
 
-        shippingDetailsRequest.setCustomer(customer);
         shippingDetailsRequest.setActive(true);
 
         shippingDetailsRequest.setPrimaryAddress(shippingDetails.isPrimaryAddress());
         shippingDetailsRequest.setGift(shippingDetails.isGift());
 
-        customer.getShippingDetailsList().add(shippingDetailsRequest);
+        List<ShippingDetailsCustomer> shippingDetailsCustomerList = customerResponse.getShippingDetailsList();
+        if (shippingDetailsCustomerList == null) {
+            shippingDetailsCustomerList = new ArrayList<>();
+        }
+        shippingDetailsCustomerList.add(shippingDetailsRequest);
+        customerResponse.setShippingDetailsList(shippingDetailsCustomerList);
 
-        shippingDetailsCustomerRepository.save(shippingDetailsRequest);
+        Customers saveCustomer = accountRepository.save(customerResponse);
+
+        //shippingDetailsCustomerRepository.save(shippingDetailsRequest);
 
         ShippingDetailsCustomerRegistration savedShippingDetailsDTO = new ShippingDetailsCustomerRegistration();
         savedShippingDetailsDTO.setShippingDetailsName(shippingDetailsName);

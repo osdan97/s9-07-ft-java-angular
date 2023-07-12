@@ -37,8 +37,6 @@ public class ShippingDetailsCustomer implements Serializable {
     private String city;
     @Column(name = "country")
     private String country;
-    @ManyToOne
-    private Customers customer;
     @Column(name = "active")
     private boolean active;
     @Column(name = "primary_address")
