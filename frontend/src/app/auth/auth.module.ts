@@ -5,12 +5,18 @@ import { LoginCreateComponent } from './login-create/login-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CheckPayComponent } from './check-pay/check-pay.component';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
-import {MatExpansionModule} from '@angular/material/expansion';
-
+import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [LoginComponent, LoginCreateComponent, CheckPayComponent],
-  imports: [CommonModule, ReactiveFormsModule, PrimeNgModule, MatExpansionModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    PrimeNgModule,
+    MatExpansionModule,
+    RouterModule,
+  ],
   exports: [LoginComponent, LoginCreateComponent, CheckPayComponent],
 })
 export class AuthModule {}
