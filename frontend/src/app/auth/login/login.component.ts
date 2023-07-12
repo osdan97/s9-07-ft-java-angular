@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
     // const { email, password } = this.loginForm.controls;
     // console.log(password?.errors?.['minlength']);
     if (this.loginForm.invalid) return;
-    // this.login();
+    this.login();
   }
 
   login() {
@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       .pipe(take(1))
       .subscribe((resp: LoginResponse) => {
         console.log(resp);
-        this.cookieService.set('accessToken', resp.token);
+        // this.cookieService.set('accessToken', resp.token);
       });
   }
 }
