@@ -1,17 +1,26 @@
-div {
+.components {
   border: 1px solid red;
-}
-
-.pag {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  gap: 10px;
 }
 
-.content {
-
+.page1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.content-component{
+p {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 20px 0 18px 0;
+}
 
+app-check-pay {
+  padding-top: 54px;
 }
