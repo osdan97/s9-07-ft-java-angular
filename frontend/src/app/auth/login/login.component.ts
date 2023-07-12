@@ -1,8 +1,14 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import jwtDecode from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
 import { take } from 'rxjs';
-import { LoginResponse } from 'src/app/core/interfaces/auth.interfaces';
+import {
+  LoginResponse,
+  Payload,
+  UserData,
+} from 'src/app/core/interfaces/auth.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
@@ -16,6 +22,7 @@ export class LoginComponent implements OnInit {
   authService = inject(AuthService);
   formBuilder = inject(FormBuilder);
   cookieService = inject(CookieService);
+  router = inject(Router);
 
   ngOnInit(): void {
     this.loginForm = this.initFormLogin();
@@ -46,8 +53,28 @@ export class LoginComponent implements OnInit {
       .login(this.loginForm.value)
       .pipe(take(1))
       .subscribe((resp: LoginResponse) => {
-        console.log(resp);
         // this.cookieService.set('accessToken', resp.token);
+        this.getUserData(resp.token);
+
+        if (this.router.routerState.snapshot.url === '/create-user') {
+          this.router.navigate(['/']);
+        }
+      });
+  }
+
+  getUserData(accessToken: string) {
+    const decodedToken: Payload = jwtDecode(accessToken);
+
+    this.authService
+      .renewSession(accessToken)
+      .pipe(take(1))
+      .subscribe((resp: UserData) => {
+        this.cookieService.set('accessToken', resp.token);
+        const newUserData = { ...resp };
+        delete newUserData.password;
+
+        localStorage.setItem('userData', JSON.stringify(newUserData));
+        this.authService.setAutenticate(true);
       });
   }
 }

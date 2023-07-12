@@ -7,6 +7,7 @@ header {
   align-items: center;
   flex-direction: column;
   position: relative;
+  color: $text-color-white;
 
   .header__content {
     width: 100%;
@@ -30,7 +31,7 @@ header {
     width: 100%;
     height: $heigth-navbar;
     background-color: #374664;
-    border:0.5px solid black;
+    border: 0.5px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,7 +52,7 @@ header {
           // background-color: #d2d2d2;
           // padding: 0.4rem 2rem;
           border-radius: 4px;
-          color:#fff ;
+          color: #fff;
         }
       }
 
@@ -59,7 +60,6 @@ header {
       .option__user {
         display: flex;
         gap: 1rem;
-
       }
 
       .option__user {
@@ -70,8 +70,12 @@ header {
           font-size: 1rem;
           font-weight: 400;
           gap: calc(24px - 0.5rem);
+          cursor: pointer;
+        }
+        i {
           background-color: white;
           border-radius: 2px;
+          color: $text-color-black;
         }
         img {
           cursor: pointer;
@@ -82,10 +86,7 @@ header {
           border-radius: 7px;
           cursor: pointer;
         }
-        #imgCart{
-          background-color: white;
-          border-radius: 2px;
-        }
+
         .cart__container {
           width: 350px;
           position: absolute;
@@ -93,6 +94,7 @@ header {
           right: 0px;
           z-index: 1000;
           // max-width: 350px;
+          color: $text-color-black;
         }
       }
     }

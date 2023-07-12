@@ -8,6 +8,8 @@ import {
   signal,
 } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { UserData } from 'src/app/core/interfaces/auth.interfaces';
+import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -21,9 +23,13 @@ export class HeaderComponent implements OnInit {
   visible = false;
   visibleCart = signal<boolean>(false);
 
+  userData!: UserData;
+  isLoged = false;
+
   router = inject(Router);
   renderer = inject(Renderer2);
   elementRef = inject(ElementRef);
+  authService = inject(AuthService);
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
@@ -33,6 +39,8 @@ export class HeaderComponent implements OnInit {
     });
 
     this.clickOutMenu();
+
+    this.isLogued();
   }
 
   //Función para verificar si no se encuentra en la ruta principal para mostrar el header con el menú de categorías
@@ -84,6 +92,18 @@ export class HeaderComponent implements OnInit {
         this.visibleCart.set(false);
         this.visible = false;
       }
+    });
+  }
+
+  isLogued() {
+    if (!localStorage.getItem('userData')) {
+      this.authService.setAutenticate(false);
+      // this.cookieService.delete('accessToken');
+    }
+
+    this.authService.getAutenticate().subscribe((resp) => {
+      this.userData = JSON.parse(localStorage.getItem('userData')!);
+      this.isLoged = resp;
     });
   }
 }

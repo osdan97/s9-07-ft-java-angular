@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import {
@@ -6,14 +6,17 @@ import {
   FormRegisterInput,
   LoginResponse,
   RegisterResponse,
+  UserData,
 } from '../../interfaces/auth.interfaces';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private isAutenticate = signal(false);
+  // private isAutenticate = signal(false);
+  private isAutenticate: BehaviorSubject<boolean> =
+    new BehaviorSubject<boolean>(false);
   private readonly baseUrl = environment.apiUrl;
 
   private readonly http = inject(HttpClient);
@@ -32,11 +35,29 @@ export class AuthService {
     );
   }
 
-  setAutenticate(value: boolean) {
-    this.isAutenticate.set(value);
+  renewSession(accessToken: string): Observable<UserData> {
+    const headers = new HttpHeaders().set(
+      'Authorization',
+      `Bearer ${accessToken}`
+    );
+    return this.http.get<UserData>(`${this.baseUrl}authentication`, {
+      headers,
+    });
   }
 
-  getAutenticate() {
-    return this.isAutenticate();
+  // setAutenticate(value: boolean) {
+  //   this.isAutenticate.set(value);
+  // }
+
+  // getAutenticate() {
+  //   return this.isAutenticate();
+  // }
+
+  getAutenticate(): Observable<boolean> {
+    return this.isAutenticate.asObservable();
+  }
+
+  setAutenticate(value: boolean): void {
+    this.isAutenticate.next(value);
   }
 }
