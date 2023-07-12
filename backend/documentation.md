@@ -232,7 +232,90 @@ Example output:
   "phonesList": []
 }
 ```
+## Account Authentication
 
+POST
+Example input:
+```Json
+{
+    "accountUuid": "0667fe35-b307-4e19-8cfd-27329f4e5e8e",
+    "email": "alfonsoalmonte@gmail.com",
+    "password": "$2a$10$.w2H31jDLByPdtqd.7JAruiw/PK2MPQNB9DgoFtYed43uMDG/KG0m",
+    "rol": "USER",
+    "createdDate": "2023-07-12T11:25:15.838038",
+    "lastSessionDate": "2023-07-12T11:25:15.838062",
+    "active": true,
+    "verificationCode": null,
+    "tokenPassword": null,
+    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGZvbnNvYWxtb250ZUBnbWFpbC5jb20iLCJyb2xlcyI6IlVTRVIiLCJ1c2VySWQiOiIwNjY3ZmUzNS1iMzA3LTRlMTktOGNmZC0yNzMyOWY0ZTVlOGUiLCJleHAiOjE2ODkyNjI2OTR9.lxN86v-9mBzLIl0296XzoRpWT-Nn3QYymnS-VX3Q2DB-8ywOM7DUWau1KkIiFePY_R5ioy22YrKCeQ5SApszzQ",
+    "number": "2023-1",
+    "name": "Alfonso",
+    "lastName": "Almonte",
+    "address": "Calle siempre viva",
+    "country": "República Dominicana",
+"phonesList": [
+        {
+            "phoneUuid": "3721e216-9fcf-4853-bd62-a2b055c4ced8",
+            "phoneLabel": "CELLPHONE",
+            "phoneNumber": "8493590",
+            "cityCode": "809",
+            "countryCode": "1"
+        },
+        {
+            "phoneUuid": "72132b4e-4656-4618-997d-f6dc67f91272",
+            "phoneLabel": "HOME",
+            "phoneNumber": "5485914",
+            "cityCode": "829",
+            "countryCode": "1"
+        },
+        {
+            "phoneUuid": "8e5e007f-e5ac-4fa7-a29e-cd4516e1b975",
+            "phoneLabel": "JOB",
+            "phoneNumber": "5910612",
+            "cityCode": "849",
+            "countryCode": "1"
+        }
+    ],
+    "shippingDetailsList": [
+        {
+            "shippingDetailUuid": "0294bc3f-e705-4f9b-9cd2-4d7ab266e7c7",
+            "shippingDetailsName": "Direccion 1",
+            "name": "Alfonso",
+            "lastName": "Almonte",
+            "address1": "Calle Jonas Salk",
+            "address2": "Lucerna",
+            "postalCode": "11515",
+            "provincia": "Santo Domingo",
+            "city": "Santo Domingo Este",
+            "country": "República Dominicanna",
+            "active": true,
+            "primaryAddress": true,
+            "gift": false
+        },
+        {
+            "shippingDetailUuid": "79840fd8-dfcf-4dc7-8866-e3ba6f773eb7",
+            "shippingDetailsName": "Direccion 2",
+            "name": "Alfonso",
+            "lastName": "Almonte",
+            "address1": "Calle Jonas Salk",
+            "address2": "Lucerna",
+            "postalCode": "11515",
+            "provincia": "Santo Domingo",
+            "city": "Santo Domingo Este",
+            "country": "República Dominicanna",
+            "active": true,
+            "primaryAddress": false,
+            "gift": false
+        }
+    ]
+}
+
+```
+
+Example output:
+```Json
+
+```
 # Products
 
 ## Save Product
@@ -591,7 +674,7 @@ Example output
 
 ```
 
-# ORDERS
+# Orders
 ## Create Order
 https://delatinos.up.railway.app/api/orders
 POST
@@ -678,3 +761,96 @@ Example output
 ```
 # Shipping Details
 
+## List shipping detail
+GET
+http://delatinos.up.railway.app/api/shipping-details/customer/%7Bcustomer_uuid%7D
+
+Example input
+http://delatinos.up.railway.app/api/shipping-details/customer/%7Bcustomer_uuid%7D
+```JSON
+{
+    "shippingDetailsName":"Direccion ",
+    "name":"Alfonso",
+    "lastName":"Almonte",
+    "address1":"Carretera  Mella 7",
+    "address2":"Lucerna",
+    "postalCode":"11516",
+    "provincia":"Santo Domingo",
+    "city": "Santo Domingo Este",
+    "country": "República Dominicanna",
+    "active": true,
+    "primaryAddress":true
+}
+
+```
+Example output
+```JSON
+[
+  {
+    "shippingDetailsCustomerName": "Direccion 1"
+  },
+  {
+    "shippingDetailsCustomerName": "Direccion 3"
+  },
+  {
+    "shippingDetailsCustomerName": "Direccion 2"
+  }
+]
+```
+
+## Add shipping detail
+POST
+https://delatinos.up.railway.app/api/shipping-details/65d5e792-b16f-498b-bf1a-41e4442d91c0
+Example input
+https://delatinos.up.railway.app/api/shipping-details/65d5e792-b16f-498b-bf1a-41e4442d91c0
+
+```JSON
+{
+    "shippingDetailsName":"Direccion 3",
+    "name":"Alfonso",
+    "lastName":"Almonte",
+    "address1":"Carretera Mella",
+    "address2":"Lucerna",
+    "postalCode":"11516",
+    "provincia":"Santo Domingo",
+    "city": "Santo Domingo Este",
+    "country": "República Dominicanna",
+    "active": true,
+    "primaryAddress":true
+}
+
+```
+Example output
+```JSON
+{
+    "name": "Alfonso",
+    "lastName": "Almonte",
+    "shippingDetailsName": "Direccion 3",
+    "address1": "Carretera Mella",
+    "address2": "Lucerna",
+    "postalCode": "11516",
+    "provincia": "Santo Domingo",
+    "city": "Santo Domingo Este",
+    "country": "República Dominicanna",
+    "active": true,
+    "primaryAddress": true,
+    "gift": false
+}
+```
+
+## Change shipping detail primary address 
+POST
+http://delatinos.up.railway.app/api/shipping-details/change-primary/{shipping_details_id}
+
+```
+```
+Example input
+http://delatinos.up.railway.app/api/shipping-details/change-primary/4f3851ef-3bbd-4283-b0e3-20baad8a2922
+
+```JSON
+
+```
+Example output
+```JSON
+
+```
