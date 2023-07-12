@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @DiscriminatorValue("customer")
@@ -32,8 +34,8 @@ public class Customers extends Account implements Serializable {
     @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "account_uuid", referencedColumnName = "account_uuid")
     private List<Phones> phonesList;
-    //Implementación Bidireccional de shippingDetailsList
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = ShippingDetailsCustomer.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_uuid", referencedColumnName = "account_uuid")
     private List<ShippingDetailsCustomer> shippingDetailsList;
     public Customers(String email, String password){
         super(email,password);
