@@ -166,9 +166,6 @@ public class OrdersServiceImpl implements OrdersService {
             String fullNameShipping = nameShipping + " " + lastNameShipping;
             shippingDetailsRegistration.setFullName(fullNameShipping);
 
-            String company = shippingDetailsRequest.getCompany();
-            shippingDetailsRegistration.setCompany(company);
-
             String address1 = shippingDetailsRequest.getAddress1();
             shippingDetails.setAddress1(address1);
             shippingDetailsRegistration.setAddress(address1);
