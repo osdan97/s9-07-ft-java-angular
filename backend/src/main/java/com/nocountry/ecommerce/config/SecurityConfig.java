@@ -59,7 +59,6 @@ public class SecurityConfig {
 
                 .requestMatchers(HttpMethod.POST,"api/inventory/create",
                         "api/category/create",
-                        "api/products",
                         "api/transaction/inventory")
                 .hasRole(Role.ADMIN.name())
 
@@ -93,7 +92,8 @@ public class SecurityConfig {
                         "/swagger-ui/**",
                         "/v3/**",
                         "api/category/detail/**",
-                        "/api/authentication/verify/**"
+                        "/api/authentication/verify/**",
+                        "/api/products"
                 ).permitAll()
                 .anyRequest().authenticated();
 
