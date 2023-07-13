@@ -2,6 +2,7 @@ package com.nocountry.ecommerce.config;
 
 import com.nocountry.ecommerce.security.CustomUserDetailsService;
 import com.nocountry.ecommerce.security.jwt.JwtAuthorizationFilter;
+import com.nocountry.ecommerce.util.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,6 +16,8 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 @Configuration
@@ -40,14 +43,61 @@ public class SecurityConfig {
 
         AuthenticationManager authenticationManager = auth.build();
 
-        http.csrf().disable().cors().disable()
-                .authorizeHttpRequests().requestMatchers("/api/**").permitAll()
-                .and()
-                .authorizeHttpRequests().requestMatchers(HttpMethod.PUT,"/api/**").hasAnyRole("USER","ADMIN")
-                .and()
-                .authenticationManager(authenticationManager)
-                .addFilterBefore(jwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.cors();
+        http.csrf().disable();
+        http.authenticationManager(authenticationManager);
+        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.authorizeHttpRequests()
+                .requestMatchers(HttpMethod.PUT,"/api/account/change/**",
+                        "api/account/findallcustomerlist",
+                        "api/category/updatebyname/**",
+                        "api/category/update/**",
+                        "api/inventory/update/**",
+                        "api/products/update/**")
+                .hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.POST,"api/inventory/create",
+                        "api/category/create",
+                        "api/products",
+                        "api/transaction/inventory")
+                .hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.GET, "api/inventory/list",
+                        "api/products",
+                        "api/transaction/inventory/**").hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.DELETE,"api/category/delete/**",
+                        "api/category/deletebyname/**",
+                        "api/products/delete/**")
+                .hasRole(Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.PATCH, "api/products/update-state/**").hasRole(Role.USER.name())
+
+                .requestMatchers(HttpMethod.PUT, "/api/account/updateAccount/**").hasRole(Role.USER.name())
+
+                .requestMatchers(HttpMethod.POST, "api/orders",
+                        "/api/shipping-details/**")
+                .hasRole(Role.USER.name())
+                .requestMatchers(HttpMethod.GET, "/customer/**").hasRole(Role.USER.name())
+
+                .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+                .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+                .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
+                .requestMatchers("/api/authentication/sign-in",
+                        "/api/authentication/sign-up",
+                        "/api/user/sign-up",
+                        "/api/authentication/forgot-password",
+                        "/api/authentication/change-password",
+                        "/swagger-ui/**",
+                        "/v3/**",
+                        "api/category/detail/**",
+                        "/api/authentication/verify/**"
+                ).permitAll()
+                .anyRequest().authenticated();
+
+        http.addFilterBefore(jwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -55,5 +105,15 @@ public class SecurityConfig {
     public JwtAuthorizationFilter jwtAuthorizationFilter(){
 
         return new JwtAuthorizationFilter();
+    }
+    @Bean
+    public WebMvcConfigurer corsConfigurer(){
+
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**").allowedOrigins("*");
+            }
+        };
     }
 }
