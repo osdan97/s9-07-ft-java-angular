@@ -27,7 +27,10 @@
         <i class="pi pi-shopping-cart" (click)="showDialogCart()"></i>
 
         <div class="cart__container" *ngIf="visibleCart()" #menuContainer>
-          <app-cart (visibleCart)="emitirValor($event)"></app-cart>
+          <app-cart
+            (visibleCart)="emitirValor($event)"
+            [isLogued]="isLoged"
+          ></app-cart>
         </div>
       </div>
     </div>
@@ -40,7 +43,7 @@
   [breakpoints]="{ '450px': '95vw' }"
 >
   <div class="login__container" #menuContainer>
-    <app-login></app-login>
+    <app-login (visible)="closeDialog($event)"></app-login>
   </div>
 </p-dialog>
 

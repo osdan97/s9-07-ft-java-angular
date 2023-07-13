@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
@@ -17,6 +17,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  @Output() visible = new EventEmitter<boolean>();
   loginForm!: FormGroup;
 
   authService = inject(AuthService);
@@ -76,5 +77,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('userData', JSON.stringify(newUserData));
         this.authService.setAutenticate(true);
       });
+  }
+
+  closeDialog() {
+    this.visible.emit(false);
   }
 }

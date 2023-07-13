@@ -36,24 +36,19 @@ const routes: Routes = [
       {
         path: 'country',
         loadChildren: () =>
-          import('./pages/country/country.module').then(
-            (m) => m.CountryModule
-          ),
+          import('./pages/country/country.module').then((m) => m.CountryModule),
       },
-      
       {
         path: 'create-user',
         loadChildren: () =>
           import('./pages/create-user/create-user.module').then(
             (m) => m.CreateUserModule
-          )
+          ),
       },
       {
         path: 'payment',
         loadChildren: () =>
-          import('./pages/payment/payment.module').then(
-            (m) => m.PaymentModule
-          ),
+          import('./pages/payment/payment.module').then((m) => m.PaymentModule),
       },
     ],
   },

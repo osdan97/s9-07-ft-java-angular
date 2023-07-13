@@ -1,23 +1,15 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  inject,
-  signal,
-} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
   @Output() visibleCart = new EventEmitter<boolean>();
   @Input() changeButton = true;
   @Input() showBorder = false;
+  @Input() isLogued = false;
 
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';
@@ -38,8 +30,6 @@ export class CartComponent implements OnInit {
       image: 'https://via.placeholder.com/150',
     },
   ]);
-
-  ngOnInit(): void {}
 
   emitirValor() {
     this.visibleCart.emit(false);

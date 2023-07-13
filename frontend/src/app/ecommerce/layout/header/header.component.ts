@@ -7,7 +7,7 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserData } from 'src/app/core/interfaces/auth.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
   authService = inject(AuthService);
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
+    this.router.events.subscribe(() => {
       this.getCurrentRoute();
       // if (event instanceof NavigationEnd) {
       // }
@@ -102,8 +102,13 @@ export class HeaderComponent implements OnInit {
     }
 
     this.authService.getAutenticate().subscribe((resp) => {
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       this.userData = JSON.parse(localStorage.getItem('userData')!);
       this.isLoged = resp;
     });
+  }
+
+  closeDialog(valor: boolean) {
+    this.visible = valor;
   }
 }

@@ -38,8 +38,8 @@
     </div>
 
     <div class="form__buttons">
-      <button type="submit">Acceder</button>
-      <span [routerLink]="['/create-user']"
+      <button type="submit" (click)="closeDialog()">Acceder</button>
+      <span (click)="closeDialog()" [routerLink]="['/create-user']"
         >¿Aún no tienes una cuenta? <b>Crea una</b></span
       >
     </div>
