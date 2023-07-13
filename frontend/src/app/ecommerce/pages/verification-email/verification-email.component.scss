@@ -1,0 +1,26 @@
+@import "src/styles.scss";
+
+.accountVerification__section {
+  width: 95%;
+  max-width: 1400px;
+  margin: 0 auto;
+  height: calc(100vh - 372px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .accountVerification__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    .logo {
+      width: 173px;
+      height: 173px;
+      background-color: grey;
+      border-radius: 1rem;
+    }
+  }
+}

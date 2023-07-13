@@ -1,10 +1,13 @@
 <header>
   <div class="header__content" [ngClass]="{ padding__header: headerFixed() }">
-    <span class="logo">LOGO</span>
+    <span class="logo" routerLink="">LOGO</span>
   </div>
 
   <nav class="navbar" [ngClass]="{ navbar__fixed: headerFixed() }">
     <div class="navbar__content">
+      <div *ngIf="showCategories()">
+        <app-navbar-categories></app-navbar-categories>
+      </div>
       <div class="info__producs">
         <button>Productos</button>
         <button>Info de Envíos</button>
@@ -16,14 +19,37 @@
       </span>
 
       <div class="option__user">
-        <h3>
+        <h3 *ngIf="!isLoged; else loguedUser">
           <!-- <span>Hola, Mariano</span> -->
-          <!-- <i class="pi pi-user"></i> -->
-          <img src="../../../../assets/images/user.svg" width="18px" alt="" />
+          <i class="pi pi-user" (click)="showDialog()"></i>
         </h3>
         <!-- <i class="pi pi-shopping-cart"></i> -->
-        <img src="../../../../assets/images/cart.svg" width="18px" alt="" />
+        <i class="pi pi-shopping-cart" (click)="showDialogCart()"></i>
+
+        <div class="cart__container" *ngIf="visibleCart()" #menuContainer>
+          <app-cart
+            (visibleCart)="emitirValor($event)"
+            [isLogued]="isLoged"
+          ></app-cart>
+        </div>
       </div>
     </div>
   </nav>
 </header>
+
+<p-dialog
+  [(visible)]="visible"
+  [style]="{ width: '400px' }"
+  [breakpoints]="{ '450px': '95vw' }"
+>
+  <div class="login__container" #menuContainer>
+    <app-login (visible)="closeDialog($event)"></app-login>
+  </div>
+</p-dialog>
+
+<ng-template #loguedUser>
+  <h3>
+    <span>Hola, {{ userData.name }}</span>
+    <i class="pi pi-user"></i>
+  </h3>
+</ng-template>

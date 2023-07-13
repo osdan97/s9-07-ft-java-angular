@@ -1,31 +1,23 @@
-<div class="card" routerLink="producto/1">
-  <div class="imagen-text">
+<div class="card" *ngIf="product">
+  <div class="imagen-text" [routerLink]="'producto/' + product.id">
     <img
       src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
       alt=""
+      [style]="'view-transition-name:' + product.id"
     />
   </div>
   <div class="contenido">
-    <p class="description">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga
-      reprehenderit fugiat
-    </p>
+    <div class="text__products" [routerLink]="'producto/' + product.id">
+      <h3>{{ product.title }}</h3>
+      <p class="description">
+        {{ product.description }}
+      </p>
+    </div>
     <div class="text">
-      <p>€5</p>
-      <p class="p-small">125gr</p>
-      <span>EN STOCK</span>
+      <p>€{{ product.price }}</p>
+      <p class="p-small">{{ product.weight }}</p>
+      <span class="chip">{{ product.stock | uppercase }}</span>
     </div>
-    <div class="class-add">
-      <input type="text" />
-      <div class="select-down">
-        <button type="button" class="down">
-          <img src="../../../assets/mas.png" alt="" class="icon" />
-        </button>
-        <button type="button" class="down">
-          <img src="../../../assets/menos.png" alt="" class="icon" />
-        </button>
-      </div>
-      <button type="button" class="btn">Añadir al carrito</button>
-    </div>
+    <app-input-cart [product]="product"></app-input-cart>
   </div>
 </div>

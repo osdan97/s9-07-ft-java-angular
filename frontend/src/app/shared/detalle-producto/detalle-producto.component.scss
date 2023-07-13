@@ -1,113 +1,99 @@
+@import "src/styles.scss";
 
-.detalle-producto{
-    width: 100%;
-    max-width: 1400px;
-    margin:2rem auto;
-    
-}
-
-.descripcion-producto{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin:2rem 0;
+.detalle-producto {
+  width: 95%;
+  max-width: $max-width;
+  margin: 2rem auto;
 }
 
-.imagen-producto{
-    display: flex;
-    gap:2rem;
-    align-items: center;
-    height:575px;
-}
-.imagen-chica-producto{
-    display: flex;
-    flex-direction: column;
-    gap:1rem
+.descripcion-producto {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
 }
 
-.imagen-grande-producto{
-    height: 100%;
+.imagen-producto {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  height: 575px;
 }
-.foto-chica-producto{
-    border-radius: 2px;
-}
-
-.foto-producto{
-    height: 100%;
-    border-radius: 7px;
-}
-.titulo-heart{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.imagen-chica-producto {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-
-.texto-producto{
-    width: 100%;
-    max-width: 550px;
-    height: 575px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.imagen-grande-producto {
+  height: 100%;
+}
+.foto-chica-producto {
+  border-radius: 2px;
 }
 
-.class-add{
-    display: flex;
-    gap:2rem
+.foto-producto {
+  height: 100%;
+  border-radius: 7px;
+}
+.titulo-heart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.add-input{
-    display: flex;
-    gap:5px;
+.texto-producto {
+  width: 100%;
+  max-width: 550px;
+  height: 575px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.stock{
-    border: 1px solid black;
-    width: fit-content;
-    padding: 3px 10px;
-    border-radius: 3px;
-    background-color: #EFEFEF;
-    
+
+.class-add {
+  display: flex;
+  gap: 2rem;
+}
+
+.add-input {
+  display: flex;
+  gap: 5px;
+}
+.stock {
+  border: 1px solid black;
+  width: fit-content;
+  padding: 3px 10px;
+  border-radius: 3px;
 }
 
 .select-down {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 3px;
-    height: 39.95;
-  }
-  
-  .down {
-    height: 10px;
-    width: 24px;
-    margin: 0;
-    padding: 0;
-    border: 0px;
-    background-color: transparent;
-  }
-  
-  .down img {
-    height: 10px;
-    width: 16px;
-  }
-  
-  input {
-    width: 37px;
-    height: 40px;
-    border-radius: 7px;
-    border: 1px solid #000;
-    text-align: right;
-  }
-  
-  .btn {
-    width: 224px;
-    height: 40px;
-    border-radius: 7px;
-    border: 1px solid #000;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 16.94px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  height: 39.95;
+}
 
-  }
+.down {
+  height: 10px;
+  width: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  background-color: transparent;
+}
+
+.down img {
+  height: 10px;
+  width: 16px;
+}
+
+input {
+  width: 37px;
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid #000;
+  text-align: right;
+}

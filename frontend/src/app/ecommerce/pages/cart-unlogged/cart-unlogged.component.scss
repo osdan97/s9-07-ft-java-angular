@@ -1,0 +1,38 @@
+@import "src/styles.scss";
+
+.contenedora {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.fin-compra {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+  margin: 32px;
+  align-items: center;
+}
+.titulo-fin-compra {
+  display: flex;
+  flex-direction: row;
+  margin: 36px 0px;
+
+  h2 {
+    font-size: 26px;
+    font-weight: 500;
+  }
+}
+
+.carrito {
+  width: 100%;
+  margin: 11px;
+}
+
+.mi-cuenta {
+  width: 100%;
+  border: $border-disabled;
+  padding: 0.5rem;
+  background-color: $background-white;
+  border-radius: 8px;
+}

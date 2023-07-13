@@ -1,0 +1,51 @@
+@import "src/styles.scss";
+.contenedora{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.cart-logged{
+    display: flex;
+  
+    justify-content: space-between;
+    margin: 32px;
+    align-items: center;
+    
+}
+.titulo-cart-logged{
+  display: flex;
+  flex-direction: row;
+  margin: 36px 0px;
+  
+  h2{
+    font-size: 26px;
+  }
+}
+
+.carrito{
+    width: 514px;
+    margin: 11px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+.item{
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-detalle{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.boton3{
+width: 247px;
+height: 40px;
+border-radius: 7px;
+border: 1px;
+}
+
+  

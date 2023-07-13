@@ -1,11 +1,15 @@
 <app-categories></app-categories>
 
-<app-slider-products [title]="'Novedades'"></app-slider-products>
+<app-slider-products
+  [title]="'Novedades'"
+  [products]="data()"
+></app-slider-products>
 
-<app-slider-products [title]="'Más vendidos'"></app-slider-products>
+<app-slider-products
+  [title]="'Más vendidos'"
+  [products]="data()"
+></app-slider-products>
 
 <app-our-services></app-our-services>
 
-<app-content-card></app-content-card>
-
-
+<app-content-card [products]="data()"></app-content-card>

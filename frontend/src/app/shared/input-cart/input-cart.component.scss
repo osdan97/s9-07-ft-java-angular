@@ -1,0 +1,41 @@
+.class-add {
+  display: flex;
+  flex-direction: row;
+  column-gap: 5px;
+}
+
+p {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29.05px;
+}
+
+.select-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  height: 39.95;
+}
+
+.down {
+  height: 10px;
+  width: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0px;
+  background-color: transparent;
+}
+
+.down img {
+  height: 10px;
+  width: 16px;
+}
+
+input {
+  width: 37px;
+  height: 40px;
+  border-radius: 7px;
+  border: 1px solid #000;
+  text-align: center;
+}

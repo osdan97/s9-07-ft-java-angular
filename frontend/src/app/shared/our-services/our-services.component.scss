@@ -2,12 +2,13 @@
 
 .services__content {
   width: 95%;
-  max-width: 1400px;
+  max-width: $max-width;
   margin: 5rem auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  mix-blend-mode: multiply;
 
   .services__card {
     width: 280px;

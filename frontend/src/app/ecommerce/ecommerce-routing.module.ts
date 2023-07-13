@@ -13,9 +13,49 @@ const routes: Routes = [
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path:'producto/:id',
+        path: 'producto/:id',
         loadChildren: () =>
-        import('./pages/producto/producto.module').then((m) => m.ProductoModule),
+          import('./pages/producto/producto.module').then(
+            (m) => m.ProductoModule
+          ),
+      },
+      {
+        path: 'cart-unlogged',
+        loadChildren: () =>
+          import('./pages/cart-unlogged/cart-unlogged.module').then(
+            (m) => m.CartUnloggedModule
+          ),
+      },
+      {
+        path: 'cart-logged',
+        loadChildren: () =>
+          import('./pages/cart-logged/cart-logged.module').then(
+            (m) => m.CartLoggedModule
+          ),
+      },
+      {
+        path: 'country',
+        loadChildren: () =>
+          import('./pages/country/country.module').then((m) => m.CountryModule),
+      },
+      {
+        path: 'create-user',
+        loadChildren: () =>
+          import('./pages/create-user/create-user.module').then(
+            (m) => m.CreateUserModule
+          ),
+      },
+      {
+        path: 'payment',
+        loadChildren: () =>
+          import('./pages/payment/payment.module').then((m) => m.PaymentModule),
+      },
+      {
+        path: 'verificar-cuenta/:token',
+        loadChildren: () =>
+          import('./pages/verification-email/verification-email.module').then(
+            (m) => m.VerificationEmailModule
+          ),
       },
     ],
   },

@@ -1,0 +1,138 @@
+mat-accordion {
+  margin: 15px;
+}
+
+mat-expansion-panel {
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.contenedor2, .contenedor1 {
+  border: 1px solid #8B8B8B;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.contenedor2 {
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+.contenedor1 {
+  background-color: #EEEEEE;
+  width: 629px;
+  height: 72px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+input {
+  width: 302px;
+  height: 40px;
+  border-radius: 2px;
+  border: 0.5px solid #000;
+  margin: 0;
+  padding-left: 15px;
+
+}
+
+.input-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 30px;
+}
+
+h2 {
+  //styleName: Heading 1 - titulos;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 45px  0 30px;
+}
+
+.title {
+  //styleName: Heading 2 - titulos 2;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-family: Quicksand;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: left;
+  gap: 5px;
+}
+
+.check-input {
+  height: 18px;
+  width: 18px;
+  border-radius: 2px;
+  border: 2px solid #565656 !important;
+}
+
+.check {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 20px  0;
+  gap: 10px;
+  font-family: Quicksand;
+font-size: 14px;
+font-weight: 400;
+line-height: 17px;
+letter-spacing: 0.3px;
+text-align: left;
+}
+
+.space-buton {
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  width: 191px;
+  height: 40px;
+  border-radius: 7px;
+font-size: 14px;
+font-weight: 500;
+line-height: 18px;
+letter-spacing: 0em;
+margin-top: 30px;
+}
+
+input.ng-touched.ng-invalid{
+  border-color: red;
+}
+
+input.ng-dirty.ng-invalid{
+  border-color: red;
+}
+
+img {
+  width: 44px;
+  height: 42px;
+  border-radius: 100%;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}

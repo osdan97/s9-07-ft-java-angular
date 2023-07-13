@@ -1,8 +1,66 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$frontend-primary: mat.define-palette(mat.$indigo-palette);
+$frontend-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$frontend-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$frontend-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $frontend-primary,
+      accent: $frontend-accent,
+      warn: $frontend-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($frontend-theme);
+
 /* You can add global styles to this file, and also import other style files */
 @import "primeicons/primeicons.css";
 
 $heigth-header: 150px;
 $heigth-navbar: 50px;
+$max-width: 1400px;
+// FONTS
+$heading1: 26px;
+$heading2: 20px;
+$heading3: 16px;
+$heading4: 14px;
+$heading5: 10px;
+//COLORS
+$background-primary: #2f3f61;
+$background-variant: #4a639a;
+$background-complementary: #4af6d7;
+$background-backdrop: #edf3f6;
+$background-disabled: #999999;
+$background-white: #fff;
+$text-color-white: #fff;
+$text-color-black: #000;
+//SHADOW
+$card-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+//BORDER
+$border-primary: 1px solid $background-primary;
+$border-variant: 1px solid $background-variant;
+$border-disabled: 1px solid $background-disabled;
 
 * {
   margin: 0;
@@ -12,8 +70,61 @@ $heigth-navbar: 50px;
 
 body {
   font-family: "Quicksand", sans-serif;
+  background-color: $background-backdrop;
+  scroll-behavior: smooth;
 }
 
 button {
   cursor: pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.button {
+  width: 138px;
+  height: 40px;
+  border-radius: 7px;
+  border: none;
+  background-color: none;
+  transition: all 0.2s ease-in-out;
+}
+.custom__button--fill {
+  background-color: $background-variant;
+  color: $background-white;
+
+  &:hover {
+    background-color: $background-complementary;
+    color: $background-primary;
+  }
+}
+
+.custom__button--line {
+  border: $border-variant;
+  background-color: $background-white;
+  font-weight: 500;
+  color: $background-primary;
+
+  &:hover {
+    background-color: $background-variant;
+    color: $background-white;
+  }
+}
+
+.chip {
+  background-color: $background-complementary;
+  color: $background-primary;
+  border: $border-primary;
 }

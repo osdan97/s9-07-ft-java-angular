@@ -1,19 +1,22 @@
+@import "src/styles.scss";
 .card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 246px;
-  height: 336px;
-  border: 1px solid #000;
+  // height: 336px;
+  // border: 1px solid #000;
+  box-shadow: $card-shadow;
   border-radius: 7px;
   overflow: hidden;
-  cursor: pointer;
+  background-color: $background-white;
 }
 
 .imagen-text {
   width: 100%;
   height: 162px;
+  cursor: pointer;
 }
 
 .card .text {
@@ -70,6 +73,10 @@ img {
   gap: 15px;
 }
 
+.text__products {
+  cursor: pointer;
+}
+
 .description {
   font-size: 14px;
   font-weight: 500;
@@ -103,7 +110,7 @@ input {
   height: 40px;
   border-radius: 7px;
   border: 1px solid #000;
-  text-align: right;
+  text-align: center;
 }
 
 .btn {
@@ -111,7 +118,6 @@ input {
   height: 40px;
   border-radius: 7px;
   border: 1px solid #000;
-  font-family: inter;
   font-weight: 500;
   font-size: 14px;
   line-height: 16.94px;

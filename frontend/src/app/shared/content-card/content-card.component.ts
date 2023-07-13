@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-content-card',
@@ -7,10 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./content-card.component.scss'],
 })
 export class ContentCardComponent {
-paginate(event: any) {
-        event.first = 0;
-        event.rows = 5;
-        event.page = 1;
-        event.pageCount = 120;
-    }
+  @Input() products!: any[];
+  paginate(event: any) {
+    event.first = 0;
+    event.rows = 5;
+    event.page = 1;
+    event.pageCount = 120;
+  }
 }

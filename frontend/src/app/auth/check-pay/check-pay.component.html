@@ -1,0 +1,96 @@
+<mat-accordion multi>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Datos personales
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="contenedor1">
+      <div class="description">
+        <div>
+          <img src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
+            alt="foto">
+        </div>
+        <div>
+          <p>Mariano García Machado</p>
+          <p>Mariano_garcia@gmail.com</p>
+        </div>
+      </div>
+      <div>
+        <p>+34.652.253.478</p>
+      </div>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Dirección de entrega
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="form" (ngSubmit)="form.valid && login_create()" novalidate>
+      <div class="contenedor2">
+        <div class="input-label">
+          <label>
+            Pais
+            <input type="text" [formControl]="pais">
+          </label>
+          <label>
+            Provincia/ Comunidad
+            <input type="text" [formControl]="provincia">
+          </label>
+        </div>
+        <div class="input-label">
+          <label>
+            Codigo postal
+            <input type="number" [formControl]="postal">
+          </label>
+          <label>
+            Ciudad
+            <input type="text" [formControl]="ciudad">
+          </label>
+        </div>
+        <div class="input-label">
+          <label>
+            Dirección
+            <input type="text" [formControl]="direccion" placeholder="Nombre y número de calle">
+          </label>
+          <label>
+            Detalles de dirección
+            <input type="text" [formControl]="detalle_dir" placeholder="Indicaciones">
+          </label>
+        </div>
+        <div class="">
+          <label class="check">
+            <input type="checkbox" class="check-input" [formControl]="check_fact">
+            Utilizar esta dirección para los datos de facturación
+          </label>
+        </div>
+        <div class="space-buton">
+          <button type="submit">Confirmar</button>
+        </div>
+      </div>
+    </form>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        This is the expansion title
+      </mat-panel-title>
+      <mat-panel-description>
+        This is a summary of the content
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the primary content of the panel.</p>
+  </mat-expansion-panel>
+  <mat-expansion-panel hideToggle (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Self aware panel
+      </mat-panel-title>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>I'm visible because I am open</p>
+  </mat-expansion-panel>
+</mat-accordion>

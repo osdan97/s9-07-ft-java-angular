@@ -12,20 +12,17 @@
     </div>
   </div>
   <div class="list-card">
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
-    <app-card></app-card>
+    <app-card *ngFor="let product of products" [product]="product"></app-card>
   </div>
 </section>
 <div class="paginador">
   <div class="flex align-items-center justify-content-center">
     <div class="flex-1">
-      <p-paginator [rows]="10" [totalRecords]="120" [showFirstLastIcon]="false"></p-paginator>
+      <p-paginator
+        [rows]="10"
+        [totalRecords]="120"
+        [showFirstLastIcon]="false"
+      ></p-paginator>
     </div>
   </div>
 </div>
