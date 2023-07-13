@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrdersController {
     @Autowired
     private OrdersService orderService;
-    @PostMapping("")
+    @PostMapping()
     public ResponseEntity<?> saveOrder(@RequestBody Orders orders) {
         return new ResponseEntity<>(orderService.createOrder(orders), HttpStatus.CREATED);
     }

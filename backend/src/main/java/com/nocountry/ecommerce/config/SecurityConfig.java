@@ -87,7 +87,6 @@ public class SecurityConfig {
 
                 .requestMatchers("/api/authentication/sign-in",
                         "/api/authentication/sign-up",
-                        "/api/user/sign-up",
                         "/api/authentication/forgot-password",
                         "/api/authentication/change-password",
                         "/swagger-ui/**",
