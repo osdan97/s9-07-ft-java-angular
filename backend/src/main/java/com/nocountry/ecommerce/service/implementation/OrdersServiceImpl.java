@@ -44,7 +44,7 @@ public class OrdersServiceImpl implements OrdersService {
     @Override
     public OrderRegistration createOrder(Orders orderRequest) {
 
-        String uuid = orderRequest.getCustomers().getAccountUuid();
+        String uuid = orderRequest.getAccount().getAccountUuid();
         Customers customersRequest = accountService.findByUuid(uuid)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + uuid));
 
@@ -71,7 +71,7 @@ public class OrdersServiceImpl implements OrdersService {
         String lastName = customersRequest.getLastName();
 
         String fullName = name + " " + lastName;
-        order.setCustomers(customersRequest);
+        order.setAccount(customersRequest);
         orderRegistration.setFullName(fullName);
 
         order.setDescription("");

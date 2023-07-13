@@ -4,8 +4,10 @@ import com.nocountry.ecommerce.dto.*;
 import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.model.Phones;
+import com.nocountry.ecommerce.model.Users;
 import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.CustomerRepository;
+import com.nocountry.ecommerce.repository.UserRepository;
 import com.nocountry.ecommerce.security.jwt.JwtProvider;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.EmailService;
@@ -14,7 +16,6 @@ import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.mail.MessagingException;
 import jakarta.transaction.Transactional;
 import org.modelmapper.internal.bytebuddy.utility.RandomString;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -44,6 +45,8 @@ public class AccountServiceImpl implements AccountService {
     private String emailFrom;
     @Autowired
     private EmailService emailService;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public CustomerRegistration createCustomer(Customers customers){
@@ -85,6 +88,48 @@ public class AccountServiceImpl implements AccountService {
         customerRepository.save(saveCustomer);
 
         return customerRegistration;
+    }
+
+    @Override
+    public UserRegistrationDto createUser(Users user){
+        UserRegistrationDto userRegistration = new UserRegistrationDto();
+        int anoActual = LocalDate.now().getYear();
+        String numeracion = obtenerNumeracionAutomatica();
+
+        String email = user.getEmail();
+        userRegistration.setEmail(email);
+        String password = passwordEncoder.encode(user.getPassword());
+        userRegistration.setPassword(password);
+        String name = user.getName();
+        String lastName = user.getLastName();
+        String fullName = name + " " + lastName;
+        userRegistration.setFullName(fullName);
+        String verificationCode = RandomString.make(64);
+        userRegistration.setVerificationCode(verificationCode);
+
+
+        Users saveUser = new Users(email, password);
+        saveUser.setEmail(email);
+        saveUser.setPassword(password);
+        saveUser.setName(name);
+        saveUser.setLastName(lastName);
+        String customerNumber = anoActual + "-" + numeracion;
+        saveUser.setRol(Role.ADMIN);
+        saveUser.setNumber(customerNumber);
+        saveUser.setVerificationCode(verificationCode);
+        String jwt = jwtProvider.generateToken(saveUser);
+        userRegistration.setToken(jwt);
+
+        try {
+            this.sendVerificationCodeToEmail(saveUser);
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        } catch (UnsupportedEncodingException e) {
+            throw new RuntimeException(e);
+        }
+        userRepository.save(saveUser);
+
+        return userRegistration;
     }
 
     @Override
@@ -230,6 +275,27 @@ public class AccountServiceImpl implements AccountService {
         return  emailValues;
     }
 
+    public EmailValues sendVerificationCodeToEmail(Users emailVerificationCode) throws MessagingException, UnsupportedEncodingException {
+
+        String email = emailVerificationCode.getEmail();
+
+        EmailValues emailValues = new EmailValues();
+
+        emailValues.setMailTo(email);
+
+        String fullName = emailVerificationCode.getName() + " " + emailVerificationCode.getLastName();
+        emailValues.setFullName(fullName);
+
+        String verificationCode = emailVerificationCode.getVerificationCode();
+        emailValues.setToken(verificationCode);
+
+        String subject = " Please verify your registration";
+        emailValues.setSubject(subject);
+
+        emailService.sendEmailVerificationCode(emailValues);
+
+        return  emailValues;
+    }
 
     @Transactional
     @Override

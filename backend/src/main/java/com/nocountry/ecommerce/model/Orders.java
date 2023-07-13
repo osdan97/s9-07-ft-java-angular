@@ -22,8 +22,8 @@ public class Orders extends Transactions implements Serializable {
     @Column(name = "number")
     private String number;
     @ManyToOne
-    @JoinColumn(name = "customer_uuid", nullable = false)
-    private Customers customers;
+    @JoinColumn(name = "account_uuid", nullable = true)
+    private Account account;
     @Column(name = "shipping_cost")
     private Double shippingCost;
 

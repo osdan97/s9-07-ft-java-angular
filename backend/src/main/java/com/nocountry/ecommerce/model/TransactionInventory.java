@@ -32,6 +32,19 @@ public class TransactionInventory extends Transactions {
     @JoinColumn(name="inventory_uuid")
     public Inventory inventory;
 
+    @ManyToOne
+    @JoinColumn(name = "account_uuid", nullable = true)
+    private Account account;
+
+    @Column(name = "shipping_cost")
+    private Double shippingCost;
+
+    @Column(name = "amount_taxes")
+    private Double amountTaxes;
+
+    @Column(name = "amount_total")
+    private Double amountTotal;
+
 public TransactionInventory (Double total){
     super(total);
 

@@ -3,15 +3,18 @@ package com.nocountry.ecommerce.service.implementation;
 import com.nocountry.ecommerce.dto.InventoryDto;
 import com.nocountry.ecommerce.dto.TransactionInventoryRegisterDto;
 import com.nocountry.ecommerce.dto.TransactionsDto;
+import com.nocountry.ecommerce.model.Account;
 import com.nocountry.ecommerce.model.Inventory;
 import com.nocountry.ecommerce.model.Product;
 import com.nocountry.ecommerce.model.TransactionInventory;
+import com.nocountry.ecommerce.repository.AccountRepository;
 import com.nocountry.ecommerce.repository.InventoryRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.repository.TransactionInventoryRepository;
 import com.nocountry.ecommerce.service.TransactionInventoryService;
 import com.nocountry.ecommerce.util.enums.TransactionState;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.text.DecimalFormat;
@@ -30,6 +33,8 @@ public class TransactionInventoryServiceImpl implements TransactionInventoryServ
     InventoryRepository inventoryRepository;
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    AccountRepository accountRepository;
 
     @Autowired
     InventoryServiceImpl inventoryServiceimpl;
@@ -41,6 +46,17 @@ public class TransactionInventoryServiceImpl implements TransactionInventoryServ
         LocalDateTime createdDate = LocalDateTime.now();
         saveTransaction.setCreatedDate(createdDate);
         saveTransaction.setTransactionState(TransactionState.COMPLETED);
+        saveTransaction.setAmountTaxes(0.0);
+
+        String userRequest=transactionInventoryRegisterDto.getUser();
+        Account user = accountRepository.findById(userRequest)
+                .orElseThrow(() -> new UsernameNotFoundException("El usuario no existe" + userRequest));
+
+        saveTransaction.setAccount(user);
+        saveTransaction.setAmountTaxes(0.0);
+
+
+        saveTransaction.setShippingCost(0.0);
 
         String description=transactionInventoryRegisterDto.getDescription();
         saveTransaction.setDescription(description);
@@ -57,6 +73,7 @@ public class TransactionInventoryServiceImpl implements TransactionInventoryServ
         Double purcharse_price=inventoryRepository.getByName(transactionInventoryRegisterDto.getInventory()).getPurchase_price();
         Double total=calculateTotal(purcharse_price,quantity);
         saveTransaction.setTotal(total);
+        saveTransaction.setAmountTotal(total);
 
         Product product=inventory.getProduct();
 

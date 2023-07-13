@@ -15,5 +15,6 @@ public class TransactionInventoryRegisterDto {
    private String inventory;
    private String transaction_type;
    private String description;
+   private String user;
 
 }

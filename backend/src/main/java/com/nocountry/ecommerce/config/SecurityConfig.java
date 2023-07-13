@@ -2,7 +2,6 @@ package com.nocountry.ecommerce.config;
 
 import com.nocountry.ecommerce.security.CustomUserDetailsService;
 import com.nocountry.ecommerce.security.jwt.JwtAuthorizationFilter;
-import com.nocountry.ecommerce.util.enums.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,8 +15,6 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 @Configuration
@@ -43,26 +40,14 @@ public class SecurityConfig {
 
         AuthenticationManager authenticationManager = auth.build();
 
-        http.cors();
-        http.csrf().disable();
-        http.authenticationManager(authenticationManager);
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-
-        http.authorizeHttpRequests()
-                .requestMatchers(HttpMethod.PUT,"/api/account/change/**","api/account/findallcustomerlist").hasRole(Role.ADMIN.name())
-                .requestMatchers(HttpMethod.PUT, "/api/account/updateAccount/**").hasRole(Role.USER.name())
-                .requestMatchers(HttpMethod.POST,"/api/wishlist/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
-                .requestMatchers("/api/authentication/sign-in",
-                        "/api/authentication/sign-up",
-                        "/swagger-ui/**",
-                        "/v3/**",
-                        "/api/account/updateAccount/**",
-                        "/pet/**",
-                        "/api/account/verify/**"
-                ).permitAll()
-                .anyRequest().authenticated();
-
-        http.addFilterBefore(jwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+        http.csrf().disable().cors().disable()
+                .authorizeHttpRequests().requestMatchers("/api/**").permitAll()
+                .and()
+                .authorizeHttpRequests().requestMatchers(HttpMethod.PUT,"/api/**").hasAnyRole("USER","ADMIN")
+                .and()
+                .authenticationManager(authenticationManager)
+                .addFilterBefore(jwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         return http.build();
     }
@@ -70,15 +55,5 @@ public class SecurityConfig {
     public JwtAuthorizationFilter jwtAuthorizationFilter(){
 
         return new JwtAuthorizationFilter();
-    }
-    @Bean
-    public WebMvcConfigurer corsConfigurer(){
-
-        return new WebMvcConfigurer() {
-            @Override
-            public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("*");
-            }
-        };
     }
 }
