@@ -57,6 +57,11 @@ const routes: Routes = [
             (m) => m.VerificationEmailModule
           ),
       },
+      {
+        path: 'shipping-info',
+        loadChildren: () =>
+          import('./pages/shipping-info/shipping-info.module').then((m) => m.ShippingInfoModule),
+      },
     ],
   },
 ];
