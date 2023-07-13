@@ -41,7 +41,7 @@ public class ProductController {
         return new ResponseEntity<>("Product delete successfully", HttpStatus.OK);
     }
 
-    @GetMapping("")
+    @GetMapping()
     public ResponseEntity<?> getProducts(@RequestBody ProductPageble productPageble){
         return new ResponseEntity<>(productService.getProducts(productPageble), HttpStatus.OK);
     }
