@@ -314,8 +314,10 @@ public class AccountServiceImpl implements AccountService {
     public EmailValues sendPasswordRecoveryToEmail(Account emailRecoverPass) throws MessagingException, UnsupportedEncodingException {
         String email = emailRecoverPass.getEmail();
         EmailValues emailValues = new EmailValues();
+        Account user = accountRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("El usuario no existe" + email));
 
-        if(emailRecoverPass.getRol() == Role.ADMIN){
+        if(user.getRol() == Role.ADMIN){
             Users userRequest = userRepository.findByEmail(email)
                     .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + email));
             emailValues.setMailTo(userRequest.getEmail());
