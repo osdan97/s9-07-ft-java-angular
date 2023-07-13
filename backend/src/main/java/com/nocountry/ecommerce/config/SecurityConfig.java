@@ -81,8 +81,7 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/customer/**").hasRole(Role.USER.name())
 
                 .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
-                .requestMatchers(HttpMethod.GET,"/api/favorites/list/**",
-                        "api/products").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+                .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
                 .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
 
                 .requestMatchers("/api/authentication/sign-in",
@@ -93,7 +92,8 @@ public class SecurityConfig {
                         "/swagger-ui/**",
                         "/v3/**",
                         "api/category/detail/**",
-                        "/api/authentication/verify/**"
+                        "/api/authentication/verify/**",
+                        "/api/products"
                 ).permitAll()
                 .anyRequest().authenticated();
 
