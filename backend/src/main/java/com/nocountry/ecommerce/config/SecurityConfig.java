@@ -63,7 +63,6 @@ public class SecurityConfig {
                 .hasRole(Role.ADMIN.name())
 
                 .requestMatchers(HttpMethod.GET, "api/inventory/list",
-                        "api/products",
                         "api/transaction/inventory/**").hasRole(Role.ADMIN.name())
 
                 .requestMatchers(HttpMethod.DELETE,"api/category/delete/**",
@@ -93,7 +92,7 @@ public class SecurityConfig {
                         "/v3/**",
                         "api/category/detail/**",
                         "/api/authentication/verify/**",
-                        "/api/products/**"
+                        "/api/products"
                 ).permitAll()
                 .anyRequest().authenticated();
 
