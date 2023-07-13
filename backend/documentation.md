@@ -24,16 +24,16 @@ https://delatinos.up.railway.app/api/category/create
 Example input:
 ```Json
 {
-    "name":"bebidas",
-    "description":"bebidas regionales de diversos paises",
-    "number":"b001",
-    "state":true
+  "name":"bebidas",
+  "description":"bebidas regionales de diversos paises",
+  "number":"b001",
+  "state":true
 }
 ```
 Example output:
 ```Json
 {
-"mensaje": "category created successfully"
+  "mensaje": "category created successfully"
 }
 ```
 
@@ -47,10 +47,10 @@ https://delatinos.up.railway.app/api/category/updatebyname/dulces
 
 ```Json
 {
-    "name": "dulces",
-    "description": "dulces regionales de diversos paises-lo que cambie",
-    "number": "d001",
-    "state": true
+  "name": "dulces",
+  "description": "dulces regionales de diversos paises-lo que cambie",
+  "number": "d001",
+  "state": true
 }
 ```
 Example output:
@@ -136,7 +136,7 @@ Verification Succeeded
 POST
 https://delatinos.up.railway.app/api/authentication/sign-in
 
-Example input: 
+Example input:
 ```Json
 {
   "email": "example@example.com",
@@ -162,19 +162,19 @@ https://delatinos.up.railway.app/api/customer/update/example@example.com
 
 ```Json
 {
-    "name": "Fulano",
-    "lastName": "Peréz",
-    "country":"Serbia",
-    "address":"Calle siempre viva"
+  "name": "Fulano",
+  "lastName": "Peréz",
+  "country":"Serbia",
+  "address":"Calle siempre viva"
 }
 ```
 Example output:
 ```Json
 {
-    "name": "Fulano",
-    "lastName": "Peréz",
-    "country": "Serbia",
-    "address": "Calle siempre viva"
+  "name": "Fulano",
+  "lastName": "Peréz",
+  "country": "Serbia",
+  "address": "Calle siempre viva"
 }
 ```
 
@@ -191,11 +191,11 @@ Example input:
 Example output:
 ```Json
 {
-    "mailFrom": "mascotaencasapetshelter@gmail.com",
-    "mailTo": "example@example.com",
-    "subject": "Password recovery by Ecommerce Team",
-    "fullName": "Fulano Peréz",
-    "token": "ad023dcb-bd65-43b2-bda9-c45943bff3cb"
+  "mailFrom": "mascotaencasapetshelter@gmail.com",
+  "mailTo": "example@example.com",
+  "subject": "Password recovery by Ecommerce Team",
+  "fullName": "Fulano Peréz",
+  "token": "ad023dcb-bd65-43b2-bda9-c45943bff3cb"
 }
 ```
 
@@ -238,76 +238,76 @@ POST
 Example input:
 ```Json
 {
-    "accountUuid": "0667fe35-b307-4e19-8cfd-27329f4e5e8e",
-    "email": "alfonsoalmonte@gmail.com",
-    "password": "$2a$10$.w2H31jDLByPdtqd.7JAruiw/PK2MPQNB9DgoFtYed43uMDG/KG0m",
-    "rol": "USER",
-    "createdDate": "2023-07-12T11:25:15.838038",
-    "lastSessionDate": "2023-07-12T11:25:15.838062",
-    "active": true,
-    "verificationCode": null,
-    "tokenPassword": null,
-    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGZvbnNvYWxtb250ZUBnbWFpbC5jb20iLCJyb2xlcyI6IlVTRVIiLCJ1c2VySWQiOiIwNjY3ZmUzNS1iMzA3LTRlMTktOGNmZC0yNzMyOWY0ZTVlOGUiLCJleHAiOjE2ODkyNjI2OTR9.lxN86v-9mBzLIl0296XzoRpWT-Nn3QYymnS-VX3Q2DB-8ywOM7DUWau1KkIiFePY_R5ioy22YrKCeQ5SApszzQ",
-    "number": "2023-1",
-    "name": "Alfonso",
-    "lastName": "Almonte",
-    "address": "Calle siempre viva",
-    "country": "República Dominicana",
-"phonesList": [
-        {
-            "phoneUuid": "3721e216-9fcf-4853-bd62-a2b055c4ced8",
-            "phoneLabel": "CELLPHONE",
-            "phoneNumber": "8493590",
-            "cityCode": "809",
-            "countryCode": "1"
-        },
-        {
-            "phoneUuid": "72132b4e-4656-4618-997d-f6dc67f91272",
-            "phoneLabel": "HOME",
-            "phoneNumber": "5485914",
-            "cityCode": "829",
-            "countryCode": "1"
-        },
-        {
-            "phoneUuid": "8e5e007f-e5ac-4fa7-a29e-cd4516e1b975",
-            "phoneLabel": "JOB",
-            "phoneNumber": "5910612",
-            "cityCode": "849",
-            "countryCode": "1"
-        }
-    ],
-    "shippingDetailsList": [
-        {
-            "shippingDetailUuid": "0294bc3f-e705-4f9b-9cd2-4d7ab266e7c7",
-            "shippingDetailsName": "Direccion 1",
-            "name": "Alfonso",
-            "lastName": "Almonte",
-            "address1": "Calle Jonas Salk",
-            "address2": "Lucerna",
-            "postalCode": "11515",
-            "provincia": "Santo Domingo",
-            "city": "Santo Domingo Este",
-            "country": "República Dominicanna",
-            "active": true,
-            "primaryAddress": true,
-            "gift": false
-        },
-        {
-            "shippingDetailUuid": "79840fd8-dfcf-4dc7-8866-e3ba6f773eb7",
-            "shippingDetailsName": "Direccion 2",
-            "name": "Alfonso",
-            "lastName": "Almonte",
-            "address1": "Calle Jonas Salk",
-            "address2": "Lucerna",
-            "postalCode": "11515",
-            "provincia": "Santo Domingo",
-            "city": "Santo Domingo Este",
-            "country": "República Dominicanna",
-            "active": true,
-            "primaryAddress": false,
-            "gift": false
-        }
-    ]
+  "accountUuid": "0667fe35-b307-4e19-8cfd-27329f4e5e8e",
+  "email": "alfonsoalmonte@gmail.com",
+  "password": "$2a$10$.w2H31jDLByPdtqd.7JAruiw/PK2MPQNB9DgoFtYed43uMDG/KG0m",
+  "rol": "USER",
+  "createdDate": "2023-07-12T11:25:15.838038",
+  "lastSessionDate": "2023-07-12T11:25:15.838062",
+  "active": true,
+  "verificationCode": null,
+  "tokenPassword": null,
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbGZvbnNvYWxtb250ZUBnbWFpbC5jb20iLCJyb2xlcyI6IlVTRVIiLCJ1c2VySWQiOiIwNjY3ZmUzNS1iMzA3LTRlMTktOGNmZC0yNzMyOWY0ZTVlOGUiLCJleHAiOjE2ODkyNjI2OTR9.lxN86v-9mBzLIl0296XzoRpWT-Nn3QYymnS-VX3Q2DB-8ywOM7DUWau1KkIiFePY_R5ioy22YrKCeQ5SApszzQ",
+  "number": "2023-1",
+  "name": "Alfonso",
+  "lastName": "Almonte",
+  "address": "Calle siempre viva",
+  "country": "República Dominicana",
+  "phonesList": [
+    {
+      "phoneUuid": "3721e216-9fcf-4853-bd62-a2b055c4ced8",
+      "phoneLabel": "CELLPHONE",
+      "phoneNumber": "8493590",
+      "cityCode": "809",
+      "countryCode": "1"
+    },
+    {
+      "phoneUuid": "72132b4e-4656-4618-997d-f6dc67f91272",
+      "phoneLabel": "HOME",
+      "phoneNumber": "5485914",
+      "cityCode": "829",
+      "countryCode": "1"
+    },
+    {
+      "phoneUuid": "8e5e007f-e5ac-4fa7-a29e-cd4516e1b975",
+      "phoneLabel": "JOB",
+      "phoneNumber": "5910612",
+      "cityCode": "849",
+      "countryCode": "1"
+    }
+  ],
+  "shippingDetailsList": [
+    {
+      "shippingDetailUuid": "0294bc3f-e705-4f9b-9cd2-4d7ab266e7c7",
+      "shippingDetailsName": "Direccion 1",
+      "name": "Alfonso",
+      "lastName": "Almonte",
+      "address1": "Calle Jonas Salk",
+      "address2": "Lucerna",
+      "postalCode": "11515",
+      "provincia": "Santo Domingo",
+      "city": "Santo Domingo Este",
+      "country": "República Dominicanna",
+      "active": true,
+      "primaryAddress": true,
+      "gift": false
+    },
+    {
+      "shippingDetailUuid": "79840fd8-dfcf-4dc7-8866-e3ba6f773eb7",
+      "shippingDetailsName": "Direccion 2",
+      "name": "Alfonso",
+      "lastName": "Almonte",
+      "address1": "Calle Jonas Salk",
+      "address2": "Lucerna",
+      "postalCode": "11515",
+      "provincia": "Santo Domingo",
+      "city": "Santo Domingo Este",
+      "country": "República Dominicanna",
+      "active": true,
+      "primaryAddress": false,
+      "gift": false
+    }
+  ]
 }
 
 ```
@@ -325,15 +325,15 @@ https://delatinos.up.railway.app/api/products
 Example input:
 ```Json
 {
-    "name": "product4",
-    "description": "description4",
-    "stock": 150, 
-    "image": "imagen4.jpg",
-    "price": 2.5,
-    "weight": 10.0,
-    "country": "country2",
-    "minStock": 20,
-    "category": "bebidas"
+  "name": "product4",
+  "description": "description4",
+  "stock": 150,
+  "image": "imagen4.jpg",
+  "price": 2.5,
+  "weight": 10.0,
+  "country": "country2",
+  "minStock": 20,
+  "category": "bebidas"
 }
 ```
 
@@ -481,50 +481,50 @@ https://delatinos.up.railway.app/api/favorites/create
 ```Json
 
 {
-"customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
-"product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
+  "customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
+  "product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
 }
 ```
 Example output
 ```Json
 {
-"id": "75b29a68-5901-4555-8060-58ffc1ea44c2",
-"customers": {
-"accountUuid": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
-"email": "example@example.com",
-"password": "$2a$10$jddKF6mfC.30UUmei.ZWueQK6xFaox6wNm6RgRHTVfxU99dVgCtLG",
-"rol": "USER",
-"createdDate": "2023-07-07T15:00:39",
-"lastSessionDate": "2023-07-07T15:00:39",
-"active": true,
-"verificationCode": null,
-"tokenPassword": null,
-"token": null,
-"number": "2023-1",
-"name": "Juan",
-"lastName": "Peréz",
-"address": null,
-"country": null,
-"phonesList": []
-},
-"product": {
-"id": "ae98190b-f1ce-46ab-9896-90e39731c17c",
-"name": "product4",
-"description": "description4",
-"stock": 150,
-"image": "imagen4.jpg",
-"price": 2.5,
-"weight": 10.0,
-"country": "country2",
-"state": true,
-"category": {
-"id": "a186c52f-75b3-497c-b31d-5c5523cb2988",
-"name": "bebidas",
-"description": "bebidas regionales de diversos paises",
-"number": "b001",
-"state": true
-}
-}
+  "id": "75b29a68-5901-4555-8060-58ffc1ea44c2",
+  "customers": {
+    "accountUuid": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
+    "email": "example@example.com",
+    "password": "$2a$10$jddKF6mfC.30UUmei.ZWueQK6xFaox6wNm6RgRHTVfxU99dVgCtLG",
+    "rol": "USER",
+    "createdDate": "2023-07-07T15:00:39",
+    "lastSessionDate": "2023-07-07T15:00:39",
+    "active": true,
+    "verificationCode": null,
+    "tokenPassword": null,
+    "token": null,
+    "number": "2023-1",
+    "name": "Juan",
+    "lastName": "Peréz",
+    "address": null,
+    "country": null,
+    "phonesList": []
+  },
+  "product": {
+    "id": "ae98190b-f1ce-46ab-9896-90e39731c17c",
+    "name": "product4",
+    "description": "description4",
+    "stock": 150,
+    "image": "imagen4.jpg",
+    "price": 2.5,
+    "weight": 10.0,
+    "country": "country2",
+    "state": true,
+    "category": {
+      "id": "a186c52f-75b3-497c-b31d-5c5523cb2988",
+      "name": "bebidas",
+      "description": "bebidas regionales de diversos paises",
+      "number": "b001",
+      "state": true
+    }
+  }
 }
 ```
 
@@ -555,8 +555,8 @@ https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ff
 
 ```Json
 {
-"customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
-"product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
+  "customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
+  "product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
 
 }
 ```
@@ -565,7 +565,7 @@ https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ff
 Example output
 ```Json
 {
-"mensaje": "favorite updated"
+  "mensaje": "favorite updated"
 }
 ```
 
@@ -580,7 +580,7 @@ https://delatinos.up.railway.app/api/favorites/deletebyid/75b29a68-5901-4555-806
 Example output
 ```Json
 {
-    "mensaje": "favorites deleted successfully"
+  "mensaje": "favorites deleted successfully"
 }
 ```
 # Inventory
@@ -612,11 +612,11 @@ Example input
 https://delatinos.up.railway.app/api/inventory/create
 ```Json
 {
-    "name":"Inventory Product7",
-    "stock_inventory":50,
-    "product_name":"product7",
-    "image":"image.jpg",
-    "purchase_price":10
+  "name":"Inventory Product7",
+  "stock_inventory":50,
+  "product_name":"product7",
+  "image":"image.jpg",
+  "purchase_price":10
 }
 ```
 
@@ -642,7 +642,7 @@ Example output
 ```
 
 
-##  Create Inventory Transaction 
+##  Create Inventory Transaction
 https://delatinos.up.railway.app/api/transaction/inventory
 POST
 
@@ -650,10 +650,10 @@ Example input
 https://delatinos.up.railway.app/api/transaction/inventory
 ```Json
 {
-    "quantity":15,
-    "inventory":"Inventory Product7",
-    "transaction_type":"COMPRA",
-    "description":"Compra de product6 por motivo de agotamiento de stock"
+  "quantity":15,
+  "inventory":"Inventory Product7",
+  "transaction_type":"COMPRA",
+  "description":"Compra de product6 por motivo de agotamiento de stock"
 }
 ```
 
@@ -684,78 +684,78 @@ https://delatinos.up.railway.app/api/orders
 
 ```JSON
 {
-"customers": {
-"accountUuid":"45f60e43-619d-4031-a3c7-aacca8ed26e0"
-},
-"shippingCost": 15,
-"orderDetailsList": [
-{
-"product": {
-"id": "f0bcc4f4-d8f7-44c4-92d9-4c066dfe742e"
-},
-"quantity": 2
-},
-{
-"product": {
-"id": "99968e9d-725c-4951-bf00-8275f0a8d266"
-},
-"quantity": 4
-}
-],
-"shippingDetails": {
-"name": "Ana",
-"lastName": "Reyes",
-"company": "",
-"address1": "Calle Mercedes No. 24",
-"address2": "Zona Colonial",
-"postalCode": "22243",
-"provincia": "Santo Domingo",
-"city": "Distrito Nacional",
-"country": "Republica Dominicana",
-"gift": false
-}
+  "customers": {
+    "accountUuid":"45f60e43-619d-4031-a3c7-aacca8ed26e0"
+  },
+  "shippingCost": 15,
+  "orderDetailsList": [
+    {
+      "product": {
+        "id": "f0bcc4f4-d8f7-44c4-92d9-4c066dfe742e"
+      },
+      "quantity": 2
+    },
+    {
+      "product": {
+        "id": "99968e9d-725c-4951-bf00-8275f0a8d266"
+      },
+      "quantity": 4
+    }
+  ],
+  "shippingDetails": {
+    "name": "Ana",
+    "lastName": "Reyes",
+    "company": "",
+    "address1": "Calle Mercedes No. 24",
+    "address2": "Zona Colonial",
+    "postalCode": "22243",
+    "provincia": "Santo Domingo",
+    "city": "Distrito Nacional",
+    "country": "Republica Dominicana",
+    "gift": false
+  }
 }
 ```
 
 Example output
 ```JSON
 {
-    "number": "2023-2",
-    "fullName": "Felipe Castro",
-    "shippingCost": null,
-    "amountTaxes": 2.85,
-    "amountTotal": 15.0,
-    "total": 17.85,
-    "createdDate": "2023-07-11T15:05:24.496416873",
-    "transactionState": "ON_HOLD",
-    "orderDetailsRegistrationList": [
-        {
-            "productName": "azucar",
-            "quantity": 2,
-            "price": 2.5,
-            "totalAmount": 5.0,
-            "taxesAmount": 0.95,
-            "total": 5.95
-        },
-        {
-            "productName": "product2",
-            "quantity": 4,
-            "price": 2.5,
-            "totalAmount": 10.0,
-            "taxesAmount": 1.9,
-            "total": 11.9
-        }
-    ],
-    "shippingDetailsRegistration": {
-        "fullName": "Ana Reyes",
-        "company": "",
-        "address": "Calle Mercedes No. 24",
-        "address2": "Zona Colonial",
-        "postalCode": "22243",
-        "provincia": "Santo Domingo",
-        "city": "Distrito Nacional",
-        "country": "Republica Dominicana"
+  "number": "2023-2",
+  "fullName": "Felipe Castro",
+  "shippingCost": null,
+  "amountTaxes": 2.85,
+  "amountTotal": 15.0,
+  "total": 17.85,
+  "createdDate": "2023-07-11T15:05:24.496416873",
+  "transactionState": "ON_HOLD",
+  "orderDetailsRegistrationList": [
+    {
+      "productName": "azucar",
+      "quantity": 2,
+      "price": 2.5,
+      "totalAmount": 5.0,
+      "taxesAmount": 0.95,
+      "total": 5.95
+    },
+    {
+      "productName": "product2",
+      "quantity": 4,
+      "price": 2.5,
+      "totalAmount": 10.0,
+      "taxesAmount": 1.9,
+      "total": 11.9
     }
+  ],
+  "shippingDetailsRegistration": {
+    "fullName": "Ana Reyes",
+    "company": "",
+    "address": "Calle Mercedes No. 24",
+    "address2": "Zona Colonial",
+    "postalCode": "22243",
+    "provincia": "Santo Domingo",
+    "city": "Distrito Nacional",
+    "country": "Republica Dominicana"
+  }
 }
 
 ```
@@ -769,17 +769,17 @@ Example input
 http://delatinos.up.railway.app/api/shipping-details/customer/%7Bcustomer_uuid%7D
 ```JSON
 {
-    "shippingDetailsName":"Direccion ",
-    "name":"Alfonso",
-    "lastName":"Almonte",
-    "address1":"Carretera  Mella 7",
-    "address2":"Lucerna",
-    "postalCode":"11516",
-    "provincia":"Santo Domingo",
-    "city": "Santo Domingo Este",
-    "country": "República Dominicanna",
-    "active": true,
-    "primaryAddress":true
+  "shippingDetailsName":"Direccion ",
+  "name":"Alfonso",
+  "lastName":"Almonte",
+  "address1":"Carretera  Mella 7",
+  "address2":"Lucerna",
+  "postalCode":"11516",
+  "provincia":"Santo Domingo",
+  "city": "Santo Domingo Este",
+  "country": "República Dominicanna",
+  "active": true,
+  "primaryAddress":true
 }
 
 ```
@@ -806,39 +806,39 @@ https://delatinos.up.railway.app/api/shipping-details/65d5e792-b16f-498b-bf1a-41
 
 ```JSON
 {
-    "shippingDetailsName":"Direccion 3",
-    "name":"Alfonso",
-    "lastName":"Almonte",
-    "address1":"Carretera Mella",
-    "address2":"Lucerna",
-    "postalCode":"11516",
-    "provincia":"Santo Domingo",
-    "city": "Santo Domingo Este",
-    "country": "República Dominicanna",
-    "active": true,
-    "primaryAddress":true
+  "shippingDetailsName":"Direccion 3",
+  "name":"Alfonso",
+  "lastName":"Almonte",
+  "address1":"Carretera Mella",
+  "address2":"Lucerna",
+  "postalCode":"11516",
+  "provincia":"Santo Domingo",
+  "city": "Santo Domingo Este",
+  "country": "República Dominicanna",
+  "active": true,
+  "primaryAddress":true
 }
 
 ```
 Example output
 ```JSON
 {
-    "name": "Alfonso",
-    "lastName": "Almonte",
-    "shippingDetailsName": "Direccion 3",
-    "address1": "Carretera Mella",
-    "address2": "Lucerna",
-    "postalCode": "11516",
-    "provincia": "Santo Domingo",
-    "city": "Santo Domingo Este",
-    "country": "República Dominicanna",
-    "active": true,
-    "primaryAddress": true,
-    "gift": false
+  "name": "Alfonso",
+  "lastName": "Almonte",
+  "shippingDetailsName": "Direccion 3",
+  "address1": "Carretera Mella",
+  "address2": "Lucerna",
+  "postalCode": "11516",
+  "provincia": "Santo Domingo",
+  "city": "Santo Domingo Este",
+  "country": "República Dominicanna",
+  "active": true,
+  "primaryAddress": true,
+  "gift": false
 }
 ```
 
-## Change shipping detail primary address 
+## Change shipping detail primary address
 POST
 http://delatinos.up.railway.app/api/shipping-details/change-primary/{shipping_details_id}
 

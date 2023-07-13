@@ -18,4 +18,5 @@ public class ShippingDetailsRegistration {
     private String provincia;
     private String city;
     private String country;
+
 }
