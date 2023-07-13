@@ -313,28 +313,45 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public EmailValues sendPasswordRecoveryToEmail(Account emailRecoverPass) throws MessagingException, UnsupportedEncodingException {
         String email = emailRecoverPass.getEmail();
-
-        Customers customersRequest = customerRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + email));
-
-
         EmailValues emailValues = new EmailValues();
 
-        emailValues.setMailTo(customersRequest.getEmail());
+        if(emailRecoverPass.getRol() == Role.ADMIN){
+            Users userRequest = userRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + email));
+            emailValues.setMailTo(userRequest.getEmail());
 
-        String fullName = customersRequest.getName() + " " + customersRequest.getLastName();
-        emailValues.setFullName(fullName);
+            String fullName = userRequest.getName() + " " + userRequest.getLastName();
+            emailValues.setFullName(fullName);
 
-        UUID uuid = UUID.randomUUID();
-        String tokenPassword = uuid.toString();
-        emailValues.setToken(tokenPassword);
-        customersRequest.setTokenPassword(tokenPassword);
+            UUID uuid = UUID.randomUUID();
+            String tokenPassword = uuid.toString();
+            emailValues.setToken(tokenPassword);
+            userRequest.setTokenPassword(tokenPassword);
 
-        String subject = "Password recovery by Ecommerce Team";
-        emailValues.setSubject(subject);
+            String subject = "Password recovery by Ecommerce Team";
+            emailValues.setSubject(subject);
 
-        customerRepository.save(customersRequest);
-        emailService.sendEmailForgotPassword(emailValues);
+            userRepository.save(userRequest);
+            emailService.sendEmailForgotPassword(emailValues);
+        }else{
+            Customers customersRequest = customerRepository.findByEmail(email)
+                    .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + email));
+            emailValues.setMailTo(customersRequest.getEmail());
+
+            String fullName = customersRequest.getName() + " " + customersRequest.getLastName();
+            emailValues.setFullName(fullName);
+
+            UUID uuid = UUID.randomUUID();
+            String tokenPassword = uuid.toString();
+            emailValues.setToken(tokenPassword);
+            customersRequest.setTokenPassword(tokenPassword);
+
+            String subject = "Password recovery by Ecommerce Team";
+            emailValues.setSubject(subject);
+
+            customerRepository.save(customersRequest);
+            emailService.sendEmailForgotPassword(emailValues);
+        }
 
         return emailValues;
     }
