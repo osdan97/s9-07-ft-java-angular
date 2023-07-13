@@ -50,6 +50,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/payment/payment.module').then((m) => m.PaymentModule),
       },
+      {
+        path: 'verificar-cuenta/:token',
+        loadChildren: () =>
+          import('./pages/verification-email/verification-email.module').then(
+            (m) => m.VerificationEmailModule
+          ),
+      },
     ],
   },
 ];

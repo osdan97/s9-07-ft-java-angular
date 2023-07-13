@@ -14,7 +14,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  // private isAutenticate = signal(false);
   private isAutenticate: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
   private readonly baseUrl = environment.apiUrl;
@@ -35,6 +34,12 @@ export class AuthService {
     );
   }
 
+  verificationAccount(token: string): Observable<string> {
+    return this.http.get<string>(
+      `${this.baseUrl}authentication/verify/${token}`
+    );
+  }
+
   renewSession(accessToken: string): Observable<UserData> {
     const headers = new HttpHeaders().set(
       'Authorization',
@@ -44,14 +49,6 @@ export class AuthService {
       headers,
     });
   }
-
-  // setAutenticate(value: boolean) {
-  //   this.isAutenticate.set(value);
-  // }
-
-  // getAutenticate() {
-  //   return this.isAutenticate();
-  // }
 
   getAutenticate(): Observable<boolean> {
     return this.isAutenticate.asObservable();
