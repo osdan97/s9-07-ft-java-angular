@@ -24,7 +24,7 @@ public interface AccountService {
     @Transactional
     boolean verifyAccount(String verificationCode);
 
-    abstract EmailValues sendPasswordRecoveryToEmail(Customers emailRecoverPass) throws MessagingException, UnsupportedEncodingException;
+    abstract EmailValues sendPasswordRecoveryToEmail(Account emailRecoverPass) throws MessagingException, UnsupportedEncodingException;
 
     Account changePassword(ChangePassword changePassword);
 

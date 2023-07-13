@@ -311,7 +311,7 @@ public class AccountServiceImpl implements AccountService {
         }
     }
     @Override
-    public EmailValues sendPasswordRecoveryToEmail(Customers emailRecoverPass) throws MessagingException, UnsupportedEncodingException {
+    public EmailValues sendPasswordRecoveryToEmail(Account emailRecoverPass) throws MessagingException, UnsupportedEncodingException {
         String email = emailRecoverPass.getEmail();
 
         Customers customersRequest = customerRepository.findByEmail(email)
