@@ -1,4 +1,11 @@
-import { Component, EventEmitter, OnInit, Output, inject } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  inject,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import jwtDecode from 'jwt-decode';
@@ -18,6 +25,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 })
 export class LoginComponent implements OnInit {
   @Output() visible = new EventEmitter<boolean>();
+  @Input() showLogo = true;
   loginForm!: FormGroup;
 
   authService = inject(AuthService);

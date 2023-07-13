@@ -10,6 +10,9 @@ export class CartComponent {
   @Input() changeButton = true;
   @Input() showBorder = false;
   @Input() isLogued = false;
+  @Input() changeWidth = false;
+  @Input() showCross = true;
+  @Input() showTile = false;
 
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';

@@ -1,11 +1,11 @@
 <article class="cart__container" [ngClass]="{ borderDisabled: showBorder }">
-  <div class="cart__cross" (click)="emitirValor()">x</div>
-  <h2>Tu carrito</h2>
+  <div class="cart__cross" (click)="emitirValor()" *ngIf="showCross">x</div>
+  <h2 *ngIf="showTile">Tu carrito</h2>
   <div class="cart__content" *ngFor="let item of cart()">
     <div class="logo__cart">
       <!-- <img src="" alt=""> -->
     </div>
-    <div class="text__cart">
+    <div class="text__cart" [ngClass]="{ 'text__cart--unlogued': changeWidth }">
       <h3>{{ item.name }}</h3>
       <p>
         <app-input-cart [showButton]="false"></app-input-cart>

@@ -2,16 +2,15 @@
 
 .login__container {
   width: 100%;
-  max-width: 480px;
+  max-width: 380px;
   height: 450px;
-  // background-color: #eeeeee;
-  // padding: 2rem;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  margin: 0 auto;
 
   .login__header {
     display: flex;
