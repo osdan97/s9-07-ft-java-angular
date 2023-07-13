@@ -31,7 +31,6 @@ public class FavoritesController {
        if (StringUtils.isBlank(favoritesDto.getProduct()))
            return new ResponseEntity(new Mensaje("product id is required"), HttpStatus.BAD_REQUEST);
        else {
-           favoritesService.save(favoritesDto);
            return new ResponseEntity(favoritesService.save(favoritesDto), HttpStatus.OK);
        }
     }
