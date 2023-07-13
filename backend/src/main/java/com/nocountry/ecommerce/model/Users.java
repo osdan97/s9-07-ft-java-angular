@@ -26,4 +26,7 @@ public class Users extends Account implements Serializable {
     public Users(String email, String password){
         super(email,password);
     }
+    public Users(String email){
+        super(email);
+    }
 }
