@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./login-create.component.scss'],
 })
 export class LoginCreateComponent implements OnInit, OnDestroy {
-  visible = true;
+  visible = false;
 
   registerForm!: FormGroup;
 
