@@ -8,7 +8,12 @@
       <img src="../../../assets/menos.png" alt="" class="icon" />
     </button>
   </div>
-  <button *ngIf="showButton" type="submit" class="btn">
+  <button
+    *ngIf="showButton"
+    type="submit"
+    class="button"
+    [ngClass]="changeClass ? 'custom__button--line' : 'custom__button--fill'"
+  >
     Añadir al carrito
   </button>
 </form>

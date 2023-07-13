@@ -1,3 +1,4 @@
+@import "src/styles.scss";
 .card {
   display: flex;
   flex-direction: column;
@@ -5,9 +6,11 @@
   align-items: center;
   width: 246px;
   // height: 336px;
-  border: 1px solid #000;
+  // border: 1px solid #000;
+  box-shadow: $card-shadow;
   border-radius: 7px;
   overflow: hidden;
+  background-color: $background-white;
 }
 
 .imagen-text {

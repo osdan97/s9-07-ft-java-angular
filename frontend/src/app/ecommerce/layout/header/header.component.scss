@@ -76,6 +76,7 @@ header {
           background-color: white;
           border-radius: 2px;
           color: $text-color-black;
+          user-select: none;
         }
         img {
           cursor: pointer;
