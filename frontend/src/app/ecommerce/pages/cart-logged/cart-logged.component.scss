@@ -23,11 +23,13 @@
 }
 
 .carrito{
-    width: 514px;
+    width: 800px;
     margin: 11px;
     display: flex;
     flex-direction: row;
     border: 1px solid black;
+    border-radius: 8px ;
+    background-color: white;
 }
 .item{
   display: flex;
@@ -45,7 +47,7 @@
 width: 247px;
 height: 40px;
 border-radius: 7px;
-border: 1px;
-}
+border: 1px solid black;
+} 
 
   
