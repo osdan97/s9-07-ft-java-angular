@@ -7,20 +7,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./check-pay.component.scss'],
 })
 export class CheckPayComponent {
-  panelOpenState = false;
-  name = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^[a-zA-Z ]+$/),
-  ]);
-  lastname = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^[a-zA-Z ]+$/),
-  ]);
-  email = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
-  ]);
-  tel = new FormControl('', Validators.required);
+  show = false;
+  show1 = false;
+  ingredient!: string;
+
   pais = new FormControl('', [
     Validators.required,
     Validators.pattern(/^[a-zA-Z ]+$/),
@@ -37,12 +27,10 @@ export class CheckPayComponent {
   direccion = new FormControl('', Validators.required);
   detalle_dir = new FormControl('', Validators.required);
   check_fact = new FormControl('', Validators.requiredTrue);
+  envio = new FormControl('');
+  coment_envio = new FormControl('');
 
   form = new FormGroup({
-    name: this.name,
-    lastname: this.lastname,
-    email: this.email,
-    tel: this.tel,
     pais: this.pais,
     provincia: this.provincia,
     postal: this.postal,
@@ -52,7 +40,15 @@ export class CheckPayComponent {
     check_fact: this.check_fact,
   });
 
+  form1 = new FormGroup({
+    envio: this.envio,
+    coment_envio: this.coment_envio,
+  })
+
   login_create() {
-    console.log(this.form.value);
+    if (this.form.valid) {
+      console.log(this.form.value);
+      this.show = true;
+    }
   }
 }
