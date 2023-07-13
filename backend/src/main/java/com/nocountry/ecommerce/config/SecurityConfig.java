@@ -59,7 +59,6 @@ public class SecurityConfig {
 
                 .requestMatchers(HttpMethod.POST,"api/inventory/create",
                         "api/category/create",
-                        "api/products",
                         "api/transaction/inventory")
                 .hasRole(Role.ADMIN.name())
 
@@ -82,7 +81,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/customer/**").hasRole(Role.USER.name())
 
                 .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
-                .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+                .requestMatchers(HttpMethod.GET,"/api/favorites/list/**",
+                        "api/products").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
                 .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
 
                 .requestMatchers("/api/authentication/sign-in",
