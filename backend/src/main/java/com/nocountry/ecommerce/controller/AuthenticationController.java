@@ -77,8 +77,8 @@ public class AuthenticationController {
         }
     }
     @PostMapping("forgot-password")
-    public ResponseEntity<?> sendEmailForgotPassword(@RequestBody Customers customers) throws MessagingException, UnsupportedEncodingException {
-        return new ResponseEntity<>(accountService.sendPasswordRecoveryToEmail(customers), HttpStatus.OK);
+    public ResponseEntity<?> sendEmailForgotPassword(@RequestBody Account account) throws MessagingException, UnsupportedEncodingException {
+        return new ResponseEntity<>(accountService.sendPasswordRecoveryToEmail(account), HttpStatus.OK);
     }
 
     @PostMapping("change-password")
