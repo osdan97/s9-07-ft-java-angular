@@ -1,26 +1,28 @@
 <section>
-  <form [formGroup]="form" (ngSubmit)="form.valid && login_create()" novalidate>
+  <form [formGroup]="registerForm" (ngSubmit)="login_create()" novalidate>
     <h2>Crear Cuenta</h2>
     <div class="contenedor1">
       <p class="title">1. Datos personales</p>
       <div class="input-label">
         <label>
-          Nombre/s
-          <input type="text" [formControl]="name">
+          <span class="required">Nombre/s</span>
+          <input type="text" formControlName="name" />
         </label>
         <label>
-          Apellido/s
-          <input type="text" [formControl]="lastname">
+          <span class="required">Apellido/s</span>
+          <input type="text" formControlName="lastname" />
         </label>
       </div>
       <div class="input-label">
         <label>
-          Correo electronico
-          <input type="email" [formControl]="email" autocomplete>
+          <span class="required">Correo electronico</span>
+
+          <input type="email" formControlName="email" autocomplete />
         </label>
         <label>
-          Movil
-          <input type="number" [formControl]="tel">
+          <span class="required">Contraseña</span>
+
+          <input type="number" formControlName="password" />
         </label>
       </div>
     </div>
@@ -29,36 +31,48 @@
       <div class="input-label">
         <label>
           Pais
-          <input type="text" [formControl]="pais">
+          <input type="text" formControlName="pais" />
         </label>
         <label>
           Provincia/ Comunidad
-          <input type="text" [formControl]="provincia">
+          <input type="text" formControlName="provincia" />
         </label>
       </div>
       <div class="input-label">
         <label>
           Codigo postal
-          <input type="number" [formControl]="postal">
+          <input type="number" formControlName="postal" />
         </label>
         <label>
           Ciudad
-          <input type="text" [formControl]="ciudad">
+          <input type="text" formControlName="ciudad" />
         </label>
       </div>
       <div class="input-label">
         <label>
           Dirección
-          <input type="text" [formControl]="direccion" placeholder="Nombre y número de calle">
+          <input
+            type="text"
+            formControlName="direccion"
+            placeholder="Nombre y número de calle"
+          />
         </label>
         <label>
           Detalles de dirección
-          <input type="text" [formControl]="detalle_dir" placeholder="Indicaciones">
+          <input
+            type="text"
+            formControlName="detalle_dir"
+            placeholder="Indicaciones"
+          />
         </label>
       </div>
       <div class="">
         <label class="check">
-          <input type="checkbox" class="check-input" [formControl]="check_fact">
+          <input
+            type="checkbox"
+            class="check-input"
+            formControlName="check_fact"
+          />
           Utilizar esta dirección para los datos de facturación
         </label>
       </div>
@@ -66,6 +80,18 @@
         <button type="submit">Crear cuenta</button>
       </div>
     </div>
-
   </form>
 </section>
+
+<p-dialog
+  [(visible)]="visible"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '25vw' }"
+  [draggable]="true"
+  [resizable]="false"
+>
+  <article class="modal__container">
+    <h2>Tu cuenta se ha creado correctamente</h2>
+    <p>Por favor, revisa tu correo para activar tu cuenta</p>
+  </article>
+</p-dialog>

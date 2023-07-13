@@ -71,6 +71,7 @@ $border-disabled: 1px solid $background-disabled;
 body {
   font-family: "Quicksand", sans-serif;
   background-color: $background-backdrop;
+  scroll-behavior: smooth;
 }
 
 button {

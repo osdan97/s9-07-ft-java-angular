@@ -8,6 +8,7 @@ import {
   signal,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { UserData } from 'src/app/core/interfaces/auth.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
@@ -30,6 +31,7 @@ export class HeaderComponent implements OnInit {
   renderer = inject(Renderer2);
   elementRef = inject(ElementRef);
   authService = inject(AuthService);
+  cookieService = inject(CookieService);
 
   ngOnInit(): void {
     this.router.events.subscribe(() => {
@@ -75,7 +77,7 @@ export class HeaderComponent implements OnInit {
 
   //funcion para saber la posición del scroll y mostrar el header fijo
   @HostListener('window:scroll', ['$event']) activeFixedHeader() {
-    if (window.scrollY >= 119) {
+    if (window.scrollY >= 146) {
       this.headerFixed.set(true);
     } else {
       this.headerFixed.set(false);
@@ -98,7 +100,7 @@ export class HeaderComponent implements OnInit {
   isLogued() {
     if (!localStorage.getItem('userData')) {
       this.authService.setAutenticate(false);
-      // this.cookieService.delete('accessToken');
+      this.cookieService.delete('accessToken');
     }
 
     this.authService.getAutenticate().subscribe((resp) => {
