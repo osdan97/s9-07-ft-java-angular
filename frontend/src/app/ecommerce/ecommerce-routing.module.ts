@@ -51,7 +51,7 @@ const routes: Routes = [
           import('./pages/payment/payment.module').then((m) => m.PaymentModule),
       },
       {
-        path: 'verificar-cuenta/:token',
+        path: 'verify/:token',
         loadChildren: () =>
           import('./pages/verification-email/verification-email.module').then(
             (m) => m.VerificationEmailModule
@@ -60,7 +60,16 @@ const routes: Routes = [
       {
         path: 'shipping-info',
         loadChildren: () =>
-          import('./pages/shipping-info/shipping-info.module').then((m) => m.ShippingInfoModule),
+          import('./pages/shipping-info/shipping-info.module').then(
+            (m) => m.ShippingInfoModule
+          ),
+      },
+      {
+        path: 'changepassword',
+        loadChildren: () =>
+          import('./pages/change-password/change-password.module').then(
+            (m) => m.ChangePasswordModule
+          ),
       },
     ],
   },
