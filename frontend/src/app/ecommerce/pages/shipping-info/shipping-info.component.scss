@@ -4,6 +4,19 @@
   width: 100%;
   max-width: 700px;
   margin: 0 auto;
-  padding-top: 40px;
+  padding: 40px 0;
 }
 
+h3{
+  font-size: $heading1;
+  font-family: "Quicksand", sans-serif;
+}
+
+h5{
+  font-size: $heading2;
+  font-family: "Quicksand", sans-serif;
+}
+p{
+  font-size: $heading3;
+  font-family: "Quicksand", sans-serif;
+}
