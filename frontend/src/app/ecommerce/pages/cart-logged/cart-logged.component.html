@@ -2,24 +2,21 @@
 
       <div class="carrito">
         <app-cart [changeButton]="false" [showBorder]="true" [showCross]="false" [isHidden]="false"></app-cart>
+        <hr class="vertical">
         <div class="menu-detalle">
         <div class="item">
-          <div><p>4 Articulos </p> <span>€14 </span></div>
-          <div><p>Costo de envío (aproximado)</p><span>€7.95</span></div>
-        <div><p>Impuesto aplicado IVA  (+19%)</p><span> € 2.66</span></div>
+          <div class="items"><p >4 Articulos </p> <span>€14 </span></div>
+          <div class="items"><p>Costo de envío (aproximado)</p><span>€7.95</span></div>
+        <div class="items"><p>Impuesto aplicado IVA<p id="porcentaje">(+19%)</p><span> € 2.66</span></div>
         <br>
           <hr>
           <br>
-          <div><p><b>Total:</b></p> <span>€21.95</span></div>
-        
-        <div>
-          <p>Peso aproximado</p><span>1,5 kg</span>
-          </div>
+          <div class="items"><p class="total">Total:</p> <span class="total" >€21.95</span></div>
+      
+        <div class="items"><p>Peso aproximado</p><span>1,5 kg</span></div>
         </div>
 
-        <div>
-          <button class="boton3">Finalizar Compra</button>
-        </div>
+        <div class="botone3"><button class="boton3">Finalizar Compra</button></div>
 
       </div>
     </div>
