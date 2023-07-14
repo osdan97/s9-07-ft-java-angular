@@ -1,4 +1,9 @@
 <section class="detalle-producto">
+  <p-messages
+    [(value)]="messages"
+    [enableService]="false"
+    [closable]="true"
+  ></p-messages>
   <div>
     <h4>INICIO > ALMACÉN > PRODUCTO</h4>
   </div>
@@ -48,7 +53,10 @@
       </p>
       <h2><b>€ 10,95</b></h2>
       <span class="stock chip">EN STOCK</span>
-      <app-input-cart [changeClass]="false"></app-input-cart>
+      <app-input-cart
+        [changeClass]="false"
+        (addCart)="showQuantityProduc($event)"
+      ></app-input-cart>
     </div>
   </div>
 </section>
