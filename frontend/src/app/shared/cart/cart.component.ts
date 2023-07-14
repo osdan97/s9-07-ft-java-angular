@@ -13,6 +13,7 @@ export class CartComponent {
   @Input() changeWidth = false;
   @Input() showCross = true;
   @Input() showTile = false;
+  @Input() isHidden = false;
 
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';

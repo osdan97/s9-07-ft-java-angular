@@ -42,6 +42,7 @@
 </ng-template>
 
 <ng-template #contentn2>
+  <div class="spacing__cart" *ngIf="isHidden; else condition2ElseBlock">
   <div class="cart__subtotal">
     <span>4 artículos</span>
     <span>€8</span>
@@ -54,4 +55,6 @@
     <span>Total</span>
     <span>€21.95</span>
   </div>
+</div>
 </ng-template>
+<ng-template #condition2ElseBlock ></ng-template>
