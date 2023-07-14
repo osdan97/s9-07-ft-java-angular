@@ -2,11 +2,20 @@
 .contenedora{
   width: 100%;
   max-width: 1000px;
-  margin: 0 auto;
+  margin:0 auto 130px;  
 }
+
+.titulo-detalle{
+  font-size: $heading1;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  margin:32px;
+  font-family: "Quicksand", sans-serif;
+}
+
 .cart-logged{
     display: flex;
-  
     justify-content: space-between;
     margin: 32px;
     align-items: center;
@@ -45,13 +54,13 @@
   
 }
 
-/*.botone3{
+.botone3{
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
  
-}*/
+}
 
 .boton3{
 width: 247px;
