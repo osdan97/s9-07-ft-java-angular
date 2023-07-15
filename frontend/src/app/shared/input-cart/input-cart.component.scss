@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: row;
   column-gap: 5px;
+  justify-content: space-between;
+}
+
+.input__cart--left {
+  display: flex;
+  gap: 0.5rem;
 }
 
 p {

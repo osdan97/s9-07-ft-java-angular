@@ -21,6 +21,8 @@ export class InputCartComponent implements OnInit {
   @Input() product!: any;
   @Input() showButton = true;
   @Input() changeClass = true;
+  @Input() changeWidth = '';
+
   addCartForm!: FormGroup;
 
   quantity = signal<number>(1);

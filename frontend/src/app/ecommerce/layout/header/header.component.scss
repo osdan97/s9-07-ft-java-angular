@@ -96,6 +96,7 @@ header {
           z-index: 1000;
           // max-width: 350px;
           color: $text-color-black;
+          animation: fadeIn 0.3s;
         }
       }
     }
@@ -113,4 +114,28 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }
