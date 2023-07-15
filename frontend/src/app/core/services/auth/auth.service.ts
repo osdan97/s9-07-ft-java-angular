@@ -16,6 +16,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   private isAutenticate: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
+
   private readonly baseUrl = environment.apiUrl;
 
   private readonly http = inject(HttpClient);
