@@ -92,7 +92,8 @@ public class SecurityConfig {
                         "/v3/**",
                         "api/category/detail/**",
                         "/api/authentication/verify/**",
-                        "/api/products"
+                        "/api/products",
+                        "/api/pay"
                 ).permitAll()
                 .anyRequest().authenticated();
 
