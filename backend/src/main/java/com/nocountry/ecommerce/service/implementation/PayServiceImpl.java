@@ -1,15 +1,13 @@
 package com.nocountry.ecommerce.service.implementation;
 
-import com.nocountry.ecommerce.dto.Mensaje;
 import com.nocountry.ecommerce.model.Orders;
 import com.nocountry.ecommerce.model.Pay;
-import com.nocountry.ecommerce.repository.OrdersRepository;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.service.PayService;
 import com.nocountry.ecommerce.service.apipayment.ChargeCreditCard;
 import com.nocountry.ecommerce.util.enums.TransactionState;
+import net.authorize.api.contract.v1.ANetApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -19,13 +17,16 @@ public class PayServiceImpl implements PayService {
     @Autowired
     private OrdersService ordersService;
     @Override
-    public Mensaje chargePay(Pay pay) {
-        pay.setTransactionState(TransactionState.COMPLETED);
+    public ANetApiResponse chargePay(Pay pay) {
+
         String transactionUuid = pay.getOrders().getTransactionUuid();
+
         Orders orders = ordersService.getOrderById(transactionUuid);
         pay.setOrders(orders);
+
+        Double total = orders.getTotal();
         String transactionState = TransactionState.COMPLETED.toString();
         ordersService.changeState(transactionState, transactionUuid);
-        return chargeCreditCard.payment(pay);
+        return chargeCreditCard.run(pay, total);
     }
 }
