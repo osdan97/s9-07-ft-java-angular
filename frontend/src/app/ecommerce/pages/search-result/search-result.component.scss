@@ -7,7 +7,7 @@
 }
 
 .search {
-    width:90%;
+    width:87%;
     display: flex;
     flex-direction: column;
     margin: 40px 0;
@@ -25,15 +25,16 @@ h2 {
 }
 
 .result {
+    width:100%;
     height: 54px;
     background-color: #B7FBEF;
     border-radius: 4px;
     margin: 80px 0;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-self: center;
     i {
-      float: left;
       margin: 20px;
+      align-self: left;
     }
     .text_result {
         color: #000;
@@ -42,7 +43,7 @@ h2 {
         font-style: normal;
         font-weight: 500;
         line-height: normal;
-        align-self: center;
+        align-self: left;
     }
 }
 
