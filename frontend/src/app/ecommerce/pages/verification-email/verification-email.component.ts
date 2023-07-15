@@ -9,8 +9,8 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
   styleUrls: ['./verification-email.component.scss'],
 })
 export class VerificationEmailComponent implements OnInit {
-  title = signal<string>('Tu cuenta ya ha sido verificada');
-  subtitle = signal<string>('Para continuar, inicia sesión');
+  title = signal<string>('');
+  subtitle = signal<string>('');
 
   route = inject(ActivatedRoute);
   authService = inject(AuthService);
@@ -23,7 +23,7 @@ export class VerificationEmailComponent implements OnInit {
     this.route.params.pipe(take(1)).subscribe((params) => {
       const token = params['token'];
       console.log(token);
-      // this.verificationAccount(token);
+      this.verificationAccount(token);
     });
   }
 
