@@ -20,13 +20,9 @@ public class PayServiceImpl implements PayService {
     public ANetApiResponse chargePay(Pay pay) {
 
         String transactionUuid = pay.getOrders().getTransactionUuid();
-
-        Orders orders = ordersService.getOrderById(transactionUuid);
-        pay.setOrders(orders);
-
-        Double total = orders.getTotal();
         String transactionState = TransactionState.COMPLETED.toString();
-        ordersService.changeState(transactionState, transactionUuid);
-        return chargeCreditCard.run(pay, total);
+        ordersService.changeState(transactionUuid, transactionState);
+
+        return chargeCreditCard.run(pay);
     }
 }

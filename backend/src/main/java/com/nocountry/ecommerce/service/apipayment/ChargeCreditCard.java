@@ -2,11 +2,14 @@ package com.nocountry.ecommerce.service.apipayment;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDateTime;
+import java.util.UUID;
 
 import com.nocountry.ecommerce.dto.Mensaje;
 import com.nocountry.ecommerce.model.Orders;
 import com.nocountry.ecommerce.model.Pay;
 import com.nocountry.ecommerce.repository.PayRepository;
+import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.util.enums.TransactionState;
 import net.authorize.Environment;
 import net.authorize.api.contract.v1.*;
@@ -20,11 +23,13 @@ import org.springframework.stereotype.Component;
 public class ChargeCreditCard {
     @Autowired
     private PayRepository payRepository;
+    @Autowired
+    private OrdersService ordersService;
     @Value("${spring.net.authorize.loginapi}")
     String loginId;
     @Value("${spring.net.authorize.transactionkey}")
     String transactionKey;
-    public ANetApiResponse run(Pay pay, Double total) {
+    public ANetApiResponse run(Pay pay) {
 
         // Set the request to operate in either the sandbox or production environment
         ApiOperationBase.setEnvironment(Environment.SANDBOX);
@@ -37,6 +42,16 @@ public class ChargeCreditCard {
 
         // Populate the payment data
         Pay savePayment = new Pay();
+        Orders orders = ordersService.getOrderById(pay.getOrders().getTransactionUuid());
+        savePayment.setOrders(orders);
+
+        Double total = orders.getTotal();
+
+        String id = UUID.randomUUID().toString();
+        savePayment.setTransactionUuid(id);
+
+        LocalDateTime createdDate = LocalDateTime.now();
+        savePayment.setCreatedDate(createdDate);
 
         String cardNumber = pay.getCardNumber();
         savePayment.setCardNumber(cardNumber);
@@ -47,10 +62,20 @@ public class ChargeCreditCard {
         String cardCode = pay.getCardCode();
         savePayment.setCardCode(cardCode);
 
+        String transactionType = pay.getTransaction_type();
+        savePayment.setTransaction_type(transactionType);
+
+        savePayment.setDescription("PAYMENT ORDER");
+        savePayment.setQuantity(0);
+
+        String currencyCode = pay.getCurrencyCode();
+        savePayment.setCurrencyCode(currencyCode);
+
         savePayment.setTransactionState(TransactionState.COMPLETED);
 
-        Orders orders = pay.getOrders();
         savePayment.setOrders(orders);
+
+        savePayment.setTotal(total);
 
         PaymentType paymentType = new PaymentType();
         CreditCardType creditCard = new CreditCardType();
@@ -63,6 +88,7 @@ public class ChargeCreditCard {
         TransactionRequestType txnRequest = new TransactionRequestType();
         txnRequest.setTransactionType(TransactionTypeEnum.AUTH_CAPTURE_TRANSACTION.value());
         txnRequest.setPayment(paymentType);
+        txnRequest.setCurrencyCode(currencyCode);
         txnRequest.setAmount(new BigDecimal(total).setScale(2, RoundingMode.CEILING));
 
         // Create the API request and set the parameters for this specific request
