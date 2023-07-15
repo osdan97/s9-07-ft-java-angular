@@ -41,6 +41,7 @@
   [(visible)]="visible"
   [style]="{ width: '400px' }"
   [breakpoints]="{ '450px': '95vw' }"
+  [modal]="false"
 >
   <div class="login__container" #menuContainer>
     <app-login (visible)="closeDialog($event)"></app-login>

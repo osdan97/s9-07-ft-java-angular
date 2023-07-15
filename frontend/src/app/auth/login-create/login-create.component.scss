@@ -1,3 +1,5 @@
+@import "src/styles.scss";
+
 section {
   display: flex;
   flex-direction: column;
@@ -128,13 +130,25 @@ input.ng-dirty.ng-invalid {
 
 .modal__container {
   width: 100%;
-  height: 200px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  h2 {
+  .modal__logo {
+    padding: 2rem;
+    background-color: $background-disabled;
+    border-radius: 1rem;
+    i {
+      font-size: 30px;
+      color: $text-color-white;
+      font-weight: 900;
+    }
+  }
+
+  h2,
+  p {
     text-align: center;
   }
 }

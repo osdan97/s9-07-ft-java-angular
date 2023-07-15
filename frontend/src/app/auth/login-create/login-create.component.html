@@ -41,7 +41,7 @@
       <div class="input-label">
         <label>
           Codigo postal
-          <input type="number" formControlName="postal" />
+          <input type="text" formControlName="postal" />
         </label>
         <label>
           Ciudad
@@ -87,11 +87,18 @@
   [(visible)]="visible"
   [breakpoints]="{ '960px': '75vw' }"
   [style]="{ width: '25vw' }"
-  [draggable]="true"
+  [draggable]="false"
   [resizable]="false"
+  [modal]="true"
 >
   <article class="modal__container">
-    <h2>Tu cuenta se ha creado correctamente</h2>
-    <p>Por favor, revisa tu correo para activar tu cuenta</p>
+    <div class="modal__logo">
+      <i class="pi pi-check"></i>
+    </div>
+    <h2>Cuenta creada</h2>
+    <p>
+      Tu cuenta ha sido exitosamente creada, confirma el mail que te enviamos a
+      tu correo para continuar a la compra.
+    </p>
   </article>
 </p-dialog>
