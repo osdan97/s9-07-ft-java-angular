@@ -22,6 +22,9 @@ export class RoleGuard implements CanActivate, CanMatch {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> {
+    const existToken = this.cookieService.check('accessToken');
+    if (!existToken) return false;
+
     const accessToken = this.cookieService.get('accessToken');
 
     const { roles }: Payload = jwtDecode(accessToken);
@@ -37,6 +40,9 @@ export class RoleGuard implements CanActivate, CanMatch {
     route: Route,
     segments: UrlSegment[]
   ): boolean | Observable<boolean> {
+    const existToken = this.cookieService.check('accessToken');
+    if (!existToken) return false;
+
     const accessToken = this.cookieService.get('accessToken'); //ROLE_USER
 
     const { roles }: Payload = jwtDecode(accessToken);
