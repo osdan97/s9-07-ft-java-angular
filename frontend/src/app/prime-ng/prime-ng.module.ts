@@ -13,6 +13,9 @@ import { DialogModule } from 'primeng/dialog';
 
 import { AccordionModule } from 'primeng/accordion';
 
+import { RadioButtonModule } from 'primeng/radiobutton';
+
+
 @NgModule({
   exports: [
     ButtonModule,
@@ -23,6 +26,7 @@ import { AccordionModule } from 'primeng/accordion';
     MessagesModule,
     DialogModule,
     AccordionModule,
+    RadioButtonModule,
   ],
 })
 export class PrimeNgModule {}

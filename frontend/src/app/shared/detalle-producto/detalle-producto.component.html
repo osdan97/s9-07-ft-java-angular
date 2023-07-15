@@ -1,4 +1,9 @@
 <section class="detalle-producto">
+  <p-messages
+    [(value)]="messages"
+    [enableService]="false"
+    [closable]="true"
+  ></p-messages>
   <div>
     <h4>INICIO > ALMACÉN > PRODUCTO</h4>
   </div>
@@ -30,7 +35,6 @@
           class="foto-producto"
           src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=400"
           alt="imagen producto"
-          [style]="'view-transition-name:' + 1"
         />
       </div>
     </div>
@@ -40,15 +44,23 @@
         <i class="pi pi-heart"></i>
       </div>
 
-      <p>
+      <h2><b>€ 10,95</b></h2>
+
+      <p class="description">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quo
         tenetur corrupti consequuntur animi, aspernatur consequatur officia
         eaque? Distinctio exercitationem quia eaque sit! Dignissimos ab,
         voluptate nesciunt exercitationem rerum sint!
       </p>
-      <h2><b>€ 10,95</b></h2>
       <span class="stock chip">EN STOCK</span>
-      <app-input-cart [changeClass]="false"></app-input-cart>
+      <div class="button__container">
+        <button class="button custom__button--line">Finalizar compra</button>
+        <app-input-cart
+          [changeClass]="false"
+          (addCart)="showQuantityProduc($event)"
+          [changeWidth]="'224px'"
+        ></app-input-cart>
+      </div>
     </div>
   </div>
 </section>

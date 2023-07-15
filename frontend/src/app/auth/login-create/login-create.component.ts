@@ -1,7 +1,17 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { FormRegisterInput } from 'src/app/core/interfaces/auth.interfaces';
+import jwtDecode from 'jwt-decode';
+import { take } from 'rxjs';
+import {
+  FormRegisterInput,
+  Payload,
+} from 'src/app/core/interfaces/auth.interfaces';
+import {
+  FormShippingDetail,
+  ShippingDetailResponse,
+} from 'src/app/core/interfaces/user.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-login-create',
@@ -15,6 +25,7 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
 
   formBuilder = inject(FormBuilder);
   authService = inject(AuthService);
+  userService = inject(UserService);
 
   // name = new FormControl('', [ Validators.pattern(/^[a-zA-Z ]+$/)]);
   // lastname = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]);
@@ -75,21 +86,51 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
   login_create() {
     if (this.registerForm.invalid) return;
 
-    const body: FormRegisterInput = {
+    const registerBody: FormRegisterInput = {
       email: this.registerForm.value.email,
       password: this.registerForm.value.password,
       name: this.registerForm.value.name,
       lastName: this.registerForm.value.lastname,
     };
 
-    this.authService.register(body).subscribe({
+    const addressBody: FormShippingDetail = {
+      name: this.registerForm.value.name,
+      lastName: this.registerForm.value.lastname,
+      country: this.registerForm.value.pais,
+      provincia: this.registerForm.value.provincia,
+      postalCode: this.registerForm.value.postal,
+      city: this.registerForm.value.ciudad,
+      address1: this.registerForm.value.direccion,
+      address2: this.registerForm.value.detalle_dir,
+      primaryAddress: this.registerForm.value.check_fact,
+      active: true,
+      shippingDetailsName: 'principal',
+    };
+
+    this.authService.register(registerBody).subscribe({
       next: (res) => {
         console.log(res);
         this.visible = true;
+        this.getUserData(addressBody, res.token);
       },
       error: (err) => {
         console.log(err);
       },
     });
+  }
+
+  getUserData(addressBody: FormShippingDetail, accessToken: string) {
+    const { userId }: Payload = jwtDecode(accessToken);
+
+    this.userService
+      .addShipingDetails(addressBody, userId)
+      .pipe(take(1))
+      .subscribe((resp: ShippingDetailResponse) => {
+        console.log(resp);
+      });
+  }
+
+  closeModal() {
+    this.visible = false;
   }
 }

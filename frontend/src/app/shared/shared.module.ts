@@ -12,7 +12,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputCartComponent } from './input-cart/input-cart.component';
 import { CartComponent } from './cart/cart.component';
 
-
 @NgModule({
   declarations: [
     CardComponent,
@@ -22,7 +21,6 @@ import { CartComponent } from './cart/cart.component';
     DetalleProductoComponent,
     InputCartComponent,
     CartComponent,
-   
   ],
   imports: [
     CommonModule,

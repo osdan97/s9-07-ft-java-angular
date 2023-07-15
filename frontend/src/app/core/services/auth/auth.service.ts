@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import {
   FormLoginInput,
@@ -16,6 +16,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthService {
   private isAutenticate: BehaviorSubject<boolean> =
     new BehaviorSubject<boolean>(false);
+
   private readonly baseUrl = environment.apiUrl;
 
   private readonly http = inject(HttpClient);

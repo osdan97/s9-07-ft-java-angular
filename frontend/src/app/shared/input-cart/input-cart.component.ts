@@ -1,4 +1,12 @@
-import { Component, Input, OnInit, inject, signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  inject,
+  signal,
+} from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -9,9 +17,12 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
   styleUrls: ['./input-cart.component.scss'],
 })
 export class InputCartComponent implements OnInit {
+  @Output() addCart = new EventEmitter<any>();
   @Input() product!: any;
   @Input() showButton = true;
   @Input() changeClass = true;
+  @Input() changeWidth = '';
+
   addCartForm!: FormGroup;
 
   quantity = signal<number>(1);
@@ -44,10 +55,17 @@ export class InputCartComponent implements OnInit {
       return;
     }
     const body = {
-      id: this.product.id,
+      id: this.product?.id,
+      name: this.product?.name,
       quantity: this.addCartForm.value.quantity,
     };
     console.log(body);
+
+    this.sendProduct(body);
+  }
+
+  sendProduct(product: any): void {
+    this.addCart.emit(product);
   }
 
   showMessageFailed(): void {

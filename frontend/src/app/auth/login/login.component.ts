@@ -72,8 +72,6 @@ export class LoginComponent implements OnInit {
   }
 
   getUserData(accessToken: string) {
-    const decodedToken: Payload = jwtDecode(accessToken);
-
     this.authService
       .renewSession(accessToken)
       .pipe(take(1))

@@ -1,0 +1,105 @@
+<div class="contenedor1">
+    <p class="titulo">Confirmar Compra</p>
+    <div class="carrito"> 
+        <p class="titulo-pedido" >Tu pedido</p>
+        <app-cart [changeButton]="false" [showBorder]="true" [showCross]="false" [isHidden]="false"[details]="false" ></app-cart>
+        <hr class="vertical">
+        <div class="menu-detalle">
+        <div class="item">
+          <div class="titulo-detalle"><p>Detalle del pedido</p> </div>
+          <div class="items"><p class="items-negrita">Numero de pedido: </p> <p>5655864614</p></div>
+          <div class="items"><p class="items-negrita">Peso Total:</p><span>15kg</span></div>
+        <div class="items"><p class="items-negrita">IVA<span id="porcentaje">(+19%)</span></p></div>
+        <div class="items"><p class="items-negrita">Fecha de pedido:</p><span>14/07/2023</span></div>    
+        </div>
+        </div>
+        </div>
+ </div>       
+
+ <div class="contenedor2">
+  <div class="barra">
+    <div class="titulo-barra"><p>Datos personales</p></div>
+    <div class="seleccionado">
+        <div class="description">
+          <div>
+            <img class="imagen"
+              src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="foto">
+          </div>
+          <div>
+            <p style="text-align: start;">Mariano García Machado</p>
+            <p style="text-align: start;">Mariano_garcia@gmail.com</p>
+          </div>
+        </div>
+        <div>
+          <p>+34.652.253.478</p>
+        </div>
+      </div>
+</div>
+
+<div class="barra">
+    <div class="titulo-barra"><p>Direccion de entrega</p></div>
+    <div class="seleccionado2">
+        <div class="description">
+          <div>
+            <img class="imagen"
+              src="../../../../assets/images/placeMarker.jpg"
+              alt="foto">
+          </div>
+          <div>
+            <p style="text-align: start;"><b>Argentina</b></p>
+            <p style="text-align: start;">Calle falsa </p>
+          </div>
+          <div>
+            <p style="text-align: start;">Mendoza</p>
+            <p style="text-align: start;"> 123</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+<div class="barra">
+    <div class="titulo-barra"><p>Metodo de envio elegido</p><span>Impuestos inluidos</span></div>
+    <div class="seleccionado-envio">
+        <div class="description-envio">
+          <div>
+            <img class="imagen"
+              src="../../../../assets/images/ups.png"
+              alt="foto">
+          </div>
+          <div>
+            <p style="text-align: start;">UPS</p>
+            <p style="text-align: start;">Entrega en 48 a 72 hs</p>
+          </div>
+        </div>
+        <div>
+          <p>€7.95</p>
+        </div>
+      </div>
+</div>
+
+<div class="barra">
+    <div class="titulo-barra"><p>Pago elegido</p></div>
+        <div class="seleccionado-pago">
+            <p>Pago con Tarjeta (Crédito/Débito)</p>
+            <img src="../../../assets/images/Visa.png" alt="">
+            <img src="../../../assets/images/MasterCard.png" alt="">
+            <img src="../../../assets/images/AmericanExpress.png" alt="">
+      </div>
+    </div>
+    <div class="barra">
+        <div class="seleccionado2">
+            <div class="description">
+              <div>
+                <p style="text-align: start;">Los datos personales se utilizaran para procesar tu pedido,
+                     mejorar tu experiencia en esta web y otros propósitos descriptos en nuestra política de privacidad. </p>
+                <p style="text-align: start;">He leído y estoy de acuerdo con los términos y condiciones de  la web.</p>
+              </div>
+            </div>
+            <button>Confirmar pago</button>
+          </div>
+    </div>
+
+</div>
+
+
