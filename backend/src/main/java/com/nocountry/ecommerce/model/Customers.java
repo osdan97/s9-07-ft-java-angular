@@ -8,7 +8,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @DiscriminatorValue("customer")
@@ -16,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-public class Customers extends Account{
+public class Customers extends Account implements Serializable {
 
     @Column(name = "number")
     private String number;
@@ -29,10 +32,16 @@ public class Customers extends Account{
     @Column(name = "country")
     private String country;
     @OneToMany(targetEntity = Phones.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "number", referencedColumnName = "number")
+    @JoinColumn(name = "account_uuid", referencedColumnName = "account_uuid")
     private List<Phones> phonesList;
-    
+    @OneToMany(targetEntity = ShippingDetailsCustomer.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_uuid", referencedColumnName = "account_uuid")
+    private List<ShippingDetailsCustomer> shippingDetailsList;
     public Customers(String email, String password){
         super(email,password);
+    }
+
+    public Customers(String email){
+        super(email);
     }
 }

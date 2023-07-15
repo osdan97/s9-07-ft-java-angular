@@ -1,0 +1,228 @@
+[33mcommit 0b62ded596ce2cb9bb0180b495af4b89905520f6[m[33m ([m[1;36mHEAD -> [m[1;32mfeatures/transaction[m[33m)[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Tue Jul 11 02:35:21 2023 -0500
+
+    Inventory e TransactionInventory implementados
+
+[33mcommit ace967eca35514972260509262407acb1f8e1e49[m[33m ([m[1;31morigin/features/transaction[m[33m)[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Thu Jul 6 08:46:07 2023 -0500
+
+    Implementacion inventory
+
+[33mcommit 1b2cba5e41f690b0246fe3a333eb12dd94437a08[m
+Merge: 4276aa4 bb3d194
+Author: Nirsch <37886668+Nirsch95@users.noreply.github.com>
+Date:   Tue Jul 4 19:39:08 2023 -0500
+
+    Merge pull request #2 from No-Country/features/inventory
+    
+    Features/inventory
+
+[33mcommit bb3d194d38311d65d8fe4ee1f0e34485cda8e76c[m
+Merge: a04b0dc 4276aa4
+Author: Nirsch <37886668+Nirsch95@users.noreply.github.com>
+Date:   Tue Jul 4 19:38:19 2023 -0500
+
+    Merge branch 'main' into features/inventory
+
+[33mcommit a04b0dc05d21fb09ff76cb9a6eab5eb60ef39e77[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Tue Jul 4 19:06:20 2023 -0500
+
+    Ajuste logica Product
+
+[33mcommit d51b7eba095603c8791a1cd868682c16b4d16661[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Tue Jul 4 13:28:22 2023 -0500
+
+    documentation
+
+[33mcommit e349764ab785f6de7aaf68c71c76633a577283c3[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Tue Jul 4 13:27:10 2023 -0500
+
+    ajustes a product
+
+[33mcommit a5fb4d3505f6c1943887c07fb8a4e9f59eb1e245[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Tue Jul 4 00:04:46 2023 -0500
+
+    Creación e implementación de product anidado a category
+
+[33mcommit 975c3736366a47a3e4d77bb8852ed6ab16a3f35f[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Tue Jul 4 00:02:50 2023 -0500
+
+    Ajuste de la rama a como esta main
+
+[33mcommit 208311308ff701ca0fba529c03f5c7fe4cb4edb6[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Mon Jul 3 23:00:44 2023 -0500
+
+    category controller culminado
+
+[33mcommit 1fb947aaac295470c01e84f2d51152db99920872[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Mon Jul 3 22:59:16 2023 -0500
+
+    category service
+
+[33mcommit 8d8db94515fb5331254aa0950587a6359383d57d[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Mon Jul 3 22:58:28 2023 -0500
+
+    Category servicelmpl
+
+[33mcommit bedaceed9be5178bce51c628e8175931c029bb32[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Mon Jul 3 22:57:29 2023 -0500
+
+    creando dtoMensaje para category
+
+[33mcommit ebf1823614e0302bfa42987ed12413f0d5d46682[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Mon Jul 3 22:56:18 2023 -0500
+
+    Culminando entidad category
+
+[33mcommit dc9405c2869a510dbf8d5398cbceaa6266183012[m
+Author: osdan97 <daniejurade@gmail.com>
+Date:   Mon Jul 3 22:52:32 2023 -0500
+
+    Reajustando la entidad category
+
+[33mcommit 4276aa418f122413ee72be7ae3c12131f6134868[m
+Merge: c04b45d db50693
+Author: Alfonso Alexander Almonte Espinosa <38287147+j3v1t0@users.noreply.github.com>
+Date:   Mon Jul 3 22:05:58 2023 -0400
+
+    Merge pull request #1 from No-Country/features/security
+    
+    Features/security
+
+[33mcommit db50693d5b1b0c541e9c8ddd9de8bac2b8b122f7[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Mon Jul 3 21:54:48 2023 -0400
+
+    Seteando null verificationCode al momento de activar la cuenta
+
+[33mcommit 68eaa85ec20c4832d70d3c3f82325392223f8f13[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Mon Jul 3 20:33:57 2023 -0400
+
+    Actualizacion y organizacion del metodo verificacion de cuenta.
+
+[33mcommit 60f5c4bc448f1c1169f815f479b1381f18914bd5[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Mon Jul 3 18:44:15 2023 -0400
+
+    Implementacion completa  de recuperacion de contrasena.
+
+[33mcommit 4facabaac1950124e5db60fcd74254faca107d4c[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Mon Jul 3 16:13:04 2023 -0500
+
+    Se agregan entidades para inventario
+
+[33mcommit 4b37d74a2bde572fb5ff936143fa552a2d108949[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Mon Jul 3 16:15:53 2023 -0400
+
+    Implementacion de Inicial de recuperacion de contrasena.
+
+[33mcommit c04b45db22d89e8bec5af9e238d98ab8f13adfac[m
+Author: Metaldev-06 <fernydiaz62@gmail.com>
+Date:   Sun Jul 2 19:16:38 2023 -0300
+
+    First Frontend Commit: Create project
+
+[33mcommit 25b8bafa7cc61df4274b2845b75faa3b6cc5385c[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Sun Jul 2 15:47:17 2023 -0400
+
+    Implementacion de Activacion de cuenta mediante correo electronico.
+
+[33mcommit 1ebbf1629153b1c1040f9fed9902667a4b400f2f[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Sun Jul 2 14:08:34 2023 -0500
+
+    Ajuste de login response
+
+[33mcommit cbd726eb02f216fe88930cf3e495e995145f349a[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Sat Jul 1 22:11:56 2023 -0400
+
+    Implementacion de Autenticacion del Usuario con retorno del token
+
+[33mcommit 2f6c06eb52c1971f64f1a8b696ffce6c422b3d84[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Sat Jul 1 21:57:42 2023 -0400
+
+    Implementacion de Spring Security, retorno del token al momento del registro, encriptacion de contrasena y generacion del Verification Code para activar cuenta de usuario
+
+[33mcommit 9b206b01b140b2b5dbce0f5fbf5016370f91563a[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Sat Jul 1 21:53:33 2023 -0400
+
+    Implementacion de Spring Security, retorno del token al momento del registro, encriptación de contraseña y generacion del Verification Code para activar cuenta de usuario
+
+[33mcommit dd76f515a5dd8ea3a7dbafc2a3bc7c410f33bb94[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Sat Jul 1 20:52:11 2023 -0400
+
+    Reajustando el obtenerNumeracionAutomatica para obtener el valor numerico despues del guión.
+
+[33mcommit 6abfe79dce256c4afae3954aea816e3fdb134629[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Fri Jun 30 21:15:15 2023 -0500
+
+    Creacion metodo updateCustomer
+
+[33mcommit 4c6a48ab6e152171a4ee857809ec9f0b61cf1ee0[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Fri Jun 30 18:15:05 2023 -0500
+
+    Ajuste entidad Customers
+
+[33mcommit 47e43aaee2823121519a0441ee3794be447718bb[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Fri Jun 30 18:18:42 2023 -0400
+
+    Metodo sign-up basico terminado.
+
+[33mcommit 4a6a802f0fc65bc8035fa4eb2d27d8d6a602c2ee[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Fri Jun 30 16:46:36 2023 -0400
+
+    Creacion clases de Registro de cuentas.
+
+[33mcommit ec1b341a851c625caccc3abf3778cbf696f197cc[m
+Author: Alfonso Almonte <alfonsoalmonte@gmail.com>
+Date:   Fri Jun 30 15:34:34 2023 -0400
+
+    Creacion de nivel de capa de seguridad.
+
+[33mcommit cb41b353325084977c0544f7d0aa9c8c29a57677[m
+Author: Metaldev-06 <fernydiaz62@gmail.com>
+Date:   Wed Jun 28 19:14:40 2023 -0300
+
+    First Frontend Commit: Create project
+
+[33mcommit f4f6d53dc29ffacc833937d91ea970fcfe57a5c6[m
+Author: Nirsch95 <castromanzano95@gmail.com>
+Date:   Wed Jun 28 14:30:18 2023 -0500
+
+    First Backend Commit: Base project
+
+[33mcommit f0d1f68e4d30eabdfd815ce3113398b413668039[m
+Author: Fernando Diaz <fernydiaz62@gmail.com>
+Date:   Mon Jun 26 13:42:37 2023 -0300
+
+    Create README.md
+
+[33mcommit 4642a529302382d16eb0bf24e35b5d1949ffe4c0[m
+Author: Metaldev-06 <fernydiaz62@gmail.com>
+Date:   Mon Jun 26 13:37:23 2023 -0300
+
+    First commit

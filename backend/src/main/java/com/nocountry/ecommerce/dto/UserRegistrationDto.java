@@ -9,10 +9,10 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class EmailValues {
-    private String mailFrom;
-    private String mailTo;
-    private String subject;
+public class UserRegistrationDto {
+    private String email;
+    private String password;
+    private String verificationCode;
     private String fullName;
     private String token;
 }
