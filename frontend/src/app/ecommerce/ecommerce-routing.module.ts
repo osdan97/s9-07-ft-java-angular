@@ -76,6 +76,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/details/details.module').then((m) => m.DetailsModule),
       },
+      {
+        path: 'search-result',
+        loadChildren: () =>
+          import('./pages/search-result/search-result.module').then((m) => m.SearchResultModule),
+      },
     ],
   },
 ];
