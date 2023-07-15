@@ -5,7 +5,6 @@ import { take } from 'rxjs';
 import {
   FormRegisterInput,
   Payload,
-  RegisterResponse,
 } from 'src/app/core/interfaces/auth.interfaces';
 import {
   FormShippingDetail,
@@ -129,5 +128,9 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
       .subscribe((resp: ShippingDetailResponse) => {
         console.log(resp);
       });
+  }
+
+  closeModal() {
+    this.visible = false;
   }
 }

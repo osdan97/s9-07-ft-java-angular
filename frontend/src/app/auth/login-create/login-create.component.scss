@@ -151,4 +151,10 @@ input.ng-dirty.ng-invalid {
   p {
     text-align: center;
   }
+
+  .custom__button--line {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 250px;
+  }
 }
