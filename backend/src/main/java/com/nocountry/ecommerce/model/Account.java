@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ import java.util.UUID;
 @DiscriminatorColumn(name="entity", discriminatorType=DiscriminatorType.STRING)
 @Entity
 @Table(name = "ACCOUNT")
-public class Account {
+public class Account implements Serializable {
 
     @Id
     @Column(name = "account_uuid")
@@ -57,5 +58,8 @@ public class Account {
         this.createdDate = LocalDateTime.now();
         this.lastSessionDate = LocalDateTime.now();
         this.active = false;
+    }
+    public Account(String email){
+        this.email = email;
     }
 }

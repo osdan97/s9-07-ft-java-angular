@@ -9,4 +9,5 @@ public interface EmailService {
     void sendEmailForgotPassword(EmailValues emailValues) throws MessagingException, UnsupportedEncodingException;
 
     void sendEmailVerificationCode(EmailValues emailValues) throws MessagingException, UnsupportedEncodingException;
+
 }
