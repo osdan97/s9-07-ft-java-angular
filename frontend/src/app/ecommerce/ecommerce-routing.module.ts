@@ -71,6 +71,13 @@ const routes: Routes = [
             (m) => m.ChangePasswordModule
           ),
       },
+      {
+        path: 'details',
+        loadChildren: () =>
+          import('./pages/details/details.module').then(
+            (m) => m.DetailsModule
+          ),
+      },
     ],
   },
 ];

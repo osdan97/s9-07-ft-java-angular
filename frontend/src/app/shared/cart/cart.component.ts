@@ -14,6 +14,8 @@ export class CartComponent {
   @Input() showCross = true;
   @Input() showTile = false;
   @Input() isHidden = false;
+  @Input() details = true;
+  
 
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';

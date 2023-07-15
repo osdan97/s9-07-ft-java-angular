@@ -8,7 +8,7 @@
     <div class="text__cart" [ngClass]="{ 'text__cart--unlogued': changeWidth }">
       <h3 class="name">{{ item.name }}</h3>
       <p>
-        <app-input-cart [showButton]="false"></app-input-cart>
+        <app-input-cart [showButton]="false" *ngIf="details"></app-input-cart>
       </p>
     </div>
     <div class="trash__cart">
@@ -34,7 +34,7 @@
 </article>
 
 <ng-template #button2>
-  <button (click)="backHistory()" class="button__view--two">
+  <button (click)="backHistory()" class="button__view--two" *ngIf="details">
     <!-- <i class="pi pi-arrow-left"></i> -->
     <img src="../../../assets/images/arrow.svg" alt="" />
     Seguir comprando
