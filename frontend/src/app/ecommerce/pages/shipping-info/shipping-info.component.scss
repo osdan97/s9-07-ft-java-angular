@@ -2,21 +2,81 @@
 
 .contenedora {
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 40px 0 80px;
 }
 
-h3{
+h3 {
   font-size: $heading1;
   font-family: "Quicksand", sans-serif;
 }
 
-h5{
+h5 {
   font-size: $heading2;
   font-family: "Quicksand", sans-serif;
 }
-p{
+
+p {
   font-size: $heading3;
   font-family: "Quicksand", sans-serif;
+}
+
+.empresas-envio {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid #999;
+  border-radius: 8px;
+  margin: 24px auto;
+  padding: 48px;
+
+}
+
+.img-ups {
+  width: 86px;
+  height: 100px;
+  flex-shrink: 0;
+}
+.img-seur{
+  width: 228px;
+height: 33px;
+flex-shrink: 0;
+margin: 31px 0;
+
+}
+
+.img-dhl {
+  width: 168px;
+  height: 52px;
+  flex-shrink: 0;
+  margin: 25px 0;
+}
+.ups-text{
+  font-size: $heading3;
+  margin: 0 25px;
+}
+.seur-text{
+  font-size: $heading3;
+  margin-left: 100px;
+}
+.dhl-text{
+    font-size: $heading3;
+    margin-left: 70px;
+}
+.medios-de-pago{
+  height: 110px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 1px solid #999;
+  border-radius: 8px;
+  margin: 24px auto;
+  padding: 30px;
+  img{
+    width: 100px;
+    height:50px;
+    flex-shrink:0;
+  }
 }
