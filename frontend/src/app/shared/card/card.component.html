@@ -1,12 +1,12 @@
 <div class="card" *ngIf="product">
-  <div class="imagen-text" [routerLink]="'producto/' + product.id">
+  <div class="imagen-text" [routerLink]="'product/' + product.id">
     <img
       src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
       alt=""
     />
   </div>
   <div class="contenido">
-    <div class="text__products" [routerLink]="'producto/' + product.id">
+    <div class="text__products" [routerLink]="'product/' + product.id">
       <h3>{{ product.title }}</h3>
       <p class="description">
         {{ product.description }}

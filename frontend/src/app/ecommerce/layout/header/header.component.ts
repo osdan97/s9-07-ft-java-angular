@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(() => {
       this.getCurrentRoute();
+      window.scrollTo(0, 0);
       // if (event instanceof NavigationEnd) {
       // }
     });
