@@ -2,20 +2,25 @@
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <i class="pi pi-check" style="font-size: 1rem; color: green; padding-right: 6px;"></i>
+        <i
+          class="pi pi-check"
+          style="font-size: 1rem; color: green; padding-right: 6px"
+        ></i>
         Datos personales
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div class="contenedor1">
       <div class="description">
         <div>
-          <img class="imagen"
+          <img
+            class="imagen"
             src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
-            alt="foto">
+            alt="foto"
+          />
         </div>
         <div>
-          <p style="text-align: start;">Mariano García Machado</p>
-          <p style="text-align: start;">Mariano_garcia@gmail.com</p>
+          <p style="text-align: start">Mariano García Machado</p>
+          <p style="text-align: start">Mariano_garcia@gmail.com</p>
         </div>
       </div>
       <div>
@@ -26,50 +31,67 @@
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <div *ngIf="this.show === false; else elseBlock">
-          2.
-        </div>
+        <div *ngIf="this.show === false; else elseBlock">2.</div>
         <ng-template #elseBlock>
-          <i class="pi pi-check" style="font-size: 1rem; color: green; padding-right: 6px;"></i>
+          <i
+            class="pi pi-check"
+            style="font-size: 1rem; color: green; padding-right: 6px"
+          ></i>
         </ng-template>
         Dirección de entrega
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <form [formGroup]="form" (ngSubmit)="form.valid && login_create()" novalidate>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="form.valid && form_person()"
+      novalidate
+    >
       <div class="contenedor2">
         <div class="input-label">
           <label>
             Pais
-            <input type="text" [formControl]="pais">
+            <input type="text" [formControl]="pais" />
           </label>
           <label>
             Provincia/ Comunidad
-            <input type="text" [formControl]="provincia">
+            <input type="text" [formControl]="provincia" />
           </label>
         </div>
         <div class="input-label">
           <label>
             Codigo postal
-            <input type="number" [formControl]="postal">
+            <input type="number" [formControl]="postal" />
           </label>
           <label>
             Ciudad
-            <input type="text" [formControl]="ciudad">
+            <input type="text" [formControl]="ciudad" />
           </label>
         </div>
         <div class="input-label">
           <label>
             Dirección
-            <input type="text" [formControl]="direccion" placeholder="Nombre y número de calle">
+            <input
+              type="text"
+              [formControl]="direccion"
+              placeholder="Nombre y número de calle"
+            />
           </label>
           <label>
             Detalles de dirección
-            <input type="text" [formControl]="detalle_dir" placeholder="Indicaciones">
+            <input
+              type="text"
+              [formControl]="detalle_dir"
+              placeholder="Indicaciones"
+            />
           </label>
         </div>
         <div class="">
           <label class="check">
-            <input type="checkbox" class="check-input" [formControl]="check_fact">
+            <input
+              type="checkbox"
+              class="check-input"
+              [formControl]="check_fact"
+            />
             Utilizar esta dirección para los datos de facturación
           </label>
         </div>
@@ -82,87 +104,142 @@
   <mat-expansion-panel hideToggle [disabled]="!show">
     <mat-expansion-panel-header>
       <mat-panel-title>
+        <div *ngIf="this.show1 === false; else elseBlock">3.</div>
+        <ng-template #elseBlock>
+          <i
+            class="pi pi-check"
+            style="font-size: 1rem; color: green; padding-right: 6px"
+          ></i>
+        </ng-template>
         Seleccionar método de envío
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div class="contenedor3">
-      <p class="mb-1">Impuestos incluidos</p>
-      <div class="flex flex-column gap-3">
-        <div class="flex justify-content-around align-items-center p-3" style="background: #D9D9D9;">
-          <p-radioButton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
-          <img src="../../../assets/images/SEUR.png" alt="">
-          <p>UPS</p>
-          <p>Entrega en 48 a 72hs.</p>
-          <p>€7.95</p>
+      <form
+        [formGroup]="form"
+        (ngSubmit)="form.valid && form_send()"
+        novalidate
+      >
+        <p class="mb-1">Impuestos incluidos</p>
+        <div class="flex flex-column gap-3">
+          <div
+            class="flex justify-content-around align-items-center p-3"
+            style="background: #d9d9d9"
+          >
+            <p-radioButton value="SEUR" [formControl]="envio"></p-radioButton>
+            <img src="../../../assets/images/SEUR.png" alt="" />
+            <p>SEUR</p>
+            <p>Entrega en 48 a 72hs.</p>
+            <p>€7.95</p>
+          </div>
+
+          <div
+            class="flex justify-content-around align-items-center p-3"
+            style="background: #d9d9d9"
+          >
+            <p-radioButton value="UPS" [formControl]="envio"></p-radioButton>
+            <img src="../../../assets/images/ups.png" alt="" />
+            <p>UPS</p>
+            <p>Entrega en 48 a 72hs.</p>
+            <p>€7.95</p>
+          </div>
+
+          <div
+            class="flex justify-content-around align-items-center p-3"
+            style="background: #d9d9d9"
+          >
+            <p-radioButton value="DHL" [formControl]="envio"></p-radioButton>
+            <img src="../../../assets/images/DHL.png" alt="" />
+            <p>DHL</p>
+            <p>Entrega en 48 a 72hs.</p>
+            <p>€7.95</p>
+          </div>
+
+          <span
+            >Si desea dejarnos un comentario acerca de su pedido, escríbalo a
+            continuación.</span
+          >
+
+          <textarea
+            [formControl]="coment_envio"
+            name=""
+            id=""
+            cols="30"
+            rows="2"
+          ></textarea>
+          <div class="flex justify-content-end">
+            <button class="p-0 m-0" type="submit">Confirmar</button>
+          </div>
         </div>
-
-        <div class="flex justify-content-around align-items-center p-3" style="background: #D9D9D9;">
-          <p-radioButton name="pizza" value="Mushroom" [(ngModel)]="ingredient" inputId="ingredient2"></p-radioButton>
-          <img src="../../../assets/images/ups.png" alt="">
-          <p>UPS</p>
-          <p>Entrega en 48 a 72hs.</p>
-          <p>€7.95</p>
-        </div>
-
-        <div class="flex justify-content-around align-items-center p-3" style="background: #D9D9D9;">
-          <p-radioButton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="ingredient3"></p-radioButton>
-          <img src="../../../assets/images/DHL.png" alt="">
-          <p>UPS</p>
-          <p>Entrega en 48 a 72hs.</p>
-          <p>€7.95</p>
-        </div>
-
-        <span>Si desea dejarnos un comentario acerca de su pedido, escríbalo a continuación.</span>
-
-        <textarea name="" id="" cols="30" rows="2"></textarea>
-
-        <div class="flex justify-content-end">
-          <button class="p-0 m-0" type="button">Confirmar</button>
-        </div>
-      </div>
+      </form>
     </div>
   </mat-expansion-panel>
-  <mat-expansion-panel hideToggle>
+  <mat-expansion-panel hideToggle [disabled]="!show1">
     <mat-expansion-panel-header>
       <mat-panel-title>
+        <div *ngIf="this.show2 === false; else elseBlock">4.</div>
+        <ng-template #elseBlock>
+          <i
+            class="pi pi-check"
+            style="font-size: 1rem; color: green; padding-right: 6px"
+          ></i>
+        </ng-template>
         Seleccionar método de pago
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <div class="flex justify-content-around align-items-center p-3 mt-5" style="background: #D9D9D9;">
-      <p-radioButton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="ingredient3"></p-radioButton>
-      <p>Pago con Tarjeta (Crédito/Débito)</p>
-      <img src="../../../assets/images/Visa.png" alt="">
-      <img src="../../../assets/images/MasterCard.png" alt="">
-      <img src="../../../assets/images/AmericanExpress.png" alt="">
-    </div>
-    <span class="p-input-icon-right mt-4">
-      <label class="mb-2">Número de tarjeta</label>
-      <i class="pi pi-credit-card pt-2"></i>
-      <input type="text" pInputText style="width: 396px;"/>
-    </span>
-    <div class="mt-4">
-      <span class="p-input-icon-right">
-        <label class="mb-2">Fecha de vencimiento</label>
-        <input type="text" pInputText style="width: 178px; margin-right: 41px;" />
+    <form [formGroup]="form" (ngSubmit)="form.valid && form_pay()" novalidate>
+      <div
+        class="flex justify-content-around align-items-center p-3 mt-5"
+        style="background: #d9d9d9"
+      >
+        <p-radioButton [formControl]="sel_pay" value="visa" (onClick)="set_pay()"></p-radioButton>
+        <p>Pago con Tarjeta (Crédito/Débito)</p>
+        <img src="../../../assets/images/Visa.png" alt="" />
+        <img src="../../../assets/images/MasterCard.png" alt="" />
+        <img src="../../../assets/images/AmericanExpress.png" alt="" />
+      </div>
+      <span class="p-input-icon-right mt-4">
+        <label class="mb-2">Número de tarjeta</label>
+        <i class="pi pi-credit-card pt-2"></i>
+        <input type="number" [formControl]="num_cre" style="width: 396px" />
       </span>
-      <span class="p-input-icon-right">
-        <label class="mb-2">Código de verificación</label>
-        <input type="text" pInputText style="width: 178px;"/>
-      </span>
-    </div>
-    <div class="mt-5 mb-5">
-      <label class="check">
-        <input type="checkbox" class="check-input" [formControl]="check_fact">
-        Utilizar esta dirección para los datos de facturación
-      </label>
-    </div>
-    <div class="flex justify-content-start gap-3 align-items-center p-3" style="border:1px solid #000000;">
-      <p-radioButton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="ingredient3"></p-radioButton>
-      <p>Pago con Tarjeta (Crédito/Débito)</p>
-      <img src="../../../assets/images/paypal.png" alt="">
-    </div>
-    <div class="flex justify-content-end mb-2">
-      <button type="button" style="background-color: #CDCDCD;color: #000000;">button</button>
-    </div>
+      <div class="mt-4">
+        <span class="p-input-icon-right">
+          <label form="date" class="mb-2">Fecha de vencimiento</label>
+          <input
+            type="number"
+            [formControl]="ven_cre"
+            style="width: 178px; margin-right: 41px"
+          />
+        </span>
+        <span class="p-input-icon-right">
+          <label class="mb-2">Código de verificación</label>
+          <input type="number" [formControl]="cod_cre" style="width: 178px" />
+        </span>
+      </div>
+      <div class="mt-5 mb-5">
+        <label class="check">
+          <input
+            type="checkbox"
+            class="check-input"
+            [formControl]="check_cre"
+          />
+          Utilizar esta dirección para los datos de facturación
+        </label>
+      </div>
+      <div
+        class="flex justify-content-start gap-3 align-items-center p-3"
+        style="border: 1px solid #000000"
+      >
+        <p-radioButton [formControl]="sel_pay" value="paypal" (onClick)="set_pay()"></p-radioButton>
+        <p>Pago con Tarjeta (Crédito/Débito)</p>
+        <img src="../../../assets/images/paypal.png" alt="" />
+      </div>
+      <div class="flex justify-content-end mb-2">
+        <button type="submit" style="background-color: #cdcdcd; color: #000000">
+          Confirmar
+        </button>
+      </div>
+    </form>
   </mat-expansion-panel>
 </mat-accordion>
