@@ -118,6 +118,31 @@ Example output:
   "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwicm9sZXMiOiJVU0VSIiwidXNlcklkIjoiNzg1YjI5NWYtODJmMi00NWUzLWE0NTUtYWU5MTg4OGRlNWZkIiwiZXhwIjoxNjg4NTc1OTgxfQ.Ql8DQ9xQaepdNng39qtnnUKjQ1dOKFuSvthUsHzClmLDtwKPiI0ejLqCXRrIPnuy4orpm93wbeXDB0b-BiHQ0w"
 }
 ```
+## Register admin
+POST
+
+https://delatinos.up.railway.app/api/user/sign-up
+
+Example input:
+```Json
+{
+  "email": "example@example.com",
+  "password": "password",
+  "name": "Juan",
+  "lastName": "Peréz"
+}
+```
+Example output:
+```Json
+{
+  "email": "example@example.com",
+  "password": "$2a$10$gBAtBVF8zx5dtPRt0X9bru.bpKKnWeuDgpwUvyIbwPLpydo1yWuq2",
+  "verificationCode": "BFhUIMZCvLaRGRKAC9g9LqltlXLqzqopJiSY1G2BevotUt6YsfjKtigeUI2mqzSh",
+  "fullName": "Juan Peréz",
+  "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJleGFtcGxlQGV4YW1wbGUuY29tIiwicm9sZXMiOiJVU0VSIiwidXNlcklkIjoiNzg1YjI5NWYtODJmMi00NWUzLWE0NTUtYWU5MTg4OGRlNWZkIiwiZXhwIjoxNjg4NTc1OTgxfQ.Ql8DQ9xQaepdNng39qtnnUKjQ1dOKFuSvthUsHzClmLDtwKPiI0ejLqCXRrIPnuy4orpm93wbeXDB0b-BiHQ0w"
+}
+```
+
 
 ## Account verification
 GET
@@ -316,6 +341,9 @@ Example output:
 ```Json
 
 ```
+
+
+
 # Products
 
 ## Save Product
@@ -473,8 +501,7 @@ Example output
 ## Save Favorites
 POST
 https://delatinos.up.railway.app/api/favorites/create
-```
-```
+
 Example input
 https://delatinos.up.railway.app/api/favorites/create
 
@@ -583,18 +610,16 @@ Example output
   "mensaje": "favorites deleted successfully"
 }
 ```
+
 # Inventory
 ## List Inventory
 GET
 https://delatinos.up.railway.app/api/inventory/list
-```Json
-```
+
 
 Example input
 https://delatinos.up.railway.app/api/inventory/list
 
-```Json
-```
 
 Example output
 ```
@@ -621,7 +646,35 @@ https://delatinos.up.railway.app/api/inventory/create
 ```
 
 Example output
-```
+```Json
+{
+    "id": "5c199f7d-1ee9-4f83-a8c4-94003b89b792",
+    "name": "Inventory Product",
+    "purchase_price": 10.0,
+    "selling_price": 2.5,
+    "image": "image.jpg",
+    "stock_inventory": 50,
+    "updateDate": "2023-07-17T15:08:01.278912855",
+    "product": {
+        "id": "391ec16a-6375-4668-a59f-d99510254722",
+        "name": "product",
+        "description": "description",
+        "stock": 50,
+        "image": "imagen.jpg",
+        "price": 2.5,
+        "weight": 10.0,
+        "country": "country",
+        "minStock": 20,
+        "state": "U",
+        "category": {
+            "id": "be3cf616-5a59-4f48-bd73-08308db891a3",
+            "name": "bebidas",
+            "description": "bebidas regionales de diversos paises",
+            "number": "b001",
+            "state": true
+        }
+    }
+}
 ```
 
 
@@ -637,8 +690,35 @@ Example input
 ```
 
 Example output
-```
-
+```Json
+{
+    "id": "5c199f7d-1ee9-4f83-a8c4-94003b89b792",
+    "name": "Inventory Product",
+    "purchase_price": 30.0,
+    "selling_price": 2.5,
+    "image": "image5",
+    "stock_inventory": 50,
+    "updateDate": "2023-07-17T15:08:01.278913",
+    "product": {
+        "id": "391ec16a-6375-4668-a59f-d99510254722",
+        "name": "product",
+        "description": "description",
+        "stock": 50,
+        "image": "imagen.jpg",
+        "price": 2.5,
+        "weight": 10.0,
+        "country": "country",
+        "minStock": 20,
+        "state": "U",
+        "category": {
+            "id": "be3cf616-5a59-4f48-bd73-08308db891a3",
+            "name": "bebidas",
+            "description": "bebidas regionales de diversos paises",
+            "number": "b001",
+            "state": true
+        }
+    }
+}
 ```
 
 
@@ -658,7 +738,10 @@ https://delatinos.up.railway.app/api/transaction/inventory
 ```
 
 Example output
+
 ```
+
+
 ```
 ##  List Inventory Transaction
 https://delatinos.up.railway.app/api/transaction/inventory/listPOST
@@ -840,10 +923,8 @@ Example output
 
 ## Change shipping detail primary address
 POST
-http://delatinos.up.railway.app/api/shipping-details/change-primary/{shipping_details_id}
+https://delatinos.up.railway.app/api/shipping-details/change-primary/{accountUuid}/{shippingDetailUuid}
 
-```
-```
 Example input
 http://delatinos.up.railway.app/api/shipping-details/change-primary/4f3851ef-3bbd-4283-b0e3-20baad8a2922
 
@@ -851,6 +932,29 @@ http://delatinos.up.railway.app/api/shipping-details/change-primary/4f3851ef-3bb
 
 ```
 Example output
+```Text
+    Address changed to primary successfully.
+```
+
+# PAY
+## Create payment
+POST
+Example input
+https://delatinos.up.railway.app/api/pay
+
 ```JSON
+{
+    "cardNumber": "4242424242424242",
+    "expirationDate": "0823",
+    "cardCode": "900",
+    "orders": {
+        "transactionUuid": ""
+    },
+    "transaction_type": "PAID"
+}
 
 ```
+Example output
+```JSON
+
+
