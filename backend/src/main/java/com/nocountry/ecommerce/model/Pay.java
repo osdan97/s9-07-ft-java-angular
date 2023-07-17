@@ -26,7 +26,7 @@ public class Pay extends Transactions implements Serializable{
     @Column(name="description", nullable = false)
     private String description;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pay_transaction_uuid")
+    @JoinColumn(name = "orders_transaction_uuid")
     private Orders orders;
     @Column(name = "quantity", nullable = false, updatable = false)
     private Integer quantity;
@@ -36,6 +36,8 @@ public class Pay extends Transactions implements Serializable{
     public String transaction_type;
     @Column(name = "currency_code")
     private String currencyCode;
+    @Column(name = "auth_code")
+    private String auth_code;
     public Pay(Double total){
         super(total);
     }

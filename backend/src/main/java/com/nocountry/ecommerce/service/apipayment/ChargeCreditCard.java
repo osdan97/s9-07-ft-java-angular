@@ -65,7 +65,6 @@ public class ChargeCreditCard {
         String transactionType = pay.getTransaction_type();
         savePayment.setTransaction_type(transactionType);
 
-        savePayment.setDescription("PAYMENT ORDER");
         savePayment.setQuantity(0);
 
         String currencyCode = pay.getCurrencyCode();
@@ -118,6 +117,8 @@ public class ChargeCreditCard {
                         System.out.println("Message Code: " + result.getMessages().getMessage().get(0).getCode());
                         System.out.println("Description: " + result.getMessages().getMessage().get(0).getDescription());
                         System.out.println("Auth Code: " + result.getAuthCode());
+                        savePayment.setDescription(result.getMessages().getMessage().get(0).getDescription() + " - " + result.getTransId());
+                        savePayment.setAuth_code(result.getAuthCode());
                         payRepository.save(savePayment);
                     } else {
                         System.out.println("Failed Transaction.");
