@@ -1,0 +1,41 @@
+<div class="contenedor1">
+    <p class="titulo">¡Felicidades! Tu compra se ha realizado con éxito</p>
+    <div class="carrito"> 
+       <div class="titulo-pedido"><p>Tu pedido</p> </div>
+        <app-cart [changeButton]="false" [showBorder]="true" [showCross]="false" [isHidden]="false"[details]="false" ></app-cart>
+        <hr class="vertical">
+        <div class="menu-detalle">
+        <div class="item">
+          <div class="titulo-detalle"><p>Detalle del pedido</p> </div>
+          <div class="items"><p class="items-negrita">Numero de pedido:</p>  <span>5655864614</span> </div>
+          <div class="items"><p class="items-negrita">Peso Total:</p> <span>15kg</span>  </div>
+          <div class="items"><p class="items-negrita">IVA:</p> <span id="porcentaje">(+19%)</span>   </div>
+          <div class="items"><p class="items-negrita">Fecha de pedido:</p>  <span>13:05 14/07/2023</span>   </div>    
+          <div class="items"><p class="items-negrita">Proveedor de entrega:</p>  <span>UPS</span>   </div> 
+        </div>
+        <div class="item2">   
+          <div class="items"><p class="items-negrita2">Subtotal</p> <span><b>€8</b></span>  </div>
+          <div class="items"><p class="items-negrita2">Envio</p> <span><b>€7</b></span>   </div>
+          <div class="items-total"><p class="items-negrita2"><b>Total</b></p>  <span><b>€15</b></span>   </div>  
+
+        </div>
+        </div>
+        </div>
+ </div>  
+ <div class="contenedor2">
+ <div class="barra">
+  <div class="seleccionado2">
+          <div class="imagen-envio">
+            <img class="imagen"
+              src="../../../../assets/images/ups.png"
+              alt="foto">
+          </div>
+          <div class="empresa-envio">
+          <div> <p class="titulo-envio">Envio a cargo de UPS</p> </div>
+          <div> <p class="datos-envio">Revisa tu casilla de mail para ver los datos de entrega y ve el estado de tu envio en la página de UPS 
+            colocando el siguiente código</p> </div>
+          <div> <p class="codigo-envio"> <b>Codigo de seguimiento: </b>123456789789789 </p> </div>
+         </div>
+          </div>
+</div>
+ </div>

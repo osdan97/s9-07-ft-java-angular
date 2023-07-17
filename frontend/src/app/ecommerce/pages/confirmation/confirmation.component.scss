@@ -1,0 +1,166 @@
+@import "src/styles.scss";
+.contenedor1{
+  width: 100%;
+  max-width: 1000px;
+  margin:0 auto 100px; 
+  margin-bottom: 0px; 
+}
+.contenedor2{
+    width: 100%;
+    max-width: 1000px;
+    margin:0 auto 100px; 
+    align-items: center;
+  }
+
+.titulo{
+  font-size: $heading1;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  margin:32px;
+  margin-left: 11px;
+  font-family: "Quicksand", sans-serif;
+}
+.titulo-pedido{
+   margin-left: 50px;
+  
+}
+.titulo-detalle{
+  font-size: $heading2;
+}
+
+.cart-logged{
+    display: flex;
+    justify-content: space-between;
+    margin: 32px;
+    align-items: center;
+    
+}
+.titulo-cart-logged{
+  display: flex;
+  flex-direction: row;
+  margin: 36px 0px;
+  
+  h2{
+    font-size: 26px;
+  }
+}
+
+.carrito{
+    width: 950px;
+    margin: 11px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #8B8B8B;
+    border-radius: 8px ;
+    background-color: white;
+}
+.item{
+  display: flex;
+  flex-direction: column;
+}
+.item2{
+  display: flex;
+  float: right;
+  flex-direction: column;
+  
+}
+.menu-detalle{
+  width: 100%;
+  display: flex;
+  padding: 2rem;
+  justify-content: space-between;
+}
+.items{
+  display: flex;
+  flex-direction: row;
+  line-height: 20px;
+  font-size: $heading3;
+  margin-top: 10px;
+}
+.items-total{
+    display: flex;
+    flex-direction: row;
+    line-height: 20px;
+    font-size: $heading2;
+    margin-top: 10px;
+    font-family: 'Quicksand';
+    font-weight: 500;
+    margin-top: 100px;
+  }
+.items-negrita{
+    font-size: $heading4;
+    line-height: 20px;
+    font-weight: 700;
+}
+.items-negrita2{
+  margin-right:10px;
+  font-family: 'Quicksand';
+  font-weight: 400;
+}
+.items p{
+    font-size: $heading3;
+}
+.items span{
+  font-family: 'Quicksand';
+font-weight: 400;
+}
+#porcentaje{
+  color: #999999;
+}
+
+.vertical{
+border-left: 1px solid $background-disabled;
+margin: 50px 0;
+}
+
+.barra{
+    max-width: 1200px;
+    display: flex;
+    background-color:white;
+    width: 950px;
+    height: 150px;
+    margin: 11px;
+    border: 1px solid #8B8B8B;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .seleccionado2{
+    display: flex;
+    align-items: center;
+    width: 950px;
+    height: 150px;
+    display: flex;
+    padding-left: 30px;
+  }
+  .empresa-envio{
+    padding-left: 40px;
+    padding-right: 40px;
+    justify-content: space-around;
+  }
+  .empresa-envio div{
+    padding-top: 5px;
+  }
+  .titulo-envio{
+    font-family: 'Quicksand';
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .datos-envio{
+    font-family: 'Quicksand';
+    font-weight: 400;
+    font-size: 14px;
+  }
+  .codigo-envio{
+    font-family: 'Quicksand';
+    font-weight: 300;
+    font-size: 17.5px; 
+  }
+
+   .imagen {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+  }
+  

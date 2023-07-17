@@ -77,6 +77,11 @@ const routes: Routes = [
           import('./pages/details/details.module').then((m) => m.DetailsModule),
       },
       {
+        path: 'confirmation',
+        loadChildren: () =>
+          import('./pages/confirmation/confirmation.module').then((m) => m.ConfirmationModule),
+      },
+      {
         path: 'search-result',
         loadChildren: () =>
           import('./pages/search-result/search-result.module').then(
