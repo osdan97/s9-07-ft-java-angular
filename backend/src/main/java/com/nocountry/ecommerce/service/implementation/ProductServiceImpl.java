@@ -120,7 +120,8 @@ public class   ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProducts(ProductPageble productPageble) {
-        PageRequest pageRequest = PageRequest.of(productPageble.getPage() - 1, 8, Sort.by("name").ascending());
+        PageRequest pageRequest = PageRequest.of(productPageble.getPage() - 1, 8, Sort.by("name")
+                .ascending());
         Page<Product> productPage;
         String category = productPageble.getCategory();
         String country = productPageble.getCountry();
@@ -140,6 +141,66 @@ public class   ProductServiceImpl implements ProductService {
 
         productPage = productRepository.findAll(pageRequest);
         return productPage.getContent();
+    }
+
+    @Override
+    public long getTotalProducts(ProductPageble productPageble) {
+        PageRequest pageRequest = PageRequest.of(productPageble.getPage() - 1, 8, Sort.by("name")
+                .ascending());
+        Page<Product> productPage;
+        long totalProducts;
+        String category = productPageble.getCategory();
+        String country = productPageble.getCountry();
+
+        if(category == null && country != null){
+            productPage = productRepository.findAllByCountry(country,pageRequest);
+            totalProducts = productPage.getTotalElements();
+            return totalProducts;
+        }
+        if(category != null && country == null){
+            productPage = productRepository.findAllByCategoryName(category, pageRequest);
+            totalProducts = productPage.getTotalElements();
+            return totalProducts;
+        }
+        if(category != null && country != null){
+            productPage = productRepository.findAllByCountryAndCategoryName(country,category, pageRequest);
+            totalProducts = productPage.getTotalElements();
+            return totalProducts;
+        }
+
+        productPage = productRepository.findAll(pageRequest);
+        totalProducts = productPage.getTotalElements();
+        return totalProducts;
+    }
+
+    @Override
+    public int getTotalPage(ProductPageble productPageble) {
+        PageRequest pageRequest = PageRequest.of(productPageble.getPage() - 1, 8, Sort.by("name")
+                .ascending());
+        Page<Product> productPage;
+        int totalPages;
+        String category = productPageble.getCategory();
+        String country = productPageble.getCountry();
+
+        if(category == null && country != null){
+            productPage = productRepository.findAllByCountry(country,pageRequest);
+            totalPages = productPage.getTotalPages();
+            return totalPages;
+        }
+        if(category != null && country == null){
+            productPage = productRepository.findAllByCategoryName(category, pageRequest);
+            totalPages = productPage.getTotalPages();
+            return totalPages;
+        }
+        if(category != null && country != null){
+            productPage = productRepository.findAllByCountryAndCategoryName(country,category, pageRequest);
+            totalPages = productPage.getTotalPages();
+            return totalPages;
+        }
+
+        productPage = productRepository.findAll(pageRequest);
+        totalPages = productPage.getTotalPages();
+        return totalPages;
     }
 
     @Override

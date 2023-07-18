@@ -61,4 +61,14 @@ public class ProductController {
     public ResponseEntity<?> getProducts(@RequestBody ProductPageble productPageble){
         return new ResponseEntity<>(productService.getProducts(productPageble), HttpStatus.OK);
     }
+
+    @GetMapping("/totalproducts")
+    public ResponseEntity<?> getTotalProducts(@RequestBody ProductPageble productPageble){
+        return new ResponseEntity<>(productService.getTotalProducts(productPageble), HttpStatus.OK);
+    }
+
+    @GetMapping("/totalpages")
+    public ResponseEntity<?> getTotalPages(@RequestBody ProductPageble productPageble){
+        return new ResponseEntity<>(productService.getTotalPage(productPageble), HttpStatus.OK);
+    }
 }

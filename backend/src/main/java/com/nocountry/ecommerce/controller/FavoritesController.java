@@ -18,6 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/favorites")
+@SecurityRequirement(name = "jwt")
 public class FavoritesController {
     @Autowired
     private FavoritesService favoritesService;

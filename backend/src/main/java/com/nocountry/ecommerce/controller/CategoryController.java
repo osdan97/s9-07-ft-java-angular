@@ -91,6 +91,11 @@ public class CategoryController {
         return new ResponseEntity(new Mensaje("category deleted successfully"), HttpStatus.OK);
     }
 
+    @Operation(summary = "Get all categories", responses = {
+            @ApiResponse(responseCode = "200", description = "Categories list",
+                    content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Map"))),
+            @ApiResponse(responseCode = "404", description = "Categories not found",
+                    content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error")))})
     @GetMapping("/detail/{name}")
     public ResponseEntity<Category> getById(@PathVariable("name") String name) {
         if (categoryService.findByName(name)==null)
