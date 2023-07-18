@@ -2,6 +2,7 @@ package com.nocountry.ecommerce.service.apipayment;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -45,6 +46,17 @@ public class ChargeCreditCard {
         Orders orders = ordersService.getOrderById(pay.getOrders().getTransactionUuid());
         savePayment.setOrders(orders);
 
+        int anoActual = LocalDate.now().getYear();
+        String numeracion = obtenerNumeracionAutomatica();
+        String payNumber = anoActual + "-" + numeracion;
+        savePayment.setNumber(payNumber);
+
+        Double tax = orders.getAmountTaxes();
+        savePayment.setAmountTaxes(tax);
+
+        Double amount = orders.getAmountTotal();
+        savePayment.setAmountTotal(amount);
+
         Double total = orders.getTotal();
 
         String id = UUID.randomUUID().toString();
@@ -82,6 +94,7 @@ public class ChargeCreditCard {
         creditCard.setExpirationDate(expirationDate);
         creditCard.setCardCode(cardCode);
         paymentType.setCreditCard(creditCard);
+        savePayment.setPaymentMethod("CreditCard");
 
         // Create the payment transaction request
         TransactionRequestType txnRequest = new TransactionRequestType();
@@ -147,5 +160,21 @@ public class ChargeCreditCard {
             }
         }
         return response;
+    }
+    private String obtenerNumeracionAutomatica() {
+        String maxNumber = payRepository.findByNumber();
+        if (maxNumber == null || maxNumber.isEmpty()) {
+            return "1";
+        } else {
+            int separatorIndex = maxNumber.indexOf("-");
+            if (separatorIndex != -1 && separatorIndex + 1 < maxNumber.length()) {
+                String numeracion = maxNumber.substring(separatorIndex + 1);
+                int number = Integer.parseInt(numeracion.trim());
+                number++;
+                return String.valueOf(number);
+            } else {
+                return "1";
+            }
+        }
     }
 }

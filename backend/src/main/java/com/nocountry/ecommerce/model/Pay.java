@@ -30,6 +30,11 @@ public class Pay extends Transactions implements Serializable{
     private Orders orders;
     @Column(name = "quantity", nullable = false, updatable = false)
     private Integer quantity;
+    @Column(name = "amount_taxes")
+    private Double amountTaxes;
+
+    @Column(name = "amount_total")
+    private Double amountTotal;
     @Column(name = "payment_method")
     private String paymentMethod;
     @Column(name="transaction_type",nullable = false)
