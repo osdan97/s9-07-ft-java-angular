@@ -1,5 +1,8 @@
 <form [formGroup]="addCartForm" class="class-add" (ngSubmit)="addToCart()">
-  <div class="input__cart--left">
+  <div
+    class="input__cart--left"
+    [ngStyle]="showInput ? { display: '' } : { display: 'none' }"
+  >
     <input type="number" formControlName="quantity" min="1" minlength="1" />
     <div class="select-down">
       <button type="button" class="down" (click)="changeValue(+1)">

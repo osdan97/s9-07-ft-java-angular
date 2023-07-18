@@ -22,6 +22,7 @@ export class InputCartComponent implements OnInit {
   @Input() showButton = true;
   @Input() changeClass = true;
   @Input() changeWidth = '';
+  @Input() showInput = true;
 
   addCartForm!: FormGroup;
 

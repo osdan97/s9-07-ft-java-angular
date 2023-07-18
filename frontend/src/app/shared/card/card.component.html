@@ -17,6 +17,10 @@
       <p class="p-small">{{ product.weight }}</p>
       <span class="chip">{{ product.stock | uppercase }}</span>
     </div>
-    <app-input-cart [product]="product"></app-input-cart>
+    <app-input-cart
+      [product]="product"
+      [showInput]="showInput"
+      [changeWidth]="changeWidth"
+    ></app-input-cart>
   </div>
 </div>
