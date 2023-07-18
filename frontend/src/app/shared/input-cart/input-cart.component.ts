@@ -31,6 +31,7 @@ export class InputCartComponent implements OnInit {
   formBuilder = inject(FormBuilder);
 
   ngOnInit(): void {
+    this.quantity.set(this.product?.quantity);
     this.addCartForm = this.initForm();
   }
 

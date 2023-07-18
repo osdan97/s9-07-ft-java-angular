@@ -21,13 +21,15 @@ export class CartComponent {
 
   cart = signal<any>([
     {
+      userId: 1,
       id: 1,
       name: 'Lorem ipsum kafkjbasblnnadlnsakn',
       price: 5,
-      quantity: 1,
+      quantity: 2,
       image: 'https://via.placeholder.com/150',
     },
     {
+      userId: 2,
       id: 2,
       name: 'Lorem ipsum kafkjbasblnnadlnsakn',
       price: 3,

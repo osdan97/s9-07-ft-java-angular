@@ -44,13 +44,19 @@
       justify-content: space-between;
       padding: 10px;
 
+      .text__cart--center {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
       h3 {
         width: 100%;
         max-width: 150px;
         font-size: 14px;
       }
       /*agrego clase name*/
-      .name{
+      .name {
         font-size: $heading4;
         font-weight: 400;
         line-height: 18px;
@@ -76,13 +82,18 @@
         max-width: none;
       }
     }
-  
 
     .trash__cart {
-      align-self: flex-end;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       i {
         font-size: 24px;
         cursor: pointer;
+        padding-bottom: 1.3rem;
+      }
+      span {
+        font-weight: 500;
       }
     }
   }
@@ -103,7 +114,7 @@
     align-items: center;
     gap: 13px;
     button {
-      padding: 13px 32px;
+      padding: 13px 25px;
       border-radius: 7px;
       // background-color: #d8d8d8;
       font-weight: 500;
