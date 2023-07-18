@@ -9,7 +9,9 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 
 public interface OrdersService {
-    OrderRegistration createOrder(Orders order);
+
+    @Transactional
+    OrderRegistration createOrder(Orders orderRequest);
 
     @Transactional
     void changeState(String transactionUuid, String transactionState);

@@ -9,6 +9,7 @@ import com.nocountry.ecommerce.repository.ShippingDetailsRepository;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.service.ProductService;
+import com.nocountry.ecommerce.service.ShippingDetailsCustomerService;
 import com.nocountry.ecommerce.util.enums.TransactionState;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -35,14 +36,19 @@ public class OrdersServiceImpl implements OrdersService {
     private ProductService productService;
     @Autowired
     private ShippingDetailsRepository shippingDetailsRepository;
+    @Autowired
+    private ShippingDetailsCustomerService shippingDetailsCustomerService;
 
     @Transactional
     @Override
     public OrderRegistration createOrder(Orders orderRequest) {
 
         String uuid = orderRequest.getAccount().getAccountUuid();
+        String shipping_uuid = orderRequest.getShippingDetails().getShippingDetailUuid();
         Customers customersRequest = accountService.findByUuid(uuid)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + uuid));
+
+        ShippingDetailsCustomer shippingCustomerUuid = shippingDetailsCustomerService.findShippingDetailsCustomerByCustomerAndShipping(uuid, shipping_uuid);
 
         Orders order = new Orders();
         OrderRegistration orderRegistration = new OrderRegistration();
@@ -148,10 +154,16 @@ public class OrdersServiceImpl implements OrdersService {
         ShippingDetails shippingDetailsRequest = orderRequest.getShippingDetails();
         ShippingDetailsRegistration shippingDetailsRegistration = new ShippingDetailsRegistration();
 
+        //ShippingDetailsCustomer
+        String shippingAddressCustomerUuid = shippingCustomerUuid.getShippingDetailUuid();
+
         if (shippingDetailsRequest != null){
             ShippingDetails shippingDetails = new ShippingDetails();
-            String shippingDetailsUuid = UUID.randomUUID().toString();
-            shippingDetails.setShippingDetailUuid(shippingDetailsUuid);
+            if(shippingAddressCustomerUuid == null){
+                String shippingDetailsUuid = UUID.randomUUID().toString();
+                shippingDetails.setShippingDetailUuid(shippingDetailsUuid);
+            }
+            shippingDetails.setShippingDetailUuid(shippingAddressCustomerUuid);
 
             String nameShipping = shippingDetailsRequest.getName();
             shippingDetails.setName(nameShipping);
@@ -189,7 +201,10 @@ public class OrdersServiceImpl implements OrdersService {
             shippingDetails.setOrder(order);
             shippingDetailsRepository.save(shippingDetails);
 
+        }else {
+            throw new IllegalArgumentException("Shipping address cannot be empty.");
         }
+
         orderRegistration.setShippingDetailsRegistration(shippingDetailsRegistration);
 
         return orderRegistration;
