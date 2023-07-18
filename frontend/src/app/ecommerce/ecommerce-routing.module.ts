@@ -88,6 +88,11 @@ const routes: Routes = [
             (m) => m.SearchResultModule
           ),
       },
+      {
+        path: 'my-account',
+        loadChildren: () =>
+          import('./pages/my-account/my-account.module').then((m) => m.MyAccountModule),
+      },
     ],
   },
 ];
