@@ -4,17 +4,13 @@ import com.nocountry.ecommerce.dto.OrderDetailsRegistration;
 import com.nocountry.ecommerce.dto.OrderRegistration;
 import com.nocountry.ecommerce.dto.ShippingDetailsRegistration;
 import com.nocountry.ecommerce.model.*;
-import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.repository.OrdersRepository;
-import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.repository.ShippingDetailsRepository;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.service.ProductService;
 import com.nocountry.ecommerce.util.enums.TransactionState;
-import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
-import jakarta.persistence.criteria.Order;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -251,5 +247,23 @@ public class OrdersServiceImpl implements OrdersService {
                 return "1";
             }
         }
+    }
+
+    @Transactional
+    @Override
+    public void changeState(String transactionUuid, String transactionState){
+        if(transactionUuid == null){
+            throw new IllegalArgumentException("Transaction Uuid is required");
+        }
+        if(transactionState == null){
+            throw new IllegalArgumentException("Transaction State is required");
+        }
+        ordersRepository.changeState(transactionUuid, transactionState);
+    }
+
+    @Override
+    public Orders getOrderById(String transactionUuid){
+        return ordersRepository.findById(transactionUuid).orElseThrow(() ->
+                new UsernameNotFoundException("The transaction does not exist" + transactionUuid));
     }
 }

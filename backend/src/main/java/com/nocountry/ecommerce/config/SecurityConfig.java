@@ -75,7 +75,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "/api/account/updateAccount/**").hasRole(Role.USER.name())
 
                 .requestMatchers(HttpMethod.POST, "api/orders",
-                        "/api/shipping-details/**")
+                        "/api/shipping-details/**",
+                        "/api/pay")
                 .hasRole(Role.USER.name())
                 .requestMatchers(HttpMethod.GET, "/customer/**").hasRole(Role.USER.name())
 
