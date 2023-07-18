@@ -4,6 +4,7 @@ import com.nocountry.ecommerce.dto.ProductDto;
 import com.nocountry.ecommerce.dto.TransactionInventoryRegisterDto;
 import com.nocountry.ecommerce.service.TransactionInventoryService;
 import com.nocountry.ecommerce.service.implementation.TransactionInventoryServiceImpl;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/transaction/inventory")
+@SecurityRequirement(name = "jwt")
 public class TransactionInventoryController {
     @Autowired
     TransactionInventoryService transactionInventoryService;

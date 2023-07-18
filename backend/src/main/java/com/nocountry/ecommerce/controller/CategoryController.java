@@ -4,6 +4,11 @@ import com.nocountry.ecommerce.dto.Mensaje;
 import com.nocountry.ecommerce.model.Category;
 import com.nocountry.ecommerce.service.CategoryService;
 import io.micrometer.common.util.StringUtils;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +30,14 @@ public class CategoryController {
         List<Category> list = categoryService.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
-
+    @SecurityRequirement(name = "jwt")
+    @Operation(summary = "Add a new Category",
+            responses = {
+                    @ApiResponse(responseCode = "201", description = "Category created",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Map"))),
+                    @ApiResponse(responseCode = "409", description = "Category already exists",
+                            content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error"))),
+            })
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody Category categoriaEnt) {
 
@@ -44,7 +56,7 @@ public class CategoryController {
 
 
     }
-
+    @SecurityRequirement(name = "jwt")
     @PutMapping("/updatebyname/{name}")
     public ResponseEntity<?> updateByName(@PathVariable("name") String name, @RequestBody Category categoriaEnt) {
         if (categoryService.findByName(name)==null)
@@ -59,6 +71,8 @@ public class CategoryController {
         categoryService.save(category);
         return new ResponseEntity(new Mensaje("category updated successfully"), HttpStatus.OK);
     }
+
+    @SecurityRequirement(name = "jwt")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") String id, @RequestBody Category categoriaEnt) {
         if (!categoryService.existsById(id))
@@ -73,7 +87,7 @@ public class CategoryController {
         categoryService.save(category);
         return new ResponseEntity(new Mensaje("category updated successfully"), HttpStatus.OK);
     }
-
+    @SecurityRequirement(name = "jwt")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") String id) {
         if (!categoryService.existsById(id))
@@ -82,6 +96,7 @@ public class CategoryController {
         return new ResponseEntity(new Mensaje("category deleted successfully"), HttpStatus.OK);
     }
 
+    @SecurityRequirement(name = "jwt")
     @DeleteMapping("/deletebyname/{name}")
     public ResponseEntity<?> deleteByName(@PathVariable("name") String name) {
         if (categoryService.findByName(name)==null)

@@ -9,6 +9,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -52,11 +53,6 @@ public class FavoritesController {
     }
 
 
-    @PutMapping("/updatebyid/{id}")
-    public ResponseEntity<?> updateById(@PathVariable("id") String id, @RequestBody FavoritesDto favoritesDto) {
-        favoritesService.updateById(id, favoritesDto);
-        return new ResponseEntity(new Mensaje("Favorite updated"), HttpStatus.OK);
-    }
     @Operation(summary = "Delete a favorite",
             responses = {
                     @ApiResponse(responseCode = "200", description = "Favorite deleted",
