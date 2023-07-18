@@ -47,6 +47,10 @@ input {
   padding-top: 30px;
 }
 
+.input__label-left {
+  justify-content: start;
+}
+
 h2 {
   //styleName: Heading 1 - titulos;
   font-size: 26px;
@@ -64,6 +68,14 @@ h2 {
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    color: $text-color-disabled;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
 }
 
 label {

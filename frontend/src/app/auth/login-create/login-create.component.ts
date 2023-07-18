@@ -1,5 +1,11 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  Validators,
+  FormBuilder,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 import jwtDecode from 'jwt-decode';
 import { take } from 'rxjs';
 import {
@@ -62,25 +68,49 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
   }
 
   initRegisterForm(): FormGroup {
-    return this.formBuilder.group({
-      name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
-      lastname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+    return this.formBuilder.group(
+      {
+        name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+        lastname: [
+          '',
+          [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
         ],
-      ],
-      password: ['', Validators.required],
-      pais: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
-      provincia: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
-      postal: [''],
-      ciudad: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
-      direccion: [''],
-      detalle_dir: [''],
-      check_fact: [''],
-    });
+        email: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
+          ],
+        ],
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required],
+        pais: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
+        provincia: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
+        postal: [''],
+        ciudad: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
+        direccion: [''],
+        detalle_dir: [''],
+        check_fact: [''],
+      },
+      {
+        validators: [this.camposIguales('password', 'confirmPassword')],
+      }
+    );
+  }
+
+  camposIguales(campo1: string, campo2: string) {
+    return (formGroup: AbstractControl): ValidationErrors | null => {
+      const pass1 = formGroup.get(campo1)?.value;
+      const pass2 = formGroup.get(campo2)?.value;
+
+      if (pass1 !== pass2) {
+        formGroup.get(campo2)?.setErrors({ noIguales: true });
+        return { noIguales: true };
+      }
+
+      formGroup.get(campo2)?.setErrors(null);
+      return null;
+    };
   }
 
   login_create() {

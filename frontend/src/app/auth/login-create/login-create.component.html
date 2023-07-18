@@ -2,7 +2,7 @@
   <form [formGroup]="registerForm" (ngSubmit)="login_create()" novalidate>
     <h2>Crear Cuenta</h2>
     <div class="contenedor1">
-      <p class="title">1. Datos personales</p>
+      <p class="title">1. Datos personales <span>*Campo requerido</span></p>
       <div class="input-label">
         <label>
           <span class="required">Nombre/s</span>
@@ -13,16 +13,28 @@
           <input type="text" formControlName="lastname" />
         </label>
       </div>
-      <div class="input-label">
+      <div class="input-label input__label-left">
         <label>
           <span class="required">Correo electronico</span>
 
           <input type="email" formControlName="email" autocomplete />
         </label>
+      </div>
+      <div class="input-label">
         <label>
           <span class="required">Contraseña</span>
 
-          <input type="number" formControlName="password" />
+          <input type="password" formControlName="password" />
+        </label>
+
+        <label>
+          <span class="required">Confirmar contraseña*</span>
+
+          <input
+            type="password"
+            formControlName="confirmPassword"
+            autocomplete
+          />
         </label>
       </div>
     </div>

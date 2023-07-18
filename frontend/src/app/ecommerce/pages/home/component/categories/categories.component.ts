@@ -9,19 +9,19 @@ export class CategoriesComponent {
   categories = signal([
     {
       name: 'argentina',
-      image: 'assets/images/argentina.png',
+      image: '../../../../../../assets/images/argentina.svg',
     },
     {
       name: 'mexico',
-      image: 'assets/images/argentina.png',
+      image: '../../../../../../assets/images/mexico.svg',
     },
     {
       name: 'colombia',
-      image: 'assets/images/argentina.png',
+      image: '../../../../../../assets/images/colombia.svg',
     },
     {
       name: 'venezuela',
-      image: 'assets/images/argentina.png',
+      image: '../../../../../../assets/images/venezuela.svg',
     },
   ]);
 }
