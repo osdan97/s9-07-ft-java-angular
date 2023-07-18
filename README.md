@@ -1,1 +1,101 @@
-# s9-07-ft-java-angular
+#DeLatinos
+![](https://i.ibb.co/hgpGS7G/Frame-64.png )
+
+
+[TOCM]
+
+[TOC]
+###Ecommerce
+
+Nuestra página fue pensada y creada para todos los latinos residentes en paises extranjeros, los cuales sintieran la necesidad de seguir consumiendo los productos de sus paises de origen.
+Apuntamos a abastecer esa necesidad de conexion con sus recuerdos y sus gustos gastronomicos que muchas veces al estar alejado son dificiles de satisfacer.
+Nuestro servicio es la venta de los productos y el cliente decide que medio utilizar para la entrega del mismo.
+
+[Visite nuestra página](https://s9-07-ft-java-angular-git-front-develop-nocountry-c11-16.vercel.app/)
+
+### Equipo
+![](https://i.ibb.co/SvVs8Gn/sprint-2.png)
+
+Este es un proyecto de emulación dentro de la etapa Selección de **NoCountry**.
+Somos equipo **s9-07-ft-java-angular**, conformado por: 
+**- TL:**
+    Andres Bejarano 
+**- PM:**
+    Rene Silva https://github.com/rene3255 - https://www.linkedin.com/in/vmc555/
+**- BackEnd :**
+    Alfonso Almonte https://github.com/j3v1t0 - https://www.linkedin.com/in/alfonso-almonte-a7640485/
+    Antonella Lusardi https://github.com/AntoCLus - https://www.linkedin.com/in/antonella-lusardi-45622a20/
+    Oscar Jurado  https://github.com/osdan97 - https://www.linkedin.com/in/oscar-jurado-9789it/
+    Andrés Felipe Castro Manzano https://github.com/Nirsch95 - https://www.linkedin.com/in/andresfcastrom/
+**- FrontEnd:**
+    Fernando Diaz  https://github.com/Metaldev-06 - https://www.linkedin.com/in/fernandodiaz62/
+    Luisa Markarian https://github.com/LuMarka - https://www.linkedin.com/in/luisa-markarian-itdeveloper/
+    Jhon Jairo Pulido Lasso https://github.com/jhonpulido1990 - https://www.linkedin.com/in/jhon-j-pulido/
+    Belén Fraca  https://github.com/BelenFrak - https://www.linkedin.com/in/belen-fraca-287272248/
+    Maximiliano Fusco https://github.com/MaxiFusco  - https://www.linkedin.com/in/maximiliano-adrian-fusco-5bb3a8226/
+**- UX/UI:**
+    Alejandra Lomónaco https://github.com/aleelomonaco - https://www.linkedin.com/in/alejandraelomonaco/
+    Fernanda Baquero  https://github.com/resc3255 - https://www.linkedin.com/in/fernanda-baquero-garrido/
+**-Tester QA:**
+    Nicolas Gallardo  https://github.com/NaikoG - https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/
+
+# TECNOLOGÍAS APLICADAS
+
+
+##BACKEND
+####-Spring Boot, Spring Security, Lombok, JWT
+####-Spring Data
+####-JPA
+####-MySQL
+####-Intellij IDEA
+![Trabajando en Intellij](https://i.ibb.co/V95thKY/608f9226-2265-45ee-ab93-2c7634d40348.jpg)
+-Trabajando en Intellij-
+####-Postman
+![Pruebas en Postman](https://i.ibb.co/VDrvJV0/7c2ee7aa-f8b3-494f-83b9-1cefbae3ec85.jpg)
+-Pruebas en Postman-
+
+##FRONTEND
+
+####-HTML
+####-SASS 
+####-PrimeNg 
+####-Angular Material 
+####-TypeScript 
+####-Angular 
+####-Vercel 
+![Vista deploy Vercel](https://i.ibb.co/pLx28pX/vista-vercel.png)
+-Vista deploy Vercel-
+####-keen-slider 
+####-Visual Studio Code 
+![Maqueteado de proyecto](https://i.ibb.co/xJ0cNZ9/ecommerce-routing-module-ts-s9-07-ft-java-angular-Visual-Studio-Code-18-07-2023-1-27-00.png)
+-Maqueteado de proyecto/ Visual Studio-
+
+##UX/UI
+
+####-Adobe Illustrator
+####-Figma
+
+![Desing kit en proceso- Figma](https://i.ibb.co/xgGGMSh/design-kit.png )
+-Desing kit en proceso/ Figma-
+
+
+
+##Tester QA
+####-Postman
+####- Selenium IDE
+![Planilla caso de prueba](https://i.ibb.co/wd522wB/f0e579b8-a571-4676-9fe2-f1c180ce79e9.jpg)
+-Planilla caso de prueba-
+
+
+
+##PM
+####-Trello
+[Enlace a nuestro tablero de trabajo](https://trello.com/b/i76slPtb/s907ftjavaangular)
+
+![Tablero Trello](https://i.ibb.co/fx1xqn0/tablero-trello.png)
+-Tablero Trello-
+
+
+![Grafico seguimiento actividades Sprint2](https://i.ibb.co/vmzzCCP/el-grafico-de-rene.png)
+-Grafico seguimiento actividades Sprint2-
+
