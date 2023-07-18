@@ -106,7 +106,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 #### -Figma
 
-![Desing kit en proceso- Figma](https://i.ibb.co/xgGGMSh/design-kit.png )
+![Desing kit en proceso- Figma](https://i.ibb.co/q1M1tTs/image.png)
 
 -Desing kit en proceso/ Figma-
 
