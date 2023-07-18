@@ -135,7 +135,5 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 -Tablero Trello-
 
 
-![Grafico seguimiento actividades Sprint2](https://i.ibb.co/vmzzCCP/el-grafico-de-rene.png)
 
--Grafico seguimiento actividades Sprint2-
 
