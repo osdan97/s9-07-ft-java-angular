@@ -116,7 +116,9 @@ public class ProductController {
     }
 
     @GetMapping()
-    public ResponseEntity<?> getProducts(@RequestParam("page") Integer page, @RequestParam("country") String country, @RequestParam("category") String category){
+    public ResponseEntity<?> getProducts(@RequestParam("page") Integer page,
+                                         @RequestParam(value = "country", required = false) String country,
+                                         @RequestParam(value = "category",required = false) String category){
         try{
             if(page == null){
                 return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -131,7 +133,9 @@ public class ProductController {
     }
 
     @GetMapping("/totalproducts")
-    public ResponseEntity<?> getTotalProducts(@RequestParam("page") Integer page, @RequestParam("country") String country, @RequestParam("category") String category){
+    public ResponseEntity<?> getTotalProducts(@RequestParam("page") Integer page,
+                                              @RequestParam(value = "country", required = false) String country,
+                                              @RequestParam(value = "category",required = false) String category){
         try{
             if(page == null){
                 return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -146,7 +150,9 @@ public class ProductController {
     }
 
     @GetMapping("/totalpages")
-    public ResponseEntity<?> getTotalPages(@RequestParam("page") Integer page, @RequestParam("country") String country, @RequestParam("category") String category){
+    public ResponseEntity<?> getTotalPages(@RequestParam("page") Integer page,
+                                           @RequestParam(value = "country", required = false) String country,
+                                           @RequestParam(value = "category",required = false) String category){
         try{
             if(page == null){
                 return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
