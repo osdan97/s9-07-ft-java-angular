@@ -1,17 +1,23 @@
 @import "src/styles.scss";
 .contenedor1{
   width: 100%;
-  max-width: 1000px;
+  max-width: 1280px;
   margin:0 auto 100px; 
   margin-bottom: 0px; 
 }
 .contenedor2{
   width: 100%;
-  max-width: 1000px;
-  margin-right:100px;
-  margin-left: 700px; 
+  max-width: 1280px;
+ // margin-right:100px;
+  //margin-left: 100px; 
+  //float:right;
   margin-bottom: 0px; 
+  margin:0 auto 100px;
   align-items: center;
+}
+.cart{
+  display:flex;
+  flex-direction: column;
 }
 
 .titulo{
@@ -23,11 +29,16 @@
   font-family: "Quicksand", sans-serif;
 }
 .titulo-pedido{
-   gap: 30px;
-  position: relative;
+  padding-top: 2rem; 
+  padding-left:2rem;
+  font-size: $heading2;
+  font-weight: 500;
+  font-family: "Quicksand";
 }
 .titulo-detalle{
   font-size: $heading2;
+  font-weight: 500;
+  font-family: "Quicksand";
 }
 
 
@@ -112,11 +123,12 @@ margin: 50px 0;
   max-width: 1200px;
   justify-content: center;
   background-color:white;
-  width: 700px;
+  width: 70%;
   height: 170px;
   border: 1px solid #8B8B8B;
   border-radius: 8px;
   margin-bottom: 20px;
+  margin-left:150px ;
   flex-wrap: wrap;
 }
 .barra-button{
@@ -124,10 +136,11 @@ margin: 50px 0;
   display: flex ;
   justify-content: center;
   background-color:white;
-  width: 700px;
+  width: 70%;
   height: 170px;
   border: 1px solid #8B8B8B;
   border-radius: 8px;
+  margin-left:150px ;
   margin-bottom: 20px;
 
 }
@@ -135,7 +148,7 @@ margin: 50px 0;
 .seleccionado{
   display: flex;
   background-color: #EEEEEE;
-  width: 500px;
+  width: 70%;
   height: 70px;
   border: 1px solid #8B8B8B;
   display: flex;
@@ -146,7 +159,7 @@ margin: 50px 0;
 .seleccionado2{
   display: flex;
   background-color: white;
-  width: 500px;
+  width: 70%;
   height: 70px;
   display: flex;
  margin-left: 50px;

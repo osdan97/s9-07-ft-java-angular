@@ -21,12 +21,22 @@
   margin-left: 11px;
   font-family: "Quicksand", sans-serif;
 }
-.titulo-pedido{
-   margin-left: 50px;
-  
+.cart{
+  display:flex;
+  flex-direction: column;
 }
+.titulo-pedido{
+  padding-top: 2rem; 
+  padding-left:2rem;
+  font-size: $heading2;
+  font-weight: 500;
+  font-family: "Quicksand";
+}
+
 .titulo-detalle{
   font-size: $heading2;
+  font-weight: 500;
+  font-family: "Quicksand";
 }
 
 .cart-logged{
