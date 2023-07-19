@@ -13,4 +13,9 @@ public interface ShippingDetailsCustomerRepository extends JpaRepository<Shippin
             nativeQuery = true
     )
     List<ShippingDetailsCustomer> findByCustomerAccountUuid(String customerUuid);
+    @Query(
+            value = "select * from SHIPPING_DETAILS_CUSTOMER s where s.account_uuid=:customerUuid and s.shippingdetail_uuid =:shipping_uuid",
+            nativeQuery = true
+    )
+    ShippingDetailsCustomer findByCustomerAccountUuidAndShippingDetailUuid(String customerUuid, String shipping_uuid);
 }

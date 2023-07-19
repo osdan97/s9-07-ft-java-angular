@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -150,11 +149,22 @@ public class ShippingAddressCustomerServiceImpl implements ShippingDetailsCustom
 
         List<ShippingDetailsCustomerName> shippingDetailsCustomerNameList = new ArrayList<>();
         for (ShippingDetailsCustomer shippingDetails : shippingDetailsList) {
+
             ShippingDetailsCustomerName shippingDetailsCustomerName = new ShippingDetailsCustomerName();
+            String shippingDetailUuid = shippingDetails.getShippingDetailUuid();
+            shippingDetailsCustomerName.setShippingDetailsCustomerUuid(shippingDetailUuid);
+
             String name = shippingDetails.getShippingDetailsName();
             shippingDetailsCustomerName.setShippingDetailsCustomerName(name);
+
             shippingDetailsCustomerNameList.add(shippingDetailsCustomerName);
         }
         return shippingDetailsCustomerNameList;
+    }
+    @Override
+    public ShippingDetailsCustomer findShippingDetailsCustomerByCustomerAndShipping(String accountUuid, String shippingUuid){
+
+        return shippingDetailsCustomerRepository.findByCustomerAccountUuidAndShippingDetailUuid(accountUuid,shippingUuid);
+
     }
 }

@@ -14,4 +14,6 @@ public interface ShippingDetailsCustomerService {
     void changeToPrimaryAddress(String accountUuid, String shippingDetailUuid);
 
     List<ShippingDetailsCustomerName> findShippingDetailsCustomerByName(String customerUuid);
+
+    ShippingDetailsCustomer findShippingDetailsCustomerByCustomerAndShipping(String accountUuid, String shippingUuid);
 }

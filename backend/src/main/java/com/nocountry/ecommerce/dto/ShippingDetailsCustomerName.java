@@ -10,5 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ShippingDetailsCustomerName {
+    private String shippingDetailsCustomerUuid;
     private String shippingDetailsCustomerName;
 }

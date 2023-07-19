@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.controller;
 
+import com.nocountry.ecommerce.dto.Mensaje;
 import com.nocountry.ecommerce.model.Orders;
 import com.nocountry.ecommerce.service.OrdersService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -19,6 +20,10 @@ public class OrdersController {
     private OrdersService orderService;
     @PostMapping()
     public ResponseEntity<?> saveOrder(@RequestBody Orders orders) {
-        return new ResponseEntity<>(orderService.createOrder(orders), HttpStatus.CREATED);
+        try {
+            return new ResponseEntity<>(orderService.createOrder(orders), HttpStatus.CREATED);
+        }catch (Exception e){
+            return new ResponseEntity(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }
