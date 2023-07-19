@@ -1,6 +1,6 @@
 
 <div class="contenedora">
-
+<app-form-address></app-form-address>
 <h2 class="mi-cuenta">Mi cuenta</h2>
 <div class="historial">
 <img src="././assets/images/Journal.png" alt="journal"><span>Historial de compra</span>
@@ -12,6 +12,6 @@
 <div>
    
 <h2><i class="pi pi-heart-fill"></i> Favoritos</h2>
-<app-card></app-card>
+<app-card *ngFor="let product of data()" [product]="product"></app-card>
 </div>
 </div>

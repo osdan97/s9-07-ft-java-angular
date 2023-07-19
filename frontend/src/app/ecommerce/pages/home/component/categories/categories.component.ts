@@ -12,12 +12,12 @@ export class CategoriesComponent {
       image: '../../../../../../assets/images/argentina.svg',
     },
     {
-      name: 'mexico',
-      image: '../../../../../../assets/images/mexico.svg',
-    },
-    {
       name: 'colombia',
       image: '../../../../../../assets/images/colombia.svg',
+    },
+    {
+      name: 'mexico',
+      image: '../../../../../../assets/images/mexico.svg',
     },
     {
       name: 'venezuela',
