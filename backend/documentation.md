@@ -500,6 +500,7 @@ Example output
 # Favorites
 ## Save Favorites
 POST
+
 https://delatinos.up.railway.app/api/favorites/create
 
 Example input
@@ -573,28 +574,6 @@ Example Output
 []
 ```
 ```
-## Update Favorite
-PUT
-https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
-
-Example input
-https://delatinos.up.railway.app/api/favorites/list/75b29a68-5901-4555-8060-58ffc1ea44c2
-
-```Json
-{
-  "customers": "c2e67a5d-a2bb-485b-abfa-9aedc388d651",
-  "product": "ae98190b-f1ce-46ab-9896-90e39731c17c"
-
-}
-```
-
-
-Example output
-```Json
-{
-  "mensaje": "favorite updated"
-}
-```
 
 ## Delete Favorite
 DELETE
@@ -622,9 +601,37 @@ https://delatinos.up.railway.app/api/inventory/list
 
 
 Example output
-```
-
-
+```json
+[
+    {
+        "id": "5c199f7d-1ee9-4f83-a8c4-94003b89b792",
+        "name": "Inventory Product",
+        "purchase_price": 10.0,
+        "selling_price": 2.5,
+        "image": "image.jpg",
+        "stock_inventory": 50,
+        "updateDate": "2023-07-17T15:08:01.278913",
+        "product": {
+            "id": "391ec16a-6375-4668-a59f-d99510254722",
+            "name": "product",
+            "description": "description",
+            "stock": 50,
+            "image": "imagen.jpg",
+            "price": 2.5,
+            "weight": 10.0,
+            "country": "country",
+            "minStock": 20,
+            "state": "U",
+            "category": {
+                "id": "be3cf616-5a59-4f48-bd73-08308db891a3",
+                "name": "bebidas",
+                "description": "bebidas regionales de diversos paises",
+                "number": "b001",
+                "state": true
+            }
+        }
+    }
+]
 ```
 
 
@@ -720,7 +727,6 @@ Example output
     }
 }
 ```
-
 
 ##  Create Inventory Transaction
 https://delatinos.up.railway.app/api/transaction/inventory
@@ -926,11 +932,8 @@ POST
 https://delatinos.up.railway.app/api/shipping-details/change-primary/{accountUuid}/{shippingDetailUuid}
 
 Example input
-http://delatinos.up.railway.app/api/shipping-details/change-primary/4f3851ef-3bbd-4283-b0e3-20baad8a2922
+https://delatinos.up.railway.app/api/shipping-details/change-primary/ad5e8b88-315b-4864-bf41-e473c0c7cb54/f5a282f6-8ceb-4123-8a77-793857f4e2d5
 
-```JSON
-
-```
 Example output
 ```Text
     Address changed to primary successfully.
