@@ -28,7 +28,7 @@ public class ProductController {
                     @ApiResponse(responseCode = "409", description = "Product already exists",
                             content = @Content(mediaType = "application/json", schema = @Schema(ref = "#/components/schemas/Error"))),
             })
-    @PostMapping("")
+    @PostMapping("/add")
     @SecurityRequirement(name = "jwt")
     public ResponseEntity<?> saveProduct(@RequestBody ProductDto productDto){
         try {
@@ -166,7 +166,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/product/{id}")
     public ResponseEntity<?> getProduct(@PathVariable String id){
             return new ResponseEntity<>(productService.getProductByUuid(id), HttpStatus.OK);
     }

@@ -59,7 +59,8 @@ public class SecurityConfig {
 
                 .requestMatchers(HttpMethod.POST,"api/inventory/create",
                         "api/category/create",
-                        "api/transaction/inventory")
+                        "api/transaction/inventory",
+                        "/api/products/add")
                 .hasRole(Role.ADMIN.name())
 
                 .requestMatchers(HttpMethod.GET, "api/inventory/list",
@@ -94,7 +95,8 @@ public class SecurityConfig {
                         "api/category/list",
                         "/api/authentication/verify/**",
                         "/api/shipping-details/**",
-                        "/api/products",
+                        "/api/products/list",
+                        "/api/products/product/**",
                         "/api/products/totalproducts",
                         "/api/products/totalpages")
                 .permitAll()
