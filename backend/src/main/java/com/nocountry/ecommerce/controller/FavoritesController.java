@@ -34,6 +34,7 @@ public class FavoritesController {
         List<Favorites> list = favoritesService.getFavoriteProducts(customerId);
         return new ResponseEntity(list, HttpStatus.OK);
     }
+
     @Operation(summary = "Add a new favorite",
             responses = {
                     @ApiResponse(responseCode = "201", description = "Favorite created",
@@ -43,15 +44,18 @@ public class FavoritesController {
             })
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody FavoritesDto favoritesDto) {
-       if (StringUtils.isBlank(favoritesDto.getCustomers()))
-           return new ResponseEntity(new Mensaje("customer id is required"), HttpStatus.BAD_REQUEST);
-       if (StringUtils.isBlank(favoritesDto.getProduct()))
-           return new ResponseEntity(new Mensaje("product id is required"), HttpStatus.BAD_REQUEST);
-       else {
-           return new ResponseEntity(favoritesService.save(favoritesDto), HttpStatus.OK);
-       }
+        try {
+            if (StringUtils.isBlank(favoritesDto.getCustomers()))
+                return new ResponseEntity(new Mensaje("customer id is required"), HttpStatus.BAD_REQUEST);
+            if (StringUtils.isBlank(favoritesDto.getProduct()))
+                return new ResponseEntity(new Mensaje("product id is required"), HttpStatus.BAD_REQUEST);
+            else {
+                return new ResponseEntity(favoritesService.save(favoritesDto), HttpStatus.OK);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("error occurred" + e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
-
 
     @Operation(summary = "Delete a favorite",
             responses = {
@@ -62,10 +66,16 @@ public class FavoritesController {
             })
     @DeleteMapping("/deletebyid/{id}")
     public ResponseEntity<?> deleteById(@PathVariable("id") String id) {
-        if (favoritesService.getOne(id).isPresent()) {
-            favoritesService.deleteById(id);
-            return new ResponseEntity(new Mensaje("favorites deleted successfully"), HttpStatus.OK);
+        try {
+            if (favoritesService.getOne(id).isPresent()) {
+                favoritesService.deleteById(id);
+                return new ResponseEntity(new Mensaje("favorites deleted successfully"), HttpStatus.OK);
+            }
+            return new ResponseEntity(new Mensaje("favorites does not exist"), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("error occurred") + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity(new Mensaje("favorites does not exist"), HttpStatus.BAD_REQUEST);
+
     }
 }
+
