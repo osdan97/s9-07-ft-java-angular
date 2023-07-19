@@ -171,7 +171,7 @@ public class   ProductServiceImpl implements ProductService {
 
     @Override
     public int getTotalPage(Integer page, String country, String category) {
-        PageRequest pageRequest = PageRequest.of(page.getPage() - 1, 8, Sort.by("name")
+        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
                 .ascending());
         Page<Product> productPage;
         int totalPages;
