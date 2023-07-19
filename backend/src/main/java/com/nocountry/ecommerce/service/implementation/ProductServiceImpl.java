@@ -205,6 +205,4 @@ public class   ProductServiceImpl implements ProductService {
     public Optional<Product> getProductByUuid(String id) {
         return productRepository.findById(id);
     }
-
-    //TODO: implement max pages for product and total products
 }

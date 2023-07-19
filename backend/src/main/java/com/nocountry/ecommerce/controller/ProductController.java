@@ -115,7 +115,7 @@ public class ProductController {
         }
     }
 
-    @GetMapping()
+    @GetMapping("/list")
     public ResponseEntity<?> getProducts(@RequestParam("page") Integer page,
                                          @RequestParam(value = "country", required = false) String country,
                                          @RequestParam(value = "category",required = false) String category){
@@ -164,5 +164,10 @@ public class ProductController {
         }catch (Exception e){
             return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getProduct(@PathVariable String id){
+            return new ResponseEntity<>(productService.getProductByUuid(id), HttpStatus.OK);
     }
 }
