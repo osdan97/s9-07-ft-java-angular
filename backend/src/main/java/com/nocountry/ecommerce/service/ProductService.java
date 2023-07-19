@@ -12,9 +12,9 @@ public interface ProductService {
     Product updateProduct(String id, ProductDto productDto);
     void changeStateProduct (String id);
     void deleteProduct(String id);
-    List<Product> getProducts(ProductPageble productPageble);
-    long getTotalProducts(ProductPageble productPageble);
-    int getTotalPage(ProductPageble productPageble);
+    List<Product> getProducts(Integer page, String country, String category);
+    long getTotalProducts(Integer page, String country, String category);
+    int getTotalPage(Integer page, String country, String category);
     Optional<Product> getProduct(String product);
     Optional<Product> getProductByUuid(String id);
 }

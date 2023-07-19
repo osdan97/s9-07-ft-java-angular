@@ -119,12 +119,10 @@ public class   ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProducts(ProductPageble productPageble) {
-        PageRequest pageRequest = PageRequest.of(productPageble.getPage() - 1, 8, Sort.by("name")
+    public List<Product> getProducts(Integer page, String country, String category) {
+        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
                 .ascending());
         Page<Product> productPage;
-        String category = productPageble.getCategory();
-        String country = productPageble.getCountry();
 
         if(category == null && country != null){
             productPage = productRepository.findAllByCountry(country,pageRequest);
@@ -144,13 +142,11 @@ public class   ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public long getTotalProducts(ProductPageble productPageble) {
-        PageRequest pageRequest = PageRequest.of(productPageble.getPage() - 1, 8, Sort.by("name")
+    public long getTotalProducts(Integer page, String country, String category) {
+        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
                 .ascending());
         Page<Product> productPage;
         long totalProducts;
-        String category = productPageble.getCategory();
-        String country = productPageble.getCountry();
 
         if(category == null && country != null){
             productPage = productRepository.findAllByCountry(country,pageRequest);
@@ -174,13 +170,11 @@ public class   ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public int getTotalPage(ProductPageble productPageble) {
-        PageRequest pageRequest = PageRequest.of(productPageble.getPage() - 1, 8, Sort.by("name")
+    public int getTotalPage(Integer page, String country, String category) {
+        PageRequest pageRequest = PageRequest.of(page.getPage() - 1, 8, Sort.by("name")
                 .ascending());
         Page<Product> productPage;
         int totalPages;
-        String category = productPageble.getCategory();
-        String country = productPageble.getCountry();
 
         if(category == null && country != null){
             productPage = productRepository.findAllByCountry(country,pageRequest);

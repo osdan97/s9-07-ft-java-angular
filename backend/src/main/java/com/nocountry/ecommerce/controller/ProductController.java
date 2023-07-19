@@ -116,8 +116,7 @@ public class ProductController {
     }
 
     @GetMapping()
-    public ResponseEntity<?> getProducts(@RequestBody ProductPageble productPageble){
-        Integer page = productPageble.getPage();
+    public ResponseEntity<?> getProducts(@RequestParam("page") Integer page, @RequestParam("country") String country, @RequestParam("category") String category){
         try{
             if(page == null){
                 return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -125,15 +124,14 @@ public class ProductController {
             if(page < 1){
                 return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity<>(productService.getProducts(productPageble), HttpStatus.OK);
+            return new ResponseEntity<>(productService.getProducts(page, country, category), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/totalproducts")
-    public ResponseEntity<?> getTotalProducts(@RequestBody ProductPageble productPageble){
-        Integer page = productPageble.getPage();
+    public ResponseEntity<?> getTotalProducts(@RequestParam("page") Integer page, @RequestParam("country") String country, @RequestParam("category") String category){
         try{
             if(page == null){
                 return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -141,15 +139,14 @@ public class ProductController {
             if(page < 1){
                 return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity<>(productService.getTotalProducts(productPageble), HttpStatus.OK);
+            return new ResponseEntity<>(productService.getTotalProducts(page, country, category), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @GetMapping("/totalpages")
-    public ResponseEntity<?> getTotalPages(@RequestBody ProductPageble productPageble){
-        Integer page = productPageble.getPage();
+    public ResponseEntity<?> getTotalPages(@RequestParam("page") Integer page, @RequestParam("country") String country, @RequestParam("category") String category){
         try{
             if(page == null){
                 return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -157,7 +154,7 @@ public class ProductController {
             if(page < 1){
                 return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity<>(productService.getTotalPage(productPageble), HttpStatus.OK);
+            return new ResponseEntity<>(productService.getTotalPage(page, country, category), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
