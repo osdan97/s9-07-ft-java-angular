@@ -75,7 +75,6 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "/api/account/updateAccount/**").hasRole(Role.USER.name())
 
                 .requestMatchers(HttpMethod.POST, "api/orders",
-                        "/api/shipping-details/**",
                         "/api/pay")
                 .hasRole(Role.USER.name())
                 .requestMatchers(HttpMethod.GET, "/customer/**").hasRole(Role.USER.name())
@@ -94,9 +93,14 @@ public class SecurityConfig {
                         "api/category/detail/**",
                         "api/category/list",
                         "/api/authentication/verify/**",
+<<<<<<< HEAD
+                        "/api/shipping-details/**",
+                        "/api/products"
+=======
                         "/api/products",
                         "/api/products/totalproducts",
                         "/api/products/totalpages"
+>>>>>>> 6c5b6f5f3504b729ae67bb6722494b8f5b9c0d8a
                 ).permitAll()
                 .anyRequest().authenticated();
 

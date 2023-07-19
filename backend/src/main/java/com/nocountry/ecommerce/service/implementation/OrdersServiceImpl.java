@@ -155,15 +155,16 @@ public class OrdersServiceImpl implements OrdersService {
         ShippingDetailsRegistration shippingDetailsRegistration = new ShippingDetailsRegistration();
 
         //ShippingDetailsCustomer
-        String shippingAddressCustomerUuid = shippingCustomerUuid.getShippingDetailUuid();
 
         if (shippingDetailsRequest != null){
             ShippingDetails shippingDetails = new ShippingDetails();
-            if(shippingAddressCustomerUuid == null){
+
+            if(shippingCustomerUuid == null){
                 String shippingDetailsUuid = UUID.randomUUID().toString();
                 shippingDetails.setShippingDetailUuid(shippingDetailsUuid);
+            }else{
+                shippingDetails.setShippingDetailUuid(shipping_uuid);
             }
-            shippingDetails.setShippingDetailUuid(shippingAddressCustomerUuid);
 
             String nameShipping = shippingDetailsRequest.getName();
             shippingDetails.setName(nameShipping);
