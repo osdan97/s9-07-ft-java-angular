@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.controller;
 
+import com.nocountry.ecommerce.dto.Mensaje;
 import com.nocountry.ecommerce.dto.ProductDto;
 import com.nocountry.ecommerce.dto.ProductPageble;
 import com.nocountry.ecommerce.service.ProductService;
@@ -31,34 +32,134 @@ public class ProductController {
     @SecurityRequirement(name = "jwt")
     public ResponseEntity<?> saveProduct(@RequestBody ProductDto productDto){
         try {
+            if(productDto.getName() == null || productDto.getName().isEmpty()){
+                return new ResponseEntity<>(new Mensaje("Product name can't be empty"), HttpStatus.BAD_REQUEST);
+            }
+            if (productDto.getDescription() == null || productDto.getDescription().isEmpty()){
+                return new ResponseEntity<>(new Mensaje("Description can't be empty"), HttpStatus.BAD_REQUEST);
+            }
+            if(productDto.getImage() == null || productDto.getImage().isEmpty()){
+                return new ResponseEntity<>(new Mensaje("Image can't be empty"), HttpStatus.BAD_REQUEST);
+            }
+            if(productDto.getPrice() == null || productDto.getPrice().isNaN()){
+                return new ResponseEntity<>(new Mensaje("Price can't be empty"), HttpStatus.BAD_REQUEST);
+            }
+            if(productDto.getWeight() == null || productDto.getWeight().isNaN()){
+                return new ResponseEntity<>(new Mensaje("Weight can't be empty"), HttpStatus.BAD_REQUEST);
+            }
+            if(productDto.getCountry() == null || productDto.getCountry().isEmpty()){
+                return new ResponseEntity<>(new Mensaje("Country can't be empty"), HttpStatus.BAD_REQUEST);
+            }
+            if(productDto.getMinStock() == null){
+                return new ResponseEntity<>(new Mensaje("Minimum stock can't be empty"), HttpStatus.BAD_REQUEST);
+            }
+            if(productDto.getCategory() == null || productDto.getCategory().isEmpty()){
+                return new ResponseEntity<>(new Mensaje("Country can't be empty"), HttpStatus.BAD_REQUEST);
+            }
             return new ResponseEntity<>(productService.createProduct(productDto), HttpStatus.CREATED);
         }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
+            return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
     @SecurityRequirement(name = "jwt")
     @PutMapping("/update/{id}")
     public ResponseEntity<?> updateProduct(@PathVariable String id, @RequestBody ProductDto productDto){
-        return new ResponseEntity<>(productService.updateProduct(id, productDto), HttpStatus.OK);
+        try{
+            if(id == null){
+                return new ResponseEntity<>(new Mensaje("Id can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }else{
+                if(productService.getProduct(id).isPresent()){
+                    return new ResponseEntity<>(productService.updateProduct(id, productDto), HttpStatus.OK);
+                }
+                return new ResponseEntity<>(new Mensaje("Product not found"), HttpStatus.NOT_FOUND);
+            }
+        }catch(Exception e){
+            return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @SecurityRequirement(name = "jwt")
     @PatchMapping("/update-state/{id}")
-    public ResponseEntity<?> changeStateProduct(@PathVariable String id){
-        productService.changeStateProduct(id);
-        return new ResponseEntity<>("Product state changed", HttpStatus.OK);
+    public ResponseEntity<?> changeStateProduct(@PathVariable String id) {
+        try {
+            if (id == null) {
+                return new ResponseEntity<>(new Mensaje("Id can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
+            } else {
+                if (productService.getProduct(id).isPresent()) {
+                    productService.changeStateProduct(id);
+                    return new ResponseEntity<>(new Mensaje("Product state changed"), HttpStatus.OK);
+                }
+                return new ResponseEntity<>(new Mensaje("Product not found"), HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @SecurityRequirement(name = "jwt")
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteProduct(@PathVariable String id){
-        productService.deleteProduct(id);
-        return new ResponseEntity<>("Product delete successfully", HttpStatus.OK);
+        try{
+            if(id == null){
+                return new ResponseEntity<>(new Mensaje("Id can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }else{
+                if(productService.getProduct(id).isPresent()) {
+                    productService.deleteProduct(id);
+                    return new ResponseEntity<>(new Mensaje("Product delete successfully"), HttpStatus.OK);
+                }
+                return new ResponseEntity<>(new Mensaje("Product not found"), HttpStatus.NOT_FOUND);
+            }
+        }catch (Exception e){
+            return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping()
     public ResponseEntity<?> getProducts(@RequestBody ProductPageble productPageble){
-        return new ResponseEntity<>(productService.getProducts(productPageble), HttpStatus.OK);
+        Integer page = productPageble.getPage();
+        try{
+            if(page == null){
+                return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            if(page < 1){
+                return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity<>(productService.getProducts(productPageble), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/totalproducts")
+    public ResponseEntity<?> getTotalProducts(@RequestBody ProductPageble productPageble){
+        Integer page = productPageble.getPage();
+        try{
+            if(page == null){
+                return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            if(page < 1){
+                return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity<>(productService.getTotalProducts(productPageble), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/totalpages")
+    public ResponseEntity<?> getTotalPages(@RequestBody ProductPageble productPageble){
+        Integer page = productPageble.getPage();
+        try{
+            if(page == null){
+                return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            if(page < 1){
+                return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+            return new ResponseEntity<>(productService.getTotalPage(productPageble), HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

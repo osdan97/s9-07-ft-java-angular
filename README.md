@@ -21,31 +21,31 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 **- PM:**
 
-- Rene Silva https://github.com/rene3255 - https://www.linkedin.com/in/vmc555/
+- Rene Silva [Github](https://github.com/rene3255)-[LinkedIn](https://www.linkedin.com/in/vmc555/)
 
 **- BackEnd :**
 
-- Alfonso Almonte https://github.com/j3v1t0 - https://www.linkedin.com/in/alfonso-almonte-a7640485/
-- Antonella Lusardi https://github.com/AntoCLus - https://www.linkedin.com/in/antonella-lusardi-45622a20/
-- Oscar Jurado  https://github.com/osdan97 - https://www.linkedin.com/in/oscar-jurado-9789it/
-- Andrés Felipe Castro Manzano https://github.com/Nirsch95 - https://www.linkedin.com/in/andresfcastrom/
+- Alfonso Almonte [Github](https://github.com/j3v1t0) - [LinkedIn](https://www.linkedin.com/in/alfonso-almonte-a7640485/)
+- Antonella Lusardi [Github](https://github.com/AntoCLus)- [LinkedIn](https://www.linkedin.com/in/antonella-lusardi-45622a20/)
+- Oscar Jurado [Github](https://github.com/osdan97) - [LinkedIn](https://www.linkedin.com/in/oscar-jurado-9789it/)
+- Andrés Felipe Castro Manzano [Github](https://github.com/Nirsch95)-[LinkedIn](https://www.linkedin.com/in/andresfcastrom/)
   
 **- FrontEnd:**
   
-- Fernando Diaz  https://github.com/Metaldev-06 - https://www.linkedin.com/in/fernandodiaz62/
-- Luisa Markarian https://github.com/LuMarka - https://www.linkedin.com/in/luisa-markarian-itdeveloper/
-- Jhon Jairo Pulido Lasso https://github.com/jhonpulido1990 - https://www.linkedin.com/in/jhon-j-pulido/
-- Belén Fraca  https://github.com/BelenFrak - https://www.linkedin.com/in/belen-fraca-287272248/
-- Maximiliano Fusco https://github.com/MaxiFusco  - https://www.linkedin.com/in/maximiliano-adrian-fusco-5bb3a8226/
+- Fernando Diaz [Github](https://github.com/Metaldev-06) - [LinkedIn](https://www.linkedin.com/in/fernandodiaz62/)
+- Luisa Markarian [Github](https://github.com/LuMarka) -[LinkedIn](https://www.linkedin.com/in/luisa-markarian-itdeveloper/)
+- Jhon Jairo Pulido Lasso [Github](https://github.com/jhonpulido1990)-[LinkedIn](https://www.linkedin.com/in/jhon-j-pulido/)
+- Belén Fraca [Github](https://github.com/BelenFrak)- [LinkedIn](https://www.linkedin.com/in/belen-fraca-287272248/)
+- Maximiliano Fusco [Github](https://github.com/MaxiFusco)  -[LinkedIn](https://www.linkedin.com/in/maximiliano-adrian-fusco-5bb3a8226/)
   
 **- UX/UI:**
 
-- Alejandra Lomónaco https://github.com/aleelomonaco - https://www.linkedin.com/in/alejandraelomonaco/
-- Fernanda Baquero  https://github.com/resc3255 - https://www.linkedin.com/in/fernanda-baquero-garrido/
+- Alejandra Lomónaco [Github](https://github.com/aleelomonaco) - [LinkedIn](https://www.linkedin.com/in/alejandraelomonaco/)
+- Fernanda Baquero [Github](https://github.com/resc3255) -[LinkedIn](https://www.linkedin.com/in/fernanda-baquero-garrido/)
   
 **-Tester QA:**
   
-- Nicolas Gallardo  https://github.com/NaikoG - https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/
+- Nicolas Gallardo [Github](https://github.com/NaikoG)- [LinkedIn](https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/)
 
 # TECNOLOGÍAS APLICADAS
 
@@ -76,7 +76,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 #### -HTML
 
-#### -SASS 
+#### -SCSS 
 
 #### -PrimeNg 
 
@@ -88,7 +88,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 #### -Vercel 
 
-![Vista deploy Vercel](https://i.ibb.co/pLx28pX/vista-vercel.png)
+![Vista deploy Vercel](https://i.ibb.co/8PM5nW9/vercel.png)
 
 -Vista deploy Vercel-
 
@@ -106,7 +106,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 #### -Figma
 
-![Desing kit en proceso- Figma](https://i.ibb.co/xgGGMSh/design-kit.png )
+![Desing kit en proceso- Figma](https://i.ibb.co/q1M1tTs/image.png)
 
 -Desing kit en proceso/ Figma-
 
@@ -135,7 +135,5 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 -Tablero Trello-
 
 
-![Grafico seguimiento actividades Sprint2](https://i.ibb.co/vmzzCCP/el-grafico-de-rene.png)
 
--Grafico seguimiento actividades Sprint2-
 
