@@ -13,6 +13,7 @@ import { InputCartComponent } from './input-cart/input-cart.component';
 import { CartComponent } from './cart/cart.component';
 import { FormAddressComponent } from './form-address/form-address.component';
 
+
 @NgModule({
   declarations: [
     CardComponent,
@@ -22,7 +23,10 @@ import { FormAddressComponent } from './form-address/form-address.component';
     DetalleProductoComponent,
     InputCartComponent,
     CartComponent,
-    FormAddressComponent
+    FormAddressComponent,
+    
+    
+  
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,8 @@ import { FormAddressComponent } from './form-address/form-address.component';
     OurServicesComponent,
     DetalleProductoComponent,
     CartComponent,
-    FormAddressComponent
+    FormAddressComponent,
+  
   ],
 })
 export class SharedModule {}

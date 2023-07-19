@@ -11,13 +11,15 @@ export class NavbarCategoriesComponent {
       name: 'argentina',
       image: '../../../../../../assets/images/argentina.svg',
     },
-    {
-      name: 'mexico',
-      image: '../../../../../../assets/images/mexico.png',
-    },
+    
     {
       name: 'colombia',
       image: '../../../../../../assets/images/colombia.svg',
+    
+    },
+    {
+      name: 'mexico',
+      image: '../../../../../../assets/images/mexico.png',
     },
     {
       name: 'venezuela',
