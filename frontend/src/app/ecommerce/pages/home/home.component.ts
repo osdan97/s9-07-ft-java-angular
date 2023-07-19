@@ -1,11 +1,12 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  products = signal<any>([]);
   data = signal([
     {
       id: 1,
@@ -96,4 +97,10 @@ export class HomeComponent {
       quantity: 1,
     },
   ]);
+
+  ngOnInit(): void {
+    const data = JSON.parse(sessionStorage.getItem('products') || '[]');
+    console.log(data);
+    this.products.set(data);
+  }
 }

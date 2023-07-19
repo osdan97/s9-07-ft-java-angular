@@ -123,41 +123,15 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
       lastName: this.registerForm.value.lastname,
     };
 
-    const addressBody: FormShippingDetail = {
-      name: this.registerForm.value.name,
-      lastName: this.registerForm.value.lastname,
-      country: this.registerForm.value.pais,
-      provincia: this.registerForm.value.provincia,
-      postalCode: this.registerForm.value.postal,
-      city: this.registerForm.value.ciudad,
-      address1: this.registerForm.value.direccion,
-      address2: this.registerForm.value.detalle_dir,
-      primaryAddress: this.registerForm.value.check_fact,
-      active: true,
-      shippingDetailsName: 'principal',
-    };
-
     this.authService.register(registerBody).subscribe({
       next: (res) => {
         console.log(res);
         this.visible = true;
-        this.getUserData(addressBody, res.token);
       },
       error: (err) => {
-        console.log(err);
+        console.error(err);
       },
     });
-  }
-
-  getUserData(addressBody: FormShippingDetail, accessToken: string) {
-    const { userId }: Payload = jwtDecode(accessToken);
-
-    this.userService
-      .addShipingDetails(addressBody, userId)
-      .pipe(take(1))
-      .subscribe((resp: ShippingDetailResponse) => {
-        console.log(resp);
-      });
   }
 
   closeModal() {

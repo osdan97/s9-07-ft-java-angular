@@ -18,18 +18,6 @@ section {
   padding: 30px;
 }
 
-.contenedor2 {
-  border: 1px solid #8b8b8b;
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px;
-  margin-bottom: 80px;
-}
-
 input {
   width: 302px;
   height: 40px;
@@ -111,6 +99,7 @@ label {
 }
 
 .space-buton {
+  padding-top: 1.5rem;
   display: flex;
   justify-content: flex-end;
 }
