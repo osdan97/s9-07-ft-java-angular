@@ -1,9 +1,29 @@
 <article class="login__container">
   <div class="login__header">
-    <!-- <img src="" alt="" /> -->
-    <div class="imagen" *ngIf="showLogo"></div>
+    <img
+      src="../../../assets/images/logov2.svg"
+      alt="deLatinos"
+      *ngIf="showLogo"
+    />
+    <!-- <div class="imagen" *ngIf="showLogo"></div> -->
 
-    <h2>Iniciar sesión</h2>
+    <h2>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="21"
+        height="21"
+        viewBox="0 0 21 21"
+        fill="none"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M2.42626 10.2656C2.42626 5.93605 5.93605 2.42626 10.2656 2.42626C14.5952 2.42626 18.105 5.93605 18.105 10.2656C18.105 14.5952 14.5952 18.105 10.2656 18.105C5.93605 18.105 2.42626 14.5952 2.42626 10.2656ZM10.2656 0C4.59607 0 0 4.59607 0 10.2656C0 15.9352 4.59607 20.5312 10.2656 20.5312C15.9352 20.5312 20.5312 15.9352 20.5312 10.2656C20.5312 4.59607 15.9352 0 10.2656 0ZM7.5817 7.58651C7.5817 9.07559 8.77716 10.2711 10.2662 10.2711C11.7344 10.2711 12.9508 9.07559 12.9508 7.58651C12.9508 6.1184 11.7344 4.90196 10.2662 4.90196C8.77716 4.90196 7.5817 6.1184 7.5817 7.58651ZM14.9642 13.7736C14.9642 12.2215 13.6849 10.9422 12.1328 10.9422H11.7763C11.3149 11.1729 10.8115 11.2778 10.2662 11.2778C9.72095 11.2778 9.19662 11.1729 8.73522 10.9422H8.37868C6.82667 10.9422 5.56829 12.2215 5.56829 13.7736V14.6334C5.56829 15.1997 6.00872 15.6402 6.575 15.6402H13.9575C14.5028 15.6402 14.9642 15.1997 14.9642 14.6334V13.7736Z"
+          fill="#4A639A"
+        />
+      </svg>
+      Iniciar sesión
+    </h2>
   </div>
 
   <form
@@ -40,7 +60,13 @@
     </div>
 
     <div class="form__buttons">
-      <button type="submit" (click)="closeDialog()">Acceder</button>
+      <button
+        class="button custom__button--fill"
+        type="submit"
+        (click)="closeDialog()"
+      >
+        Acceder
+      </button>
       <span (click)="closeDialog()" [routerLink]="['/create-user']"
         >¿Aún no tienes una cuenta? <b>Crea una</b></span
       >

@@ -1,0 +1,58 @@
+<section>
+  <form [formGroup]="registerForm" (ngSubmit)="login_create()" novalidate>
+    <div class="contenedor2">
+      <p class="title">2. Dirección</p>
+      <div class="input-label">
+        <label>
+          Pais
+          <input type="text" formControlName="pais" />
+        </label>
+        <label>
+          Provincia/ Comunidad
+          <input type="text" formControlName="provincia" />
+        </label>
+      </div>
+      <div class="input-label">
+        <label>
+          Codigo postal
+          <input type="text" formControlName="postal" />
+        </label>
+        <label>
+          Ciudad
+          <input type="text" formControlName="ciudad" />
+        </label>
+      </div>
+      <div class="input-label">
+        <label>
+          Dirección
+          <input
+            type="text"
+            formControlName="direccion"
+            placeholder="Nombre y número de calle"
+          />
+        </label>
+        <label>
+          Detalles de dirección
+          <input
+            type="text"
+            formControlName="detalle_dir"
+            placeholder="Indicaciones"
+          />
+        </label>
+      </div>
+      <div class="">
+        <label class="check">
+          <input
+            type="checkbox"
+            class="check-input"
+            formControlName="check_fact"
+          />
+          Utilizar esta dirección para los datos de facturación
+        </label>
+      </div>
+      <div class="space-buton">
+        <button type="submit">Crear cuenta</button>
+      </div>
+    </div>
+  </form>
+</section>

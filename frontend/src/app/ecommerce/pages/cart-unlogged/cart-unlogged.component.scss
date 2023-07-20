@@ -22,19 +22,21 @@
   h2 {
     font-size: 26px;
     font-weight: 500;
+    color: $text-color-primary;
   }
 }
 
 .carrito {
   width: 100%;
-  margin: 40px
+  margin: 40px;
 }
 
 .mi-cuenta {
   width: 100%;
-  border: $border-disabled;
+
   //padding: 1rem;
   background-color: $background-white;
   border-radius: 8px;
-  margin:0 0 40px 0;
+  margin: 0 0 40px 0;
+  box-shadow: $card-shadow;
 }

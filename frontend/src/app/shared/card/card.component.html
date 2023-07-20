@@ -1,22 +1,31 @@
 <div class="card" *ngIf="product">
-  <div class="imagen-text" [routerLink]="'producto/' + product.id">
-    <img
-      src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
-      alt=""
-    />
+  <div class="imagen-text" [routerLink]="'product/' + product.id">
+    <img [src]="product.image" alt="" />
   </div>
   <div class="contenido">
-    <div class="text__products" [routerLink]="'producto/' + product.id">
-      <h3>{{ product.title }}</h3>
+    <div class="text__products" [routerLink]="'product/' + product.id">
+      <h3 class="title">{{ product.name }}</h3>
       <p class="description">
         {{ product.description }}
       </p>
     </div>
     <div class="text">
+      <img
+        class="flag"
+        [src]="product.country | imageByCountry"
+        [alt]="product.name"
+        width="30"
+        height="30"
+        [title]="'Producto de ' + product.country"
+      />
       <p>€{{ product.price }}</p>
-      <p class="p-small">{{ product.weight }}</p>
-      <span class="chip">{{ product.stock | uppercase }}</span>
+      <p class="p-small">{{ product.weight }}gr</p>
+      <span class="chip">{{ product.stock | stock }}</span>
     </div>
-    <app-input-cart [product]="product"></app-input-cart>
+    <app-input-cart
+      [product]="product"
+      [showInput]="showInput"
+      [changeWidth]="changeWidth"
+    ></app-input-cart>
   </div>
 </div>

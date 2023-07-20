@@ -21,6 +21,6 @@ export class DetalleProductoComponent {
 
     setTimeout(() => {
       this.messages = [];
-    }, 3000);
+    }, 8000);
   }
 }

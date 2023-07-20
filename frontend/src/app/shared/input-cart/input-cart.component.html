@@ -1,12 +1,43 @@
 <form [formGroup]="addCartForm" class="class-add" (ngSubmit)="addToCart()">
-  <div class="input__cart--left">
-    <input type="number" formControlName="quantity" min="1" minlength="1" />
+  <div
+    class="input__cart--left"
+    [ngStyle]="showInput ? { display: '' } : { display: 'none' }"
+  >
+    <input
+      type="number"
+      formControlName="quantity"
+      min="1"
+      minlength="1"
+      [style]="{ width: width }"
+    />
     <div class="select-down">
       <button type="button" class="down" (click)="changeValue(+1)">
-        <img src="../../../assets/mas.png" alt="" class="icon" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="6"
+          viewBox="0 0 12 6"
+          fill="none"
+        >
+          <path
+            d="M6.77242 0.360411L11.873 5.72577H9.88256L6.18149 1.61011L6.3059 1.64343H5.99488L6.11929 1.61011L2.41822 5.72577H0.427734L5.52836 0.360411H6.77242Z"
+            fill="#2F3F61"
+          />
+        </svg>
       </button>
       <button type="button" class="down" (click)="changeValue(-1)">
-        <img src="../../../assets/menos.png" alt="" class="icon" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="12"
+          height="6"
+          viewBox="0 0 12 6"
+          fill="none"
+        >
+          <path
+            d="M5.52836 5.84308L0.427734 0.477722H2.41822L6.11929 4.59339L5.99488 4.56006H6.3059L6.18149 4.59339L9.88256 0.477722H11.873L6.77242 5.84308H5.52836Z"
+            fill="#2F3F61"
+          />
+        </svg>
       </button>
     </div>
   </div>

@@ -1,15 +1,17 @@
-<app-categories></app-categories>
+<section class="categories__container">
+  <app-categories></app-categories>
+</section>
 
 <app-slider-products
   [title]="'Novedades'"
-  [products]="data()"
+  [products]="products()"
 ></app-slider-products>
 
 <app-slider-products
   [title]="'Más vendidos'"
-  [products]="data()"
+  [products]="products()"
 ></app-slider-products>
 
 <app-our-services></app-our-services>
 
-<app-content-card [products]="data()"></app-content-card>
+<app-content-card [products]="products()"></app-content-card>

@@ -11,6 +11,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputCartComponent } from './input-cart/input-cart.component';
 import { CartComponent } from './cart/cart.component';
+import { FormAddressComponent } from './form-address/form-address.component';
+import { StockPipe } from './pipes/stock.pipe';
+import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,9 @@ import { CartComponent } from './cart/cart.component';
     DetalleProductoComponent,
     InputCartComponent,
     CartComponent,
+    FormAddressComponent,
+    StockPipe,
+    ImageByCountryPipe,
   ],
   imports: [
     CommonModule,
@@ -36,6 +42,7 @@ import { CartComponent } from './cart/cart.component';
     OurServicesComponent,
     DetalleProductoComponent,
     CartComponent,
+    FormAddressComponent,
   ],
 })
 export class SharedModule {}

@@ -8,8 +8,8 @@ export interface FormShippingDetail {
   provincia: string;
   city: string;
   country: string;
-  active: boolean;
-  primaryAddress: boolean;
+  active?: boolean;
+  primaryAddress?: boolean;
 }
 
 export interface ShippingDetailResponse {

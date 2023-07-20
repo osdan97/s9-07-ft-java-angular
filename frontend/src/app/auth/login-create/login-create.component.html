@@ -2,7 +2,7 @@
   <form [formGroup]="registerForm" (ngSubmit)="login_create()" novalidate>
     <h2>Crear Cuenta</h2>
     <div class="contenedor1">
-      <p class="title">1. Datos personales</p>
+      <p class="title">1. Datos personales <span>*Campo requerido</span></p>
       <div class="input-label">
         <label>
           <span class="required">Nombre/s</span>
@@ -13,71 +13,35 @@
           <input type="text" formControlName="lastname" />
         </label>
       </div>
-      <div class="input-label">
+      <div class="input-label input__label-left">
         <label>
           <span class="required">Correo electronico</span>
 
           <input type="email" formControlName="email" autocomplete />
         </label>
+      </div>
+      <div class="input-label">
         <label>
           <span class="required">Contraseña</span>
 
-          <input type="number" formControlName="password" />
+          <input type="password" formControlName="password" />
         </label>
-      </div>
-    </div>
-    <div class="contenedor2">
-      <p class="title">2. Dirección</p>
-      <div class="input-label">
+
         <label>
-          Pais
-          <input type="text" formControlName="pais" />
-        </label>
-        <label>
-          Provincia/ Comunidad
-          <input type="text" formControlName="provincia" />
-        </label>
-      </div>
-      <div class="input-label">
-        <label>
-          Codigo postal
-          <input type="text" formControlName="postal" />
-        </label>
-        <label>
-          Ciudad
-          <input type="text" formControlName="ciudad" />
-        </label>
-      </div>
-      <div class="input-label">
-        <label>
-          Dirección
+          <span class="required">Confirmar contraseña*</span>
+
           <input
-            type="text"
-            formControlName="direccion"
-            placeholder="Nombre y número de calle"
-          />
-        </label>
-        <label>
-          Detalles de dirección
-          <input
-            type="text"
-            formControlName="detalle_dir"
-            placeholder="Indicaciones"
+            type="password"
+            formControlName="confirmPassword"
+            autocomplete
           />
         </label>
       </div>
-      <div class="">
-        <label class="check">
-          <input
-            type="checkbox"
-            class="check-input"
-            formControlName="check_fact"
-          />
-          Utilizar esta dirección para los datos de facturación
-        </label>
-      </div>
+
       <div class="space-buton">
-        <button type="submit">Crear cuenta</button>
+        <button class="button custom__button--fill" type="submit">
+          Crear cuenta
+        </button>
       </div>
     </div>
   </form>
@@ -95,13 +59,15 @@
     <div class="modal__logo">
       <i class="pi pi-check"></i>
     </div>
-    <h2>Cuenta creada</h2>
-    <p>
-      Tu cuenta ha sido exitosamente creada, confirma el mail que te enviamos a
-      tu correo para continuar a la compra.
-    </p>
+    <div class="modal__text">
+      <h2>Cuenta creada</h2>
+      <p>
+        Tu cuenta ha sido exitosamente creada, confirma el mail que te enviamos
+        a tu correo para continuar a la compra.
+      </p>
+    </div>
 
-    <button class="button custom__button--line" (click)="closeModal()">
+    <button class="button custom__button--fill" (click)="closeModal()">
       Aceptar
     </button>
   </article>

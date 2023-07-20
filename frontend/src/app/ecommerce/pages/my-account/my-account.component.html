@@ -1,0 +1,33 @@
+<div class="contenedora">
+
+    <app-form-address></app-form-address>
+    <h2 class="mi-cuenta">Mi cuenta</h2>
+    <div class="historial">
+        <div class="bloque-historial">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60" fill="none" class="journal">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M15.8675 9.85791H36.4543V41.1673L19.2225 41.1673C18.1905 41.1673 17.3539 42.0039 17.3539 43.0358C17.3539 44.0678 18.1905 44.9044 19.2225 44.9044H22.0539V43.3354H26.7193V44.9044H26.7477V48.0796H26.7193V53.0141L24.4259 50.9928L22.0539 53.0141V48.0796H15.8675C14.6927 48.0796 13.7402 47.1272 13.7402 45.9523V11.9852C13.7402 10.8103 14.6926 9.85791 15.8675 9.85791ZM30.4848 48.0796V44.9044H46.2615V45.9523C46.2615 47.1272 45.3091 48.0796 44.1342 48.0796H30.4848ZM46.2615 41.1673V11.9852C46.2615 10.8103 45.3091 9.85791 44.1342 9.85791H40.1914V41.1673H46.2615Z"
+                fill="#4A639A" />
+        </svg><span>Historial de compra</span>
+    </div>
+
+        <div class="componente-historial">
+            <img src="././assets/images/imageBombones.png" alt="imagen-bombones" class="imagen-reemplazo"><span class="text-fav">Bombones de chocolate y avellana - Toronto </span><span >$ 35</span><span>11/07/23    10:30h</span>
+        </div>
+        <div class="componente-historial">
+            <img src="././assets/images/imageDulceDeLeche.png" alt="imagen-dulceDeLeche"
+                class="imagen-reemplazo"><span class="text-fav">Dulce de leche - Estilo Colonial - La Serenisima</span><span class="precio">$ 6.98</span><span class="fecha">11/07/23    10:30h</span>
+        </div>
+
+    </div>
+</div>
+<div class="fav-container">
+    <div><i class="pi pi-heart-fill "></i><span class="favTitle">Favoritos</span> </div>
+
+    <div class="favCards">
+        <app-card *ngFor="let product of data()" [product]="product"></app-card>
+    </div>
+    <div class="fav-btn">
+        <button class="btn-fav">Ver todos</button>
+    </div>
+</div>

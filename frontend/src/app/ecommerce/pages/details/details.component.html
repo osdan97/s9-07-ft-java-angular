@@ -1,16 +1,24 @@
 <div class="contenedor1">
     <p class="titulo">Confirmar Compra</p>
     <div class="carrito"> 
+      <div class="cart">
         <p class="titulo-pedido" >Tu pedido</p>
         <app-cart [changeButton]="false" [showBorder]="true" [showCross]="false" [isHidden]="false"[details]="false" ></app-cart>
+         </div>
         <hr class="vertical">
         <div class="menu-detalle">
         <div class="item">
           <div class="titulo-detalle"><p>Detalle del pedido</p> </div>
-          <div class="items"><p class="items-negrita">Numero de pedido: </p> <p>5655864614</p></div>
-          <div class="items"><p class="items-negrita">Peso Total:</p><span>15kg</span></div>
-        <div class="items"><p class="items-negrita">IVA<span id="porcentaje">(+19%)</span></p></div>
-        <div class="items"><p class="items-negrita">Fecha de pedido:</p><span>14/07/2023</span></div>    
+          <div class="items"><p class="items-negrita">Numero de pedido:</p>  <span>5655864614</span> </div>
+          <div class="items"><p class="items-negrita">Peso Total:</p> <span>15kg</span>  </div>
+          <div class="items"><p class="items-negrita">IVA:</p> <span id="porcentaje">(+19%)</span>   </div>
+          <div class="items"><p class="items-negrita">Fecha de pedido:</p>  <span>13:05 14/07/2023</span>   </div>    
+        </div>
+        <div class="item2">   
+          <div class="items"><p class="items-negrita2">Subtotal</p> <span><b>€8</b></span>  </div>
+          <div class="items"><p class="items-negrita2">Envio</p> <span><b>€7</b></span>   </div>
+          <div class="items"><p class="items-negrita2">Total</p>  <span><b>€15</b></span>   </div>  
+
         </div>
         </div>
         </div>
@@ -60,22 +68,24 @@
 
 <div class="barra">
     <div class="titulo-barra"><p>Metodo de envio elegido</p><span>Impuestos inluidos</span></div>
-    <div class="seleccionado-envio">
-        <div class="description-envio">
-          <div>
+        <div class="seleccionado-envio">
+          <div class="imagen-envio">
             <img class="imagen"
               src="../../../../assets/images/ups.png"
               alt="foto">
           </div>
-          <div>
-            <p style="text-align: start;">UPS</p>
-            <p style="text-align: start;">Entrega en 48 a 72 hs</p>
+          <div class="empresa-envio">
+          <p>UPS</p>
           </div>
-        </div>
-        <div>
+          <div class="demora">
+          <p>Entrega en 48 a 72 hs</p>
+          </div>
+        <div class="costo-envio">
           <p>€7.95</p>
         </div>
-      </div>
+
+        
+    </div>
 </div>
 
 <div class="barra">
@@ -87,16 +97,21 @@
             <img src="../../../assets/images/AmericanExpress.png" alt="">
       </div>
     </div>
-    <div class="barra">
-        <div class="seleccionado2">
-            <div class="description">
-              <div>
-                <p style="text-align: start;">Los datos personales se utilizaran para procesar tu pedido,
+
+    <div class="barra-button">
+        <div class="seleccionado2-button">
+            <div class="description-button">
+              <div class="privacidad">
+                <p>Los datos personales se utilizaran para procesar tu pedido,
                      mejorar tu experiencia en esta web y otros propósitos descriptos en nuestra política de privacidad. </p>
-                <p style="text-align: start;">He leído y estoy de acuerdo con los términos y condiciones de  la web.</p>
+               </div>
+               <div class="condiciones">
+                <input type="checkbox"> He leído y estoy de acuerdo con los términos y condiciones de  la web.
               </div>
             </div>
-            <button>Confirmar pago</button>
+            <div class="div-button">
+            <button class="button">Confirmar pago</button>
+          </div>
           </div>
     </div>
 

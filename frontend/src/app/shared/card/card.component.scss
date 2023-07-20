@@ -11,6 +11,7 @@
   border-radius: 7px;
   overflow: hidden;
   background-color: $background-white;
+  color: $text-color-primary;
 }
 
 .imagen-text {
@@ -25,6 +26,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  position: relative;
 }
 
 .class-add {
@@ -43,7 +45,7 @@ p {
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
-  color: #717171;
+  color: $text-color-variant;
 }
 
 span {
@@ -67,6 +69,7 @@ img {
 }
 
 .contenido {
+  width: 100%;
   padding: 15px 20px;
   display: flex;
   flex-direction: column;
@@ -77,10 +80,21 @@ img {
   cursor: pointer;
 }
 
+.title {
+  width: 163px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .description {
   font-size: 14px;
   font-weight: 500;
   line-height: 16.94px;
+
+  width: 163px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .select-down {
@@ -121,4 +135,13 @@ input {
   font-weight: 500;
   font-size: 14px;
   line-height: 16.94px;
+}
+
+.flag {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
 }

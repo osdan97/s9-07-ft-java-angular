@@ -3,6 +3,7 @@ import { AuthService } from '../core/services/auth/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { DataService } from '../core/services/data/data.service';
 
 @Component({
   selector: 'app-ecommerce',
@@ -18,6 +19,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
   ],
 })
 export class EcommerceComponent implements OnInit {
+  productService = inject(DataService);
   authService = inject(AuthService);
   cookieService = inject(CookieService);
   router = inject(Router);
@@ -29,10 +31,23 @@ export class EcommerceComponent implements OnInit {
       this.authService.setAutenticate(false);
       localStorage.clear();
     }
+
+    const products = JSON.parse(sessionStorage.getItem('products') || 'null');
+
+    if (!products) {
+      this.getProducts();
+    }
   }
 
   getAnimationState(): string {
     // Lógica para determinar el estado de la animación según la URL actual o cualquier otra condición
     return this.router.url;
+  }
+
+  private getProducts() {
+    this.productService.getProducts(1).subscribe((res) => {
+      console.log(res);
+      // Los productos ya han sido guardados en el sessionStorage en el servicio
+    });
   }
 }

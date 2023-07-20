@@ -13,7 +13,7 @@ const routes: Routes = [
           import('./pages/home/home.module').then((m) => m.HomeModule),
       },
       {
-        path: 'producto/:id',
+        path: 'product/:id',
         loadChildren: () =>
           import('./pages/producto/producto.module').then(
             (m) => m.ProductoModule
@@ -77,9 +77,21 @@ const routes: Routes = [
           import('./pages/details/details.module').then((m) => m.DetailsModule),
       },
       {
+        path: 'confirmation',
+        loadChildren: () =>
+          import('./pages/confirmation/confirmation.module').then((m) => m.ConfirmationModule),
+      },
+      {
         path: 'search-result',
         loadChildren: () =>
-          import('./pages/search-result/search-result.module').then((m) => m.SearchResultModule),
+          import('./pages/search-result/search-result.module').then(
+            (m) => m.SearchResultModule
+          ),
+      },
+      {
+        path: 'my-account',
+        loadChildren: () =>
+          import('./pages/my-account/my-account.module').then((m) => m.MyAccountModule),
       },
     ],
   },

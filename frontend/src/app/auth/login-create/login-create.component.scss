@@ -5,10 +5,10 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: $text-color-primary;
 }
 
 .contenedor1 {
-  border: 1px solid #8b8b8b;
   width: 100%;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -16,27 +16,19 @@ section {
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
-}
-
-.contenedor2 {
-  border: 1px solid #8b8b8b;
-  width: 100%;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 30px;
-  margin-bottom: 80px;
+  background-color: $background-white;
+  box-shadow: $card-shadow;
 }
 
 input {
   width: 302px;
   height: 40px;
-  border-radius: 2px;
-  border: 0.5px solid #000;
+  border-radius: 4px;
+  border: 0.5px solid $background-primary;
   margin: 0;
   padding-left: 15px;
+  background-color: #e7e7e7;
+  color: $background-primary;
 }
 
 .input-label {
@@ -45,6 +37,10 @@ input {
   justify-content: center;
   gap: 30px;
   padding-top: 30px;
+}
+
+.input__label-left {
+  justify-content: start;
 }
 
 h2 {
@@ -64,12 +60,19 @@ h2 {
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+
+  span {
+    color: $text-color-disabled;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
 }
 
 label {
   display: flex;
   flex-direction: column;
-  font-family: Quicksand;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -90,7 +93,6 @@ label {
   flex-direction: row;
   padding: 10px 0 20px 0;
   gap: 10px;
-  font-family: Quicksand;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -99,6 +101,7 @@ label {
 }
 
 .space-buton {
+  padding-top: 1.5rem;
   display: flex;
   justify-content: flex-end;
 }
@@ -135,10 +138,12 @@ input.ng-dirty.ng-invalid {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1.5rem;
+  color: $text-color-primary;
 
   .modal__logo {
     padding: 2rem;
-    background-color: $background-disabled;
+    background-color: $background-complementary;
     border-radius: 1rem;
     i {
       font-size: 30px;
@@ -147,12 +152,18 @@ input.ng-dirty.ng-invalid {
     }
   }
 
+  .modal__text {
+    h2 {
+      padding: 0 0 0.5rem 0;
+    }
+  }
+
   h2,
   p {
     text-align: center;
   }
 
-  .custom__button--line {
+  .custom__button--fill {
     margin-top: 2rem;
     width: 100%;
     max-width: 250px;

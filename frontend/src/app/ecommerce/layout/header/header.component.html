@@ -1,6 +1,12 @@
 <header>
   <div class="header__content" [ngClass]="{ padding__header: headerFixed() }">
-    <span class="logo" routerLink="">LOGO</span>
+    <img
+      class="logo"
+      src="../../../../assets/images/logo.svg"
+      alt=""
+      routerLink=""
+      width="220"
+    />
   </div>
 
   <nav class="navbar" [ngClass]="{ navbar__fixed: headerFixed() }">
@@ -10,12 +16,12 @@
       </div>
       <div class="info__producs">
         <button>Productos</button>
-        <button>Info de Envíos</button>
+        <button routerLink="shipping-info">Info de Envíos</button>
       </div>
 
       <span class="p-input-icon-right">
         <i class="pi pi-search"></i>
-        <input type="text" pInputText [(ngModel)]="value"/>
+        <input type="text" pInputText [(ngModel)]="value" />
       </span>
 
       <div class="option__user">
@@ -30,6 +36,7 @@
           <app-cart
             (visibleCart)="emitirValor($event)"
             [isLogued]="isLoged"
+            [showCross]="false"
           ></app-cart>
         </div>
       </div>
@@ -49,8 +56,39 @@
 </p-dialog>
 
 <ng-template #loguedUser>
-  <h3>
-    <span>Hola, {{ userData.name }}</span>
-    <i class="pi pi-user"></i>
-  </h3>
+  <div class="logued__container">
+    <h3 (click)="showUserMenu()">
+      <span>Hola, {{ userData!.name }}</span>
+      <i class="pi pi-user"></i>
+    </h3>
+
+    <div class="user__account" *ngIf="visibleMyAccount()">
+      <p routerLink="my-account" (click)="showUserMenu()">Mi cuenta</p>
+      <p (click)="showDialogLogout()">Cerrar sesión</p>
+    </div>
+  </div>
 </ng-template>
+
+<p-dialog
+  [(visible)]="logout"
+  [breakpoints]="{ '960px': '75vw' }"
+  [style]="{ width: '25vw' }"
+  [draggable]="false"
+  [resizable]="false"
+  [modal]="true"
+>
+  <article class="modal__container">
+    <div class="modal__logo">
+      <i class="pi pi-user"></i>
+    </div>
+    <h2>¿Deseas cerrar sesión?</h2>
+    <p>
+      Confirma que quieres cerrar sesión, tendrás que volver a acceder la
+      próxima vez que quieras realizar una compra.
+    </p>
+
+    <button class="button custom__button--line" (click)="logOut()">
+      Cerrar sesión
+    </button>
+  </article>
+</p-dialog>

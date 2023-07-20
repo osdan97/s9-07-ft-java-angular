@@ -21,10 +21,13 @@ export class HeaderComponent implements OnInit {
   headerFixed = signal<boolean>(false);
   showCategories = signal<boolean>(false);
   value: string | undefined;
+
+  logout = false;
   visible = false;
   visibleCart = signal<boolean>(false);
+  visibleMyAccount = signal<boolean>(false);
 
-  userData!: UserData;
+  userData!: UserData | null;
   isLoged = false;
 
   router = inject(Router);
@@ -36,6 +39,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(() => {
       this.getCurrentRoute();
+      window.scrollTo(0, 0);
       // if (event instanceof NavigationEnd) {
       // }
     });
@@ -59,15 +63,30 @@ export class HeaderComponent implements OnInit {
     this.visible = !this.visible;
     if (this.visibleCart() === true) {
       this.visibleCart.set(false);
+      this.visibleMyAccount.set(false);
     }
   }
 
   //Función para mostrar el modal del carrito
   showDialogCart() {
     this.visibleCart.update((value) => !value);
-    if (this.visible === true) {
+    if (this.visible === true || this.visibleMyAccount() === true) {
       this.visible = false;
+      this.visibleMyAccount.set(false);
     }
+  }
+
+  //Función para mostrar el modal del menú de usuario
+  showUserMenu() {
+    this.visibleMyAccount.update((value) => !value);
+    if (this.visibleMyAccount() === true) {
+      this.visible = false;
+      this.visibleCart.set(false);
+    }
+  }
+
+  showDialogLogout() {
+    this.logout = !this.logout;
   }
 
   //Función para recibir el valor del modal del carrito
@@ -93,6 +112,7 @@ export class HeaderComponent implements OnInit {
       if (!clickedInsideMenu) {
         this.visibleCart.set(false);
         this.visible = false;
+        this.visibleMyAccount.set(false);
       }
     });
   }
@@ -112,5 +132,13 @@ export class HeaderComponent implements OnInit {
 
   closeDialog(valor: boolean) {
     this.visible = valor;
+  }
+
+  logOut() {
+    this.cookieService.delete('accessToken');
+    localStorage.clear();
+    this.isLoged = false;
+    this.userData = null;
+    this.showDialogLogout();
   }
 }

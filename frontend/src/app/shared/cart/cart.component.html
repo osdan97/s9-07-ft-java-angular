@@ -1,30 +1,47 @@
-<article class="cart__container" [ngClass]="{ borderDisabled: showBorder }">
+<article
+  class="cart__container"
+  [ngClass]="{ borderDisabled: showBorder }"
+  [ngStyle]="disableShadow ? estiloActivo : estiloInactivo"
+>
   <div class="cart__cross" (click)="emitirValor()" *ngIf="showCross">x</div>
   <h2 *ngIf="showTile">Tu carrito</h2>
   <div class="cart__content" *ngFor="let item of cart()">
     <div class="logo__cart">
       <!-- <img src="" alt=""> -->
     </div>
+
     <div class="text__cart" [ngClass]="{ 'text__cart--unlogued': changeWidth }">
       <h3 class="name">{{ item.name }}</h3>
-      <p>
-        <app-input-cart [showButton]="false" *ngIf="details"></app-input-cart>
-      </p>
+      <div class="text__cart--center">
+        <app-input-cart
+          [showButton]="false"
+          *ngIf="details"
+          [product]="item"
+        ></app-input-cart>
+        <span>€ {{ item.price }}</span>
+      </div>
     </div>
+
     <div class="trash__cart">
       <i class="pi pi-trash"></i>
+      <span>€{{ item.price * item.quantity }}</span>
     </div>
   </div>
 
   <div class="cart__subtotal" *ngIf="changeButton; else contentn2">
     <span>Subtotal</span>
-    <span>€8</span>
+    <span>€13</span>
   </div>
   <div class="cart__button" *ngIf="changeButton; else button2">
-    <button [routerLink]="" class="boton1" (click)="emitirValor()">
+    <button
+      [routerLink]="isLogued ? '/cart-logged' : '/cart-unlogged'"
+      class="button custom__button--line"
+      (click)="emitirValor()"
+    >
       {{ boton1 }}
     </button>
     <button
+      class="button custom__button--fill"
       [routerLink]="isLogued ? '/payment' : '/cart-unlogged'"
       (click)="emitirValor()"
     >
@@ -34,27 +51,31 @@
 </article>
 
 <ng-template #button2>
-  <button (click)="backHistory()" class="button__view--two" *ngIf="details">
-    <!-- <i class="pi pi-arrow-left"></i> -->
-    <img src="../../../assets/images/arrow.svg" alt="" />
+  <button
+    (click)="backHistory()"
+    class="button custom__button--line button__view--two"
+    *ngIf="details"
+  >
+    <i class="pi pi-arrow-left"></i>
+    <!-- <img src="../../../assets/images/arrow.svg" alt="" /> -->
     Seguir comprando
   </button>
 </ng-template>
 
 <ng-template #contentn2>
   <div class="spacing__cart" *ngIf="isHidden; else condition2ElseBlock">
-  <div class="cart__subtotal">
-    <span>4 artículos</span>
-    <span>€8</span>
+    <div class="cart__subtotal">
+      <span>4 artículos</span>
+      <span>€8</span>
+    </div>
+    <div class="cart__subtotal">
+      <span>Costo de envío aproximado</span>
+      <span>€7.95</span>
+    </div>
+    <div class="cart__subtotal">
+      <span>Total</span>
+      <span>€21.95</span>
+    </div>
   </div>
-  <div class="cart__subtotal">
-    <span>Costo de envío aproximado</span>
-    <span>€7.95</span>
-  </div>
-  <div class="cart__subtotal">
-    <span>Total</span>
-    <span>€21.95</span>
-  </div>
-</div>
 </ng-template>
-<ng-template #condition2ElseBlock ></ng-template>
+<ng-template #condition2ElseBlock></ng-template>

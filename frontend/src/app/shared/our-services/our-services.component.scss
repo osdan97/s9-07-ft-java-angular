@@ -8,29 +8,35 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  mix-blend-mode: multiply;
+  // mix-blend-mode: multiply;
 
   .services__card {
     width: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: baseline;
     gap: 2rem;
     text-align: center;
+    color: $background-variant;
 
     .card__icon {
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      border: 1px solid black;
+      box-shadow: $our-service-shadow;
+      background-color: $background-white;
       padding: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
+      img {
+        object-fit: contain;
+      }
     }
-    img {
-      object-fit: contain;
+
+    p {
+      color: $text-color-disabled;
     }
   }
 }
