@@ -27,17 +27,24 @@
     border-radius: 8px;
     border: 1px solid #8B8B8B;
     background: #FFF;
-span{
-    font-size: $heading2;
-    font-weight: 500;
-    font-family: 'Quicksand';
-    margin: 20px 0;
-    
-    
- }
+
  .bloque-historial{
     display: flex;
     flex-direction: row;
+ }
+ .text-fav{
+    color: #2F3F61;
+    font-family: 'Quicksand';
+    font-size: $heading4;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; 
+ }
+ span{
+    font-size: $heading4;
+    font-weight: 600;
+    font-family: 'Quicksand';
+    margin: 20px 0; 
  }
 }
 
@@ -50,31 +57,12 @@ span{
     border-radius: 4px;
     background: #FFF;
     border: 0.5px;
-    box-shadow: 0px 0px 10px 0px black;
+    box-shadow:$card-shadow;
     margin:10px 40px;
 }
 
 
-.text-fav{
-    color: #2F3F61;
-    font-family: Quicksand;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    span{
-        margin: 20px 10px;
-    }   
-}
-.precio{
-    padding-right: 10px ;
-    font-family: 'Quicksand';
-    font-size: 14px;
-    font-weight: 600;
-}
-.fecha{
-    padding-right: 5px ;
-}
+
 .imagen-reemplazo{
     width: 60px;
     margin:5px;
@@ -91,6 +79,7 @@ span{
 }
 .pi{
     color: #4A639A;
+    font-size: xx-large;
     }
 .favTitle{
     font-size: $heading2;
