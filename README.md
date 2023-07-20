@@ -60,11 +60,28 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 | **Alfonso Almonte**| **Andres Castro**| **Antonella Lusardi**| **Oscar Jurado**| 
 | <a href="https://github.com/j3v1t0"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alfonso-almonte-a7640485/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Nirsch95"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andresfcastrom/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/AntoCLus"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/antonella-lusardi-45622a20/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/osdan97"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/oscar-jurado-9789it/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
   
-**- FrontEnd:**
+### ⚛️ Front End:
+
+#### 🛠️ Tech Stack:
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=HTML5&logoColor=white) 
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white) 
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=Bootstrap&logoColor=white) 
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white) 
+![TailWindCSS](https://img.shields.io/badge/Tailwindcss-e5e5e5?style=for-the-badge&logo=Tailwindcss&logoColor=06b6d4) 
+![Angular](https://img.shields.io/badge/Angular-E23237?style=for-the-badge&logo=Angular&logoColor=white) 
+![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=FFA611)
+
+#### 🧑‍💻 Developers:
+
+| <img src="https://avatars.githubusercontent.com/u/91088016?v=4" width=50>| 
+|:-:|
+| **Jhon Pulido**| 
+| <a href="https://github.com/jhonpulido1990"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/jhon-jairo-pulido-462a9066/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+
+<hr/>
   
 - Fernando Diaz [Github](https://github.com/Metaldev-06) - [LinkedIn](https://www.linkedin.com/in/fernandodiaz62/)
 - Luisa Markarian [Github](https://github.com/LuMarka) -[LinkedIn](https://www.linkedin.com/in/luisa-markarian-itdeveloper/)
-- Jhon Jairo Pulido Lasso [Github](https://github.com/jhonpulido1990)-[LinkedIn](https://www.linkedin.com/in/jhon-j-pulido/)
 - Belén Fraca [Github](https://github.com/BelenFrak)- [LinkedIn](https://www.linkedin.com/in/belen-fraca-287272248/)
 - Maximiliano Fusco [Github](https://github.com/MaxiFusco)  -[LinkedIn](https://www.linkedin.com/in/maximiliano-adrian-fusco-5bb3a8226/)
   
