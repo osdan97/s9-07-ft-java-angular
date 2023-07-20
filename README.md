@@ -54,10 +54,10 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 
 
-| <img src="https://media.licdn.com/dms/image/D4E03AQEHmoF8CznUwg/profile-displayphoto-shrink_800_800/0/1685988077714?e=1691625600&v=beta&t=NIKbr9HBRdDpWNcYIIXXVoqDxSfCrtMUJmMHrWFG3PU" width=50>| <img src="https://media.licdn.com/dms/image/D4D03AQHWH4Q7zclgnw/profile-displayphoto-shrink_800_800/0/1678309544307?e=1691625600&v=beta&t=XVs8wm00zZ-Iq-hzoJhisMTaDZa0avpPjAQ3WVIZNpQ" width=50>|
+| <img src="https://media.licdn.com/dms/image/D4E03AQEHmoF8CznUwg/profile-displayphoto-shrink_800_800/0/1685988077714?e=1691625600&v=beta&t=NIKbr9HBRdDpWNcYIIXXVoqDxSfCrtMUJmMHrWFG3PU" width=50>| <img src="https://media.licdn.com/dms/image/D4E35AQHKQPZaBucRPg/profile-framedphoto-shrink_800_800/0/1685727400552?e=1690488000&v=beta&t=S_L9KwhFqcsVJuuNI6edmHLtuluBiPUK5sCQomrmFpE" width=50>|
 |:-:|:-:|
-| **Alfonso Almonte**| **Diego Villán**| 
-| <a href="https://github.com/j3v1t0"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alfonso-almonte-a7640485/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Nahuel409"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/diegovillan/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
+| **Alfonso Almonte**| **Andres Castro**| 
+| <a href="https://github.com/j3v1t0"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alfonso-almonte-a7640485/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="[https://github.com/Nahuel409](https://github.com/Nirsch95)"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andresfcastrom/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
 
 - Alfonso Almonte [Github](https://github.com/j3v1t0) - [LinkedIn](https://www.linkedin.com/in/alfonso-almonte-a7640485/)
 - Antonella Lusardi [Github](https://github.com/AntoCLus)- [LinkedIn](https://www.linkedin.com/in/antonella-lusardi-45622a20/)
