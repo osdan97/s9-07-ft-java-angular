@@ -51,7 +51,7 @@ export class MyAccountComponent {
       weight: '425gr',
       quantity: 1,
     },
-    {
+   /* {
       id: 5,
       title: 'Producto 5',
       description: 'Lorem ipsum dolor ',
@@ -94,7 +94,7 @@ export class MyAccountComponent {
       stock: 'en stock',
       weight: '168gr',
       quantity: 1,
-    },
+    },*/
   ]);
 
 }
