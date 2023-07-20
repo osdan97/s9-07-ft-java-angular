@@ -47,7 +47,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 ![SWAGGER](https://img.shields.io/badge/swagger-6DB33F?style=for-the-badge&logo=swagger&logoColor=white)
 ![Railway](https://img.shields.io/badge/Railway-ffffff?style=for-the-badge&logo=Railway&logoColor=000000)
-<img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/291338/anetlogo.png" width=75>
+<img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/291338/anetlogo.png" width=100>
 
 
 #### 🧑‍💻 Developers:
