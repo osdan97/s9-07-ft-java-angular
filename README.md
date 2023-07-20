@@ -5,9 +5,7 @@
 <h3><a href="https://www.figma.com/file/aYon5R5ryIkeNFeOVFIrqM/No-country---Wireframes?type=design&node-id=0-1&t=xnb1TCtnGFhKKKwX-0"> <img src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=Figma&logoColor=white"/></a> <a href="https://delatinos.vercel.app/"> <img src="https://img.shields.io/badge/Vercel-white?style=for-the-badge&logo=Angular&logoColor=black"/></a> <a href="c11-15-ft-javaangular-production.up.railway.app"> <img src="https://img.shields.io/badge/Railway-ffffff?style=for-the-badge&logo=Railway&logoColor=000000"/></a></h3>
 <hr/>
 
-Nuestra página fue pensada y creada para todos los latinos residentes en paises extranjeros, los cuales desean seguir consumiendo los productos de sus paises de origen.
-Apuntamos a abastecer esa necesidad de conexion con sus recuerdos y sus gustos gastronomicos que muchas veces al estar alejado son dificiles de satisfacer.
-Nuestro servicio es la venta de los productos y el cliente decide que medio utilizar para la entrega del mismo.
+Nuestra página fue pensada y creada para todos los latinos residentes en países extranjeros, los cuales desean seguir consumiendo los productos de sus países de origen. Apuntamos a abastecer esa necesidad de conexión con sus recuerdos y sus gustos gastronómicos que muchas veces al estar lejos son difíciles de satisfacer. Nuestro servicio implica la venta de los productos y el cliente decide que medio utilizar para la entrega del mismo.
 
 Este es un proyecto de emulación dentro de la etapa Selección de **NoCountry**.
 
