@@ -25,7 +25,7 @@ export class CheckPayComponent {
     Validators.pattern(/^[a-zA-Z ]+$/),
   ]);
   direccion = new FormControl('', Validators.required);
-  detalle_dir = new FormControl('', Validators.required);
+  detalle_dir = new FormControl('');
   check_fact = new FormControl('', Validators.requiredTrue);
   envio = new FormControl('', Validators.required);
   coment_envio = new FormControl('');
