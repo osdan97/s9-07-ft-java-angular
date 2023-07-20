@@ -34,7 +34,30 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 <hr/>
 
-**- BackEnd :**
+### ☕ Back End:
+
+#### 🛠️ Tech Stack:
+
+![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=Spring%20Boot&logoColor=white)
+![Spring_Security](https://img.shields.io/badge/spring_security-6DB33F?style=for-the-badge&logo=spring%20security&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-red?style=for-the-badge)
+![PostgreSQL](https://img.shields.io/badge/postgresql-ffffff?style=for-the-badge&logo=postgresql&logoColor=008bb9)
+![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
+![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
+![SWAGGER](https://img.shields.io/badge/swagger-6DB33F?style=for-the-badge&logo=swagger&logoColor=white)
+![Railway](https://img.shields.io/badge/Railway-ffffff?style=for-the-badge&logo=Railway&logoColor=000000)
+<img src="https://dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/291338/anetlogo.png" width=50>
+
+
+#### 🧑‍💻 Developers:
+
+
+
+| <img src="https://media.licdn.com/dms/image/D4E03AQEHmoF8CznUwg/profile-displayphoto-shrink_800_800/0/1685988077714?e=1691625600&v=beta&t=NIKbr9HBRdDpWNcYIIXXVoqDxSfCrtMUJmMHrWFG3PU" width=50>| <img src="https://media.licdn.com/dms/image/D4D03AQHWH4Q7zclgnw/profile-displayphoto-shrink_800_800/0/1678309544307?e=1691625600&v=beta&t=XVs8wm00zZ-Iq-hzoJhisMTaDZa0avpPjAQ3WVIZNpQ" width=50>|
+|:-:|:-:|
+| **Alfonso Almonte**| **Diego Villán**| 
+| <a href="https://github.com/j3v1t0"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alfonso-almonte-a7640485/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Nahuel409"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/diegovillan/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
 
 - Alfonso Almonte [Github](https://github.com/j3v1t0) - [LinkedIn](https://www.linkedin.com/in/alfonso-almonte-a7640485/)
 - Antonella Lusardi [Github](https://github.com/AntoCLus)- [LinkedIn](https://www.linkedin.com/in/antonella-lusardi-45622a20/)
