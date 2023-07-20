@@ -47,9 +47,13 @@
 </article>
 
 <ng-template #button2>
-  <button (click)="backHistory()" class="button__view--two" *ngIf="details">
-    <!-- <i class="pi pi-arrow-left"></i> -->
-    <img src="../../../assets/images/arrow.svg" alt="" />
+  <button
+    (click)="backHistory()"
+    class="button custom__button--line button__view--two"
+    *ngIf="details"
+  >
+    <i class="pi pi-arrow-left"></i>
+    <!-- <img src="../../../assets/images/arrow.svg" alt="" /> -->
     Seguir comprando
   </button>
 </ng-template>
