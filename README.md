@@ -41,6 +41,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=Spring%20Boot&logoColor=white)
 ![Spring_Security](https://img.shields.io/badge/spring_security-6DB33F?style=for-the-badge&logo=spring%20security&logoColor=white)
+![Spring Mail](https://img.shields.io/badge/Spring_Mail-6DB33F?style=for-the-badge&logo=Spring%20Mail&logoColor=white)
 ![Lombok](https://img.shields.io/badge/Lombok-red?style=for-the-badge)
 ![PostgreSQL](https://img.shields.io/badge/postgresql-ffffff?style=for-the-badge&logo=postgresql&logoColor=008bb9)
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
