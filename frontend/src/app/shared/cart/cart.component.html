@@ -31,12 +31,13 @@
   <div class="cart__button" *ngIf="changeButton; else button2">
     <button
       [routerLink]="isLogued ? '/cart-logged' : '/cart-unlogged'"
-      class="boton1"
+      class="button custom__button--line"
       (click)="emitirValor()"
     >
       {{ boton1 }}
     </button>
     <button
+      class="button custom__button--fill"
       [routerLink]="isLogued ? '/payment' : '/cart-unlogged'"
       (click)="emitirValor()"
     >

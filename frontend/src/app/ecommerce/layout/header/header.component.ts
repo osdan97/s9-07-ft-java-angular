@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
 
   logout = false;
   visible = false;
-  visibleCart = signal<boolean>(false);
+  visibleCart = signal<boolean>(true);
   visibleMyAccount = signal<boolean>(false);
 
   userData!: UserData | null;

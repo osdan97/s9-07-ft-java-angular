@@ -4,13 +4,15 @@
   width: 100%;
   // max-width: 350px;
   border-radius: 8px;
-  border: $border-disabled;
+  box-shadow: $card-shadow;
   position: relative;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: #ffffff;
+  background-color: $background-white;
+  color: $text-color-primary;
+  border: none;
 
   h2 {
     font-weight: 500;
@@ -34,7 +36,7 @@
       width: 104px;
       height: 90px;
       border-radius: 7px;
-      border: 1px solid black;
+      border: $border-disabled;
       background-color: #e6e6e6;
     }
 
@@ -114,8 +116,8 @@
     align-items: center;
     gap: 13px;
     button {
-      padding: 13px 25px;
-      border-radius: 7px;
+      // padding: 13px 25px;
+      // border-radius: 7px;
       // background-color: #d8d8d8;
       font-weight: 500;
       &:nth-child(2) {
