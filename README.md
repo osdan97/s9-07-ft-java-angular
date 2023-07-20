@@ -88,7 +88,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 #### -Vercel 
 
-![Vista deploy Vercel](https://i.ibb.co/8PM5nW9/vercel.png)
+![Vista deploy Vercel](https://i.ibb.co/0BMGCtZ/vista-vercel.png)
 
 -Vista deploy Vercel-
 
