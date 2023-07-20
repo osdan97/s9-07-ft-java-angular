@@ -18,10 +18,10 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 ### 🎨 Team Leader:
 
-| <img src="https://media.licdn.com/dms/image/D4D35AQE1Gq9YxoLmUA/profile-framedphoto-shrink_800_800/0/1684283093925?e=1690473600&v=beta&t=lIzewkCdcWKW23EQx9FxET1bKN3-nopOF--arLPG6jA" width=50>|
+| <img src="https://mir-s3-cdn-cf.behance.net/user/230/548a0e734241801.6474ce99de5e8.png" width=50>|
 |:-:|
 | **Andres Bejarano**|
-| <a href=""><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andres-bejarano-6765aa241/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://www.behance.net/andresbejarano6"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andres-bejarano-6765aa241/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 <hr/>
 
