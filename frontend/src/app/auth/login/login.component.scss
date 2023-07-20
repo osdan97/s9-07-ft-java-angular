@@ -19,6 +19,11 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    img {
+      width: 205px;
+      height: 128px;
+      object-fit: cover;
+    }
     .imagen {
       width: 126px;
       height: 99px;
@@ -29,6 +34,8 @@
 
     h2 {
       font-size: $heading1;
+      font-weight: normal;
+      color: $text-color-variant;
     }
   }
 
@@ -40,7 +47,7 @@
 
     span {
       &:hover {
-        border-bottom: 1px solid black;
+        text-decoration: underline;
         cursor: pointer;
       }
     }
