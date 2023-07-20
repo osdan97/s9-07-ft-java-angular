@@ -15,6 +15,7 @@ export class CartComponent {
   @Input() showTile = false;
   @Input() isHidden = false;
   @Input() details = true;
+  @Input() disableShadow = false;
 
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';
@@ -37,6 +38,9 @@ export class CartComponent {
       image: 'https://via.placeholder.com/150',
     },
   ]);
+
+  estiloActivo = { boxShadow: 'none' };
+  estiloInactivo = {};
 
   emitirValor() {
     this.visibleCart.emit(false);
