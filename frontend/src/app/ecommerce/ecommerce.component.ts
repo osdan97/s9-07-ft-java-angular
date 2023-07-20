@@ -4,7 +4,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { DataService } from '../core/services/data/data.service';
-import { take } from 'rxjs';
 
 @Component({
   selector: 'app-ecommerce',

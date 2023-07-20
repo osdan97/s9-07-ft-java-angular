@@ -1,10 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import {
-  FormProducts,
-  ProductsResponse,
-} from '../../interfaces/products.interfaces';
+import { ProductsResponse } from '../../interfaces/products.interfaces';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -45,5 +42,4 @@ export class DataService {
   getDataProducts(): Observable<ProductsResponse[]> {
     return this.dataProducts.asObservable();
   }
-
 }
