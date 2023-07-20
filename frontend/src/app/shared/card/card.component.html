@@ -4,15 +4,23 @@
   </div>
   <div class="contenido">
     <div class="text__products" [routerLink]="'product/' + product.id">
-      <h3>{{ product.title }}</h3>
+      <h3>{{ product.name }}</h3>
       <p class="description">
         {{ product.description }}
       </p>
     </div>
     <div class="text">
+      <img
+        class="flag"
+        [src]="product.country | imageByCountry"
+        [alt]="product.name"
+        width="30"
+        height="30"
+        [title]="'Producto de ' + product.country"
+      />
       <p>€{{ product.price }}</p>
-      <p class="p-small">{{ product.weight }}</p>
-      <span class="chip">{{ product.stock }}</span>
+      <p class="p-small">{{ product.weight }}gr</p>
+      <span class="chip">{{ product.stock | stock }}</span>
     </div>
     <app-input-cart
       [product]="product"

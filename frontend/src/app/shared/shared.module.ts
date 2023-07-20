@@ -12,7 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputCartComponent } from './input-cart/input-cart.component';
 import { CartComponent } from './cart/cart.component';
 import { FormAddressComponent } from './form-address/form-address.component';
-
+import { StockPipe } from './pipes/stock.pipe';
+import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
 
 @NgModule({
   declarations: [
@@ -24,9 +25,8 @@ import { FormAddressComponent } from './form-address/form-address.component';
     InputCartComponent,
     CartComponent,
     FormAddressComponent,
-    
-    
-  
+    StockPipe,
+    ImageByCountryPipe,
   ],
   imports: [
     CommonModule,
@@ -34,7 +34,6 @@ import { FormAddressComponent } from './form-address/form-address.component';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
-
   ],
   exports: [
     CardComponent,
@@ -44,7 +43,6 @@ import { FormAddressComponent } from './form-address/form-address.component';
     DetalleProductoComponent,
     CartComponent,
     FormAddressComponent,
-  
   ],
 })
 export class SharedModule {}

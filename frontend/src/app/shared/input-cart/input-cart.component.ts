@@ -23,6 +23,7 @@ export class InputCartComponent implements OnInit {
   @Input() changeClass = true;
   @Input() changeWidth = '';
   @Input() showInput = true;
+  @Input() width = '37px';
 
   addCartForm!: FormGroup;
 
@@ -32,7 +33,7 @@ export class InputCartComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.product) {
-      this.quantity.set(this.product?.quantity);
+      this.quantity.set(this.product?.quantity ?? 1);
     }
     this.addCartForm = this.initForm();
   }

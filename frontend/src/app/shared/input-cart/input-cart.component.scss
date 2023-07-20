@@ -1,3 +1,5 @@
+@import "src/styles.scss";
+
 .class-add {
   display: flex;
   flex-direction: row;
@@ -20,7 +22,7 @@ p {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3px;
+  gap: 6px;
   height: 39.95;
 }
 
@@ -31,6 +33,7 @@ p {
   padding: 0;
   border: 0px;
   background-color: transparent;
+  line-height: 10px;
 }
 
 .down img {
@@ -39,9 +42,12 @@ p {
 }
 
 input {
-  width: 37px;
+  // width: 37px;
   height: 40px;
   border-radius: 7px;
   border: 1px solid #000;
   text-align: center;
+  border: $border-primary;
+  background-color: transparent;
+  color: $text-color-primary;
 }

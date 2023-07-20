@@ -1,4 +1,5 @@
 import { Component, signal, OnInit } from '@angular/core';
+import { ProductsResponse } from 'src/app/core/interfaces/products.interfaces';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +7,7 @@ import { Component, signal, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  products = signal<any>([]);
+  products = signal<ProductsResponse[]>([]);
   data = signal([
     {
       id: 1,
