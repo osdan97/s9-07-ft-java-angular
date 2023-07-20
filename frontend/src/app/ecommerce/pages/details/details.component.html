@@ -1,11 +1,12 @@
 <div class="contenedor1">
     <p class="titulo">Confirmar Compra</p>
     <div class="carrito"> 
+
       <div class="cart">
         <p class="titulo-pedido" >Tu pedido</p>
         <app-cart [changeButton]="false" [showBorder]="true" [showCross]="false" [isHidden]="false"[details]="false" ></app-cart>
          </div>
-        <hr class="vertical">
+        
         <div class="menu-detalle">
         <div class="item">
           <div class="titulo-detalle"><p>Detalle del pedido</p> </div>
@@ -18,13 +19,14 @@
           <div class="items"><p class="items-negrita2">Subtotal</p> <span><b>€8</b></span>  </div>
           <div class="items"><p class="items-negrita2">Envio</p> <span><b>€7</b></span>   </div>
           <div class="items"><p class="items-negrita2">Total</p>  <span><b>€15</b></span>   </div>  
+        </div>
+        </div>
 
-        </div>
-        </div>
-        </div>
+</div>
  </div>       
 
  <div class="contenedor2">
+
   <div class="barra">
     <div class="titulo-barra"><p>Datos personales</p></div>
     <div class="seleccionado">
@@ -34,8 +36,9 @@
               src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="foto">
           </div>
+
           <div>
-            <p style="text-align: start;">Mariano García Machado</p>
+            <p style="text-align: start;"><b>Mariano García Machado</b></p>
             <p style="text-align: start;">Mariano_garcia@gmail.com</p>
           </div>
         </div>
@@ -106,11 +109,11 @@
                      mejorar tu experiencia en esta web y otros propósitos descriptos en nuestra política de privacidad. </p>
                </div>
                <div class="condiciones">
-                <input type="checkbox"> He leído y estoy de acuerdo con los términos y condiciones de  la web.
+                <input  type="checkbox"> He leído y estoy de acuerdo con los términos y condiciones de  la web.
               </div>
             </div>
             <div class="div-button">
-            <button class="button">Confirmar pago</button>
+            <button class="button"><p>Confirmar pago</p></button>
           </div>
           </div>
     </div>
