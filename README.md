@@ -2,7 +2,7 @@
 ![](https://i.ibb.co/hgpGS7G/Frame-64.png )
 ### ⚡ Links del Proyecto:
 
-<h3><a href="https://www.figma.com/file/aYon5R5ryIkeNFeOVFIrqM/No-country---Wireframes?type=design&node-id=0-1&t=xnb1TCtnGFhKKKwX-0"> <img src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=Figma&logoColor=white"/></a> <a href="https://delatinos.vercel.app/"> <img src="https://img.shields.io/badge/Vercel-white?style=for-the-badge&logo=Angular&logoColor=black" width="100" height="40"/></a> <a href="c11-15-ft-javaangular-production.up.railway.app"> <img src="https://img.shields.io/badge/Railway-ffffff?style=for-the-badge&logo=Railway&logoColor=000000"/></a></h3>
+<h3><a href="https://www.figma.com/file/aYon5R5ryIkeNFeOVFIrqM/No-country---Wireframes?type=design&node-id=0-1&t=xnb1TCtnGFhKKKwX-0"> <img src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=Figma&logoColor=white"/></a> <a href="https://delatinos.vercel.app/"> <img src="https://img.shields.io/badge/Vercel-white?style=for-the-badge&logo=Angular&logoColor=black"/></a> <a href="c11-15-ft-javaangular-production.up.railway.app"> <img src="https://img.shields.io/badge/Railway-ffffff?style=for-the-badge&logo=Railway&logoColor=000000"/></a></h3>
 <hr/>
 
 Nuestra página fue pensada y creada para todos los latinos residentes en paises extranjeros, los cuales desean seguir consumiendo los productos de sus paises de origen.
