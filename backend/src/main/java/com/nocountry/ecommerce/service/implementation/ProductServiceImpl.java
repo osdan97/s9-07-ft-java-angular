@@ -1,13 +1,13 @@
 package com.nocountry.ecommerce.service.implementation;
 
 import com.nocountry.ecommerce.dto.ProductDto;
-import com.nocountry.ecommerce.dto.ProductPageble;
 import com.nocountry.ecommerce.model.Category;
 import com.nocountry.ecommerce.model.Product;
 import com.nocountry.ecommerce.repository.CategoryRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.ProductService;
 import com.nocountry.ecommerce.util.enums.ProductState;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -204,5 +204,10 @@ public class   ProductServiceImpl implements ProductService {
     @Override
     public Optional<Product> getProductByUuid(String id) {
         return productRepository.findById(id);
+    }
+    @Transactional
+    @Override
+    public void updateStock(int newStock,String state, String productUuid){
+        productRepository.updateStock(newStock, state, productUuid);
     }
 }

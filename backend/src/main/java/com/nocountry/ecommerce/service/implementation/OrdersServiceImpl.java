@@ -10,6 +10,7 @@ import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.service.ProductService;
 import com.nocountry.ecommerce.service.ShippingDetailsCustomerService;
+import com.nocountry.ecommerce.util.enums.ProductState;
 import com.nocountry.ecommerce.util.enums.TransactionState;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -78,7 +79,7 @@ public class OrdersServiceImpl implements OrdersService {
 
         order.setDescription("");
         order.setQuantity(0);
-        order.setTransaction_type("ORDEN DE VENTA");
+        order.setTransaction_type("SALE");
 
         Double shippingCost = order.getShippingCost();
         orderRegistration.setShippingCost(shippingCost);
@@ -95,11 +96,30 @@ public class OrdersServiceImpl implements OrdersService {
                 Product product = productService.getProductByUuid(productUuid)
                         .orElseThrow(() -> new EntityNotFoundException("The account does not exist." + productUuid));
 
+                String stateProduct = product.getState().name();
+                if (stateProduct == ProductState.U.name()){
+                    throw new IllegalArgumentException("Product not available");
+                }
                 orderDetailsRegistration.setProductName(product.getName());
 
                 int quantity = orderDetail.getQuantity();
                 orderDetailsRegistration.setQuantity(quantity);
 
+                int quantityStock = product.getStock();
+
+                if(quantity > quantityStock){
+                    throw new IllegalArgumentException("Quantity available in stock " + quantityStock);
+                }
+
+                int newStock = quantityStock - quantity;
+
+                if (newStock == 0){
+                    productService.updateStock(newStock,ProductState.U.name(), productUuid);
+                } else if (newStock < product.getMinStock()){
+                    productService.updateStock(newStock,ProductState.W.name(), productUuid);
+                }else {
+                    productService.updateStock(newStock,ProductState.A.name(), productUuid);
+                }
                 Double price = product.getPrice();
                 orderDetailsRegistration.setPrice(price);
 
