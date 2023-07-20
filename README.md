@@ -21,7 +21,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 | <img src="https://media.licdn.com/dms/image/D4D35AQE1Gq9YxoLmUA/profile-framedphoto-shrink_800_800/0/1684283093925?e=1690473600&v=beta&t=lIzewkCdcWKW23EQx9FxET1bKN3-nopOF--arLPG6jA" width=50>|
 |:-:|
 | **Andres Bejarano**|
-| <a href=""><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andres-bejarano-6765aa241/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/><img src="https://github.com/No-Country/s8-14-t-mern/blob/develop/cliente/src/assets/MX.png"/></a> |
+| <a href=""><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andres-bejarano-6765aa241/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 <hr/>
 
