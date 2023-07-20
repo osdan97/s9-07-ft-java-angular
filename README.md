@@ -67,16 +67,16 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=CSS3&logoColor=white) 
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=Bootstrap&logoColor=white) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white) 
-![TailWindCSS](https://img.shields.io/badge/Tailwindcss-e5e5e5?style=for-the-badge&logo=Tailwindcss&logoColor=06b6d4) 
 ![Angular](https://img.shields.io/badge/Angular-E23237?style=for-the-badge&logo=Angular&logoColor=white) 
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=FFA611)
+<img src="https://primefaces.org/cdn/primeng/images/primeng-logo-dark.svg"/>
 
 #### 🧑‍💻 Developers:
 
 | <img src="https://avatars.githubusercontent.com/u/91088016?v=4" width=50>| 
-|:-:|
-| **Jhon Pulido**| 
-| <a href="https://github.com/jhonpulido1990"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/jhon-jairo-pulido-462a9066/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+|:-:|:-:|
+| **Jhon Pulido**| **Luis Markarian**|
+| <a href="https://github.com/jhonpulido1990"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/jhon-jairo-pulido-462a9066/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |<a href="https://github.com/LuMarka"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/luisa-markarian-itdeveloper/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 <hr/>
   
