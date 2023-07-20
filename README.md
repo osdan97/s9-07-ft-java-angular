@@ -53,8 +53,6 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 #### 🧑‍💻 Developers:
 
-
-
 | <img src="https://media.licdn.com/dms/image/D4E03AQEHmoF8CznUwg/profile-displayphoto-shrink_800_800/0/1685988077714?e=1691625600&v=beta&t=NIKbr9HBRdDpWNcYIIXXVoqDxSfCrtMUJmMHrWFG3PU" width=50>| <img src="https://media.licdn.com/dms/image/D4E35AQHKQPZaBucRPg/profile-framedphoto-shrink_800_800/0/1685727400552?e=1690488000&v=beta&t=S_L9KwhFqcsVJuuNI6edmHLtuluBiPUK5sCQomrmFpE" width=50>|<img src="https://media.licdn.com/dms/image/D4D35AQGrEfrzmDG1EA/profile-framedphoto-shrink_800_800/0/1689879377058?e=1690488000&v=beta&t=ut6nJe2fxVJ26u8SmsCYdt3QksSyIRN5sM7QKfBommo" width=50>|<img src="https://media.licdn.com/dms/image/D4E03AQHx_uU1tOsXDg/profile-displayphoto-shrink_800_800/0/1676689071147?e=1695254400&v=beta&t=z_722fJuM2c-h9Ynku5RPMDafED9fZw9jcusO4zpgXg" width=50>|
 |:-:|:-:|:-:|:-:|
 | **Alfonso Almonte**| **Andres Castro**| **Antonella Lusardi**| **Oscar Jurado**| 
@@ -69,11 +67,11 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white) 
 ![Angular](https://img.shields.io/badge/Angular-E23237?style=for-the-badge&logo=Angular&logoColor=white) 
 ![Firebase](https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=FFA611)
-<img src="https://primefaces.org/cdn/primeng/images/primeng-logo-dark.svg"/>
+<img src="https://primefaces.org/cdn/primeng/images/primeng-logo-dark.svg" width=100/>
 
 #### 🧑‍💻 Developers:
 
-| <img src="https://avatars.githubusercontent.com/u/91088016?v=4" width=50>| 
+| <img src="https://avatars.githubusercontent.com/u/91088016?v=4" width=50>| <img src="https://media.licdn.com/dms/image/D4E35AQHv2s_1bImkng/profile-framedphoto-shrink_800_800/0/1658881923754?e=1690491600&v=beta&t=mF_NEqQAza4snevq40cK8tausIpiUobtHoBUi3uM21E" width=50>| 
 |:-:|:-:|
 | **Jhon Pulido**| **Luis Markarian**|
 | <a href="https://github.com/jhonpulido1990"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/jhon-jairo-pulido-462a9066/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |<a href="https://github.com/LuMarka"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/luisa-markarian-itdeveloper/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
