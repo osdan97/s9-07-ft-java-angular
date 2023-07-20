@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { ProductsResponse } from '../../interfaces/products.interfaces';
+import { ProductById, ProductsResponse } from '../../interfaces/products.interfaces';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
@@ -37,6 +37,11 @@ export class DataService {
           sessionStorage.setItem('products', JSON.stringify(products));
         })
       );
+  }
+
+
+  getProductById(id: string): Observable<ProductById> {
+    return this.http.get<ProductById>(`${this.baseUrl}products/product/${id}`);
   }
 
   getDataProducts(): Observable<ProductsResponse[]> {

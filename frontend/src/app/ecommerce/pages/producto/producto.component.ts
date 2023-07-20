@@ -1,5 +1,6 @@
 import { Component, signal, OnInit, inject } from '@angular/core';
-import { ProductsResponse } from 'src/app/core/interfaces/products.interfaces';
+import { ActivatedRoute } from '@angular/router';
+import { ProductById, ProductsResponse } from 'src/app/core/interfaces/products.interfaces';
 import { DataService } from 'src/app/core/services/data/data.service';
 
 @Component({
@@ -9,11 +10,28 @@ import { DataService } from 'src/app/core/services/data/data.service';
 })
 export class ProductoComponent implements OnInit {
   products = signal<ProductsResponse[]>([]);
+  product!: ProductById;
 
   dataSerivice = inject(DataService);
+  router = inject(ActivatedRoute);
 
   ngOnInit(): void {
     this.getDataProduct();
+    this.getProductId();
+  }
+
+  getProductId() {
+    this.router.params.subscribe((res) =>{
+      const IdProductToken = res['id'];
+      this.getProductById(IdProductToken);
+    })
+  }
+
+  getProductById(id: string) {
+    this.dataSerivice.getProductById(id).subscribe((res) => {
+      this.product = res;
+      console.log(res);
+    })
   }
 
   getDataProduct() {
