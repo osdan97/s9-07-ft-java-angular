@@ -80,10 +80,21 @@ img {
   cursor: pointer;
 }
 
+.title {
+  width: 163px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .description {
   font-size: 14px;
   font-weight: 500;
   line-height: 16.94px;
+
+  width: 163px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .select-down {
