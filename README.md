@@ -16,7 +16,7 @@ Este es un proyecto de emulación dentro de la etapa Selección de **NoCountry**
 
 Somos equipo **s9-07-ft-java-angular**, conformado por: 
 
-### 🎨 TL:
+### 🎨 Team Leader:
 
 | <img src="https://media.licdn.com/dms/image/D4D35AQE1Gq9YxoLmUA/profile-framedphoto-shrink_800_800/0/1684283093925?e=1690473600&v=beta&t=lIzewkCdcWKW23EQx9FxET1bKN3-nopOF--arLPG6jA" width=50>|
 |:-:|
@@ -25,9 +25,14 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 <hr/>
 
-**- PM:**
+### 🎨 Project Manager:
 
-- Rene Silva [Github](https://github.com/rene3255)-[LinkedIn](https://www.linkedin.com/in/vmc555/)
+| <img src="https://media.licdn.com/dms/image/D4D03AQE-MveDIX_D2A/profile-displayphoto-shrink_800_800/0/1629312145810?e=1695254400&v=beta&t=N4A8UcAy11a1MxuNLj-b9hBP7ieG_HzKYDf6kaPCj0Q" width=50>|
+|:-:|
+| **René Silva**|
+| <a href="https://github.com/rene3255"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/vmc555/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+
+<hr/>
 
 **- BackEnd :**
 
