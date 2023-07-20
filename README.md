@@ -18,8 +18,6 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 ### 🎨 TL:
 
-#### 🧑‍💻 Designers:
-
 | <img src="https://media.licdn.com/dms/image/D4D35AQE1Gq9YxoLmUA/profile-framedphoto-shrink_800_800/0/1684283093925?e=1690473600&v=beta&t=lIzewkCdcWKW23EQx9FxET1bKN3-nopOF--arLPG6jA" width=50>|
 |:-:|
 | **Andres Bejarano**|
