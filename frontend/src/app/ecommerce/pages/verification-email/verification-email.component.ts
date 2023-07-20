@@ -1,6 +1,7 @@
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
+import { Observable, catchError, take, throwError } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 
 @Component({
@@ -30,17 +31,31 @@ export class VerificationEmailComponent implements OnInit {
   verificationAccount(token: string) {
     this.authService
       .verificationAccount(token)
-      .pipe(take(1))
-      .subscribe({
-        next: (res) => {
-          this.title.set('Tu cuenta ya ha sido verificada');
-          this.subtitle.set('Para continuar, inicia sesión');
-        },
-        error: (err) => {
-          console.log(err);
-          this.title.set('El código de verificación no es válido');
-          // this.subtitle.set('Para continuar, inicia sesión');
-        },
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          return this.handleErrors(err);
+        })
+      )
+      .subscribe((res) => {
+        console.log(res);
+        this.title.set('¡Cuenta verificada!');
+        this.subtitle.set('Ya puedes iniciar sesión');
       });
+  }
+
+  handleErrors(error: HttpErrorResponse): Observable<never> {
+    if (error.status == HttpStatusCode.Forbidden) {
+      this.title.set('Token inválido');
+      return throwError('No tiene permisos para realizar la solicitud.');
+    }
+    if (error.status == HttpStatusCode.NotFound) {
+      this.title.set('Token inválido');
+      return throwError('El producto no existe.');
+    }
+    if (error.status == HttpStatusCode.InternalServerError) {
+      this.title.set('Token inválido');
+      return throwError('Error en el servidor.');
+    }
+    return throwError('Un error inesperado ha ocurrido.');
   }
 }

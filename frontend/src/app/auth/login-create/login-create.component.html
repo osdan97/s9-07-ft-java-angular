@@ -39,7 +39,9 @@
       </div>
 
       <div class="space-buton">
-        <button type="submit">Crear cuenta</button>
+        <button class="button custom__button--fill" type="submit">
+          Crear cuenta
+        </button>
       </div>
     </div>
   </form>
@@ -57,13 +59,15 @@
     <div class="modal__logo">
       <i class="pi pi-check"></i>
     </div>
-    <h2>Cuenta creada</h2>
-    <p>
-      Tu cuenta ha sido exitosamente creada, confirma el mail que te enviamos a
-      tu correo para continuar a la compra.
-    </p>
+    <div class="modal__text">
+      <h2>Cuenta creada</h2>
+      <p>
+        Tu cuenta ha sido exitosamente creada, confirma el mail que te enviamos
+        a tu correo para continuar a la compra.
+      </p>
+    </div>
 
-    <button class="button custom__button--line" (click)="closeModal()">
+    <button class="button custom__button--fill" (click)="closeModal()">
       Aceptar
     </button>
   </article>

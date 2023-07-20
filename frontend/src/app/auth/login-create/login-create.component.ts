@@ -6,16 +6,8 @@ import {
   AbstractControl,
   ValidationErrors,
 } from '@angular/forms';
-import jwtDecode from 'jwt-decode';
-import { take } from 'rxjs';
-import {
-  FormRegisterInput,
-  Payload,
-} from 'src/app/core/interfaces/auth.interfaces';
-import {
-  FormShippingDetail,
-  ShippingDetailResponse,
-} from 'src/app/core/interfaces/user.interfaces';
+import { FormRegisterInput } from 'src/app/core/interfaces/auth.interfaces';
+
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 
@@ -32,32 +24,6 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
   formBuilder = inject(FormBuilder);
   authService = inject(AuthService);
   userService = inject(UserService);
-
-  // name = new FormControl('', [ Validators.pattern(/^[a-zA-Z ]+$/)]);
-  // lastname = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]);
-  // email = new FormControl('', [Validators.required, Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)]);
-  // tel = new FormControl('', Validators.required);
-  // pais = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]);
-  // provincia = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]);
-  // postal = new FormControl('', Validators.required);
-  // ciudad = new FormControl('', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]);
-  // direccion = new FormControl('', Validators.required);
-  // detalle_dir = new FormControl('', Validators.required);
-  // check_fact = new FormControl('', Validators.requiredTrue)
-
-  // form = new FormGroup({
-  //   name: this.name,
-  //   lastname: this.lastname,
-  //   email: this.email,
-  //   tel: this.tel,
-  //   pais: this.pais,
-  //   provincia: this.provincia,
-  //   postal: this.postal,
-  //   ciudad: this.ciudad,
-  //   direccion: this.direccion,
-  //   detalle_dir: this.detalle_dir,
-  //   check_fact: this.check_fact,
-  // });
 
   ngOnInit(): void {
     this.registerForm = this.initRegisterForm();
@@ -84,13 +50,6 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
         ],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required],
-        pais: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
-        provincia: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
-        postal: [''],
-        ciudad: ['', [Validators.pattern(/^[a-zA-Z ]+$/)]],
-        direccion: [''],
-        detalle_dir: [''],
-        check_fact: [''],
       },
       {
         validators: [this.camposIguales('password', 'confirmPassword')],
