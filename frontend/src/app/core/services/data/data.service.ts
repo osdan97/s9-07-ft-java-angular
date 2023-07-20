@@ -5,13 +5,15 @@ import {
   FormProducts,
   ProductsResponse,
 } from '../../interfaces/products.interfaces';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
   private readonly baseUrl = environment.apiUrl;
+  private dataProducts: BehaviorSubject<ProductsResponse[]> =
+    new BehaviorSubject<ProductsResponse[]>([]);
 
   private readonly http = inject(HttpClient);
 
@@ -19,19 +21,29 @@ export class DataService {
     page: number,
     country?: string,
     category?: string
-  ): Observable<ProductsResponse> {
+  ): Observable<ProductsResponse[]> {
     let params = new HttpParams().set('page', page.toString());
 
     if (country) {
-      params = params.set('page', page);
+      params = params.set('country', country);
     }
 
     if (category) {
-      params = params.set('page', category);
+      params = params.set('category', category);
     }
 
-    return this.http.get<ProductsResponse>(`${this.baseUrl}products/list`, {
-      params,
-    });
+    return this.http
+      .get<ProductsResponse[]>(`${this.baseUrl}products/list`, { params })
+      .pipe(
+        tap((products) => {
+          this.dataProducts.next(products);
+          sessionStorage.setItem('products', JSON.stringify(products));
+        })
+      );
   }
+
+  getDataProducts(): Observable<ProductsResponse[]> {
+    return this.dataProducts.asObservable();
+  }
+
 }

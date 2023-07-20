@@ -4,6 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { DataService } from '../core/services/data/data.service';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-ecommerce',
@@ -32,7 +33,9 @@ export class EcommerceComponent implements OnInit {
       localStorage.clear();
     }
 
-    if (!sessionStorage.getItem('products')) {
+    const products = JSON.parse(sessionStorage.getItem('products') || 'null');
+
+    if (!products) {
       this.getProducts();
     }
   }
@@ -42,10 +45,10 @@ export class EcommerceComponent implements OnInit {
     return this.router.url;
   }
 
-  getProducts() {
+  private getProducts() {
     this.productService.getProducts(1).subscribe((res) => {
       console.log(res);
-      sessionStorage.setItem('products', JSON.stringify(res));
+      // Los productos ya han sido guardados en el sessionStorage en el servicio
     });
   }
 }
