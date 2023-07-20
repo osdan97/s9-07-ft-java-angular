@@ -59,8 +59,6 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 |:-:|:-:|:-:|:-:|
 | **Alfonso Almonte**| **Andres Castro**| **Antonella Lusardi**| **Oscar Jurado**| 
 | <a href="https://github.com/j3v1t0"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alfonso-almonte-a7640485/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/Nirsch95"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andresfcastrom/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/AntoCLus"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/antonella-lusardi-45622a20/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/osdan97"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/oscar-jurado-9789it/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
-
-- Oscar Jurado [Github](https://github.com/osdan97) - [LinkedIn](https://www.linkedin.com/in/oscar-jurado-9789it/)
   
 **- FrontEnd:**
   
