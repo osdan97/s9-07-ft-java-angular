@@ -6,12 +6,17 @@ section {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  color: $text-color-primary;
 }
 
 .filter-card {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   padding-bottom: 30px;
+  padding-left: 3.8rem;
 }
 
 h2 {
@@ -47,12 +52,13 @@ select {
 }
 
 .list-card {
+  width: 100%;
+  max-width: 1200px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-between;
-  row-gap: 60px;
-  column-gap: 60px;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 auto;
 }
 
 .paginador {
