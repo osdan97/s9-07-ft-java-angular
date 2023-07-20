@@ -5,6 +5,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 40px 0 80px;
+  color: $text-color-primary;
 }
 
 h3 {
@@ -27,11 +28,11 @@ p {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: 1px solid #999;
   border-radius: 8px;
   margin: 24px auto;
   padding: 48px;
-
+  box-shadow: $card-shadow;
+  background-color: $background-white;
 }
 
 .img-ups {
@@ -39,12 +40,11 @@ p {
   height: 100px;
   flex-shrink: 0;
 }
-.img-seur{
+.img-seur {
   width: 228px;
-height: 33px;
-flex-shrink: 0;
-margin: 31px 0;
-
+  height: 33px;
+  flex-shrink: 0;
+  margin: 31px 0;
 }
 
 .img-dhl {
@@ -53,30 +53,37 @@ margin: 31px 0;
   flex-shrink: 0;
   margin: 25px 0;
 }
-.ups-text{
+.ups-text {
   font-size: $heading3;
   margin: 0 25px;
 }
-.seur-text{
+.seur-text {
   font-size: $heading3;
   margin-left: 100px;
 }
-.dhl-text{
-    font-size: $heading3;
-    margin-left: 70px;
+.dhl-text {
+  font-size: $heading3;
+  margin-left: 70px;
 }
-.medios-de-pago{
+.medios-de-pago {
   height: 110px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  border: 1px solid #999;
   border-radius: 8px;
   margin: 24px auto;
   padding: 30px;
-  img{
+  box-shadow: $card-shadow;
+  background-color: $background-white;
+  img {
     width: 100px;
-    height:50px;
-    flex-shrink:0;
+    height: 50px;
+    flex-shrink: 0;
+  }
+}
+
+.img-envio {
+  img {
+    object-fit: cover;
   }
 }
