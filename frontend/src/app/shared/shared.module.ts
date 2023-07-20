@@ -14,6 +14,7 @@ import { CartComponent } from './cart/cart.component';
 import { FormAddressComponent } from './form-address/form-address.component';
 import { StockPipe } from './pipes/stock.pipe';
 import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
+import { FormPersonComponent } from './form-person/form-person.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
     FormAddressComponent,
     StockPipe,
     ImageByCountryPipe,
+    FormPersonComponent,
+  
   ],
   imports: [
     CommonModule,
@@ -43,6 +46,7 @@ import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
     DetalleProductoComponent,
     CartComponent,
     FormAddressComponent,
+    FormPersonComponent,
   ],
 })
 export class SharedModule {}

@@ -27,11 +27,13 @@
     border-radius: 8px;
     border: 1px solid #8B8B8B;
     background: #FFF;
- span{
+span{
     font-size: $heading2;
     font-weight: 500;
     font-family: 'Quicksand';
     margin: 20px 0;
+    
+    
  }
  .bloque-historial{
     display: flex;
@@ -51,6 +53,7 @@
     box-shadow: 0px 0px 10px 0px black;
     margin:10px 40px;
 }
+
 
 .text-fav{
     color: #2F3F61;
