@@ -1,0 +1,49 @@
+<section>
+    <form [formGroup]="registerForm" (ngSubmit)="login_create()" novalidate>
+        <div class="contenedor2">
+            <p class="title"> <svg xmlns="http://www.w3.org/2000/svg" width="61" height="62" viewBox="0 0 61 62" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M34.7823 36.8264C33.4764 38.6412 33.1596 40.5942 32.9363 41.9712C32.7701 42.9954 32.6557 43.7009 32.2244 43.7938C31.2133 44.0116 30.7191 44.0822 29.6163 43.7938C29.1116 43.6618 28.8595 42.5406 28.5588 41.2035C28.2024 39.6188 27.9025 37.7307 26.9084 36.8264C26.5763 36.525 26.21 36.1537 25.7677 35.7775C22.4773 33.2232 17.3528 28.7855 17.588 22.6799C18.0164 11.7226 25.6221 9.38917 31.1311 9.38916C37.0279 9.38915 44.0854 14.2681 44.0854 22.6799C44.0854 28.2049 40.8712 31.038 37.9928 33.5752C36.772 34.6512 35.9445 35.6315 34.7823 36.8264ZM35.5142 22.4326C35.5142 24.9952 33.4368 27.0725 30.8743 27.0725C28.3118 27.0725 26.2344 24.9952 26.2344 22.4326C26.2344 19.8701 28.3118 17.7928 30.8743 17.7928C33.4368 17.7928 35.5142 19.8701 35.5142 22.4326ZM48.3906 43.9362C48.3906 43.9362 48.3905 43.9424 48.387 43.9549C48.3882 43.9424 48.3906 43.9362 48.3906 43.9362ZM48.3768 43.9845C48.3419 43.8943 48.2264 43.6777 47.8725 43.3364C47.2555 42.7412 46.1621 42.0294 44.4985 41.3507C42.2603 40.4375 39.3239 39.72 35.9445 39.3514L38.0822 35.7775C46.3166 36.9902 52.2025 40.2069 52.2025 43.9845C52.2025 48.802 42.6301 52.7073 30.822 52.7073C19.0138 52.7073 9.44141 48.802 9.44141 43.9845C9.44141 40.2943 15.0583 37.1392 22.9944 35.8648L25.4494 39.3794C22.1751 39.7556 19.3283 40.4601 17.1455 41.3507C15.4818 42.0294 14.3885 42.7412 13.7714 43.3364C13.4175 43.6777 13.302 43.8943 13.2671 43.9845C13.302 44.0748 13.4175 44.2913 13.7714 44.6326C14.3885 45.2278 15.4818 45.9396 17.1455 46.6184C20.4537 47.968 25.2871 48.8904 30.822 48.8904C36.3568 48.8904 41.1902 47.968 44.4985 46.6184C46.1621 45.9396 47.2555 45.2278 47.8725 44.6326C48.2264 44.2913 48.3419 44.0748 48.3768 43.9845ZM13.2534 43.9362C13.2534 43.9362 13.2557 43.9424 13.257 43.9549C13.2534 43.9424 13.2534 43.9362 13.2534 43.9362ZM13.2534 44.0328C13.2534 44.0328 13.2534 44.0266 13.257 44.0142C13.2557 44.0266 13.2534 44.0328 13.2534 44.0328ZM48.3906 44.0328C48.3906 44.0328 48.3905 44.0266 48.387 44.0142C48.3878 44.022 48.3888 44.0274 48.3895 44.0303C48.39 44.032 48.3906 44.0328 48.3906 44.0328Z" fill="#4A639A"/>
+              </svg>
+            Casa </p><p>Dirección de entrega principal</p>
+            <div class="input-label">
+                <label>
+                    Pais
+                    <input type="text" formControlName="pais" />
+                </label>
+                <label>
+                    Provincia/ Comunidad
+                    <input type="text" formControlName="provincia" />
+                </label>
+            </div>
+            <div class="input-label">
+                <label>
+                    Codigo postal
+                    <input type="text" formControlName="postal" />
+                </label>
+                <label>
+                    Ciudad
+                    <input type="text" formControlName="ciudad" />
+                </label>
+            </div>
+            <div class="input-label">
+                <label>
+                    Dirección
+                    <input type="text" formControlName="direccion" placeholder="Nombre y número de calle" />
+                </label>
+                <label>
+                    Detalles de dirección
+                    <input type="text" formControlName="detalle_dir" placeholder="Indicaciones" />
+                </label>
+            </div>
+            <div class="">
+                <label class="check">
+                    <input type="checkbox" class="check-input" formControlName="check_fact" />
+                    Utilizar esta dirección para los datos de facturación
+                </label>
+            </div>
+            <div class="space-buton">
+                <button type="submit">Crear cuenta</button>
+            </div>
+        </div>
+    </form>
+</section>

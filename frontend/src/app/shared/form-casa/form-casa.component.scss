@@ -5,10 +5,10 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: $text-color-primary;
 }
 
 .contenedor1 {
+  border: 1px solid #8b8b8b;
   width: 100%;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -16,27 +16,27 @@ section {
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
-  background-color: $background-white;
-  box-shadow: $card-shadow;
+}
+
+.contenedor2 {
+  border: 1px solid #8b8b8b;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  margin-bottom: 80px;
 }
 
 input {
   width: 302px;
   height: 40px;
-  border-radius: 4px;
-  border: 0.5px solid $background-primary;
+  border-radius: 2px;
+  border: 0.5px solid #000;
   margin: 0;
   padding-left: 15px;
-  background-color: #e7e7e7;
-  color: $background-primary;
-}
-.campo-input{
-    width: 140px;
-}
-.posicion-input{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
 }
 
 .input-label {
@@ -50,19 +50,10 @@ input {
 .input__label-left {
   justify-content: start;
 }
-.numTel{
-
-    margin-top: 30px ;
-    text-align: left;
-    font-size: $heading2;
-    font-weight: 500;
-    line-height: 25px;
-
-}
 
 h2 {
   //styleName: Heading 1 - titulos;
-  font-size: $heading1;
+  font-size: 26px;
   font-weight: 500;
   line-height: 33px;
   letter-spacing: 0em;
@@ -85,42 +76,18 @@ h2 {
     font-weight: 400;
     font-size: 0.9rem;
   }
-  .correo{
-    color:#353535; 
-font-family: "Quicksand";
-font-size: 16px;
-font-weight: 600;
-line-height: 20px;
-letter-spacing: 0em;
-text-align: right;
-
-  }
 }
 
 label {
   display: flex;
   flex-direction: column;
+  font-family: Quicksand;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
   letter-spacing: 0px;
   text-align: left;
   gap: 5px;
-}
-.indicaciones{
-  display: flex;
-  flex-direction: row;
-  margin: 0;
-  padding-left: 10px;
-  gap: 50px;
-  font-size: $heading4;
-  font-weight: 400;
-  line-height: 17px;
-  margin-top: 3px;
-  
-}
-.tres{
-  margin-left: 22px;
 }
 
 .check-input {
@@ -135,6 +102,7 @@ label {
   flex-direction: row;
   padding: 10px 0 20px 0;
   gap: 10px;
+  font-family: Quicksand;
   font-size: 14px;
   font-weight: 400;
   line-height: 17px;
@@ -143,7 +111,6 @@ label {
 }
 
 .space-buton {
-  padding-top: 1.5rem;
   display: flex;
   justify-content: flex-end;
 }
@@ -180,12 +147,10 @@ input.ng-dirty.ng-invalid {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
-  color: $text-color-primary;
 
   .modal__logo {
     padding: 2rem;
-    background-color: $background-complementary;
+    background-color: $background-disabled;
     border-radius: 1rem;
     i {
       font-size: 30px;
@@ -194,18 +159,12 @@ input.ng-dirty.ng-invalid {
     }
   }
 
-  .modal__text {
-    h2 {
-      padding: 0 0 0.5rem 0;
-    }
-  }
-
   h2,
   p {
     text-align: center;
   }
 
-  .custom__button--fill {
+  .custom__button--line {
     margin-top: 2rem;
     width: 100%;
     max-width: 250px;

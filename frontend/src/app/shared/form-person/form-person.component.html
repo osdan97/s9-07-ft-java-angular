@@ -2,9 +2,10 @@
     <form [formGroup]="registerForm" (ngSubmit)="login_create()" novalidate>
 
         <div class="contenedor1">
-            <p class="title">1. Datos personales <span class="correo">mariano_garcia@gmail.com</span></p>
+            <p class="title"><img src="../../../assets/images/Union.png" alt="icono persona"/> Datos personales <span class="correo">mariano_garcia@gmail.com</span></p>
             <div class="input-label">
                 <label>
+                    
                     <span class="required">Nombre/s</span>
                     <input type="text" formControlName="name" />
                 </label>
@@ -12,9 +13,9 @@
                     <span class="required">Apellido/s</span>
                     <input type="text" formControlName="lastname" />
                 </label>
-                <p>Números de contacto</p>
+                
             </div>
-
+            <div class="numTel"><p >Números de contacto</p></div>
             <div class="input-label">
                 <label>
                     <span class="required">Código de área*</span>
@@ -31,7 +32,10 @@
                     <input type="tel" formControlName="confirmPassword" autocomplete />
                 </label>
             </div>
-            <div class="input-label">
+            <div class="indicaciones">
+             <span>Código por país</span><span>Código de área</span><span class="tres">Con el que podrás recibir la entrega</span>
+            </div>
+                <div class="input-label">
                 <label>
                     <span class="required">Código de área</span>
                     <div class="posicion-input">
@@ -47,12 +51,15 @@
                     <input type="tel" formControlName="confirmPassword" autocomplete />
                 </label>
             </div>
-
+            <div class="indicaciones">
+                <span>Código por país</span><span>Código de área</span><span class="tres">Con el que podrás recibir la entrega</span>
+               </div>
             <div class="space-buton">
                 <button class="button custom__button--fill" type="submit">
                     Guardar
                 </button>
             </div>
+            <p>*Campo requerido</p>
         </div>
     </form>
 </section>
