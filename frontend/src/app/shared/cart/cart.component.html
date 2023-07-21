@@ -22,6 +22,7 @@
             *ngIf="details"
             [product]="item"
             [widthCart]="true"
+            (click)="totalPrice()"
           ></app-input-cart>
           <span class="grey" *ngIf="!showPaymentView"
             >x{{ item.quantity }}</span
