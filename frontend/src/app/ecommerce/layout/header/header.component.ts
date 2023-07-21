@@ -143,10 +143,11 @@ export class HeaderComponent implements OnInit {
 
   logOut() {
     this.cookieService.delete('accessToken');
-    localStorage.clear();
+    localStorage.removeItem('userData');
     this.isLoged = false;
     this.userData = null;
     this.showDialogLogout();
+    this.authService.setAutenticate(false);
   }
 
   getProductsToCart() {
