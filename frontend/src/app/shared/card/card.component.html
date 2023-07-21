@@ -7,7 +7,7 @@
     <div class="text__products" [routerLink]="'product/' + product.id">
       <h3 class="title">{{ product.name }}</h3>
       <p class="description">
-        {{ product.description }}
+        {{ product.category.name }}
       </p>
     </div>
     <div class="text">
