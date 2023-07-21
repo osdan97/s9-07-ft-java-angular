@@ -97,6 +97,11 @@ const routes: Routes = [
             (m) => m.MyAccountModule
           ),
       },
+      {
+        path: 'home-productos',
+        loadChildren: () =>
+          import('./pages/home-productos/home-productos.module').then((m) => m.HomeProductosModule),
+      },
     ],
   },
 ];
