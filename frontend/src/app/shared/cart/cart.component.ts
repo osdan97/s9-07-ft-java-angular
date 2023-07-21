@@ -28,10 +28,13 @@ export class CartComponent implements OnInit {
   @Input() isHidden = false;
   @Input() details = true;
   @Input() disableShadow = false;
+  @Input() showPaymentView = true;
+  @Input() showTrash = true;
 
   cartProduct = signal<CartProduct[]>([]);
   totalPriceProduct = 0;
   totalProductToCart = 0;
+  totalProductWeight = 0;
 
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';
@@ -58,6 +61,7 @@ export class CartComponent implements OnInit {
     this.cartProduct.set(products);
     this.totalPrice();
     this.totalQuantity();
+    this.totalWeight();
   }
 
   totalPrice() {
@@ -81,5 +85,14 @@ export class CartComponent implements OnInit {
     );
 
     this.totalProductToCart = totalProductos;
+  }
+
+  totalWeight() {
+    const totalProductos = this.cartProduct().reduce(
+      (total, producto) => total + producto.weight,
+      0
+    );
+
+    this.totalProductWeight = totalProductos;
   }
 }

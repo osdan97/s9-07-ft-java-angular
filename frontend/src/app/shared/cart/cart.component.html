@@ -23,12 +23,19 @@
             [product]="item"
             [widthCart]="true"
           ></app-input-cart>
+          <span class="grey" *ngIf="!showPaymentView"
+            >x{{ item.quantity }}</span
+          >
           <span> {{ item.price | currency : "€" }}</span>
         </div>
       </div>
 
       <div class="trash__cart">
-        <i class="pi pi-trash" (click)="deleteItemCart(item.id)"></i>
+        <i
+          *ngIf="showTrash"
+          class="pi pi-trash"
+          (click)="deleteItemCart(item.id)"
+        ></i>
         <span>{{ item.price * item.quantity | currency : "€" }}</span>
       </div>
     </div>
@@ -84,8 +91,29 @@
     </div>
   </div>
 </ng-template>
-<ng-template #condition2ElseBlock></ng-template>
+<ng-template #condition2ElseBlock>
+  <div *ngIf="showPaymentView; else paymentView"></div>
+</ng-template>
 
 <ng-template #noProductsAdd>
   <h2 class="title__alternative">No hay artículos en el carrito</h2>
+</ng-template>
+
+<ng-template #paymentView>
+  <div class="payment__cart">
+    <div class="payment__content">
+      <p>Impuesto aplicado IVA <span class="grey">(+19%)</span></p>
+      <span>{{ totalPriceProduct * 0.19 | currency : "€" }}</span>
+    </div>
+
+    <div class="payment__content grey">
+      <p>Peso total</p>
+      <span>{{ totalProductWeight }}gr</span>
+    </div>
+
+    <div class="payment__content">
+      <p>Subtotal</p>
+      <span class="price">{{ totalPriceProduct * 1.19 | currency : "€" }}</span>
+    </div>
+  </div>
 </ng-template>

@@ -80,6 +80,7 @@ export class InputCartComponent implements OnInit {
       image: this.product?.image,
       price: this.product?.price,
       stock: this.product?.stock,
+      weight: this.product?.weight,
       quantity: this.addCartForm.value.quantity,
     };
     console.log(body);
@@ -98,6 +99,7 @@ export class InputCartComponent implements OnInit {
       image: this.product?.image,
       price: this.product?.price,
       stock: this.product?.stock,
+      weight: this.product?.weight,
       quantity: this.addCartForm.value.quantity,
     };
     console.log(body);
