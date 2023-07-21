@@ -78,7 +78,8 @@ h2 {
   letter-spacing: 0em;
   text-align: left;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap:1rem;
 
   span {
     color: $text-color-disabled;
@@ -96,6 +97,11 @@ text-align: right;
 
   }
 }
+.icono{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 label {
   display: flex;
@@ -111,7 +117,7 @@ label {
   display: flex;
   flex-direction: row;
   margin: 0;
-  padding-left: 10px;
+  padding-left: 5px;
   gap: 50px;
   font-size: $heading4;
   font-weight: 400;

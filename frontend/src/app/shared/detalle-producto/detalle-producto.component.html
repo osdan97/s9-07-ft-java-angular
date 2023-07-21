@@ -10,7 +10,7 @@
 
   <div class="descripcion-producto">
     <div class="imagen-producto">
-      <div class="imagen-chica-producto">
+    <!--  <div class="imagen-chica-producto">
         <img
           class="foto-chica-producto"
           src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
@@ -28,7 +28,7 @@
           src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
           alt="imagen producto"
         />
-      </div>
+      </div>-->
 
       <div class="imagen-grande-producto">
         <img
@@ -47,16 +47,22 @@
       <h2><b>€ {{ product.price }}</b></h2>
 
       <p class="description">{{product.description}}</p>
-      <span class="stock chip">{{ product.stock | stock}}</span>
+      <div class="botones">
       <div class="button__container">
-        <button class="button custom__button--line">Finalizar compra</button>
+        
         <app-input-cart
           [changeClass]="false"
           (addCart)="showQuantityProduc($event)"
           [changeWidth]="'224px'"
           [width]="'66px'"
         ></app-input-cart>
+
       </div>
+      <div class="botonesCompra">
+      <span class="stock chip">{{ product.stock | stock}}</span>
+      <button class="button custom__button--line">Finalizar compra</button>
+    </div>
+  </div>
     </div>
   </div>
 </section>

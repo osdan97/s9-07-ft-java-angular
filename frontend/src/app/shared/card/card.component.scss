@@ -12,8 +12,13 @@
   overflow: hidden;
   background-color: $background-white;
   color: $text-color-primary;
+  position: relative;
 }
-
+.pi-heart{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
 .imagen-text {
   width: 100%;
   height: 162px;
