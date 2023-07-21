@@ -25,12 +25,21 @@
     height: 258px;
     flex-shrink: 0;
     border-radius: 8px;
-    border: 1px solid #8B8B8B;
     background: #FFF;
+    box-shadow:$card-shadow;
 
  .bloque-historial{
     display: flex;
     flex-direction: row;
+    margin: 20px 45px;
+    .titleHistorial{
+        color: #000;
+        font-family: 'Quicksand';
+        font-size: $heading2;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+    }
  }
  .text-fav{
     color: #2F3F61;
@@ -44,7 +53,7 @@
     font-size: $heading4;
     font-weight: 600;
     font-family: 'Quicksand';
-    margin: 20px 0; 
+    margin: 20px; 
  }
 }
 
@@ -52,8 +61,8 @@
     width: 90%;
     height: 64px;
     display:flex;
-    flex-direction: space-around;
-    flex-shrink: 0;
+    flex-direction:row;
+    justify-content: space-between;
     border-radius: 4px;
     background: #FFF;
     border: 0.5px;
@@ -63,10 +72,10 @@
 
 
 
-.imagen-reemplazo{
+/*.imagen-reemplazo{
     width: 60px;
     margin:5px;
-}
+}*/
 
 
 .fav-container{
