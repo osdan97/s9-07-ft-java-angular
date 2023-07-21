@@ -1,4 +1,4 @@
-<section class="detalle-producto">
+<section class="detalle-producto" *ngIf="product">
   <p-messages
     [(value)]="messages"
     [enableService]="false"
@@ -10,7 +10,7 @@
 
   <div class="descripcion-producto">
     <div class="imagen-producto">
-    <!--  <div class="imagen-chica-producto">
+      <!--  <div class="imagen-chica-producto">
         <img
           class="foto-chica-producto"
           src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
@@ -44,25 +44,25 @@
         <i class="pi pi-heart"></i>
       </div>
 
-      <h2><b>€ {{ product.price }}</b></h2>
+      <h2>
+        <b>€ {{ product.price }}</b>
+      </h2>
 
-      <p class="description">{{product.description}}</p>
+      <p class="description">{{ product.description }}</p>
       <div class="botones">
-      <div class="button__container">
-        
-        <app-input-cart
-          [changeClass]="false"
-          (addCart)="showQuantityProduc($event)"
-          [changeWidth]="'224px'"
-          [width]="'66px'"
-        ></app-input-cart>
-
+        <div class="button__container">
+          <app-input-cart
+            [changeClass]="false"
+            (addCart)="showQuantityProduc($event)"
+            [changeWidth]="'224px'"
+            [width]="'66px'"
+          ></app-input-cart>
+        </div>
+        <div class="botonesCompra">
+          <span class="stock chip">{{ product.stock | stock }}</span>
+          <button class="button custom__button--line">Finalizar compra</button>
+        </div>
       </div>
-      <div class="botonesCompra">
-      <span class="stock chip">{{ product.stock | stock}}</span>
-      <button class="button custom__button--line">Finalizar compra</button>
-    </div>
-  </div>
     </div>
   </div>
 </section>
