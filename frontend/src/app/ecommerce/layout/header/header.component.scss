@@ -52,7 +52,7 @@ header {
           // background-color: #d2d2d2;
           // padding: 0.4rem 2rem;
           border-radius: 4px;
-          color: #EDF3F6;
+          color: #edf3f6;
           font-size: $heading3;
         }
       }
@@ -74,23 +74,40 @@ header {
           cursor: pointer;
         }
         i {
-          background-color: white;
+          background-color: $background-white;
           border-radius: 2px;
           color: $text-color-black;
           user-select: none;
-        }
-        img {
-          cursor: pointer;
-        }
-        i {
-          // background-color: #fff;
           padding: 0.4rem;
           border-radius: 7px;
           cursor: pointer;
         }
+        img {
+          cursor: pointer;
+        }
+
+        .cart__container--icon {
+          position: relative;
+          .badge__cart {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            // padding: 0.5rem;
+            border-radius: 50%;
+            color: $text-color-primary;
+            font-size: 10px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
 
         .cart__container {
           width: 350px;
+          max-height: 700px;
           position: absolute;
           top: 50px;
           right: 0px;

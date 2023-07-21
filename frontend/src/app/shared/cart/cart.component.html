@@ -3,50 +3,56 @@
   [ngClass]="{ borderDisabled: showBorder }"
   [ngStyle]="disableShadow ? estiloActivo : estiloInactivo"
 >
-  <div class="cart__cross" (click)="emitirValor()" *ngIf="showCross">x</div>
-  <h2 *ngIf="showTile">Tu carrito</h2>
-  <div class="cart__content" *ngFor="let item of cart()">
-    <div class="logo__cart">
-      <!-- <img src="" alt=""> -->
-    </div>
+  <div *ngIf="cartProduct().length > 0; else noProductsAdd">
+    <div class="cart__cross" (click)="emitirValor()" *ngIf="showCross">x</div>
+    <h2 *ngIf="showTile">Tu carrito</h2>
+    <div class="cart__content" *ngFor="let item of cartProduct()">
+      <div class="logo__cart">
+        <img [src]="item.image" [alt]="item.name" />
+      </div>
 
-    <div class="text__cart" [ngClass]="{ 'text__cart--unlogued': changeWidth }">
-      <h3 class="name">{{ item.name }}</h3>
-      <div class="text__cart--center">
-        <app-input-cart
-          [showButton]="false"
-          *ngIf="details"
-          [product]="item"
-        ></app-input-cart>
-        <span>€ {{ item.price }}</span>
+      <div
+        class="text__cart"
+        [ngClass]="{ 'text__cart--unlogued': changeWidth }"
+      >
+        <h3 class="name">{{ item.name }}</h3>
+        <div class="text__cart--center">
+          <app-input-cart
+            [showButton]="false"
+            *ngIf="details"
+            [product]="item"
+            [widthCart]="true"
+          ></app-input-cart>
+          <span> {{ item.price | currency : "€" }}</span>
+        </div>
+      </div>
+
+      <div class="trash__cart">
+        <i class="pi pi-trash" (click)="deleteItemCart(item.id)"></i>
+        <span>{{ item.price * item.quantity | currency : "€" }}</span>
       </div>
     </div>
 
-    <div class="trash__cart">
-      <i class="pi pi-trash"></i>
-      <span>€{{ item.price * item.quantity }}</span>
+    <div class="cart__subtotal" *ngIf="changeButton; else contentn2">
+      <span>Subtotal</span>
+      <span>{{ totalPriceProduct | currency : "€" }}</span>
     </div>
-  </div>
-
-  <div class="cart__subtotal" *ngIf="changeButton; else contentn2">
-    <span>Subtotal</span>
-    <span>€13</span>
-  </div>
-  <div class="cart__button" *ngIf="changeButton; else button2">
-    <button
-      [routerLink]="isLogued ? '/cart-logged' : '/cart-unlogged'"
-      class="button custom__button--line"
-      (click)="emitirValor()"
-    >
-      {{ boton1 }}
-    </button>
-    <button
-      class="button custom__button--fill"
-      [routerLink]="isLogued ? '/payment' : '/cart-unlogged'"
-      (click)="emitirValor()"
-    >
-      {{ boton2 }}
-    </button>
+    <div class="cart__button" *ngIf="changeButton; else button2">
+      <button
+        [routerLink]="isLogued ? '/cart-logged' : '/cart-unlogged'"
+        class="button custom__button--line"
+        (click)="emitirValor()"
+      >
+        {{ boton1 }}
+      </button>
+      <button
+        class="button custom__button--fill"
+        [routerLink]="isLogued ? '/payment' : '/cart-unlogged'"
+        (click)="emitirValor()"
+      >
+        {{ boton2 }}
+      </button>
+    </div>
   </div>
 </article>
 
@@ -65,8 +71,8 @@
 <ng-template #contentn2>
   <div class="spacing__cart" *ngIf="isHidden; else condition2ElseBlock">
     <div class="cart__subtotal">
-      <span>4 artículos</span>
-      <span>€8</span>
+      <span>{{ totalProductToCart | quantity }} </span>
+      <span>{{ totalPriceProduct | currency : "€" }}</span>
     </div>
     <div class="cart__subtotal">
       <span>Costo de envío aproximado</span>
@@ -74,8 +80,12 @@
     </div>
     <div class="cart__subtotal">
       <span>Total</span>
-      <span>€21.95</span>
+      <span>{{ totalPriceProduct + 7.95 | currency : "€" }}</span>
     </div>
   </div>
 </ng-template>
 <ng-template #condition2ElseBlock></ng-template>
+
+<ng-template #noProductsAdd>
+  <h2 class="title__alternative">No hay artículos en el carrito</h2>
+</ng-template>

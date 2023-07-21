@@ -10,7 +10,9 @@ import {
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UserData } from 'src/app/core/interfaces/auth.interfaces';
+import { CartProduct } from 'src/app/core/interfaces/products.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -21,6 +23,8 @@ export class HeaderComponent implements OnInit {
   headerFixed = signal<boolean>(false);
   showCategories = signal<boolean>(false);
   value: string | undefined;
+  totalProductToCart = signal<number>(0);
+  cartProduct = signal<CartProduct[]>([]);
 
   logout = false;
   visible = false;
@@ -33,6 +37,7 @@ export class HeaderComponent implements OnInit {
   router = inject(Router);
   renderer = inject(Renderer2);
   elementRef = inject(ElementRef);
+  cartService = inject(CartService);
   authService = inject(AuthService);
   cookieService = inject(CookieService);
 
@@ -47,6 +52,8 @@ export class HeaderComponent implements OnInit {
     this.clickOutMenu();
 
     this.isLogued();
+
+    this.getProductsToCart();
   }
 
   //Función para verificar si no se encuentra en la ruta principal para mostrar el header con el menú de categorías
@@ -140,5 +147,16 @@ export class HeaderComponent implements OnInit {
     this.isLoged = false;
     this.userData = null;
     this.showDialogLogout();
+  }
+
+  getProductsToCart() {
+    this.cartService.getCartObservable().subscribe((products) => {
+      const totalProductos = products.reduce(
+        (total, producto) => total + producto.quantity,
+        0
+      );
+
+      this.totalProductToCart.set(totalProductos);
+    });
   }
 }

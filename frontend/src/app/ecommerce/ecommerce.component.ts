@@ -29,7 +29,7 @@ export class EcommerceComponent implements OnInit {
       this.authService.setAutenticate(true);
     } else {
       this.authService.setAutenticate(false);
-      localStorage.clear();
+      localStorage.removeItem('userData');
     }
 
     const products = JSON.parse(sessionStorage.getItem('products') || 'null');

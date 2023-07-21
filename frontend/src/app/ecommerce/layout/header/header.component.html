@@ -30,7 +30,19 @@
           <i class="pi pi-user" (click)="showDialog()"></i>
         </h3>
         <!-- <i class="pi pi-shopping-cart"></i> -->
-        <i class="pi pi-shopping-bag" (click)="showDialogCart()"></i>
+        <div class="cart__container--icon">
+          <i class="pi pi-shopping-bag" (click)="showDialogCart()"></i>
+          <span
+            class="badge__cart"
+            *ngIf="totalProductToCart() > 0"
+            [ngStyle]="
+              isLoged
+                ? { backgroundColor: '#4af6d7' }
+                : { backgroundColor: '#EAEAEA' }
+            "
+            >{{ totalProductToCart() }}</span
+          >
+        </div>
 
         <div class="cart__container" *ngIf="visibleCart()" #menuContainer>
           <app-cart

@@ -16,6 +16,7 @@ import { StockPipe } from './pipes/stock.pipe';
 import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
 import { FormPersonComponent } from './form-person/form-person.component';
 import { FormCasaComponent } from './form-casa/form-casa.component';
+import { QuantityPipe } from './pipes/quantity.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormCasaComponent } from './form-casa/form-casa.component';
     ImageByCountryPipe,
     FormPersonComponent,
     FormCasaComponent,
+    QuantityPipe,
   
   ],
   imports: [
