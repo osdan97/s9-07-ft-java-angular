@@ -1,10 +1,9 @@
 <mat-accordion multi>
-  <mat-expansion-panel hideToggle>
+  <mat-expansion-panel expanded="true" hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
         <i
-          class="pi pi-check"
-          style="font-size: 1rem; color: green; padding-right: 6px"
+          class="pi pi-check check-list"
         ></i>
         Datos personales
       </mat-panel-title>
@@ -31,11 +30,10 @@
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <div *ngIf="this.show === false; else elseBlock">2.</div>
+        <div *ngIf="this.show === false; else elseBlock" class="mr-1">2.</div>
         <ng-template #elseBlock>
           <i
-            class="pi pi-check"
-            style="font-size: 1rem; color: green; padding-right: 6px"
+            class="pi pi-check check-list"
           ></i>
         </ng-template>
         Dirección de entrega
@@ -96,7 +94,7 @@
           </label>
         </div>
         <div class="space-buton">
-          <button type="submit">Confirmar</button>
+          <button [disabled]="form.invalid" type="submit">Confirmar</button>
         </div>
       </div>
     </form>
@@ -104,11 +102,10 @@
   <mat-expansion-panel hideToggle [disabled]="!show">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <div *ngIf="this.show1 === false; else elseBlock">3.</div>
+        <div *ngIf="this.show1 === false; else elseBlock" class="mr-1">3.</div>
         <ng-template #elseBlock>
           <i
-            class="pi pi-check"
-            style="font-size: 1rem; color: green; padding-right: 6px"
+            class="pi pi-check check-list"
           ></i>
         </ng-template>
         Seleccionar método de envío
@@ -124,7 +121,9 @@
         <div class="flex flex-column gap-3">
           <div
             class="flex justify-content-around align-items-center p-3"
-            style="background: #d9d9d9"
+            [ngStyle]="{
+              background: form1.value.envio! === 'SEUR' ? '#DBFDF7' : '#E7E7E7'
+            }"
           >
             <p-radioButton value="SEUR" [formControl]="envio"></p-radioButton>
             <img src="../../../assets/images/SEUR.png" alt="" />
@@ -135,7 +134,9 @@
 
           <div
             class="flex justify-content-around align-items-center p-3"
-            style="background: #d9d9d9"
+            [ngStyle]="{
+              background: form1.value.envio! === 'UPS' ? '#DBFDF7' : '#E7E7E7'
+            }"
           >
             <p-radioButton value="UPS" [formControl]="envio"></p-radioButton>
             <img src="../../../assets/images/ups.png" alt="" />
@@ -146,7 +147,9 @@
 
           <div
             class="flex justify-content-around align-items-center p-3"
-            style="background: #d9d9d9"
+            [ngStyle]="{
+              background: form1.value.envio! === 'DHL' ? '#DBFDF7' : '#E7E7E7'
+            }"
           >
             <p-radioButton value="DHL" [formControl]="envio"></p-radioButton>
             <img src="../../../assets/images/DHL.png" alt="" />
@@ -168,26 +171,38 @@
             rows="2"
           ></textarea>
           <div class="flex justify-content-end">
-            <button class="p-0 m-0" type="submit">Confirmar</button>
+            <button [disabled]="form1.invalid" class="p-0 m-0" type="submit">
+              Confirmar
+            </button>
           </div>
         </div>
       </form>
     </div>
   </mat-expansion-panel>
-  <mat-expansion-panel hideToggle [disabled]="!show1">
+  <mat-expansion-panel expanded="true" hideToggle [disabled]="!show1">
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        <div *ngIf="this.show2 === false; else elseBlock">4.</div>
+      <mat-panel-title class="flex justify-content-between align-items-center p-0 m-0">
+        <div class="flex flex-col">
+        <div *ngIf="this.show2 === false; else elseBlock" class="mr-1">4.</div>
         <ng-template #elseBlock>
           <i
-            class="pi pi-check"
-            style="font-size: 1rem; color: green; padding-right: 6px"
+            class="pi pi-check check-list"
           ></i>
         </ng-template>
-        Seleccionar método de pago
+        Pagar
+      </div>
+
+          <button class="p-0 m-0"
+            [ngStyle]="{visibility: this.show1 ? 'visible' : 'hidden'}"
+            [routerLink]="'/details'"
+            type="submit"
+          >
+            Continuar a la compra
+          </button>
+
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <form [formGroup]="form" (ngSubmit)="form.valid && form_pay()" novalidate>
+    <!-- <form [formGroup]="form" (ngSubmit)="form.valid && form_pay()" novalidate>
       <div
         class="flex justify-content-around align-items-center p-3 mt-5"
         style="background: #d9d9d9"
@@ -236,10 +251,10 @@
         <img src="../../../assets/images/paypal.png" alt="" />
       </div>
       <div class="flex justify-content-end mb-2">
-        <button [routerLink]="'/details'" type="submit" style="background-color: #cdcdcd; color: #000000">
+        <button [disabled]="form.invalid" [routerLink]="'/details'" type="submit">
           Confirmar
         </button>
       </div>
-    </form>
+    </form> -->
   </mat-expansion-panel>
 </mat-accordion>

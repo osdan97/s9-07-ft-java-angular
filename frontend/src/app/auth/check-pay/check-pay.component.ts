@@ -67,7 +67,7 @@ export class CheckPayComponent {
 
   form_send() {
     if (this.form1.valid) {
-      console.log(this.form1.value);
+      console.log(this.form1.value.envio);
       this.show1 = true;
     }
   }
