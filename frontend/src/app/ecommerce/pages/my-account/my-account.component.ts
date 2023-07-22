@@ -97,5 +97,6 @@ export class MyAccountComponent {
       quantity: 1,
     },*/
   ]);
+  
 
 }

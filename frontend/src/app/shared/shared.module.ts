@@ -17,6 +17,7 @@ import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
 import { FormPersonComponent } from './form-person/form-person.component';
 import { FormCasaComponent } from './form-casa/form-casa.component';
 import { QuantityPipe } from './pipes/quantity.pipe';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { QuantityPipe } from './pipes/quantity.pipe';
     FormPersonComponent,
     FormCasaComponent,
     QuantityPipe,
+    CategoriesComponent
   
   ],
   imports: [
@@ -52,6 +54,7 @@ import { QuantityPipe } from './pipes/quantity.pipe';
     FormAddressComponent,
     FormPersonComponent,
     FormCasaComponent,
+    CategoriesComponent
   ],
 })
 export class SharedModule {}
