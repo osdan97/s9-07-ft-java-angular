@@ -18,6 +18,7 @@ import { FormPersonComponent } from './form-person/form-person.component';
 import { FormCasaComponent } from './form-casa/form-casa.component';
 import { QuantityPipe } from './pipes/quantity.pipe';
 import { CategoriesComponent } from './categories/categories.component';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -34,8 +35,7 @@ import { CategoriesComponent } from './categories/categories.component';
     FormPersonComponent,
     FormCasaComponent,
     QuantityPipe,
-    CategoriesComponent
-  
+    CategoriesComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +43,7 @@ import { CategoriesComponent } from './categories/categories.component';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
+    AuthModule,
   ],
   exports: [
     CardComponent,
@@ -54,7 +55,7 @@ import { CategoriesComponent } from './categories/categories.component';
     FormAddressComponent,
     FormPersonComponent,
     FormCasaComponent,
-    CategoriesComponent
+    CategoriesComponent,
   ],
 })
 export class SharedModule {}

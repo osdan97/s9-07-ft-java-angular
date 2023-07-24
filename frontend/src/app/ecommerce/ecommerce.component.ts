@@ -30,9 +30,11 @@ export class EcommerceComponent implements OnInit {
   ngOnInit(): void {
     if (this.cookieService.check('accessToken')) {
       this.authService.setAutenticate(true);
+      this.getFavorites();
     } else {
       this.authService.setAutenticate(false);
       localStorage.removeItem('userData');
+      sessionStorage.removeItem('favorites');
     }
 
     const products = JSON.parse(sessionStorage.getItem('products') || 'null');
@@ -40,8 +42,6 @@ export class EcommerceComponent implements OnInit {
     if (!products) {
       this.getProducts();
     }
-
-    this.getFavorites();
   }
 
   getAnimationState(): string {

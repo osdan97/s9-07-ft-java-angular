@@ -19,6 +19,7 @@ export class CardComponent implements OnInit {
   @Input() changeWidth = '';
 
   addCartForm!: FormGroup;
+  isLogued = false;
 
   quantity = signal<number>(1);
   viewIsFavorite = signal<boolean>(false);
@@ -71,6 +72,15 @@ export class CardComponent implements OnInit {
   }
 
   isFavorite(product: ProductsResponse) {
+    const verifyToken = this.cookieService.check('accessToken');
+
+    if (!verifyToken) {
+      this.isLogued = true;
+      return;
+    } else {
+      this.isLogued = false;
+    }
+
     const token = this.cookieService.get('accessToken');
 
     this.userService.refreshFavorites(token);
@@ -83,5 +93,9 @@ export class CardComponent implements OnInit {
           console.log(resp);
         });
     }
+  }
+
+  closeDialog(): void {
+    this.isLogued = false;
   }
 }

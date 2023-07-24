@@ -148,6 +148,7 @@ export class HeaderComponent implements OnInit {
     this.userData = null;
     this.showDialogLogout();
     this.authService.setAutenticate(false);
+    sessionStorage.removeItem('favorites');
   }
 
   getProductsToCart() {

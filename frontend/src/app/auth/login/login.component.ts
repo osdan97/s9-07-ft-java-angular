@@ -24,6 +24,7 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class LoginComponent implements OnInit {
   @Output() visible = new EventEmitter<boolean>();
   @Input() showLogo = true;
+  @Input() isNormalLogin = true;
   loginForm!: FormGroup;
 
   authService = inject(AuthService);
