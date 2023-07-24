@@ -34,66 +34,16 @@ export class FormPersonComponent {
   }
 
   initRegisterForm(): FormGroup {
-    return this.formBuilder.group(
-      {
-        name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
-        lastname: [
-          '',
-          [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
-        ],
-        email: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
-          ],
-        ],
-        password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
-      },
-      {
-        validators: [this.camposIguales('password', 'confirmPassword')],
-      }
-    );
-  }
-
-  camposIguales(campo1: string, campo2: string) {
-    return (formGroup: AbstractControl): ValidationErrors | null => {
-      const pass1 = formGroup.get(campo1)?.value;
-      const pass2 = formGroup.get(campo2)?.value;
-
-      if (pass1 !== pass2) {
-        formGroup.get(campo2)?.setErrors({ noIguales: true });
-        return { noIguales: true };
-      }
-
-      formGroup.get(campo2)?.setErrors(null);
-      return null;
-    };
+    return this.formBuilder.group({
+      name: [''],
+      lastname: [''],
+      email: [''],
+      password: [''],
+      confirmPassword: [''],
+    });
   }
 
   login_create() {
     if (this.registerForm.invalid) return;
-
-    const registerBody: FormRegisterInput = {
-      email: this.registerForm.value.email,
-      password: this.registerForm.value.password,
-      name: this.registerForm.value.name,
-      lastName: this.registerForm.value.lastname,
-    };
-
-    this.authService.register(registerBody).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.visible = true;
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
-  }
-
-  closeModal() {
-    this.visible = false;
   }
 }

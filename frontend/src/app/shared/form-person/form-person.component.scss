@@ -30,13 +30,13 @@ input {
   background-color: #e7e7e7;
   color: $background-primary;
 }
-.campo-input{
-    width: 140px;
+.campo-input {
+  width: 140px;
 }
-.posicion-input{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
+.posicion-input {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
 .input-label {
@@ -50,14 +50,12 @@ input {
 .input__label-left {
   justify-content: start;
 }
-.numTel{
-
-    margin-top: 30px ;
-    text-align: left;
-    font-size: $heading2;
-    font-weight: 500;
-    line-height: 25px;
-
+.numTel {
+  margin-top: 30px;
+  text-align: left;
+  font-size: $heading2;
+  font-weight: 500;
+  line-height: 25px;
 }
 
 h2 {
@@ -79,25 +77,24 @@ h2 {
   text-align: left;
   display: flex;
   align-items: center;
-  gap:1rem;
+  gap: 1rem;
 
   span {
     color: $text-color-disabled;
     font-weight: 400;
     font-size: 0.9rem;
   }
-  .correo{
-    color:#353535; 
-font-family: "Quicksand";
-font-size: 16px;
-font-weight: 600;
-line-height: 20px;
-letter-spacing: 0em;
-text-align: right;
+  .correo {
+    color: #353535;
 
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: right;
   }
 }
-.icono{
+.icono {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -113,7 +110,7 @@ label {
   text-align: left;
   gap: 5px;
 }
-.indicaciones{
+.indicaciones {
   display: flex;
   flex-direction: row;
   margin: 0;
@@ -123,9 +120,8 @@ label {
   font-weight: 400;
   line-height: 17px;
   margin-top: 3px;
-  
 }
-.tres{
+.tres {
   margin-left: 22px;
 }
 
@@ -217,7 +213,7 @@ input.ng-dirty.ng-invalid {
     max-width: 250px;
   }
 }
-.campo{
+.campo {
   font-size: $heading4;
-  color:$text-color-disabled;
+  color: $text-color-disabled;
 }

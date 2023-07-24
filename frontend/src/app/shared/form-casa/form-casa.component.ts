@@ -1,12 +1,5 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
-import {
-  FormGroup,
-  Validators,
-  FormBuilder,
-  AbstractControl,
-  ValidationErrors,
-} from '@angular/forms';
-import { FormRegisterInput } from 'src/app/core/interfaces/auth.interfaces';
+import { Component, OnInit, inject } from '@angular/core';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { UserService } from 'src/app/core/services/user/user.service';
@@ -14,11 +7,9 @@ import { UserService } from 'src/app/core/services/user/user.service';
 @Component({
   selector: 'app-form-casa',
   templateUrl: './form-casa.component.html',
-  styleUrls: ['./form-casa.component.scss']
+  styleUrls: ['./form-casa.component.scss'],
 })
-export class FormCasaComponent {
-  visible = false;
-
+export class FormCasaComponent implements OnInit {
   registerForm!: FormGroup;
 
   formBuilder = inject(FormBuilder);
@@ -29,72 +20,18 @@ export class FormCasaComponent {
     this.registerForm = this.initRegisterForm();
   }
 
-  ngOnDestroy(): void {
-    this.visible = false;
-  }
-
   initRegisterForm(): FormGroup {
-    return this.formBuilder.group(
-      {
-        name: ['', [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
-        lastname: [
-          '',
-          [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
-        ],
-        email: [
-          '',
-          [
-            Validators.required,
-            Validators.pattern(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/),
-          ],
-        ],
-        password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
-      },
-      {
-        validators: [this.camposIguales('password', 'confirmPassword')],
-      }
-    );
-  }
-
-  camposIguales(campo1: string, campo2: string) {
-    return (formGroup: AbstractControl): ValidationErrors | null => {
-      const pass1 = formGroup.get(campo1)?.value;
-      const pass2 = formGroup.get(campo2)?.value;
-
-      if (pass1 !== pass2) {
-        formGroup.get(campo2)?.setErrors({ noIguales: true });
-        return { noIguales: true };
-      }
-
-      formGroup.get(campo2)?.setErrors(null);
-      return null;
-    };
+    return this.formBuilder.group({
+      pais: [''],
+      provincia: [''],
+      postal: ['', [Validators.required]],
+      ciudad: ['', Validators.required],
+      direccion: ['', Validators.required],
+      detalle_dir: ['', Validators.required],
+    });
   }
 
   login_create() {
     if (this.registerForm.invalid) return;
-
-    const registerBody: FormRegisterInput = {
-      email: this.registerForm.value.email,
-      password: this.registerForm.value.password,
-      name: this.registerForm.value.name,
-      lastName: this.registerForm.value.lastname,
-    };
-
-    this.authService.register(registerBody).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.visible = true;
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
   }
-
-  closeModal() {
-    this.visible = false;
-  }
-
 }
