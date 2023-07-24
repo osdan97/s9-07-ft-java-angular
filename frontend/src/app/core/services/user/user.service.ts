@@ -82,11 +82,26 @@ export class UserService {
 
   addShipingDetails(
     form: FormShippingDetail,
-    userId: string
+    token: string
   ): Observable<ShippingDetailResponse> {
+    const accessToken: Payload = jwtDecode(token);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
     return this.http.post<ShippingDetailResponse>(
-      `${this.baseUrl}shipping-details/${userId}`,
-      form
+      `${this.baseUrl}shipping-details/${accessToken.userId}`,
+      form,
+      { headers }
+    );
+  }
+
+  addUserData(body: any, token: string): Observable<any> {
+    const accessToken: Payload = jwtDecode(token);
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.put<any>(
+      `${this.baseUrl}customer/update/${accessToken.userId}`,
+      body,
+      { headers }
     );
   }
 

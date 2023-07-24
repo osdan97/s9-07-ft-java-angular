@@ -1,21 +1,29 @@
 <section>
-  <form [formGroup]="registerForm" (ngSubmit)="login_create()" novalidate>
+  <form [formGroup]="registerForm" (ngSubmit)="updatePersonalData()" novalidate>
     <div class="contenedor1">
       <div class="icono">
         <p class="title">
           <img src="../../../assets/images/Union.png" alt="icono persona" />
           Datos personales
         </p>
-        <span class="correo">mariano_garcia@gmail.com</span>
+        <span class="correo">{{ userData.email }}</span>
       </div>
       <div class="input-label">
         <label>
           <span class="required">Nombre/s</span>
-          <input type="text" formControlName="name" />
+          <input
+            type="text"
+            formControlName="name"
+            [placeholder]="userData.name"
+          />
         </label>
         <label>
           <span class="required">Apellido/s</span>
-          <input type="text" formControlName="lastname" />
+          <input
+            type="text"
+            formControlName="lastname"
+            [placeholder]="userData.lastName"
+          />
         </label>
       </div>
       <div class="numTel">
@@ -28,13 +36,15 @@
             <input
               class="campo-input"
               type="number"
-              formControlName="password"
+              formControlName="countryCodePrimary"
+              [placeholder]="userData.phonesList[0].countryCode ?? ''"
             />
 
             <input
               class="campo-input"
               type="number"
-              formControlName="password"
+              formControlName="cityCodePrimary"
+              [placeholder]="userData.phonesList[0].cityCode ?? ''"
             />
           </div>
         </label>
@@ -42,7 +52,12 @@
         <label>
           <span class="required">Número principal</span>
 
-          <input type="tel" formControlName="confirmPassword" autocomplete />
+          <input
+            type="tel"
+            formControlName="phoneNumberPrimary"
+            autocomplete
+            [placeholder]="userData.phonesList[0].phoneNumber ?? ''"
+          />
         </label>
       </div>
       <div class="indicaciones">
@@ -56,13 +71,15 @@
             <input
               class="campo-input"
               type="number"
-              formControlName="password"
+              formControlName="countryCodeSecondary"
+              [placeholder]="userData.phonesList[1]?.countryCode ?? ''"
             />
 
             <input
               class="campo-input"
               type="number"
-              formControlName="password"
+              formControlName="cityCodeSecondary"
+              [placeholder]="userData.phonesList[1]?.cityCode ?? ''"
             />
           </div>
         </label>
@@ -70,7 +87,12 @@
         <label>
           <span class="">Número alternativo</span>
 
-          <input type="tel" formControlName="confirmPassword" autocomplete />
+          <input
+            type="tel"
+            formControlName="phoneNumberSecondary"
+            autocomplete
+            [placeholder]="userData.phonesList[1]?.phoneNumber ?? ''"
+          />
         </label>
       </div>
       <div class="indicaciones">

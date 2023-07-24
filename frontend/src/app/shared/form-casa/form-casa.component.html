@@ -25,43 +25,55 @@
       </div>
       <div class="input-label">
         <label>
-          País*
-          <input type="text" formControlName="pais" placeholder="ESPAÑA" />
+          <p class="required">País</p>
+          <input
+            type="text"
+            formControlName="pais"
+            [placeholder]="userData.shippingDetailsList[0].country"
+          />
         </label>
         <label>
-          Provincia / Comunidad*
+          <p class="required">Provincia / Comunidad</p>
           <input
             type="text"
             formControlName="provincia"
-            placeholder="Salamanca"
+            [placeholder]="userData.shippingDetailsList[0].provincia"
           />
         </label>
       </div>
       <div class="input-label">
         <label>
-          Código postal*
-          <input type="text" formControlName="postal" placeholder="37300" />
+          <p class="required">Código postal</p>
+          <input
+            type="text"
+            formControlName="postal"
+            [placeholder]="userData.shippingDetailsList[0].postalCode"
+          />
         </label>
         <label>
-          Ciudad*
-          <input type="text" formControlName="ciudad" placeholder="Salamanca" />
+          <p class="required">Ciudad</p>
+          <input
+            type="text"
+            formControlName="ciudad"
+            [placeholder]="userData.shippingDetailsList[0].city"
+          />
         </label>
       </div>
       <div class="input-label">
         <label>
-          Dirección de entrega*
+          <p class="required">Dirección de entrega</p>
           <input
             type="text"
             formControlName="direccion"
-            placeholder="Av. Gran Vía 46"
+            [placeholder]="userData.shippingDetailsList[0].address1"
           />
         </label>
         <label>
-          Observaciones
+          <p class="required">Observaciones</p>
           <input
             type="text"
             formControlName="detalle_dir"
-            placeholder="Esquina Varillas"
+            [placeholder]="userData.shippingDetailsList[0].address2"
           />
         </label>
       </div>
