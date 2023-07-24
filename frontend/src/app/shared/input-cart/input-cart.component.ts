@@ -83,7 +83,6 @@ export class InputCartComponent implements OnInit {
       weight: this.product?.weight,
       quantity: this.addCartForm.value.quantity,
     };
-    console.log(body);
 
     this.cartService.addToCartAssigning(body);
   }
@@ -102,11 +101,10 @@ export class InputCartComponent implements OnInit {
       weight: this.product?.weight,
       quantity: this.addCartForm.value.quantity,
     };
-    console.log(body);
 
     this.cartService.addToCart(body);
 
-    // this.sendProduct(body);
+    this.sendProduct(body);
   }
 
   sendProduct(product: CartProduct): void {

@@ -74,8 +74,6 @@ export class FormPersonComponent implements OnInit {
     };
 
     const token = this.cookieService.get('accessToken');
-    this.userService.addUserData(body, token).subscribe((res) => {
-      console.log(res);
-    });
+    this.userService.addUserData(body, token).subscribe((res) => {});
   }
 }

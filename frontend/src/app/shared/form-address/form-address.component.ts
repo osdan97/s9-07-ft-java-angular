@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject  } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import {
   FormGroup,
   Validators,
@@ -139,13 +139,10 @@ export class FormAddressComponent {
 
     this.authService.register(registerBody).subscribe({
       next: (res) => {
-        console.log(res);
         this.visible = true;
         this.getUserData(addressBody, res.token);
       },
-      error: (err) => {
-        console.log(err);
-      },
+      error: (err) => {},
     });
   }
 
@@ -155,9 +152,7 @@ export class FormAddressComponent {
     this.userService
       .addShipingDetails(addressBody, userId)
       .pipe(take(1))
-      .subscribe((resp: ShippingDetailResponse) => {
-        console.log(resp);
-      });
+      .subscribe((resp: ShippingDetailResponse) => {});
   }
 
   closeModal() {

@@ -35,7 +35,6 @@ export class CartLoguedGuard implements CanActivate, CanMatch {
 
   verifiedJWT(): boolean {
     this.authService.getAutenticate().subscribe((value) => {
-      console.log(value);
       if (!value) {
         this.router.navigate(['/cart-unlogged']);
         return true;

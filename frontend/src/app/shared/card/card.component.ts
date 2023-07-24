@@ -77,7 +77,6 @@ export class CardComponent implements OnInit {
       id: this.product.id,
       quantity: this.addCartForm.value.quantity,
     };
-    console.log(body);
   }
 
   showMessageFailed(): void {
@@ -103,7 +102,6 @@ export class CardComponent implements OnInit {
         .addFavoriteProduct(token, product.id)
         .subscribe((resp) => {
           // sessionStorage.setItem('favorites', JSON.stringify(resp));
-          console.log(resp);
         });
     }
   }

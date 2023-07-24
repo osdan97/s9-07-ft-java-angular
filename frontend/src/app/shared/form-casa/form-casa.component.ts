@@ -55,7 +55,6 @@ export class FormCasaComponent implements OnInit {
 
     const token = this.cookieService.get('accessToken');
     this.userService.addShipingDetails(body, token).subscribe((res) => {
-      console.log(res);
       localStorage.setItem('userData', JSON.stringify(res));
     });
   }

@@ -51,7 +51,6 @@ export class EcommerceComponent implements OnInit {
 
   private getProducts() {
     this.productService.getProducts(1).subscribe((res) => {
-      console.log(res);
       // Los productos ya han sido guardados en el sessionStorage en el servicio
     });
   }
@@ -63,7 +62,6 @@ export class EcommerceComponent implements OnInit {
     // Suscribirse al observable para recibir actualizaciones en tiempo real
     this.userService.favorites$.subscribe((favorites) => {
       // Hacer lo que necesites con los favoritos actualizados
-      console.log('Favoritos actualizados:', favorites);
     });
   }
 }

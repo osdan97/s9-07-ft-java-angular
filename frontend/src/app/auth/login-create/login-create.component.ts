@@ -84,7 +84,6 @@ export class LoginCreateComponent implements OnInit, OnDestroy {
 
     this.authService.register(registerBody).subscribe({
       next: (res) => {
-        console.log(res);
         this.visible = true;
       },
       error: (err) => {

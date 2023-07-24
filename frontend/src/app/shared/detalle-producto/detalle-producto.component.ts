@@ -16,7 +16,6 @@ export class DetalleProductoComponent {
   @Input() product!: CartProduct | any;
 
   showQuantityProduc(product: any) {
-    console.log(product);
     this.messages = [
       {
         severity: 'success',

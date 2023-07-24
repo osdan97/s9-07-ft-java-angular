@@ -60,21 +60,18 @@ export class CheckPayComponent {
 
   form_person() {
     if (this.form.valid) {
-      console.log(this.form.value);
       this.show = true;
     }
   }
 
   form_send() {
     if (this.form1.valid) {
-      console.log(this.form1.value.envio);
       this.show1 = true;
     }
   }
 
   form_pay() {
     if (this.form2.valid) {
-      console.log(this.form2.value);
       this.show2 = true;
     }
   }
