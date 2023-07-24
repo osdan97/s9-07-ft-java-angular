@@ -1,7 +1,16 @@
 <div class="card" *ngIf="product">
-  <i class="pi pi-heart"></i>
+  <div class="favorite__button">
+    <i
+      class="pi pi-heart"
+      (click)="isFavorite(product)"
+      [ngClass]="{
+        'pi-heart': viewIsFavorite(),
+        'pi-heart-fill': !viewIsFavorite()
+      }"
+    ></i>
+  </div>
   <div class="imagen-text" [routerLink]="'product/' + product.id">
-    <img [src]="product.image" alt="" />
+    <img [src]="product.image" [alt]="product.name" />
   </div>
   <div class="contenido">
     <div class="text__products" [routerLink]="'product/' + product.id">

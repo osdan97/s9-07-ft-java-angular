@@ -8,12 +8,10 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import jwtDecode from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
 import { take } from 'rxjs';
 import {
   LoginResponse,
-  Payload,
   UserData,
 } from 'src/app/core/interfaces/auth.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';

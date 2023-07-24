@@ -14,10 +14,19 @@
   color: $text-color-primary;
   position: relative;
 }
-.pi-heart{
+.favorite__button {
   position: absolute;
   top: 20px;
   right: 20px;
+
+  i {
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.3);
+      color: $background-complementary;
+    }
+  }
 }
 .imagen-text {
   width: 100%;

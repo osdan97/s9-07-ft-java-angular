@@ -1,129 +1,142 @@
 @import "src/styles.scss";
 
-
 .contenedora {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px 0 80px;
-    //display:flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Quicksand';
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0 80px;
+  //display:flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Quicksand";
 }
-.mi-cuenta{
-    
-    font-size: $heading1;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    margin:34px 0;
-    display:flex;
-    justify-content: center;
+.mi-cuenta {
+  font-size: $heading1;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 34px 0;
+  display: flex;
+  justify-content: center;
 }
 
-.historial{
-    width: 100%;
-    height: 258px;
-    flex-shrink: 0;
-    border-radius: 8px;
-    background: #FFF;
-    box-shadow:$card-shadow;
+.historial {
+  width: 100%;
+  height: 258px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: $card-shadow;
 
- .bloque-historial{
+  .bloque-historial {
     display: flex;
-    flex-direction: row;
-    margin: 20px 45px;
+    // margin: 20px 45px;
     padding-top: 20px;
-    .titleHistorial{
-        color: #000;
-        font-family: 'Quicksand';
-        font-size: $heading2;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
+    .titleHistorial {
+      color: #000;
+      font-family: "Quicksand";
+      font-size: $heading2;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
     }
- }
- .text-fav{
-    color: #2F3F61;
-    font-family: 'Quicksand';
+  }
+  .text-fav {
+    color: #2f3f61;
+    font-family: "Quicksand";
     font-size: $heading4;
     font-style: normal;
     font-weight: 400;
-    line-height: normal; 
- }
- span{
+    line-height: normal;
+  }
+  span {
     font-size: $heading4;
     font-weight: 600;
-    font-family: 'Quicksand';
-    margin: 20px; 
- }
+    font-family: "Quicksand";
+    margin: 20px;
+  }
 }
 
-.componente-historial{
-    width: 90%;
-    height: 64px;
-    display:flex;
-    flex-direction:row;
-    justify-content: space-between;
-    border-radius: 4px;
-    background: #FFF;
-    border: 0.5px;
-    box-shadow:$card-shadow;
-    margin:10px 40px;
+.componente-historial {
+  width: 90%;
+  height: 64px;
+  display: flex;
+  // justify-content: space-between;
+  border-radius: 4px;
+  background: #fff;
+  border: 0.5px;
+  box-shadow: $card-shadow;
+  margin: 10px 40px;
 }
-
-
 
 /*.imagen-reemplazo{
     width: 60px;
     margin:5px;
 }*/
 
+.fav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-.fav-container{
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px 0 80px;
-    display:flex;
-    flex-direction: column;
+.icon__container {
+  align-self: flex-start;
 }
-.pi{
-    color: #4A639A;
-    font-size: xx-large;
-    }
-.favTitle{
-    font-size: $heading2;
-    font-weight: 500;
-    font-family: 'Quicksand';
-    line-height: 25px;
-    letter-spacing: 0em;
-    text-align: left;
-    margin:15px;
-    align-self: left; 
+.pi {
+  color: #4a639a;
+  font-size: xx-large;
+}
+.favTitle {
+  font-size: $heading2;
+  font-weight: 500;
+  font-family: "Quicksand";
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 15px;
+  align-self: left;
+}
 
+.favorites__container {
+  width: 100%;
 }
-.favCards{
-    width: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    column-gap: 5px;
-    padding-top: 25px; 
+.favCards {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  padding-top: 25px;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.fav-btn{
-    display: inline-flex;
-    padding: 11px 54px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 40px 0 0 0;
+.fav-btn {
+  width: 100%;
+  display: inline-flex;
+  padding: 11px 54px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 40px 0 0 0;
 }
-.btn-fav{
+.btn-fav {
+  border-radius: 8px;
+  border: 0.5px solid var(--principal, #2f3f61);
+  background: var(--variante-1, #4a639a);
+  padding: 11px 54px;
+}
 
-border-radius: 8px;
-border: 0.5px solid var(--principal, #2F3F61);
-background: var(--variante-1, #4A639A);
-padding: 11px 54px;
+.message__content {
+  width: 100%;
+  color: $text-color-primary;
+  text-align: center;
+
+  h4 {
+    font-weight: 400;
+  }
 }

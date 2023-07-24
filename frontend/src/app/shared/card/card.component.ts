@@ -1,7 +1,12 @@
+import { Product } from './../../core/interfaces/user.interfaces';
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { take } from 'rxjs';
+import { ProductsResponse } from 'src/app/core/interfaces/products.interfaces';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-card',
@@ -16,11 +21,21 @@ export class CardComponent implements OnInit {
   addCartForm!: FormGroup;
 
   quantity = signal<number>(1);
+  viewIsFavorite = signal<boolean>(false);
 
   formBuilder = inject(FormBuilder);
+  userService = inject(UserService);
+  cookieService = inject(CookieService);
 
   ngOnInit(): void {
     this.addCartForm = this.initForm();
+
+    this.userService.favorites$.subscribe((favorites) => {
+      const response = favorites.some(
+        (item: Product) => item.id === this.product.id
+      );
+      this.viewIsFavorite.set(!response);
+    });
   }
 
   initForm(): FormGroup {
@@ -53,5 +68,20 @@ export class CardComponent implements OnInit {
 
   showMessageFailed(): void {
     Notify.failure('Debes seleccionar al menos un producto');
+  }
+
+  isFavorite(product: ProductsResponse) {
+    const token = this.cookieService.get('accessToken');
+
+    this.userService.refreshFavorites(token);
+
+    if (this.viewIsFavorite()) {
+      this.userService
+        .addFavoriteProduct(token, product.id)
+        .subscribe((resp) => {
+          // sessionStorage.setItem('favorites', JSON.stringify(resp));
+          console.log(resp);
+        });
+    }
   }
 }
