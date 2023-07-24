@@ -10,26 +10,6 @@
 
   <div class="descripcion-producto">
     <div class="imagen-producto">
-      <!--  <div class="imagen-chica-producto">
-        <img
-          class="foto-chica-producto"
-          src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
-          alt="imagen producto"
-        />
-
-        <img
-          class="foto-chica-producto"
-          src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
-          alt="imagen producto"
-        />
-
-        <img
-          class="foto-chica-producto"
-          src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
-          alt="imagen producto"
-        />
-      </div>-->
-
       <div class="imagen-grande-producto">
         <img
           class="foto-producto"
@@ -53,9 +33,9 @@
         <div class="button__container">
           <app-input-cart
             [changeClass]="false"
-            (addCart)="showQuantityProduc($event)"
             [changeWidth]="'224px'"
             [width]="'66px'"
+            [product]="product"
           ></app-input-cart>
         </div>
         <div class="botonesCompra">

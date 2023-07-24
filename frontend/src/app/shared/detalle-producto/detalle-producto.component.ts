@@ -1,6 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Message } from 'primeng/api';
-import { ProductById } from 'src/app/core/interfaces/products.interfaces';
+import {
+  CartProduct,
+  ProductById,
+} from 'src/app/core/interfaces/products.interfaces';
+import { Product } from 'src/app/core/interfaces/user.interfaces';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -9,7 +13,7 @@ import { ProductById } from 'src/app/core/interfaces/products.interfaces';
 })
 export class DetalleProductoComponent {
   messages!: Message[];
-  @Input() product!: ProductById;
+  @Input() product!: CartProduct | any;
 
   showQuantityProduc(product: any) {
     console.log(product);

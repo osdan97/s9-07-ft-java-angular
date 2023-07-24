@@ -29,8 +29,6 @@ export class RenewSession implements CanActivate {
     this.authService.renewSession(token).subscribe((res) => {
       localStorage.setItem('userData', JSON.stringify(res));
       this.cookieService.set('accessToken', res.token);
-
-      console.log(res);
     });
 
     // Devuelve true si quieres permitir la navegación o false para bloquearla

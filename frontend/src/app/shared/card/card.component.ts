@@ -1,6 +1,7 @@
 import { Product } from './../../core/interfaces/user.interfaces';
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -20,6 +21,7 @@ export class CardComponent implements OnInit {
 
   addCartForm!: FormGroup;
   isLogued = false;
+  changeRouter = false;
 
   quantity = signal<number>(1);
   viewIsFavorite = signal<boolean>(false);
@@ -27,6 +29,8 @@ export class CardComponent implements OnInit {
   formBuilder = inject(FormBuilder);
   userService = inject(UserService);
   cookieService = inject(CookieService);
+  route = inject(ActivatedRoute);
+  router = inject(Router);
 
   ngOnInit(): void {
     this.addCartForm = this.initForm();
@@ -37,6 +41,15 @@ export class CardComponent implements OnInit {
       );
       this.viewIsFavorite.set(!response);
     });
+
+    const currentUrl = this.router.url;
+    const productRoute = currentUrl.split('/')[1];
+
+    if (productRoute === 'product') {
+      this.changeRouter = true;
+    } else {
+      this.changeRouter = false;
+    }
   }
 
   initForm(): FormGroup {
