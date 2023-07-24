@@ -118,7 +118,7 @@ const routes: Routes = [
           import('./pages/my-account/my-account.module').then(
             (m) => m.MyAccountModule
           ),
-        canActivate: [AuthGuard, RenewSession],
+        canActivate: [AuthGuard],
         canMatch: [AuthGuard],
       },
       {

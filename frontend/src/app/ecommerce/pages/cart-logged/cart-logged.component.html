@@ -15,8 +15,8 @@
     <div class="menu-detalle">
       <div class="item">
         <div class="items">
-          <p>4 Articulos</p>
-          <span>€14 </span>
+          <p>{{ totalProductToCart | quantity }}</p>
+          <span>{{ totalPriceProduct | currency : "€" }}</span>
         </div>
         <div class="items">
           <p>Costo de envío (aproximado)</p>
@@ -24,24 +24,29 @@
         </div>
         <div class="items">
           <p>Impuesto aplicado IVA<span id="porcentaje">(+19%)</span></p>
-          <span> € 2.66</span>
+          <span> {{ totalPriceProduct * 0.19 | currency : "€" }}</span>
         </div>
         <br />
         <hr />
         <br />
         <div class="items">
           <p class="total">Total:</p>
-          <span class="total">€21.95</span>
+          <span class="total">{{
+            totalPriceProduct * 1.19 + 7.95 | currency : "€"
+          }}</span>
         </div>
 
         <div class="items">
           <p>Peso aproximado</p>
-          <span>1,5 kg</span>
+          <span>{{ totalProductWeight }}gr</span>
         </div>
       </div>
 
       <div class="botone3">
-        <button class="button custom__button--fill boton3">
+        <button
+          class="button custom__button--fill boton3"
+          routerLink="../payment"
+        >
           Finalizar Compra
         </button>
       </div>

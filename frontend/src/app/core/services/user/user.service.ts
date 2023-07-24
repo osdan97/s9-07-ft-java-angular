@@ -47,6 +47,7 @@ export class UserService {
           headers,
         }
       )
+
       .pipe(map((res) => res.map((item) => item.product)));
   }
 

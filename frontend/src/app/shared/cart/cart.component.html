@@ -114,7 +114,9 @@
 
     <div class="payment__content">
       <p>Subtotal</p>
-      <span class="price">{{ totalPriceProduct * 1.19 | currency : "€" }}</span>
+      <span class="price">{{
+        totalPriceProduct * 1.19 + 7.95 | currency : "€"
+      }}</span>
     </div>
   </div>
 </ng-template>

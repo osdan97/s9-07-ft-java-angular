@@ -22,7 +22,7 @@
         </div>
         <div class="items">
           <p class="items-negrita">Peso Total:</p>
-          <span>15kg</span>
+          <span>{{ totalProductWeight }}gr</span>
         </div>
         <div class="items">
           <p class="items-negrita">IVA:</p>
@@ -40,15 +40,19 @@
       <div class="item2">
         <div class="items">
           <p class="items-negrita2">Subtotal</p>
-          <span><b>€8</b></span>
+          <span
+            ><b>{{ totalPriceProduct * 1.19 | currency : "€" }}</b></span
+          >
         </div>
         <div class="items">
           <p class="items-negrita2">Envio</p>
-          <span><b>€7</b></span>
+          <span><b>€7.95</b></span>
         </div>
         <div class="items-total">
           <p class="items-negrita2"><b>Total</b></p>
-          <span><b>€15</b></span>
+          <span
+            ><b>{{ totalPriceProduct * 1.19 + 7.95 | currency : "€" }}</b></span
+          >
         </div>
       </div>
     </div>

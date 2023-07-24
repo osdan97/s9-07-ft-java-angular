@@ -56,6 +56,7 @@ import { AuthModule } from '../auth/auth.module';
     FormPersonComponent,
     FormCasaComponent,
     CategoriesComponent,
+    QuantityPipe,
   ],
 })
 export class SharedModule {}
