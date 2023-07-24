@@ -1,4 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
+import { DataService } from 'src/app/core/services/data/data.service';
+
+interface PageEvent {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
+}
 
 @Component({
   selector: 'app-content-card',
@@ -7,10 +15,18 @@ import { Component, Input } from '@angular/core';
 })
 export class ContentCardComponent {
   @Input() products!: any[];
-  paginate(event: any) {
-    event.first = 0;
-    event.rows = 5;
-    event.page = 1;
-    event.pageCount = 120;
+
+  dataSerivice = inject(DataService);
+
+  onPageChange(event: any) {
+    const page = event.page + 1;
+
+    this.getDataProduct(page);
+  }
+
+  getDataProduct(page: number) {
+    this.dataSerivice.getProducts(page).subscribe((res) => {
+      this.products = res;
+    });
   }
 }

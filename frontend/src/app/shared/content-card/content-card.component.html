@@ -19,9 +19,9 @@
   <div class="flex align-items-center justify-content-center">
     <div class="flex-1">
       <p-paginator
-        [rows]="10"
-        [totalRecords]="120"
-        [showFirstLastIcon]="false"
+        (onPageChange)="onPageChange($event)"
+        [rows]="1"
+        [totalRecords]="4"
         [style]="{ background: '#EDF3F6' }"
       ></p-paginator>
     </div>
