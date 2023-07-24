@@ -45,6 +45,8 @@ export class HeaderComponent implements OnInit {
     this.router.events.subscribe(() => {
       this.getCurrentRoute();
       window.scrollTo(0, 0);
+      this.visibleCart.set(false);
+      this.visible = false;
       // if (event instanceof NavigationEnd) {
       // }
     });
