@@ -77,5 +77,15 @@ public class FavoritesController {
         }
 
     }
+    @DeleteMapping("/deletebyproduct/{account_uuid}/{product_uuid}")
+    public ResponseEntity<?> deleteByCustomerAndProduct(@PathVariable("account_uuid") String account_uuid, @PathVariable("product_uuid") String product_uuid) {
+        try {
+                favoritesService.deleteByCustomerAndProduct(account_uuid,product_uuid);
+                return new ResponseEntity(new Mensaje("favorites deleted successfully"), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("error occurred") + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
 }
 

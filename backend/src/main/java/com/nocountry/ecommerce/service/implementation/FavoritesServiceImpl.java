@@ -8,8 +8,7 @@ import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.repository.FavoritesRepository;
 import com.nocountry.ecommerce.repository.ProductRepository;
 import com.nocountry.ecommerce.service.FavoritesService;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 
@@ -71,12 +70,16 @@ public class FavoritesServiceImpl implements FavoritesService {
     }
 
     @Override
-
     public void deleteById(String id) {
         if (!favoritesRepository.existsById(id)) {
             throw new IllegalStateException("Favorite does not exist");
         }
         favoritesRepository.deleteById(id);
+    }
+    @Transactional
+    @Override
+    public void deleteByCustomerAndProduct(String accountId, String productId) {
+        favoritesRepository.deleteFavoritesByCustomersAndProduct(accountId,productId);
     }
 
     @Override
