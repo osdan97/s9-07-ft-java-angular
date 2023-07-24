@@ -119,6 +119,13 @@ const routes: Routes = [
             (m) => m.HomeProductosModule
           ),
       },
+      {
+        path: 'home-argentina',
+        loadChildren: () =>
+          import('./pages/home-argentina/home-argentina.module').then((m) => m.HomeArgentinaModule),
+        canActivate: [AuthGuard],
+        canMatch: [AuthGuard],
+      },
     ],
   },
 ];
