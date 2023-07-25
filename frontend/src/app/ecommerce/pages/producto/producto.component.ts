@@ -19,7 +19,6 @@ export class ProductoComponent implements OnInit {
   router = inject(ActivatedRoute);
 
   ngOnInit(): void {
-    this.getDataProduct();
     this.getProductId();
   }
 
@@ -33,15 +32,14 @@ export class ProductoComponent implements OnInit {
   getProductById(id: string) {
     this.dataSerivice.getProductById(id).subscribe((res) => {
       this.product = res;
+      console.log(res);
+      this.getDataProduct(this.product.category.name.toLowerCase());
     });
   }
 
-  getDataProduct() {
-    const data = JSON.parse(sessionStorage.getItem('products') || '[]');
-    this.dataSerivice.getDataProducts().subscribe((res) => {
+  getDataProduct(category: string) {
+    this.dataSerivice.getProducts2(1, undefined, category).subscribe((res) => {
       this.products.set(res);
     });
-    if (!data) return;
-    this.products.set(data);
   }
 }

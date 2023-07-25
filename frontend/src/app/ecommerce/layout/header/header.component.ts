@@ -47,6 +47,9 @@ export class HeaderComponent implements OnInit {
       window.scrollTo(0, 0);
       this.visibleCart.set(false);
       this.visible = false;
+      this.visibleMyAccount.set(false);
+      this.visibleCart.set(false);
+      this.value = undefined;
       // if (event instanceof NavigationEnd) {
       // }
     });
