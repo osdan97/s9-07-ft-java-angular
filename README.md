@@ -83,7 +83,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 ![Selenium](https://img.shields.io/badge/SELENIUM-white?style=for-the-badge&logo=selenium&logoColor=009929)
 ![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
-<img src="https://wizardsourcer.com/wp-content/uploads/2020/11/Google-Docs.png" width=50>
+<img src="https://wizardsourcer.com/wp-content/uploads/2020/11/Google-Docs.png" width=100>
 
 
 
