@@ -159,6 +159,16 @@ const routes: Routes = [
         canActivate: [AuthGuard, RenewSession],
         canMatch: [AuthGuard],
       },
+
+      {
+        path: 'terminos-condiciones',
+        loadChildren: () =>
+          import('./pages/terminos-condiciones/terminos-condiciones.module').then(
+            (m) => m.TerminosCondicionesModule
+          ),
+        canActivate: [AuthGuard],
+        canMatch: [AuthGuard],
+      },
     ],
   },
 ];
