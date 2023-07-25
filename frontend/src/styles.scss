@@ -130,3 +130,19 @@ body {
   color: $background-primary;
   border: $border-primary;
 }
+
+$breakpoints: (
+  mobileXs: 400px,
+  mobile: 480px,
+  tablet: 768px,
+  ipad: 820px,
+  screenXs: 880px,
+  screen: 1024px,
+  desktop: 1200px,
+);
+
+@mixin media-up($breakpoint) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
