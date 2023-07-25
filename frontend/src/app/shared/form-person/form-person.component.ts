@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -14,6 +14,7 @@ export class FormPersonComponent implements OnInit {
   userData!: any;
   phoneNumbers: string[] = [];
   visible = false;
+  @Output() regreso1 = new EventEmitter<boolean>();
 
   registerForm!: FormGroup;
 
@@ -75,5 +76,9 @@ export class FormPersonComponent implements OnInit {
 
     const token = this.cookieService.get('accessToken');
     this.userService.addUserData(body, token).subscribe((res) => {});
+  }
+
+  click_regreso1(){
+    this.regreso1.emit(false);
   }
 }

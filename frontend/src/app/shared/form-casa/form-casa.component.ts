@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, inject, Output, EventEmitter } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -13,6 +13,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 export class FormCasaComponent implements OnInit {
   registerForm!: FormGroup;
   userData!: any;
+  @Output() regreso = new EventEmitter<boolean>();
 
   formBuilder = inject(FormBuilder);
   authService = inject(AuthService);
@@ -57,5 +58,9 @@ export class FormCasaComponent implements OnInit {
     this.userService.addShipingDetails(body, token).subscribe((res) => {
       localStorage.setItem('userData', JSON.stringify(res));
     });
+  }
+
+  click_regreso() {
+    this.regreso.emit(false);
   }
 }
