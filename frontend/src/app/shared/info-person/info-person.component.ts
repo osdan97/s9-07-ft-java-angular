@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-info-person',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./info-person.component.scss']
 })
 export class InfoPersonComponent {
+  @Output() salida1 = new EventEmitter<boolean>();
 
+  On_click1() {
+    this.salida1.emit(true);
+    console.log('true');
+  }
 }

@@ -1,0 +1,87 @@
+@import "src/styles.scss";
+
+.contenedor2 {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  margin-bottom: 80px;
+  background: #fff;
+  box-shadow: $card-shadow;
+}
+
+.casa {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #2f3f61;
+
+  .iconoCasa {
+    display: flex;
+    gap: 20px;
+  }
+
+  .title {
+    //styleName: Heading 2 - titulos 2;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 25px;
+    text-align: left;
+    padding: 15px 0;
+  }
+
+  .subtitle {
+    //styleName: Heading 3 - texto y botones;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: left;
+    padding: 2px 0;
+  }
+
+  .subtitle2 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0;
+    text-align: left;
+    padding: 3px 0;
+  }
+}
+
+i {
+  border-radius: 5px;
+  border: 1px solid #2f3f61;
+  padding: 2px;
+  color: #2f3f61;
+  &:hover {
+    cursor: pointer;
+    color: #fff;
+    background: #2f3f61;
+  }
+  &:active {
+    background: #4d5d81;
+    color: #fff;
+  }
+}
+
+button {
+  width: 139px;
+  height: 40px;
+  border-radius: 8px;
+  background: #fff;
+  &:hover {
+    background: #2f3f61;
+    color: #fff;
+  }
+  &:active {
+    background: #4d5d81;
+    color: #fff;
+  }
+}
+img {
+  padding-top: 5px;
+}

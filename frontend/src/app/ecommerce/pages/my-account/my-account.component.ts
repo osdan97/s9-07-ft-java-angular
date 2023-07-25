@@ -16,6 +16,7 @@ export class MyAccountComponent implements OnInit {
   userService = inject(UserService);
   cookieService = inject(CookieService);
   status_casa = false;
+  status_person = false;
 
   ngOnInit(): void {
     this.getFavorites();
@@ -23,6 +24,10 @@ export class MyAccountComponent implements OnInit {
 
   changeStatus(newBoolean: boolean) {
     this.status_casa = newBoolean;
+  }
+
+  changeStatus2(newBoolean2: boolean) {
+    this.status_person = newBoolean2
   }
 
   getFavorites() {
