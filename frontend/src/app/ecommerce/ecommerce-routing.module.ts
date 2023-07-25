@@ -43,12 +43,7 @@ const routes: Routes = [
         canActivate: [AuthGuard, CartLoguedGuard, RenewSession],
         canMatch: [AuthGuard, CartLoguedGuard],
       },
-      {
-        path: 'country',
-        loadChildren: () =>
-          import('./pages/country/country.module').then((m) => m.CountryModule),
-        canActivate: [RenewSession],
-      },
+
       {
         path: 'create-user', //!Ya esta en alta fidelidad
         loadChildren: () =>
@@ -151,10 +146,10 @@ const routes: Routes = [
       },
 
       {
-        path: 'home-argentina',
+        path: 'home-countries',
         loadChildren: () =>
-          import('./pages/home-argentina/home-argentina.module').then(
-            (m) => m.HomeArgentinaModule
+          import('./pages/home-countries/home-countries.module').then(
+            (m) => m.HomeCountriesModule
           ),
         canActivate: [AuthGuard, RenewSession],
         canMatch: [AuthGuard],
