@@ -17,7 +17,10 @@
 
       <div>
         <div class="flex align-items-center gap-2">
-          <button type="button">Añadir dirección</button>
+          <button type="button" class="flex align-items-center gap-1 p-1 m-0 flex-col" [routerLink]="['/changepassword']" >
+            <i class="pi pi-lock" style="font-size: 10px;"></i>
+            Cambiar contraseña
+          </button>
           <i class="pi pi-pencil" (click)="On_click1()" ></i>
         </div>
       </div>

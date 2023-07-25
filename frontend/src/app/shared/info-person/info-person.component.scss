@@ -69,13 +69,18 @@ i {
 }
 
 button {
-  width: 139px;
+  width: 160px;
   height: 40px;
   border-radius: 8px;
+  border: 1px solid;
   background: #fff;
   &:hover {
     background: #2f3f61;
     color: #fff;
+    i {
+      color: #fff;
+      border: 0.8px solid #fff;
+    }
   }
   &:active {
     background: #4d5d81;
