@@ -80,10 +80,12 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ### 🔎🐞🧪 TESTING:
 
 #### 🛠️ Tech Stack:
-![JMeter](https://img.shields.io/badge/apache_jmeter-white?style=for-the-badge&logo=apache-jmeter&logoColor=F24E1E)
-![TestLink](https://img.shields.io/badge/TestLink-yellow?style=for-the-badge&logo=apache-testlink&logoColor=F24E1E)
-![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
+![Selenium](https://img.shields.io/badge/SELENIUM-white?style=for-the-badge&logo=selenium&logoColor=009929)
+![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
+![Google Docs]<img src="https://unioncountylibraries.org/wp-content/uploads/206-2061772_google-docs-icon-google-docs-logo-png.png" width=100>
+
+
 
 ### 🎨 QA Manual:
 
