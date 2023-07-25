@@ -130,6 +130,15 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         canMatch: [AuthGuard],
       },
+      {
+        path: 'preguntas-frecuentes',
+        loadChildren: () =>
+          import('./pages/preguntas-frecuentes/preguntas-frecuentes.module').then(
+            (m) => m.PreguntasFrecuentesModule
+          ),
+        canActivate: [AuthGuard],
+        canMatch: [AuthGuard],
+      },
       
 
       {
