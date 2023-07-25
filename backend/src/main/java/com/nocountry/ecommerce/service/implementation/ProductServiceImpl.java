@@ -120,7 +120,7 @@ public class   ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProducts(Integer page, String country, String category) {
-        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
+        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
                 .ascending());
         Page<Product> productPage;
 
@@ -143,7 +143,7 @@ public class   ProductServiceImpl implements ProductService {
 
     @Override
     public long getTotalProducts(Integer page, String country, String category) {
-        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
+        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
                 .ascending());
         Page<Product> productPage;
         long totalProducts;
@@ -171,7 +171,7 @@ public class   ProductServiceImpl implements ProductService {
 
     @Override
     public int getTotalPage(Integer page, String country, String category) {
-        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
+        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
                 .ascending());
         Page<Product> productPage;
         int totalPages;
