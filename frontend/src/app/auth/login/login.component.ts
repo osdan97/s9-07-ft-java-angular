@@ -9,6 +9,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { Notify } from 'notiflix';
 import { take } from 'rxjs';
 import {
   LoginResponse,
@@ -34,6 +35,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.initFormLogin();
+
+    Notify.init({ position: 'right-bottom' });
   }
 
   initFormLogin(): FormGroup {
@@ -60,13 +63,19 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.loginForm.value)
       .pipe(take(1))
-      .subscribe((resp: LoginResponse) => {
-        // this.cookieService.set('accessToken', resp.token);
-        this.getUserData(resp.token);
+      .subscribe({
+        next: (resp: LoginResponse) => {
+          // this.cookieService.set('accessToken', resp.token);
+          this.getUserData(resp.token);
 
-        if (this.router.routerState.snapshot.url === '/create-user') {
-          this.router.navigate(['/']);
-        }
+          if (this.router.routerState.snapshot.url === '/create-user') {
+            this.router.navigate(['/']);
+          }
+        },
+        error: () => {
+          this.showMessageFailed();
+          console.clear();
+        },
       });
   }
 
@@ -86,5 +95,9 @@ export class LoginComponent implements OnInit {
 
   closeDialog() {
     this.visible.emit(false);
+  }
+
+  showMessageFailed(): void {
+    Notify.failure('Correo o contraseña incorrectos');
   }
 }
