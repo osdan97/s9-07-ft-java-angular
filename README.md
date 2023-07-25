@@ -110,7 +110,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 <hr/>
 <p><img src="https://static.vecteezy.com/system/resources/thumbnails/006/173/028/small/computer-repair-logo-template-computer-pixels-logo-software-development-design-free-vector.jpg" width=50/> #### 🧑‍💻 Develoment Tools:</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1200px-IntelliJ_IDEA_Icon.svg.png" width=50/> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" width=50/><img src="https://cdn.worldvectorlogo.com/logos/postman.svg" width=60/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" width=40/> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" width=50/></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1200px-IntelliJ_IDEA_Icon.svg.png" width=50/> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" width=50/><img src="https://cdn.worldvectorlogo.com/logos/postman.svg" width=60/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" width=40/> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" width=50/> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Trello-logo-blue.svg/2560px-Trello-logo-blue.svg.png" width=50/></p>
 
 - Trabajando en Intellij Idea-
 ![Trabajando en Intellij](https://i.ibb.co/V95thKY/608f9226-2265-45ee-ab93-2c7634d40348.jpg)
@@ -119,69 +119,38 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 ![Pruebas en Postman](https://i.ibb.co/VDrvJV0/7c2ee7aa-f8b3-494f-83b9-1cefbae3ec85.jpg)
 
--Pruebas en Postman-
-
-## FRONTEND
-
-#### -HTML
-
-#### -SCSS 
-
-#### -PrimeNg 
-
-#### -Angular Material 
-
-#### -TypeScript 
-
-#### -Angular 
-
-#### -Vercel 
+#### -Deploy Vercel
+-Vista deploy Vercel-
 
 ![Vista deploy Vercel](https://i.ibb.co/0BMGCtZ/vista-vercel.png)
 
--Vista deploy Vercel-
-
-#### -keen-slider 
-
 #### -Visual Studio Code 
+-Maqueteado de proyecto/ Visual Studio-
 
 ![Maqueteado de proyecto](https://i.ibb.co/xJ0cNZ9/ecommerce-routing-module-ts-s9-07-ft-java-angular-Visual-Studio-Code-18-07-2023-1-27-00.png)
 
--Maqueteado de proyecto/ Visual Studio-
-
-## UX/UI
-
-#### -Adobe Illustrator
 
 #### -Figma
+-Desing kit en proceso/ Figma-
 
 ![Desing kit en proceso- Figma](https://i.ibb.co/q1M1tTs/image.png)
 
--Desing kit en proceso/ Figma-
-
-
-
-## Tester QA
-
-#### -Postman
-
 #### - Selenium IDE
+-Planilla caso de prueba-
 
 ![Planilla caso de prueba](https://i.ibb.co/3hMLxsp/c7627ab0-f1eb-465a-82c5-d04730b6aab6.jpg)
 
--Planilla caso de prueba-
 
 
-
-## PM
 
 #### -Trello
+-Tablero Trello-
 
 [Enlace a nuestro tablero de trabajo](https://trello.com/b/i76slPtb/s907ftjavaangular)
 
 ![Tablero Trello](https://i.ibb.co/fx1xqn0/tablero-trello.png)
 
--Tablero Trello-
+
 
 
 
