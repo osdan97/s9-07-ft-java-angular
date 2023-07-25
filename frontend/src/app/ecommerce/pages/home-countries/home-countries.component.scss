@@ -1,0 +1,13 @@
+@import "src/styles.scss";
+
+.productos-contenedor{
+  display: flex;
+  justify-content:center;
+}
+.categoria{
+  font-weight: 700;
+  font-size: 20px; 
+}
+.producto{
+  width: 90%;
+}

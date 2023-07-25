@@ -3,11 +3,11 @@ import { ProductsResponse } from 'src/app/core/interfaces/products.interfaces';
 import { DataService } from 'src/app/core/services/data/data.service';
 
 @Component({
-  selector: 'app-home-argentina',
-  templateUrl: './home-argentina.component.html',
-  styleUrls: ['./home-argentina.component.scss']
+  selector: 'app-home-countries',
+  templateUrl: './home-countries.component.html',
+  styleUrls: ['./home-countries.component.scss']
 })
-export class HomeArgentinaComponent {
+export class HomeCountriesComponent {
    products = signal<ProductsResponse[]>([]);
 
   dataSerivice = inject(DataService);
