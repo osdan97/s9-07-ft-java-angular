@@ -83,7 +83,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 ![Selenium](https://img.shields.io/badge/SELENIUM-white?style=for-the-badge&logo=selenium&logoColor=009929)
 ![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
-<img src="https://wizardsourcer.com/wp-content/uploads/2020/11/Google-Docs.png" width=100>
+<img src="https://img.etimg.com/thumb/msid-98051542,width-1070,height-580,imgsize-5015,overlay-economictimes/photo.jpg" width=100>
 
 
 
@@ -108,7 +108,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 | <img src="https://media.licdn.com/dms/image/D4D35AQEPMDLPMVj8Tw/profile-framedphoto-shrink_800_800/0/1664980896630?e=1690923600&v=beta&t=aLbRpWwBMhKclDkGgFDVLPedUnNImBGMK9kADSv33VA" width=50>| <img src="https://media.licdn.com/dms/image/D4D35AQHKlWKeXpOnBw/profile-framedphoto-shrink_800_800/0/1687607346176?e=1690923600&v=beta&t=XqMIBY2ofdVPESuixuUs9IDPWlDFLhUKyB6DSDg66FQ" width=50>
 |:-:|:-:|
 | **Alejandra Lomónaco**|**Fernanda Baquero**|
-| <a href="https://www.behance.net/alejandraelomonaco"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alejandraelomonaco/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/></p>| <a href="https://www.behance.net/lissethhiguita"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/fernanda-baquero-garrido/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/></p>|
+| <a href="https://www.behance.net/alejandraelomonaco"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alejandraelomonaco/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/></p>| <a href="https://www.behance.net/fer_baq/"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/fernanda-baquero-garrido/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/></p>|
 
 <hr/>
 
