@@ -83,7 +83,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 ![Selenium](https://img.shields.io/badge/SELENIUM-white?style=for-the-badge&logo=selenium&logoColor=009929)
 ![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
-![Google Docs]<img src="https://unioncountylibraries.org/wp-content/uploads/206-2061772_google-docs-icon-google-docs-logo-png.png" width=100>
+<img src="https://unioncountylibraries.org/wp-content/uploads/206-2061772_google-docs-icon-google-docs-logo-png.png" width=50>
 
 
 
