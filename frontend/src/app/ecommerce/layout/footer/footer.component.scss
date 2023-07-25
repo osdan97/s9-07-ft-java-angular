@@ -9,6 +9,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
 }
 
 .container {
@@ -20,12 +21,22 @@ footer {
   max-width: $max-width;
   width: 95%;
   margin: 0 auto;
-  gap: 3px;
-
+  gap: 10px;
+  @include media-up(mobile) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction:column ;
+    margin:30px ;
+  }
+/*.container-div{
+  padding-bottom: 20px;
+}*/
   .contact__container {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    padding-bottom: 20px;
   }
 }
 
@@ -35,16 +46,27 @@ h4 {
   letter-spacing: 0em;
   text-align: left;
   color: #fff;
+  padding-bottom: 5px;
+  @include media-up(mobile) {
+    font-size: $heading1;
+  }
 }
 
-p,
+p{
+  padding-bottom: 0px;
+
 a {
-  font-size: 13px;
+  font-size: $heading4;
   font-weight: 400;
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
   color: #fff;
+  @include media-up(mobile) {
+    font-size: $heading2;
+    padding-bottom: 7px;
+  }
+}
 }
 
 .icon {
@@ -74,7 +96,7 @@ a {
   cursor: pointer;
 }
 .anchor {
-  padding-top: 8px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -89,9 +111,9 @@ a:visited {
   color: white;
 }
 
-.title {
+/*.title {
   padding-bottom: 10px;
-}
+}*/
 
 input {
   width: 137px;
@@ -103,11 +125,28 @@ input {
   font-weight: 500;
   line-height: 13px;
   letter-spacing: 0em;
+  @include media-up(mobile) {
+    width: 150px;
+    height:32px;
+  }
+
 
 }
 input::placeholder{
   font-weight: 500px;
   color:#202020;
+  @include media-up(mobile) {
+    font-size: $heading3;
+  }
+}
+
+.news{
+  @include media-up(mobile) {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    font-size: $heading3;
+  }
 }
 
 h5{
@@ -115,4 +154,8 @@ h5{
   color: #fff;
   align-items: center;
   font-weight: 500;
+  @include media-up(mobile) {
+    display: flex;
+    font-size: 16px;
+  }
 }
