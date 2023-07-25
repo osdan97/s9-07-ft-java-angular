@@ -21,7 +21,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 | <img src="https://mir-s3-cdn-cf.behance.net/user/230/548a0e734241801.6474ce99de5e8.png" width=50>|
 |:-:|
 | **Andres Bejarano**|
-| <a href="https://www.behance.net/andresbejarano6"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andres-bejarano-6765aa241/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://www.behance.net/andresbejarano6"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andres-bejarano-6765aa241/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://i0.wp.com/casatextil.co/wp-content/uploads/2018/05/Tela-bandera-de-Colombia-en-antifluido-impermeable.jpg?fit=700%2C500&ssl=1" width=50/></p>|
 
 <hr/>
 
@@ -85,22 +85,28 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 
-#### 🧑‍💻 QA Testers:
+#### 🧑‍💻 QA Tester:
 
 | <img src="https://media.licdn.com/dms/image/D4D35AQF7RP70HuNq_Q/profile-framedphoto-shrink_800_800/0/1683234938737?e=1690920000&v=beta&t=iYIcIZ1-FVo6CE4u1Jwu6nQ3dWL1fpVp3KkxtHopjug" width=50>|
 |:-:|
 | **Nicolas Gallardo**| 
-| <a href="https://github.com/MaxiFusco"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a>|<a href="https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/>|
-  
-**- UX/UI:**
+| <a href="https://github.com/MaxiFusco"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a>|<a href="https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/>|
 
-- Alejandra Lomónaco [Github](https://github.com/aleelomonaco) - [LinkedIn](https://www.linkedin.com/in/alejandraelomonaco/)
-- Fernanda Baquero [Github](https://github.com/resc3255) -[LinkedIn](https://www.linkedin.com/in/fernanda-baquero-garrido/)
-  
-*-Tester QA:**
-  
-- Nicolas Gallardo [Github](https://github.com/NaikoG)- [LinkedIn](https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/)
+### 🎨 UX/UI:
 
+#### 🛠️ Tech Stack:
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white)
+![Adobe Color](https://img.shields.io/badge/Adobe_Color-FF0000?style=for-the-badge&logo=Adobe-Color&logoColor=white)
+![Figjam](https://img.shields.io/badge/Figjam-F0E3FF?style=for-the-badge&logo=Figjam&logoColor=white)
+
+#### 🧑‍💻 Designers:
+
+| <img src="https://media.licdn.com/dms/image/D4D35AQEPMDLPMVj8Tw/profile-framedphoto-shrink_800_800/0/1664980896630?e=1690923600&v=beta&t=aLbRpWwBMhKclDkGgFDVLPedUnNImBGMK9kADSv33VA" width=50>| <img src="https://media.licdn.com/dms/image/D4D35AQHKlWKeXpOnBw/profile-framedphoto-shrink_800_800/0/1687607346176?e=1690923600&v=beta&t=XqMIBY2ofdVPESuixuUs9IDPWlDFLhUKyB6DSDg66FQ" width=50>
+|:-:|:-:|
+| **Alejandra Lomónaco**|**Fernanda Baquero**|
+| <a href="https://www.behance.net/lissethhiguita"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alejandraelomonaco/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/>| <a href="https://www.behance.net/lissethhiguita"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a> <a href="https://www.linkedin.com/in/fernanda-baquero-garrido/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/>
+
+<hr/>
 
 ![Trabajando en Intellij](https://i.ibb.co/V95thKY/608f9226-2265-45ee-ab93-2c7634d40348.jpg)
 
