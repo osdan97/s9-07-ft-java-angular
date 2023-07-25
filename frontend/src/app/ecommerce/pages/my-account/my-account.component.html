@@ -1,7 +1,13 @@
 <div class="contenedora">
   <div class="mi-cuenta"><h2 class="mi-cuenta">Mi cuenta</h2></div>
   <app-form-person></app-form-person>
-  <app-form-casa></app-form-casa>
+  <app-info-person></app-info-person>
+  <div *ngIf="status_casa === false; else second">
+    <app-info-casa (salida)="changeStatus($event)"></app-info-casa>
+  </div>
+  <ng-template #second>
+    <app-form-casa></app-form-casa>
+  </ng-template>
 
   <div class="historial">
     <div class="bloque-historial">
