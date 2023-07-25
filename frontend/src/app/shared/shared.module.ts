@@ -19,6 +19,7 @@ import { FormCasaComponent } from './form-casa/form-casa.component';
 import { QuantityPipe } from './pipes/quantity.pipe';
 import { CategoriesComponent } from './categories/categories.component';
 import { AuthModule } from '../auth/auth.module';
+import { PaisesComponent } from './paises/paises.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AuthModule } from '../auth/auth.module';
     FormCasaComponent,
     QuantityPipe,
     CategoriesComponent,
+    PaisesComponent,
   ],
   imports: [
     CommonModule,
@@ -57,6 +59,7 @@ import { AuthModule } from '../auth/auth.module';
     FormCasaComponent,
     CategoriesComponent,
     QuantityPipe,
+    PaisesComponent,
   ],
 })
 export class SharedModule {}

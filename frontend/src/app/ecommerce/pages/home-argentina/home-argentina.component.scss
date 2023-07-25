@@ -1,13 +1,20 @@
 @import "src/styles.scss";
 
-/* .img-contenedor {
-  width: 100%;
-  height: 200px;
- // background-color: $background-white;
-  //box-shadow: $categories-shadow;
+.productos-contenedor{
+  display: flex;
+  justify-content:flex-end;
 }
-img{
-height: 100%;
-width: 100%;
+.filtro{
+  display: block;
+  padding-top: 100px;
+  font-family: 'Quicksand';
 }
-*/
+.categoria{
+  font-weight: 700;
+  font-size: 20px;
+  
+}
+.producto{
+  margin-right: 20px;
+  width: 900px;
+}
