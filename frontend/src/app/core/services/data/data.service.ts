@@ -20,8 +20,7 @@ export class DataService {
   getProducts(
     page: number,
     country?: string,
-    category?: string,
-    save?: boolean
+    category?: string
   ): Observable<ProductsResponse[]> {
     let params = new HttpParams().set('page', page.toString());
 
@@ -38,12 +37,6 @@ export class DataService {
       .pipe(
         tap((products) => {
           this.dataProducts.next(products);
-
-          console.log(save);
-
-          if (save) {
-            sessionStorage.removeItem('products');
-          }
           sessionStorage.setItem('products', JSON.stringify(products));
         })
       );

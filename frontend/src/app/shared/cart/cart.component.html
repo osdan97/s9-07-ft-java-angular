@@ -1,9 +1,12 @@
 <article
-  class="cart__container"
+  class="cart"
   [ngClass]="{ borderDisabled: showBorder }"
   [ngStyle]="disableShadow ? estiloActivo : estiloInactivo"
 >
-  <div *ngIf="cartProduct().length > 0; else noProductsAdd">
+  <div
+    class="cart__container"
+    *ngIf="cartProduct().length > 0; else noProductsAdd"
+  >
     <div class="cart__cross" (click)="emitirValor()" *ngIf="showCross">x</div>
     <h2 *ngIf="showTile">Tu carrito</h2>
     <div class="cart__content" *ngFor="let item of cartProduct()">

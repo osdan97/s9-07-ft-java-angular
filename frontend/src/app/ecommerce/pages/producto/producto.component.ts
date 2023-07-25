@@ -32,7 +32,6 @@ export class ProductoComponent implements OnInit {
   getProductById(id: string) {
     this.dataSerivice.getProductById(id).subscribe((res) => {
       this.product = res;
-      console.log(res);
       this.getDataProduct(this.product.category.name.toLowerCase());
     });
   }
