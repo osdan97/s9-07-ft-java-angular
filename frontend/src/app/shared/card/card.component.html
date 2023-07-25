@@ -9,11 +9,11 @@
       }"
     ></i>
   </div>
-  <div class="imagen-text" [routerLink]="'product/' + product.id">
+  <div class="imagen-text" [routerLink]="routeLink + product.id">
     <img [src]="product.image" [alt]="product.name" />
   </div>
   <div class="contenido">
-    <div class="text__products" [routerLink]="'product/' + product.id">
+    <div class="text__products" [routerLink]="routeLink + product.id">
       <h3 class="title">{{ product.name }}</h3>
       <p class="description">
         {{ product.category.name }}

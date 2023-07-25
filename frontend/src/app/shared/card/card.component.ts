@@ -22,6 +22,7 @@ export class CardComponent implements OnInit {
   addCartForm!: FormGroup;
   isLogued = false;
   changeRouter = false;
+  routeLink = '';
 
   quantity = signal<number>(1);
   viewIsFavorite = signal<boolean>(false);
@@ -35,15 +36,23 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
     this.addCartForm = this.initForm();
 
+    const currentUrl = this.router.url;
+    const productRoute = currentUrl.split('/')[1];
+
+    if (this.router.url === '/') {
+      this.routeLink = 'product/';
+    } else if (productRoute === 'product') {
+      this.routeLink = '../../product/';
+    } else {
+      this.routeLink = '../product/';
+    }
+
     this.userService.favorites$.subscribe((favorites) => {
       const response = favorites.some(
         (item: Product) => item.id === this.product.id
       );
       this.viewIsFavorite.set(!response);
     });
-
-    const currentUrl = this.router.url;
-    const productRoute = currentUrl.split('/')[1];
 
     if (productRoute === 'product') {
       this.changeRouter = true;
