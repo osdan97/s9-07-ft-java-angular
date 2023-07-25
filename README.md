@@ -56,7 +56,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 | <img src="https://media.licdn.com/dms/image/D4E03AQEHmoF8CznUwg/profile-displayphoto-shrink_800_800/0/1685988077714?e=1691625600&v=beta&t=NIKbr9HBRdDpWNcYIIXXVoqDxSfCrtMUJmMHrWFG3PU" width=50>| <img src="https://media.licdn.com/dms/image/D4E35AQHKQPZaBucRPg/profile-framedphoto-shrink_800_800/0/1685727400552?e=1690488000&v=beta&t=S_L9KwhFqcsVJuuNI6edmHLtuluBiPUK5sCQomrmFpE" width=50>|<img src="https://media.licdn.com/dms/image/D4D35AQGrEfrzmDG1EA/profile-framedphoto-shrink_800_800/0/1689879377058?e=1690488000&v=beta&t=ut6nJe2fxVJ26u8SmsCYdt3QksSyIRN5sM7QKfBommo" width=50>|<img src="https://media.licdn.com/dms/image/D4E03AQHx_uU1tOsXDg/profile-displayphoto-shrink_800_800/0/1676689071147?e=1695254400&v=beta&t=z_722fJuM2c-h9Ynku5RPMDafED9fZw9jcusO4zpgXg" width=50>|
 |:-:|:-:|:-:|:-:|
 | **Alfonso Almonte**| **Andres Castro**| **Antonella Lusardi**| **Oscar Jurado**| 
-| <a href="https://github.com/j3v1t0"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alfonso-almonte-a7640485/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a><p><img src="https://static.vecteezy.com/system/resources/previews/002/450/303/original/illustration-of-dominican-republic-flag-free-vector.jpg" width=50/></p> | <a href="https://github.com/Nirsch95"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andresfcastrom/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/AntoCLus"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/antonella-lusardi-45622a20/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/osdan97"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/oscar-jurado-9789it/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
+| <a href="https://github.com/j3v1t0"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/alfonso-almonte-a7640485/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a><p><img src="https://static.vecteezy.com/system/resources/previews/002/450/303/original/illustration-of-dominican-republic-flag-free-vector.jpg" width=50/></p> | <a href="https://github.com/Nirsch95"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/andresfcastrom/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <img src="https://i0.wp.com/casatextil.co/wp-content/uploads/2018/05/Tela-bandera-de-Colombia-en-antifluido-impermeable.jpg?fit=700%2C500&ssl=1" width=50/></p> | <a href="https://github.com/AntoCLus"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/antonella-lusardi-45622a20/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/osdan97"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/oscar-jurado-9789it/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | 
   
 ### ⚛️ Front End:
 
@@ -77,31 +77,30 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 | <a href="https://github.com/Metaldev-06"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/fernandodiaz62/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/jhonpulido1990"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/jhon-jairo-pulido-462a9066/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |<a href="https://github.com/LuMarka"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/luisa-markarian-itdeveloper/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |<a href="https://github.com/BelenFrak"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/belen-fraca-287272248/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |<a href="https://github.com/MaxiFusco"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/maximiliano-adrian-fusco-5bb3a8226/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 <hr/>
+### 🔎🐞🧪 TESTING:
 
+#### 🛠️ Tech Stack:
+![JMeter](https://img.shields.io/badge/apache_jmeter-white?style=for-the-badge&logo=apache-jmeter&logoColor=F24E1E)
+![TestLink](https://img.shields.io/badge/TestLink-yellow?style=for-the-badge&logo=apache-testlink&logoColor=F24E1E)
+![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
+![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
+
+#### 🧑‍💻 QA Testers:
+
+| <img src="https://media.licdn.com/dms/image/D4D35AQF7RP70HuNq_Q/profile-framedphoto-shrink_800_800/0/1683234938737?e=1690920000&v=beta&t=iYIcIZ1-FVo6CE4u1Jwu6nQ3dWL1fpVp3KkxtHopjug" width=50>|
+|:-:|
+| **Nicolas Gallardo**| 
+| <a href="https://github.com/MaxiFusco"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a>|<a href="https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
   
 **- UX/UI:**
 
 - Alejandra Lomónaco [Github](https://github.com/aleelomonaco) - [LinkedIn](https://www.linkedin.com/in/alejandraelomonaco/)
 - Fernanda Baquero [Github](https://github.com/resc3255) -[LinkedIn](https://www.linkedin.com/in/fernanda-baquero-garrido/)
   
-🧪*-Tester QA:**
+*-Tester QA:**
   
 - Nicolas Gallardo [Github](https://github.com/NaikoG)- [LinkedIn](https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/)
 
-# TECNOLOGÍAS APLICADAS
-
-
-## BACKEND
-
-#### -Spring Boot, Spring Security, Lombok, JWT
-
-#### -Spring Data
-
-#### -JPA
-
-#### -MySQL
-
-#### -Intellij IDEA
 
 ![Trabajando en Intellij](https://i.ibb.co/V95thKY/608f9226-2265-45ee-ab93-2c7634d40348.jpg)
 
