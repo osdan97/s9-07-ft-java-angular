@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeArgentinaRoutingModule } from './home-argentina-routing.module';
-import { HomeArgentinaComponent } from './home-argentina.component';
+import { HomeCountriesRoutingModule } from './home-countries-routing.module';
+import { HomeCountriesComponent } from './home-countries.component';
 import { PrimeNgModule } from 'src/app/prime-ng/prime-ng.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    HomeArgentinaComponent
+    HomeCountriesComponent
   ],
   imports: [
     CommonModule,
-    HomeArgentinaRoutingModule,
+    HomeCountriesRoutingModule,
     PrimeNgModule,
     SharedModule
   ]
 })
-export class HomeArgentinaModule { }
+export class HomeCountriesModule { }
