@@ -15,9 +15,14 @@ export class MyAccountComponent implements OnInit {
   dataSerivice = inject(DataService);
   userService = inject(UserService);
   cookieService = inject(CookieService);
+  status_casa = false;
 
   ngOnInit(): void {
     this.getFavorites();
+  }
+
+  changeStatus(newBoolean: boolean) {
+    this.status_casa = newBoolean;
   }
 
   getFavorites() {

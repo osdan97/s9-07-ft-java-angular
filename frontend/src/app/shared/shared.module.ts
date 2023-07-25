@@ -20,6 +20,8 @@ import { QuantityPipe } from './pipes/quantity.pipe';
 import { CategoriesComponent } from './categories/categories.component';
 import { AuthModule } from '../auth/auth.module';
 import { PaisesComponent } from './paises/paises.component';
+import { InfoCasaComponent } from './info-casa/info-casa.component';
+import { InfoPersonComponent } from './info-person/info-person.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { PaisesComponent } from './paises/paises.component';
     QuantityPipe,
     CategoriesComponent,
     PaisesComponent,
+    InfoCasaComponent,
+    InfoPersonComponent,
   ],
   imports: [
     CommonModule,
@@ -60,6 +64,8 @@ import { PaisesComponent } from './paises/paises.component';
     CategoriesComponent,
     QuantityPipe,
     PaisesComponent,
+    InfoCasaComponent,
+    InfoPersonComponent,
   ],
 })
 export class SharedModule {}

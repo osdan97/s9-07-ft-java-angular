@@ -1,6 +1,6 @@
 @import "src/styles.scss";
 
-.cart__container {
+.cart {
   width: 100%;
   // max-width: 350px;
   max-height: 700px;
@@ -15,6 +15,13 @@
   color: $text-color-primary;
   border: none;
   overflow-y: auto;
+
+  .cart__container {
+    min-height: 285px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   h2 {
     font-weight: 500;
