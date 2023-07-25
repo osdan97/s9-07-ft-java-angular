@@ -47,6 +47,7 @@ export class HeaderComponent implements OnInit {
       window.scrollTo(0, 0);
       this.visibleCart.set(false);
       this.visible = false;
+      console.log(this.router.url);
       // if (event instanceof NavigationEnd) {
       // }
     });
@@ -64,6 +65,10 @@ export class HeaderComponent implements OnInit {
       this.showCategories.set(false);
     } else {
       this.showCategories.set(true);
+    }
+
+    if (this.router.url === '/home-productos') {
+      this.showCategories.set(false);
     }
   }
 
