@@ -83,7 +83,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 ![Selenium](https://img.shields.io/badge/SELENIUM-white?style=for-the-badge&logo=selenium&logoColor=009929)
 ![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
-<img src="https://img.etimg.com/thumb/msid-98051542,width-1070,height-580,imgsize-5015,overlay-economictimes/photo.jpg" width=100>
+<img src="https://img.etimg.com/thumb/msid-98051542,width-1070,height-580,imgsize-5015,overlay-economictimes/photo.jpg" width=80>
 
 
 
@@ -100,7 +100,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 #### 🛠️ Tech Stack:
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white)
-![Adobe Color](https://img.shields.io/badge/Adobe_Color-FF0000?style=for-the-badge&logo=Adobe-Color&logoColor=white)
+![Adobe Illustrator](https://img.shields.io/badge/ADOBE_ILLUSTRATOR-F2AE30?style=for-the-badge&logo=adobe-illustrator&logoColor=593E25)
 ![Figjam](https://img.shields.io/badge/Figjam-F0E3FF?style=for-the-badge&logo=Figjam&logoColor=white)
 
 #### 🧑‍💻 Designers:
