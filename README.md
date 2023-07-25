@@ -85,12 +85,14 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Trello](https://img.shields.io/badge/trello-blue?style=for-the-badge&logo=trello&logoColor=white)
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 
-#### 🧑‍💻 QA Tester:
+### 🎨 QA Manual:
 
 | <img src="https://media.licdn.com/dms/image/D4D35AQF7RP70HuNq_Q/profile-framedphoto-shrink_800_800/0/1683234938737?e=1690920000&v=beta&t=iYIcIZ1-FVo6CE4u1Jwu6nQ3dWL1fpVp3KkxtHopjug" width=50>|
 |:-:|
-| **Nicolas Gallardo**| 
-| <a href="https://github.com/MaxiFusco"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a>|<a href="https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/></p>|
+| **Nicolas Gallardo**|
+| <a href="https://www.linkedin.com/in/nicolas-gallardo-qa-engineer-8076321a9/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/></p>|
+
+<hr/>
 
 ### 🎨 UX/UI:
 
@@ -108,7 +110,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 <hr/>
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/1200px-Flag_of_Argentina.svg.png" width=50/></p> #### 🧑‍💻 Develoment Tools:
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1200px-IntelliJ_IDEA_Icon.svg.png" width=50/></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1200px-IntelliJ_IDEA_Icon.svg.png" width=50/> | <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" width=50/></p>
 - Trabajando en Intellij Idea-
 ![Trabajando en Intellij](https://i.ibb.co/V95thKY/608f9226-2265-45ee-ab93-2c7634d40348.jpg)
 
