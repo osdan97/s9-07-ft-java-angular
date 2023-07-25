@@ -122,6 +122,17 @@ const routes: Routes = [
         canMatch: [AuthGuard],
       },
       {
+        path: 'legales',
+        loadChildren: () =>
+          import('./pages/legales/legales.module').then(
+            (m) => m.LegalesModule
+          ),
+        canActivate: [AuthGuard],
+        canMatch: [AuthGuard],
+      },
+      
+
+      {
         path: 'home-productos',
         loadChildren: () =>
           import('./pages/home-productos/home-productos.module').then(
