@@ -161,6 +161,15 @@ const routes: Routes = [
         canActivate: [AuthGuard],
         canMatch: [AuthGuard],
       },
+      {
+        path: 'quienessomos',
+        loadChildren: () =>
+          import(
+            './pages/quienessomos/quienessomos.module'
+          ).then((m) => m.QuienessomosModule),
+        canActivate: [AuthGuard],
+        canMatch: [AuthGuard],
+      },
     ],
   },
 ];
