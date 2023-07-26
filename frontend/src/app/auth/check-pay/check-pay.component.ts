@@ -114,6 +114,15 @@ export class CheckPayComponent implements OnInit {
   sendData() {
     const cart = JSON.parse(localStorage.getItem('cart') || '{}');
 
+    const orderDetailsList = cart.map((item: any) => {
+      return {
+        product: {
+          id: item.id,
+        },
+        quantity: item.quantity,
+      };
+    });
+
     console.log(cart);
 
     const body: any = {
@@ -121,20 +130,7 @@ export class CheckPayComponent implements OnInit {
         accountUuid: this.userData.accountUuid,
       },
       shippingCost: 7.95,
-      orderDetailsList: [
-        {
-          product: {
-            id: '91ca771e-9329-4d24-ba20-e0e71cec9161',
-          },
-          quantity: 5,
-        },
-        {
-          product: {
-            id: '6e389e93-7d2a-411c-a3bb-f27f8ee9cf69',
-          },
-          quantity: 21,
-        },
-      ],
+      orderDetailsList: orderDetailsList,
       shippingDetails: {
         shippingdetail_uuid: this.shippingData.shippingDetailUuid,
         name: this.userData.name,
@@ -153,7 +149,11 @@ export class CheckPayComponent implements OnInit {
     //   'ordersData',
     //   JSON.stringify(this.shippingDetail.value)
     // );
+
+    // console.log(body);
+
     this.chekautService.addOrder(body, this.userData.token).subscribe((res) => {
+      localStorage.setItem('order', JSON.stringify(res));
       console.log(res);
     });
   }

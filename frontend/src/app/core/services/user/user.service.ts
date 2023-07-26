@@ -100,10 +100,15 @@ export class UserService {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.delete<any>(
-      `${this.baseUrl}favorites/deletebyproduct/${userId}/${product.id}`,
-      { headers }
-    );
+    const body = {
+      customers: userId,
+      product: product.id,
+    };
+
+    return this.http.delete<any>(`${this.baseUrl}favorites/deletefavorite`, {
+      headers,
+      body,
+    });
   }
 
   addUserData(body: any, token: string): Observable<any> {
