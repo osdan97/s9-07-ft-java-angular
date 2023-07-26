@@ -3,7 +3,7 @@
     <img
       class="logo"
       src="../../../../assets/images/logo.svg"
-      alt=""
+      alt="logo"
       routerLink=""
       width="220"
     />
@@ -15,7 +15,7 @@
         <app-navbar-categories></app-navbar-categories>
       </div>
       <div class="info__producs">
-        <button>Productos</button>
+        <button routerLink="products">Productos</button>
         <button routerLink="shipping-info">Info de Envíos</button>
       </div>
 
@@ -30,7 +30,19 @@
           <i class="pi pi-user" (click)="showDialog()"></i>
         </h3>
         <!-- <i class="pi pi-shopping-cart"></i> -->
-        <i class="pi pi-shopping-cart" (click)="showDialogCart()"></i>
+        <div class="cart__container--icon">
+          <i class="pi pi-shopping-bag" (click)="showDialogCart()"></i>
+          <span
+            class="badge__cart"
+            *ngIf="totalProductToCart() > 0"
+            [ngStyle]="
+              isLoged
+                ? { backgroundColor: '#4af6d7' }
+                : { backgroundColor: '#EAEAEA' }
+            "
+            >{{ totalProductToCart() }}</span
+          >
+        </div>
 
         <div class="cart__container" *ngIf="visibleCart()" #menuContainer>
           <app-cart

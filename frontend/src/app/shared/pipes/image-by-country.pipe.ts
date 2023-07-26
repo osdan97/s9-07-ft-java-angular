@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ImageByCountryPipe implements PipeTransform {
   private countryImages: { [country: string]: string } = {
-    Argentina: '../../../../../../assets/images/argentina.svg',
+    Argentina: '../../../../../../assets/images/argentina.jpg',
     Colombia: '../../../../../../assets/images/colombia.svg',
     Mexico: '../../../../../../assets/images/mexico.svg',
     Venezuela: '../../../../../../assets/images/venezuela.svg',

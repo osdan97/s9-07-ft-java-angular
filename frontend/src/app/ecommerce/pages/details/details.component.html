@@ -1,120 +1,160 @@
-<div class="contenedor1">
+<section class="details__container">
+  <div class="contenedor1">
     <p class="titulo">Confirmar Compra</p>
-    <div class="carrito"> 
+    <div class="carrito">
       <div class="cart">
-        <p class="titulo-pedido" >Tu pedido</p>
-        <app-cart [changeButton]="false" [showBorder]="true" [showCross]="false" [isHidden]="false"[details]="false" ></app-cart>
-         </div>
-        <hr class="vertical">
-        <div class="menu-detalle">
+        <p class="titulo-pedido">Tu pedido</p>
+        <app-cart
+          [changeButton]="false"
+          [showBorder]="true"
+          [showCross]="false"
+          [isHidden]="false"
+          [details]="false"
+          [disableShadow]="true"
+        ></app-cart>
+      </div>
+
+      <div class="menu-detalle">
         <div class="item">
-          <div class="titulo-detalle"><p>Detalle del pedido</p> </div>
-          <div class="items"><p class="items-negrita">Numero de pedido:</p>  <span>5655864614</span> </div>
-          <div class="items"><p class="items-negrita">Peso Total:</p> <span>15kg</span>  </div>
-          <div class="items"><p class="items-negrita">IVA:</p> <span id="porcentaje">(+19%)</span>   </div>
-          <div class="items"><p class="items-negrita">Fecha de pedido:</p>  <span>13:05 14/07/2023</span>   </div>    
+          <div class="titulo-detalle"><p>Detalle del pedido</p></div>
+          <div class="items">
+            <p class="items-negrita">Numero de pedido:</p>
+            <span>5655864614</span>
+          </div>
+          <div class="items">
+            <p class="items-negrita">Peso Total:</p>
+            <span>15kg</span>
+          </div>
+          <div class="items">
+            <p class="items-negrita">IVA:</p>
+            <span id="porcentaje">(+19%)</span>
+          </div>
+          <div class="items">
+            <p class="items-negrita">Fecha de pedido:</p>
+            <span>13:05 14/07/2023</span>
+          </div>
         </div>
-        <div class="item2">   
-          <div class="items"><p class="items-negrita2">Subtotal</p> <span><b>€8</b></span>  </div>
-          <div class="items"><p class="items-negrita2">Envio</p> <span><b>€7</b></span>   </div>
-          <div class="items"><p class="items-negrita2">Total</p>  <span><b>€15</b></span>   </div>  
+        <div class="item2">
+          <div class="items">
+            <p class="items-negrita2">Subtotal</p>
+            <span><b>€8</b></span>
+          </div>
+          <div class="items">
+            <p class="items-negrita2">Envio</p>
+            <span><b>€7</b></span>
+          </div>
+          <div class="items">
+            <p class="items-negrita2">Total</p>
+            <span><b>€15</b></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-        </div>
-        </div>
-        </div>
- </div>       
-
- <div class="contenedor2">
-  <div class="barra">
-    <div class="titulo-barra"><p>Datos personales</p></div>
-    <div class="seleccionado">
+  <div class="contenedor2">
+    <div class="barra">
+      <div class="titulo-barra"><p>Datos personales</p></div>
+      <div class="seleccionado">
         <div class="description">
           <div>
-            <img class="imagen"
+            <img
+              class="imagen"
               src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="foto">
+              alt="foto"
+            />
           </div>
+
           <div>
-            <p style="text-align: start;">Mariano García Machado</p>
-            <p style="text-align: start;">Mariano_garcia@gmail.com</p>
+            <p style="text-align: start"><b>Mariano García Machado</b></p>
+            <p style="text-align: start">Mariano_garcia@gmail.com</p>
           </div>
         </div>
         <div>
           <p>+34.652.253.478</p>
         </div>
       </div>
-</div>
+    </div>
 
-<div class="barra">
-    <div class="titulo-barra"><p>Direccion de entrega</p></div>
-    <div class="seleccionado2">
+    <div class="barra">
+      <div class="titulo-barra"><p>Direccion de entrega</p></div>
+      <div class="seleccionado2">
         <div class="description">
           <div>
-            <img class="imagen"
+            <img
+              class="imagen"
               src="../../../../assets/images/placeMarker.jpg"
-              alt="foto">
+              alt="foto"
+            />
           </div>
           <div>
-            <p style="text-align: start;"><b>Argentina</b></p>
-            <p style="text-align: start;">Calle falsa </p>
+            <p style="text-align: start"><b>Argentina</b></p>
+            <p style="text-align: start">Calle falsa</p>
           </div>
           <div>
-            <p style="text-align: start;">Mendoza</p>
-            <p style="text-align: start;"> 123</p>
+            <p style="text-align: start">Mendoza</p>
+            <p style="text-align: start">123</p>
           </div>
         </div>
       </div>
-</div>
+    </div>
 
-<div class="barra">
-    <div class="titulo-barra"><p>Metodo de envio elegido</p><span>Impuestos inluidos</span></div>
-        <div class="seleccionado-envio">
-          <div class="imagen-envio">
-            <img class="imagen"
-              src="../../../../assets/images/ups.png"
-              alt="foto">
-          </div>
-          <div class="empresa-envio">
+    <div class="barra">
+      <div class="titulo-barra">
+        <p>Metodo de envio elegido</p>
+        <span>Impuestos inluidos</span>
+      </div>
+      <div class="seleccionado-envio">
+        <div class="imagen-envio">
+          <img
+            class="imagen"
+            src="../../../../assets/images/ups.png"
+            alt="foto"
+          />
+        </div>
+        <div class="empresa-envio">
           <p>UPS</p>
-          </div>
-          <div class="demora">
+        </div>
+        <div class="demora">
           <p>Entrega en 48 a 72 hs</p>
-          </div>
+        </div>
         <div class="costo-envio">
           <p>€7.95</p>
         </div>
-
-        
+      </div>
     </div>
-</div>
 
-<div class="barra">
-    <div class="titulo-barra"><p>Pago elegido</p></div>
-        <div class="seleccionado-pago">
-            <p>Pago con Tarjeta (Crédito/Débito)</p>
-            <img src="../../../assets/images/Visa.png" alt="">
-            <img src="../../../assets/images/MasterCard.png" alt="">
-            <img src="../../../assets/images/AmericanExpress.png" alt="">
+    <div class="barra">
+      <div class="titulo-barra"><p>Pago elegido</p></div>
+      <div class="seleccionado-pago">
+        <p>Pago con Tarjeta (Crédito/Débito)</p>
+        <img src="../../../assets/images/Visa.png" alt="" />
+        <img src="../../../assets/images/MasterCard.png" alt="" />
+        <img src="../../../assets/images/AmericanExpress.png" alt="" />
       </div>
     </div>
 
     <div class="barra-button">
-        <div class="seleccionado2-button">
-            <div class="description-button">
-              <div class="privacidad">
-                <p>Los datos personales se utilizaran para procesar tu pedido,
-                     mejorar tu experiencia en esta web y otros propósitos descriptos en nuestra política de privacidad. </p>
-               </div>
-               <div class="condiciones">
-                <input type="checkbox"> He leído y estoy de acuerdo con los términos y condiciones de  la web.
-              </div>
-            </div>
-            <div class="div-button">
-            <button class="button">Confirmar pago</button>
+      <div class="seleccionado2-button">
+        <div class="description-button">
+          <div class="privacidad">
+            <p>
+              Los datos personales se utilizaran para procesar tu pedido,
+              mejorar tu experiencia en esta web y otros propósitos descriptos
+              en nuestra política de privacidad.
+            </p>
           </div>
+          <div class="condiciones">
+            <input type="checkbox" /> He leído y estoy de acuerdo con los
+            términos y condiciones de la web.
           </div>
+        </div>
+        <div class="div-button">
+          <button class="button" [routerLink]="'/confirmation'">
+            <p>Confirmar pago</p>
+          </button>
+        </div>
+      </div>
     </div>
-
-</div>
-
-
+  </div>
+</section>

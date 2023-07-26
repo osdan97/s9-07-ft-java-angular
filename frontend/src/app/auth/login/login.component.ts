@@ -8,15 +8,15 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import jwtDecode from 'jwt-decode';
 import { CookieService } from 'ngx-cookie-service';
+import { Notify } from 'notiflix';
 import { take } from 'rxjs';
 import {
   LoginResponse,
-  Payload,
   UserData,
 } from 'src/app/core/interfaces/auth.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -26,15 +26,19 @@ import { AuthService } from 'src/app/core/services/auth/auth.service';
 export class LoginComponent implements OnInit {
   @Output() visible = new EventEmitter<boolean>();
   @Input() showLogo = true;
+  @Input() isNormalLogin = true;
   loginForm!: FormGroup;
 
   authService = inject(AuthService);
   formBuilder = inject(FormBuilder);
   cookieService = inject(CookieService);
   router = inject(Router);
+  userService = inject(UserService);
 
   ngOnInit(): void {
     this.loginForm = this.initFormLogin();
+
+    Notify.init({ position: 'right-bottom' });
   }
 
   initFormLogin(): FormGroup {
@@ -61,13 +65,19 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(this.loginForm.value)
       .pipe(take(1))
-      .subscribe((resp: LoginResponse) => {
-        // this.cookieService.set('accessToken', resp.token);
-        this.getUserData(resp.token);
+      .subscribe({
+        next: (resp: LoginResponse) => {
+          // this.cookieService.set('accessToken', resp.token);
+          this.getUserData(resp.token);
 
-        if (this.router.routerState.snapshot.url === '/create-user') {
-          this.router.navigate(['/']);
-        }
+          if (this.router.routerState.snapshot.url === '/create-user') {
+            this.router.navigate(['/']);
+          }
+        },
+        error: () => {
+          this.showMessageFailed();
+          console.clear();
+        },
       });
   }
 
@@ -82,10 +92,18 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('userData', JSON.stringify(newUserData));
         this.authService.setAutenticate(true);
+
+        const token = this.cookieService.get('accessToken');
+
+        this.userService.refreshFavorites(token);
       });
   }
 
   closeDialog() {
     this.visible.emit(false);
+  }
+
+  showMessageFailed(): void {
+    Notify.failure('Correo o contraseña incorrectos');
   }
 }

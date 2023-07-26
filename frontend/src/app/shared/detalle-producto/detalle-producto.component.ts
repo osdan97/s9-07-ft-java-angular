@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Message } from 'primeng/api';
+import {
+  CartProduct,
+  ProductById,
+} from 'src/app/core/interfaces/products.interfaces';
+import { Product } from 'src/app/core/interfaces/user.interfaces';
 
 @Component({
   selector: 'app-detalle-producto',
@@ -8,9 +13,9 @@ import { Message } from 'primeng/api';
 })
 export class DetalleProductoComponent {
   messages!: Message[];
+  @Input() product!: CartProduct | any;
 
   showQuantityProduc(product: any) {
-    console.log(product);
     this.messages = [
       {
         severity: 'success',

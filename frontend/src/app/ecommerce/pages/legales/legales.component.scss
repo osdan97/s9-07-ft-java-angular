@@ -1,0 +1,48 @@
+@import "src/styles.scss";
+
+.contenedora {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0 80px;
+  color: $text-color-primary;
+}
+
+h3 {
+  font-size: $heading1;
+  font-family: "Quicksand", sans-serif;
+}
+
+h5 {
+  font-size: $heading2;
+  font-family: "Quicksand", sans-serif;
+}
+
+p {
+  font-size: $heading3;
+  font-family: "Quicksand", sans-serif;
+}
+
+@include media-up(mobile) {
+  .contenedora {
+    width: 80%;
+  }
+}
+
+@include media-up(tablet) {
+  .contenedora {
+    width: 80%;
+  }
+}
+
+@include media-up(ipad) {
+  .contenedora {
+    width: 80%;
+  }
+}
+
+@include media-up(screenXs) {
+  .contenedora {
+    width: 80%;
+  }
+}

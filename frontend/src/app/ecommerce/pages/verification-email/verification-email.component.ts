@@ -23,7 +23,6 @@ export class VerificationEmailComponent implements OnInit {
   getToken() {
     this.route.params.pipe(take(1)).subscribe((params) => {
       const token = params['token'];
-      console.log(token);
       this.verificationAccount(token);
     });
   }
@@ -37,7 +36,6 @@ export class VerificationEmailComponent implements OnInit {
         })
       )
       .subscribe((res) => {
-        console.log(res);
         this.title.set('¡Cuenta verificada!');
         this.subtitle.set('Ya puedes iniciar sesión');
       });

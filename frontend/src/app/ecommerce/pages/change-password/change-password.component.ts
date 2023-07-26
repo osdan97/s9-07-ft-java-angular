@@ -1,23 +1,41 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.scss']
+  styleUrls: ['./change-password.component.scss'],
 })
 export class ChangePasswordComponent {
-  contra_actual = new FormControl('', [Validators.required, Validators.minLength(8)]);
-  new_pass = new FormControl('', [Validators.required, Validators.minLength(8)]);
-  confir_pass = new FormControl('', [Validators.required, Validators.minLength(8)]);
+  contra_actual = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+  ]);
+  new_pass = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+  ]);
+  confir_pass = new FormControl('', [
+    Validators.required,
+    Validators.minLength(8),
+  ]);
 
-  form = new FormGroup({
-    contra_actual: this.contra_actual,
-    new_pass: this.new_pass,
-    confir_pass: this.confir_pass
-  }, {
-    validators: [this.camposIguales('new_pass', 'confir_pass')],
-  })
+  form = new FormGroup(
+    {
+      contra_actual: this.contra_actual,
+      new_pass: this.new_pass,
+      confir_pass: this.confir_pass,
+    },
+    {
+      validators: [this.camposIguales('new_pass', 'confir_pass')],
+    }
+  );
 
   camposIguales(campo1: string, campo2: string) {
     return (formGroup: AbstractControl): ValidationErrors | null => {
@@ -38,6 +56,6 @@ export class ChangePasswordComponent {
     if (this.form.valid) {
       console.log(this.form.value);
     }
-    this.form.markAllAsTouched()
+    this.form.markAllAsTouched();
   }
 }

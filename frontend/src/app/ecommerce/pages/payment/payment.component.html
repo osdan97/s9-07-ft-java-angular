@@ -1,7 +1,14 @@
 <div class="components">
   <div>
     <p>Finalizar compra</p>
-    <app-cart></app-cart>
+    <app-cart
+      [showCross]="false"
+      [showPaymentView]="false"
+      [isHidden]="false"
+      [changeButton]="false"
+      [details]="false"
+      [showTrash]="true"
+    ></app-cart>
   </div>
   <app-check-pay></app-check-pay>
 </div>

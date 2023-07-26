@@ -1,0 +1,18 @@
+<div class="banner__countries">
+  <img class="argentina" [src]="banner" alt="foto" />
+</div>
+
+<section class="countries__container">
+  <div class="banner__countries--product">
+    <img class="arg-producto" [src]="image" alt="" />
+  </div>
+  <div class="productos-contenedor">
+    <div class="producto">
+      <app-content-card
+        [products]="products()"
+        [country]="country"
+        [totalPageNumber]="totalPageNumber"
+      ></app-content-card>
+    </div>
+  </div>
+</section>
