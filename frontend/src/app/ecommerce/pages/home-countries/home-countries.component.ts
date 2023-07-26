@@ -14,6 +14,7 @@ export class HomeCountriesComponent implements OnInit {
 
   country = undefined;
   totalPageNumber!: number;
+  image = '';
 
   dataSerivice = inject(DataService);
   route = inject(ActivatedRoute);
@@ -47,6 +48,7 @@ export class HomeCountriesComponent implements OnInit {
 
       this.getDataProduct(country);
       this.getTotalPages(1, country);
+      this.image = `../../../../assets/images/banner-${res['country']}.jpg`;
     });
   }
 
