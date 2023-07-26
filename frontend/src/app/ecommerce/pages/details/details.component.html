@@ -128,33 +128,70 @@
       <div class="titulo-barra"><p>Pago elegido</p></div>
       <div class="seleccionado-pago">
         <p>Pago con Tarjeta (Crédito/Débito)</p>
-        <img src="../../../assets/images/Visa.png" alt="" />
-        <img src="../../../assets/images/MasterCard.png" alt="" />
-        <img src="../../../assets/images/AmericanExpress.png" alt="" />
+        <img src="../../../assets/images/visa.svg" alt="" width="100" />
+        <img src="../../../assets/images/mastercard.svg" alt="" width="100" />
+        <img src="../../../assets/images/american.svg" alt="" width="100" />
       </div>
-    </div>
 
-    <div class="barra-button">
-      <div class="seleccionado2-button">
-        <div class="description-button">
-          <div class="privacidad">
-            <p>
-              Los datos personales se utilizaran para procesar tu pedido,
-              mejorar tu experiencia en esta web y otros propósitos descriptos
-              en nuestra política de privacidad.
-            </p>
+      <form
+        class="form__container"
+        [formGroup]="paymentForm"
+        (ngSubmit)="sendPay()"
+      >
+        <div class="form__content">
+          <div class="number__card">
+            <label for="">Número de la tarjeta</label>
+            <input
+              type="text"
+              placeholder="0000 0000 0000 0000"
+              formControlName="cardNumber"
+            />
           </div>
-          <div class="condiciones">
-            <input type="checkbox" /> He leído y estoy de acuerdo con los
-            términos y condiciones de la web.
+
+          <div class="form__control--container">
+            <div class="form__control">
+              <label for="">Fecha de vencimiento</label>
+              <input
+                type="text"
+                placeholder="MM/AA"
+                formControlName="expirationDate"
+              />
+            </div>
+            <div class="form__control">
+              <label for="">Código de verificación</label>
+              <input type="text" placeholder="000" formControlName="cardCode" />
+            </div>
           </div>
         </div>
-        <div class="div-button">
-          <button class="button" [routerLink]="'/confirmation'">
-            <p>Confirmar pago</p>
-          </button>
+
+        <div class="seleccionado2-button">
+          <div class="description-button">
+            <div class="privacidad">
+              <p>
+                Los datos personales se utilizaran para procesar tu pedido,
+                mejorar tu experiencia en esta web y otros propósitos descriptos
+                en nuestra política de privacidad.
+              </p>
+            </div>
+            <div class="condiciones">
+              <input type="checkbox" formArrayName="check" /> He leído y estoy
+              de acuerdo con los términos y condiciones de la web.
+            </div>
+          </div>
+          <div class="div-button">
+            <button class="button custom__button--fill">
+              <p>Confirmar pago</p>
+            </button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </section>
+
+<!-- <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+  <p class="m-0">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+</p-dialog> -->

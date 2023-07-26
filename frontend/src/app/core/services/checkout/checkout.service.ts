@@ -19,4 +19,9 @@ export class CheckoutService {
       headers,
     });
   }
+
+  addPayment(form: any, token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.post<any>(`${this.baseUrl}pay`, form, { headers });
+  }
 }

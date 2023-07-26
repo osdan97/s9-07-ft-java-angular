@@ -122,6 +122,16 @@ export class UserService {
     );
   }
 
+  getHistoryOrders(token: string): Observable<any> {
+    const { userId }: Payload = jwtDecode(token);
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.get<any>(`${this.baseUrl}orders/by-account/${userId}`, {
+      headers,
+    });
+  }
+
   // getFavoriteProducts(token: string): Observable<Product[]> {
   //   const accessToken: Payload = jwtDecode(token);
 

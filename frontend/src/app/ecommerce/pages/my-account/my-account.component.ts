@@ -11,6 +11,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 })
 export class MyAccountComponent implements OnInit {
   favorites = signal<Product[]>([]);
+  historyHorders = signal<any[]>([]);
 
   dataSerivice = inject(DataService);
   userService = inject(UserService);
@@ -20,6 +21,8 @@ export class MyAccountComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFavorites();
+
+    this.getOrders();
   }
 
   changeStatus(newBoolean: boolean) {
@@ -33,6 +36,16 @@ export class MyAccountComponent implements OnInit {
   getFavorites() {
     this.userService.favorites$.subscribe((favorites) => {
       this.favorites.set(favorites);
+    });
+  }
+
+  getOrders() {
+    const token = this.cookieService.get('accessToken');
+
+    this.userService.getHistoryOrders(token).subscribe((res) => {
+      console.log(res);
+
+      this.historyHorders.set(res);
     });
   }
 }
