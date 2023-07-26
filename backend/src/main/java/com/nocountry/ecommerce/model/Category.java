@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Data
@@ -17,7 +18,7 @@ import java.util.UUID;
 @ToString
 @Entity
 @Table(name = "CATEGORY")
-public class Category {
+public class Category implements Serializable {
     @Id
     @Column(name = "category_uuid")
     private String id;

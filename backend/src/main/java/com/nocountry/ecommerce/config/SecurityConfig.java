@@ -78,7 +78,8 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.POST, "api/orders",
                         "/api/pay")
                 .hasRole(Role.USER.name())
-                .requestMatchers(HttpMethod.GET, "/customer/**").hasRole(Role.USER.name())
+                .requestMatchers(HttpMethod.GET, "/customer/**",
+                        "api/orders/by-account/**").hasRole(Role.USER.name())
 
                 .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
                 .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())

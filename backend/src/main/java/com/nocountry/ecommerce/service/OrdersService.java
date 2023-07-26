@@ -1,6 +1,7 @@
 package com.nocountry.ecommerce.service;
 
 import com.nocountry.ecommerce.dto.OrderRegistration;
+import com.nocountry.ecommerce.dto.OrderRequest;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.model.Orders;
 import com.nocountry.ecommerce.model.Product;
@@ -17,4 +18,7 @@ public interface OrdersService {
     void changeState(String transactionUuid, String transactionState);
 
     Orders getOrderById(String transactionUuid);
+
+    @Transactional
+    List<OrderRequest> getOrdersByAccountUuid(String accountUuid);
 }

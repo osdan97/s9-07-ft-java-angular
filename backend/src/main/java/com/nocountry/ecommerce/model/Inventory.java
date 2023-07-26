@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -15,7 +16,7 @@ import java.util.UUID;
 @ToString
 @Entity
 @Table(name="INVENTORY")
-public class Inventory {
+public class Inventory implements Serializable {
     @Id
     @Column(name = "inventory_uuid", nullable = false,unique = true)
     private String id;

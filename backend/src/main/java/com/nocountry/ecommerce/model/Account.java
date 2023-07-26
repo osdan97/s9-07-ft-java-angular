@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.nocountry.ecommerce.util.enums.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -19,6 +20,7 @@ import java.util.UUID;
 @DiscriminatorColumn(name="entity", discriminatorType=DiscriminatorType.STRING)
 @Entity
 @Table(name = "ACCOUNT")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Account implements Serializable {
 
     @Id

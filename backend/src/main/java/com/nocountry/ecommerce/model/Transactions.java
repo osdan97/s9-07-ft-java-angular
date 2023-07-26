@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -18,7 +20,7 @@ import java.util.UUID;
 @DiscriminatorColumn(name="transaction", discriminatorType= DiscriminatorType.STRING)
 @Entity
 @Table(name = "TRANSACTIONS")
-public class Transactions {
+public class Transactions implements Serializable {
 
     @Id
     @Column(name = "transaction_uuid",nullable = false,unique = true)

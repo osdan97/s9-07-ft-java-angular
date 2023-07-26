@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import java.io.Serializable;
 
 
 @Data
@@ -14,7 +15,7 @@ import lombok.ToString;
 @ToString
 @Entity
 @Table (name= "FAVORITES")
-public class Favorites {
+public class Favorites implements Serializable {
     @Id
     @Column (name = "favorites_uuid")
     private String id;
