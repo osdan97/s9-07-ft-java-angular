@@ -87,6 +87,7 @@ public class FavoritesController {
         }
 
     }
+    @CrossOrigin(origins = "https://s9-07-ft-java-angular-git-front-develop-nocountry-c11-16.vercel.app")
     @DeleteMapping("/deletefavorite")
     public ResponseEntity<?> deleteFavorite(@RequestBody FavoritesDto favoritesDto) {
         try {
