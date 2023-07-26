@@ -88,9 +88,6 @@ public class SecurityConfig {
                         "api/favorites/deletebyproduct/**",
                         "api/favorites/deletefavorite").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
 
-                .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
-
-
                 .requestMatchers("/api/authentication/sign-in",
                         "/api/authentication/sign-up",
                         "/api/user/sign-up",
