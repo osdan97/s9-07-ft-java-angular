@@ -61,6 +61,7 @@ public class OrdersServiceImpl implements OrdersService {
         OrderRegistration orderRegistration = new OrderRegistration();
 
         String transactionUuid = UUID.randomUUID().toString();
+        orderRegistration.setTransactionUuid(transactionUuid);
         order.setTransactionUuid(transactionUuid);
 
         LocalDateTime createdDate = LocalDateTime.now();
