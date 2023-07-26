@@ -43,7 +43,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 ![Spring_Security](https://img.shields.io/badge/spring_security-6DB33F?style=for-the-badge&logo=spring%20security&logoColor=white)
 ![Spring Mail](https://img.shields.io/badge/Spring_Mail-6DB33F?style=for-the-badge&logo=Mail&logoColor=white)
 ![Lombok](https://img.shields.io/badge/Lombok-red?style=for-the-badge)
-![PostgreSQL](https://img.shields.io/badge/postgresql-ffffff?style=for-the-badge&logo=postgresql&logoColor=008bb9)
+![MySQL](https://img.shields.io/badge/MYSQL-ffffff?style=for-the-badge&logo=mysql&logoColor=008bb9)
 ![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
 ![Postman](https://img.shields.io/badge/postman-white?style=for-the-badge&logo=postman&logoColor=orange)
 ![SWAGGER](https://img.shields.io/badge/swagger-6DB33F?style=for-the-badge&logo=swagger&logoColor=white)
