@@ -1,9 +1,22 @@
-<app-paises></app-paises>
-<div class="productos-contenedor">
-    <div class="producto">
- <app-content-card [products]="products()"></app-content-card>
-    </div>
-
+<div class="banner__countries">
+  <img
+    class="argentina"
+    src="../../../../assets/images/banner-arg.png"
+    alt="foto"
+  />
 </div>
 
-  
+<section class="countries__container">
+  <div class="banner__countries--product">
+    <img
+      class="arg-producto"
+      src="../../../../assets/images/banner-arg.jpg"
+      alt=""
+    />
+  </div>
+  <div class="productos-contenedor">
+    <div class="producto">
+      <app-content-card [products]="products()"></app-content-card>
+    </div>
+  </div>
+</section>

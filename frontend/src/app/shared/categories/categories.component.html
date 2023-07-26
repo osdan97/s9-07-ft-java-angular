@@ -1,5 +1,9 @@
 <article class="categories__container">
-  <div class="categories__content" *ngFor="let category of categories()">
+  <div
+    class="categories__content"
+    *ngFor="let category of categories()"
+    [routerLink]="routeLink + category.rute"
+  >
     <div class="categories__card">
       <img [src]="category.image" [alt]="category.name" />
     </div>
@@ -8,6 +12,9 @@
   </div>
 
   <div class="image__container">
-    <img src="../../../assets/images/background__pattern.png" alt="" />
+    <img
+      src="../../../assets/images/background__pattern.png"
+      alt="background pattern"
+    />
   </div>
 </article>

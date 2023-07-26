@@ -5,9 +5,9 @@ import { DataService } from 'src/app/core/services/data/data.service';
 @Component({
   selector: 'app-home-productos',
   templateUrl: './home-productos.component.html',
-  styleUrls: ['./home-productos.component.scss']
+  styleUrls: ['./home-productos.component.scss'],
 })
-export class HomeProductosComponent {
+export class HomeProductosComponent implements OnInit {
   products = signal<ProductsResponse[]>([]);
 
   dataSerivice = inject(DataService);
@@ -24,5 +24,4 @@ export class HomeProductosComponent {
     if (!data) return;
     this.products.set(data);
   }
-
 }

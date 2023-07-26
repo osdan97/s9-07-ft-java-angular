@@ -9,21 +9,23 @@ export class NavbarCategoriesComponent {
   categories = signal([
     {
       name: 'argentina',
-      image: '../../../../../../assets/images/argentina.svg',
+      image: '../../../../../../assets/images/argentina.jpg',
+      rute: 'arg',
     },
-    
     {
       name: 'colombia',
       image: '../../../../../../assets/images/colombia.svg',
-    
+      rute: 'col',
     },
     {
       name: 'mexico',
-      image: '../../../../../../assets/images/mexico.png',
+      image: '../../../../../../assets/images/mexico.svg',
+      rute: 'mex',
     },
     {
       name: 'venezuela',
-      image: '../../../../../../assets/images/venezuela.png',
+      image: '../../../../../../assets/images/venezuela.svg',
+      rute: 'ven',
     },
   ]);
 }

@@ -158,6 +158,7 @@ export class HeaderComponent implements OnInit {
     this.showDialogLogout();
     this.authService.setAutenticate(false);
     sessionStorage.removeItem('favorites');
+    this.router.navigate(['/']);
   }
 
   getProductsToCart() {

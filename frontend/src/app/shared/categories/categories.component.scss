@@ -20,6 +20,8 @@
     cursor: pointer;
     color: $background-primary;
     z-index: 10;
+    color: #202020;
+    font-weight: 500;
 
     .categories__card {
       width: 120px;
@@ -42,6 +44,7 @@
 
   .image__container {
     width: 100%;
+    height: 200px;
     position: absolute;
     top: 0;
     left: 0;
@@ -49,6 +52,7 @@
     z-index: 1;
     img {
       width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }

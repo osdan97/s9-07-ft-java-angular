@@ -143,7 +143,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'home-countries',
+        path: 'products/:country',
         loadChildren: () =>
           import('./pages/home-countries/home-countries.module').then(
             (m) => m.HomeCountriesModule
@@ -164,9 +164,9 @@ const routes: Routes = [
       {
         path: 'quienessomos',
         loadChildren: () =>
-          import(
-            './pages/quienessomos/quienessomos.module'
-          ).then((m) => m.QuienessomosModule),
+          import('./pages/quienessomos/quienessomos.module').then(
+            (m) => m.QuienessomosModule
+          ),
         canActivate: [AuthGuard],
         canMatch: [AuthGuard],
       },
