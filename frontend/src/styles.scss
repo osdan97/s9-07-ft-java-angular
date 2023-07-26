@@ -126,9 +126,10 @@ body {
 }
 
 .chip {
-  background-color: $background-complementary;
+  background-color: #b7fbef;
   color: $background-primary;
   border: $border-primary;
+  font-weight: 500;
 }
 
 .required::after {

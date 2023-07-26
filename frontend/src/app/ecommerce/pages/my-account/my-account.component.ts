@@ -13,6 +13,8 @@ export class MyAccountComponent implements OnInit {
   favorites = signal<Product[]>([]);
   historyHorders = signal<any[]>([]);
 
+  userData!: any;
+
   dataSerivice = inject(DataService);
   userService = inject(UserService);
   cookieService = inject(CookieService);
@@ -23,6 +25,8 @@ export class MyAccountComponent implements OnInit {
     this.getFavorites();
 
     this.getOrders();
+
+    this.userData = JSON.parse(localStorage.getItem('userData')!);
   }
 
   changeStatus(newBoolean: boolean) {
@@ -43,8 +47,6 @@ export class MyAccountComponent implements OnInit {
     const token = this.cookieService.get('accessToken');
 
     this.userService.getHistoryOrders(token).subscribe((res) => {
-      console.log(res);
-
       this.historyHorders.set(res);
     });
   }

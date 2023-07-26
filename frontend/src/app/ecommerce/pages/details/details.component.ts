@@ -48,6 +48,5 @@ export class DetailsComponent implements OnInit {
     this.checkoutService.addPayment(body, token).subscribe((res) => {
       console.log(res);
     });
-    // console.log(body);
   }
 }

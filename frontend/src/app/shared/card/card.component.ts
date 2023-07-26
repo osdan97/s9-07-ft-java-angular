@@ -44,7 +44,7 @@ export class CardComponent implements OnInit {
     } else if (productRoute === 'product') {
       this.routeLink = '../../product/';
     } else if (productRoute === 'products') {
-      this.routeLink = '../product/';
+      this.routeLink = '../../product/';
     } else {
       this.routeLink = '../product/';
     }
