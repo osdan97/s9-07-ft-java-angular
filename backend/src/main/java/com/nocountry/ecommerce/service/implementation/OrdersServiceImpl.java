@@ -2,10 +2,12 @@ package com.nocountry.ecommerce.service.implementation;
 
 import com.nocountry.ecommerce.dto.OrderDetailsRegistration;
 import com.nocountry.ecommerce.dto.OrderRegistration;
+import com.nocountry.ecommerce.dto.OrderRequest;
 import com.nocountry.ecommerce.dto.ShippingDetailsRegistration;
 import com.nocountry.ecommerce.model.*;
 import com.nocountry.ecommerce.repository.OrdersRepository;
 import com.nocountry.ecommerce.repository.ShippingDetailsRepository;
+import com.nocountry.ecommerce.repository.TransactionRepository;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.service.ProductService;
@@ -24,13 +26,17 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
+import java.util.random.RandomGenerator;
 
 @Service
 public class OrdersServiceImpl implements OrdersService {
 
     @Autowired
     private OrdersRepository ordersRepository;
+    @Autowired
+    private TransactionRepository transactionRepository;
     @Autowired
     private AccountService accountService;
     @Autowired
@@ -81,7 +87,8 @@ public class OrdersServiceImpl implements OrdersService {
         order.setQuantity(0);
         order.setTransaction_type("SALE");
 
-        Double shippingCost = order.getShippingCost();
+        Double shippingCost = orderRequest.getShippingCost();
+        order.setShippingCost(shippingCost);
         orderRegistration.setShippingCost(shippingCost);
 
         List<OrderDetails> orderDetailsList = orderRequest.getOrderDetailsList();
@@ -301,5 +308,26 @@ public class OrdersServiceImpl implements OrdersService {
     public Orders getOrderById(String transactionUuid){
         return ordersRepository.findById(transactionUuid).orElseThrow(() ->
                 new UsernameNotFoundException("The transaction does not exist" + transactionUuid));
+    }
+    @Transactional
+    @Override
+    public List<OrderRequest> getOrdersByAccountUuid(String accountUuid) {
+        List<Orders> ordersList = transactionRepository.findByAccountUuid(accountUuid);
+        List<OrderRequest> orderRegistrationList = new ArrayList<>();
+
+        for (Orders order : ordersList) {
+            OrderRequest orderRequest = new OrderRequest();
+            orderRequest.setNumber(order.getNumber());
+            orderRequest.setShippingCost(order.getShippingCost());
+            orderRequest.setAmountTaxes(order.getAmountTaxes());
+            orderRequest.setAmountTotal(order.getAmountTotal());
+            orderRequest.setTotal(order.getTotal());
+            orderRequest.setCreatedDate(order.getCreatedDate());
+            orderRequest.setTransactionState(order.getTransactionState());
+            Random random = new Random();
+            orderRequest.setTrackingNumber(random.nextLong(1_000_000_000_00L));
+            orderRegistrationList.add(orderRequest);
+        }
+        return orderRegistrationList;
     }
 }

@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.nocountry.ecommerce.util.enums.TransactionState;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -17,12 +18,13 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Orders extends Transactions implements Serializable {
 
     @Column(name = "number")
     private String number;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "account_uuid", nullable = true)
     private Account account;
 

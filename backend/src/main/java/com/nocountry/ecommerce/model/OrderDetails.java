@@ -13,7 +13,7 @@ import java.io.Serializable;
 @ToString
 @Entity
 @Table(name = "ORDERDETAILS")
-public class OrderDetails {
+public class OrderDetails implements Serializable{
 
     @Id
     @Column(name = "orderdetail_uuid")
