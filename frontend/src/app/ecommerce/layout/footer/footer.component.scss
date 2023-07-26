@@ -185,5 +185,7 @@ h5 {
 @include media-up(screenXs) {
   .copy_footer {
     padding-bottom: 30px;
+    align-items: center;
+
   }
 }

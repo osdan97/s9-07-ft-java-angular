@@ -88,3 +88,34 @@ p {
     object-fit: cover;
   }
 }
+
+@include media-up(mobile) {
+  .contenedora {
+    width: 80%;
+  }
+  .empresas-envio {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 400px;
+  }
+  
+}
+
+@include media-up(tablet) {
+  .contenedora {
+    width: 80%;
+  }
+}
+
+@include media-up(ipad) {
+  .contenedora {
+    width: 80%;
+  }
+}
+
+@include media-up(screenXs) {
+  .contenedora {
+    width: 80%;
+  }
+}
