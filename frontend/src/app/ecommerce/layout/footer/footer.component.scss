@@ -157,8 +157,9 @@ h5 {
 
 @include media-up(mobile) {
   .container {
+    max-width: 90%;
     flex-direction: column;
-    padding: 20px;
+    
   }
   .copy_footer {
     padding-top: 0;

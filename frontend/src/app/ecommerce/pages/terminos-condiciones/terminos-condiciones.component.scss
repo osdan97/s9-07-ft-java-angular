@@ -23,3 +23,29 @@ p {
   font-family: "Quicksand", sans-serif;
   
 }
+
+
+@include media-up(mobile) {
+  .contenedora {
+    width: 80%;
+  }
+  
+}
+
+@include media-up(tablet) {
+  .contenedora {
+    width: 80%;
+  }
+}
+
+@include media-up(ipad) {
+  .contenedora {
+    width: 80%;
+  }
+}
+
+@include media-up(screenXs) {
+  .contenedora {
+    width: 80%;
+  }
+}

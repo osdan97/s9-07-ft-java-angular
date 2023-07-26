@@ -2,20 +2,18 @@
   <p class="titulo">¡Felicidades! Tu compra se ha realizado con éxito</p>
   <div class="carrito">
     <div class="cart">
-      <div class="titulo-pedido"><p>Tu pedido</p></div>
-      <app-cart
-        [disableShadow]="true"
-        [changeButton]="false"
-        [showBorder]="true"
-        [showCross]="false"
-        [isHidden]="false"
-        [details]="false"
-      ></app-cart>
+      <div class="titulo-pedido">
+        <p>Tu pedido</p>
+      </div>
+      <app-cart [disableShadow]="true" [changeButton]="false" [showBorder]="true" [showCross]="false" [isHidden]="false"
+        [details]="false"></app-cart>
     </div>
     <hr class="vertical" />
     <div class="menu-detalle">
       <div class="item">
-        <div class="titulo-detalle"><p>Detalle del pedido</p></div>
+        <div class="titulo-detalle">
+          <p>Detalle del pedido</p>
+        </div>
         <div class="items">
           <p class="items-negrita">Numero de pedido:</p>
           <span>5655864614</span>
@@ -40,9 +38,7 @@
       <div class="item2">
         <div class="items">
           <p class="items-negrita2">Subtotal</p>
-          <span
-            ><b>{{ totalPriceProduct * 1.19 | currency : "€" }}</b></span
-          >
+          <span><b>{{ totalPriceProduct * 1.19 | currency : "€" }}</b></span>
         </div>
         <div class="items">
           <p class="items-negrita2">Envio</p>
@@ -50,26 +46,22 @@
         </div>
         <div class="items-total">
           <p class="items-negrita2"><b>Total</b></p>
-          <span
-            ><b>{{ totalPriceProduct * 1.19 + 7.95 | currency : "€" }}</b></span
-          >
+          <span><b>{{ totalPriceProduct * 1.19 + 7.95 | currency : "€" }}</b></span>
         </div>
       </div>
     </div>
   </div>
-</div>
+</div> 
 <div class="contenedor2">
   <div class="barra">
     <div class="seleccionado2">
       <div class="imagen-envio">
-        <img
-          class="imagen"
-          src="../../../../assets/images/ups.png"
-          alt="foto"
-        />
+        <img class="imagen" src="../../../../assets/images/ups.png" alt="foto" />
       </div>
       <div class="empresa-envio">
-        <div><p class="titulo-envio">Envio a cargo de UPS</p></div>
+        <div>
+          <p class="titulo-envio">Envio a cargo de UPS</p>
+        </div>
         <div>
           <p class="datos-envio">
             Revisa tu casilla de mail para ver los datos de entrega y ve el
@@ -82,6 +74,34 @@
           </p>
         </div>
       </div>
+
     </div>
   </div>
 </div>
+
+    <div class="contenedor3">
+      
+        <div>
+          <p class="tit-envio">Envio a cargo de UPS</p>
+        </div>
+        <div class="barra1">
+        <div class="image-envio">
+          <img class="image" src="../../../../assets/images/ups.png" alt="foto" />
+        </div>
+      
+      <div>
+        <p class="data-envio">
+          Revisa tu casilla de mail para ver los datos de entrega y ve el
+          estado de tu envio en la página de UPS colocando el siguiente código
+        </p>
+      </div>
+    </div>
+      <div>
+        <p class="cod-envio">
+          <b>Codigo de seguimiento: </b>123456789789789
+        </p>
+      </div>
+    </div>
+  
+
+
