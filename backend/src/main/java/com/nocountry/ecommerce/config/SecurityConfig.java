@@ -79,13 +79,17 @@ public class SecurityConfig {
                         "/api/pay")
                 .hasRole(Role.USER.name())
                 .requestMatchers(HttpMethod.GET, "/customer/**",
-                        "api/orders/by-account/**").hasRole(Role.USER.name())
+                        "/api/orders/by-account/**").hasRole(Role.USER.name())
 
                 .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
                 .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
                 .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**",
                         "api/favorites/deletebyproduct/**",
                         "api/favorites/deletefavorite").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
 
                 .requestMatchers("/api/authentication/sign-in",
                         "/api/authentication/sign-up",
@@ -94,14 +98,15 @@ public class SecurityConfig {
                         "/api/authentication/change-password",
                         "/swagger-ui/**",
                         "/v3/**",
-                        "api/category/detail/**",
-                        "api/category/list",
+                        "/api/category/detail/**",
+                        "/api/category/list",
                         "/api/authentication/verify/**",
                         "/api/shipping-details/**",
                         "/api/products/list",
                         "/api/products/product/**",
                         "/api/products/totalproducts",
-                        "/api/products/totalpages")
+                        "/api/products/totalpages",
+                        "/api/favorites/deletebyproduct/**")
                 .permitAll()
                 .anyRequest().authenticated();
 

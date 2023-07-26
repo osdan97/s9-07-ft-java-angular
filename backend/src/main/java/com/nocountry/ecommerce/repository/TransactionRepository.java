@@ -10,6 +10,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface TransactionRepository extends JpaRepository<Transactions, String> {
-    @Query(value = "SELECT * FROM ecommercedb.TRANSACTIONS o WHERE account_uuid=:accountUuid", nativeQuery = true)
+    @Query(value = "SELECT * FROM TRANSACTIONS o WHERE account_uuid=:accountUuid", nativeQuery = true)
     List<Orders> findByAccountUuid(@Param("accountUuid") String accountUuid);
 }
