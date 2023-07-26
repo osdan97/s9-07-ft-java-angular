@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.service.implementation;
 
+import com.nocountry.ecommerce.dto.EmailPayment;
 import com.nocountry.ecommerce.dto.EmailValues;
 import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.service.EmailService;
@@ -59,7 +60,7 @@ public class EmailServiceImpl implements EmailService {
         String verifyURL = baseUrl + "changepassword/" + tokenPassword;
         mailContent += "<h3><a href=\"" + verifyURL + "\" target=_blank >Click for change password</a></h3>";
 
-        mailContent += "<p> Thank you <br>The Ecommerce Team </p>";
+        mailContent += "<p> Thank you <br>The DeLatinos Team </p>";
 
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
@@ -112,7 +113,7 @@ public class EmailServiceImpl implements EmailService {
         String verifyURL = baseUrl + "verify/" + verificationCode;
         mailContent += "<h3><a href=\"" + verifyURL + "\" target=_blank >Click to verify your account</a></h3>";
 
-        mailContent +=  "<p> Thanks you <br> Ecommerce Team </p>";
+        mailContent +=  "<p> Thanks you <br> DeLatinos Team </p>";
 
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
@@ -121,6 +122,60 @@ public class EmailServiceImpl implements EmailService {
         helper.setTo(email);
         helper.setSubject(subject);
         helper.setText(mailContent,true);
+
+        javaMailSender.send(message);
+    }
+    @Override
+    public void sendEmailPayment(EmailPayment emailValues) throws MessagingException, UnsupportedEncodingException {
+        String email = emailValues.getMailTo();
+        String fullName = emailValues.getFullName();
+        String subject = emailValues.getSubject();
+        double total = emailValues.getTotal();
+        String currencyCode = emailValues.getCurrencyCode();
+
+        String senderName = "DeLatinos Team";
+        String mailContent = "<head>";
+        mailContent += "<style>";
+        mailContent += "a{";
+        mailContent += "display: block;";
+        mailContent += "width: 450px;";
+        mailContent += "font-family: Arial, Helvetica, sans-serif;";
+        mailContent += "font-weight: 700;";
+        mailContent += "color: #FFB344;";
+        mailContent += "background-color: #00A19D;";
+        mailContent += "border-radius: 10px;";
+        mailContent += "padding: 15px 30px;";
+        mailContent += "margin: 20px 20px;";
+        mailContent += "text-align: center;";
+        mailContent += "text-decoration: none;";
+        mailContent += "}";
+        mailContent += "a:hover{";
+        mailContent += "background-color: #FFB344;";
+        mailContent += "border: 2px solid #00A19D;";
+        mailContent += "color: #00A19D;";
+        mailContent += "}";
+        mailContent += "</style>";
+        mailContent += "</head>";
+
+        mailContent += "<p>Dear " + fullName + ",</p>";
+
+        String messagePayment = "Your payment of " + total + " " + currencyCode + " has been successfully processed.";
+        mailContent += "<h3><a>" + messagePayment + "</a></h3>";
+
+        mailContent += "<p> Thank you <br>The DeLatinos Team </p>";
+
+        MimeMessage message = javaMailSender.createMimeMessage();
+        MimeMessageHelper helper = new MimeMessageHelper(message);
+
+        emailValues.setMailFrom(emailFrom);
+        emailValues.setSubject(subject);
+        emailValues.setMailTo(email);
+        emailValues.setFullName(fullName);
+
+        helper.setFrom(emailFrom, senderName);
+        helper.setTo(email);
+        helper.setSubject(subject);
+        helper.setText(mailContent, true);
 
         javaMailSender.send(message);
     }

@@ -1,5 +1,6 @@
 package com.nocountry.ecommerce.service;
 
+import com.nocountry.ecommerce.dto.EmailPayment;
 import com.nocountry.ecommerce.dto.EmailValues;
 import jakarta.mail.MessagingException;
 
@@ -10,4 +11,5 @@ public interface EmailService {
 
     void sendEmailVerificationCode(EmailValues emailValues) throws MessagingException, UnsupportedEncodingException;
 
+    void sendEmailPayment(EmailPayment emailValues) throws MessagingException, UnsupportedEncodingException;
 }
