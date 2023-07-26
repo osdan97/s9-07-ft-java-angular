@@ -211,3 +211,36 @@ select {
 .button {
   width: 207px;
 }
+
+.input_info {
+  display: flex;
+  gap: 20px;
+}
+
+@include media-up(mobileXs) {
+  img {
+    width: 44px;
+    height: auto;
+  }
+  .mobile {
+    display: none;
+  }
+  .input_info {
+    flex-direction: column-reverse;
+    gap: 5px;
+  }
+}
+
+@include media-up(mobile) {
+  img {
+    width: 44px;
+    height: auto;
+  }
+  .mobile {
+    display: none;
+  }
+  .input_info {
+    flex-direction: column-reverse;
+    gap: 5px;
+  }
+}
