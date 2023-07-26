@@ -83,8 +83,7 @@ public class SecurityConfig {
 
                 .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
                 .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
-                .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**",
-                        "/api/favorites/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+                .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
 
                 .requestMatchers("/api/authentication/sign-in",
                         "/api/authentication/sign-up",
@@ -100,7 +99,8 @@ public class SecurityConfig {
                         "/api/products/list",
                         "/api/products/product/**",
                         "/api/products/totalproducts",
-                        "/api/products/totalpages")
+                        "/api/products/totalpages",
+                        "/api/favorites/**")
                 .permitAll()
                 .anyRequest().authenticated();
 
