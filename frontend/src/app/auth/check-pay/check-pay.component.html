@@ -8,82 +8,95 @@
     </mat-expansion-panel-header>
     <div class="contenedor1">
       <div class="description">
-        <div>
-          <img
+        <div class="logo__container">
+          <i class="pi pi-user"></i>
+          <!-- <img
             class="imagen"
-            src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=600"
+            src="../../../assets/images/user.svg"
             alt="foto"
-          />
+          /> -->
         </div>
         <div>
-          <p style="text-align: start">Mariano García Machado</p>
-          <p style="text-align: start">Mariano_garcia@gmail.com</p>
+          <p style="text-align: start">
+            {{ userData.name + " " + userData.lastName }}
+          </p>
+          <p style="text-align: start">{{ userData.email }}</p>
         </div>
       </div>
       <div>
-        <p>+34.652.253.478</p>
+        <p>{{ phoneNumber }}</p>
       </div>
     </div>
   </mat-expansion-panel>
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
-      <mat-panel-title class="flex justify-content-between align-items-center p-0 m-0">
+      <mat-panel-title
+        class="flex justify-content-between align-items-center p-0 m-0"
+      >
         <div class="flex flex-col">
-          <div *ngIf="this.show === false; else elseBlock" class="mr-1">2.</div>
+          <div *ngIf="!this.show; else elseBlock" class="mr-1">2.</div>
           <ng-template #elseBlock>
             <i class="pi pi-check check-list"></i>
           </ng-template>
           Dirección de entrega
         </div>
-        <div>
-          <select name="select" [ngStyle]="{ visibility: !this.show1 ? 'visible' : 'hidden' }">
+        <!-- <div>
+          <select
+            name="select"
+            [ngStyle]="{ visibility: !this.show1 ? 'visible' : 'hidden' }"
+          >
             <option value="direccion_1">Direccion 1</option>
             <option value="direccion_2">Direccion 2</option>
             <option value="direction_3">Direccion 3</option>
           </select>
-        </div>
+        </div> -->
       </mat-panel-title>
     </mat-expansion-panel-header>
     <form
-      [formGroup]="form"
-      (ngSubmit)="form.valid && form_person()"
+      [formGroup]="shippingDetail"
+      (ngSubmit)="shippingDetail.valid && form_person()"
       novalidate
     >
       <div class="contenedor2">
         <div class="input-label">
           <label>
-            Pais
-            <input type="text" [formControl]="pais" />
+            <span class="required"> Pais </span>
+            <input type="text" formControlName="country" />
           </label>
           <label>
-            Provincia/ Comunidad
-            <input type="text" [formControl]="provincia" />
-          </label>
-        </div>
-        <div class="input-label">
-          <label>
-            Codigo postal
-            <input type="number" [formControl]="postal" />
-          </label>
-          <label>
-            Ciudad
-            <input type="text" [formControl]="ciudad" />
+            <span class="required"> Provincia/ Comunidad </span>
+
+            <input type="text" formControlName="province" />
           </label>
         </div>
         <div class="input-label">
           <label>
-            Dirección
+            <span class="required"> Codigo postal </span>
+
+            <input type="number" formControlName="postalCode" />
+          </label>
+          <label>
+            <span class="required"> Ciudad </span>
+
+            <input type="text" formControlName="city" />
+          </label>
+        </div>
+        <div class="input-label">
+          <label>
+            <span class="required"> Dirección </span>
+
             <input
               type="text"
-              [formControl]="direccion"
+              formControlName="address"
               placeholder="Nombre y número de calle"
             />
           </label>
           <label>
-            Detalles de dirección
+            <span class="required"> Detalles de dirección </span>
+
             <input
               type="text"
-              [formControl]="detalle_dir"
+              formControlName="addressDetail"
               placeholder="Indicaciones"
             />
           </label>
@@ -93,13 +106,19 @@
             <input
               type="checkbox"
               class="check-input"
-              [formControl]="check_fact"
+              formControlName="checkFact"
             />
             Utilizar esta dirección para los datos de facturación
           </label>
         </div>
         <div class="space-buton">
-          <button [disabled]="form.invalid" type="submit">Confirmar</button>
+          <button
+            class="button custom__button--fill"
+            [disabled]="shippingDetail.invalid"
+            type="submit"
+          >
+            Confirmar
+          </button>
         </div>
       </div>
     </form>
@@ -116,8 +135,8 @@
     </mat-expansion-panel-header>
     <div class="contenedor3">
       <form
-        [formGroup]="form"
-        (ngSubmit)="form.valid && form_send()"
+        [formGroup]="shippingMethod"
+        (ngSubmit)="shippingMethod.valid && form_send()"
         novalidate
       >
         <p class="mb-1">Impuestos incluidos</p>
@@ -125,11 +144,17 @@
           <div
             class="flex justify-content-around align-items-center p-3"
             [ngStyle]="{
-              background: form1.value.envio! === 'SEUR' ? '#DBFDF7' : '#E7E7E7'
+              background:
+                shippingMethod.value.shippingMethod! === 'SEUR'
+                  ? '#DBFDF7'
+                  : '#E7E7E7'
             }"
           >
-            <p-radioButton value="SEUR" [formControl]="envio"></p-radioButton>
-            <img src="../../../assets/images/SEUR.png" alt="" />
+            <p-radioButton
+              value="SEUR"
+              formControlName="shippingMethod"
+            ></p-radioButton>
+            <img src="../../../assets/images/seur.jpg" alt="" width="100" />
             <p>SEUR</p>
             <p>Entrega en 48 a 72hs.</p>
             <p>€7.95</p>
@@ -138,10 +163,16 @@
           <div
             class="flex justify-content-around align-items-center p-3"
             [ngStyle]="{
-              background: form1.value.envio! === 'UPS' ? '#DBFDF7' : '#E7E7E7'
+              background:
+                shippingMethod.value.shippingMethod! === 'UPS'
+                  ? '#DBFDF7'
+                  : '#E7E7E7'
             }"
           >
-            <p-radioButton value="UPS" [formControl]="envio"></p-radioButton>
+            <p-radioButton
+              value="UPS"
+              formControlName="shippingMethod"
+            ></p-radioButton>
             <img src="../../../assets/images/ups.png" alt="" />
             <p>UPS</p>
             <p>Entrega en 48 a 72hs.</p>
@@ -151,11 +182,17 @@
           <div
             class="flex justify-content-around align-items-center p-3"
             [ngStyle]="{
-              background: form1.value.envio! === 'DHL' ? '#DBFDF7' : '#E7E7E7'
+              background:
+                shippingMethod.value.shippingMethod! === 'DHL'
+                  ? '#DBFDF7'
+                  : '#E7E7E7'
             }"
           >
-            <p-radioButton value="DHL" [formControl]="envio"></p-radioButton>
-            <img src="../../../assets/images/DHL.png" alt="" />
+            <p-radioButton
+              value="DHL"
+              formControlName="shippingMethod"
+            ></p-radioButton>
+            <img src="../../../assets/images/dhl.svg" alt="" width="100" />
             <p>DHL</p>
             <p>Entrega en 48 a 72hs.</p>
             <p>€7.95</p>
@@ -167,14 +204,18 @@
           >
 
           <textarea
-            [formControl]="coment_envio"
+            formControlName="commentShipping"
             name=""
             id=""
             cols="30"
             rows="2"
           ></textarea>
           <div class="flex justify-content-end">
-            <button [disabled]="form1.invalid" class="p-0 m-0" type="submit">
+            <button
+              [disabled]="shippingMethod.invalid"
+              class="p-0 m-0 button custom__button--fill"
+              type="submit"
+            >
               Confirmar
             </button>
           </div>
@@ -198,68 +239,14 @@
         </div>
 
         <button
-          class="p-0 m-0"
-          [ngStyle]="{ visibility: this.show1 ? 'visible' : 'hidden' }"
-          [routerLink]="'/details'"
+          class="p-0 m-0 button custom__button--fill"
+          [ngStyle]="{ visibility: show1 ? 'visible' : 'hidden' }"
           type="submit"
+          (click)="sendData()"
         >
           Continuar a la compra
         </button>
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <!-- <form [formGroup]="form" (ngSubmit)="form.valid && form_pay()" novalidate>
-      <div
-        class="flex justify-content-around align-items-center p-3 mt-5"
-        style="background: #d9d9d9"
-      >
-        <p-radioButton [formControl]="sel_pay" value="visa" (onClick)="set_pay()"></p-radioButton>
-        <p>Pago con Tarjeta (Crédito/Débito)</p>
-        <img src="../../../assets/images/Visa.png" alt="" />
-        <img src="../../../assets/images/MasterCard.png" alt="" />
-        <img src="../../../assets/images/AmericanExpress.png" alt="" />
-      </div>
-      <span class="p-input-icon-right mt-4">
-        <label class="mb-2">Número de tarjeta</label>
-        <i class="pi pi-credit-card pt-2"></i>
-        <input type="number" [formControl]="num_cre" style="width: 396px" />
-      </span>
-      <div class="mt-4">
-        <span class="p-input-icon-right">
-          <label form="date" class="mb-2">Fecha de vencimiento</label>
-          <input
-            type="number"
-            [formControl]="ven_cre"
-            style="width: 178px; margin-right: 41px"
-          />
-        </span>
-        <span class="p-input-icon-right">
-          <label class="mb-2">Código de verificación</label>
-          <input type="number" [formControl]="cod_cre" style="width: 178px" />
-        </span>
-      </div>
-      <div class="mt-5 mb-5">
-        <label class="check">
-          <input
-            type="checkbox"
-            class="check-input"
-            [formControl]="check_cre"
-          />
-          Utilizar esta dirección para los datos de facturación
-        </label>
-      </div>
-      <div
-        class="flex justify-content-start gap-3 align-items-center p-3"
-        style="border: 1px solid #000000"
-      >
-        <p-radioButton [formControl]="sel_pay" value="paypal" (onClick)="set_pay()"></p-radioButton>
-        <p>Pago con Tarjeta (Crédito/Débito)</p>
-        <img src="../../../assets/images/paypal.png" alt="" />
-      </div>
-      <div class="flex justify-content-end mb-2">
-        <button [disabled]="form.invalid" [routerLink]="'/details'" type="submit">
-          Confirmar
-        </button>
-      </div>
-    </form> -->
   </mat-expansion-panel>
 </mat-accordion>

@@ -27,7 +27,7 @@ export class MyAccountComponent implements OnInit {
   }
 
   changeStatus2(newBoolean2: boolean) {
-    this.status_person = newBoolean2
+    this.status_person = newBoolean2;
   }
 
   getFavorites() {

@@ -1,5 +1,8 @@
+@import "src/styles.scss";
+
 mat-accordion {
   margin: 15px;
+  color: $text-color-primary;
 }
 
 mat-expansion-panel {
@@ -7,8 +10,9 @@ mat-expansion-panel {
   max-width: 700px;
   flex-direction: column;
   margin-bottom: 10px;
-  border: 1px solid #8b8b8b;
+  // border: 1px solid #8b8b8b;
   border-radius: 8px !important;
+  box-shadow: $card-shadow !important;
 }
 
 .contenedor2,
@@ -145,6 +149,17 @@ input.ng-dirty.ng-invalid {
   border-color: red;
 }
 
+.logo__container {
+  padding: 0.5rem;
+  // background-color: $background-primary;
+  border: 2px solid $background-primary;
+  border-radius: 50%;
+  i {
+    // color: $text-color-white;
+    font-size: 1.5rem;
+  }
+}
+
 .imagen {
   width: 44px;
   height: 42px;
@@ -153,7 +168,7 @@ input.ng-dirty.ng-invalid {
 
 .description {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   gap: 30px;
 }
 
@@ -191,4 +206,8 @@ select {
   height: 33.798px;
   flex-shrink: 0;
   padding-left: 10px;
+}
+
+.button {
+  width: 207px;
 }

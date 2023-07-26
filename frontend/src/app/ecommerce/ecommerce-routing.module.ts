@@ -119,25 +119,22 @@ const routes: Routes = [
       {
         path: 'legales',
         loadChildren: () =>
-          import('./pages/legales/legales.module').then(
-            (m) => m.LegalesModule
-          ),
+          import('./pages/legales/legales.module').then((m) => m.LegalesModule),
         canActivate: [AuthGuard],
         canMatch: [AuthGuard],
       },
       {
         path: 'preguntas-frecuentes',
         loadChildren: () =>
-          import('./pages/preguntas-frecuentes/preguntas-frecuentes.module').then(
-            (m) => m.PreguntasFrecuentesModule
-          ),
+          import(
+            './pages/preguntas-frecuentes/preguntas-frecuentes.module'
+          ).then((m) => m.PreguntasFrecuentesModule),
         canActivate: [AuthGuard],
         canMatch: [AuthGuard],
       },
-      
 
       {
-        path: 'home-productos',
+        path: 'products',
         loadChildren: () =>
           import('./pages/home-productos/home-productos.module').then(
             (m) => m.HomeProductosModule
@@ -158,9 +155,9 @@ const routes: Routes = [
       {
         path: 'terminos-condiciones',
         loadChildren: () =>
-          import('./pages/terminos-condiciones/terminos-condiciones.module').then(
-            (m) => m.TerminosCondicionesModule
-          ),
+          import(
+            './pages/terminos-condiciones/terminos-condiciones.module'
+          ).then((m) => m.TerminosCondicionesModule),
         canActivate: [AuthGuard],
         canMatch: [AuthGuard],
       },

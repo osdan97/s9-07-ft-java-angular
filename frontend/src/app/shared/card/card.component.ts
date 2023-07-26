@@ -112,6 +112,17 @@ export class CardComponent implements OnInit {
         .subscribe((resp) => {
           // sessionStorage.setItem('favorites', JSON.stringify(resp));
         });
+    } else {
+      const token = this.cookieService.get('accessToken');
+
+      console.log(token);
+
+      this.userService
+        .removeFavoriteProduct(token, this.product)
+        .subscribe((res) => {
+          console.log(res);
+          this.userService.refreshFavorites(token);
+        });
     }
   }
 

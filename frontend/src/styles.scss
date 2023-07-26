@@ -131,6 +131,13 @@ body {
   border: $border-primary;
 }
 
+.required::after {
+  content: "*";
+  font-size: 1.2rem;
+  padding-left: 0.3rem;
+  color: red;
+}
+
 $breakpoints: (
   mobileXs: 400px,
   mobile: 480px,

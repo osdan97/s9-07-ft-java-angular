@@ -95,6 +95,17 @@ export class UserService {
     );
   }
 
+  removeFavoriteProduct(token: string, product: any): Observable<any> {
+    const { userId }: Payload = jwtDecode(token);
+
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+
+    return this.http.delete<any>(
+      `${this.baseUrl}favorites/deletebyproduct/${userId}/${product.id}`,
+      { headers }
+    );
+  }
+
   addUserData(body: any, token: string): Observable<any> {
     const accessToken: Payload = jwtDecode(token);
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

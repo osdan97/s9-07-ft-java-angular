@@ -20,6 +20,7 @@
     <div class="flex-1">
       <p-paginator
         (onPageChange)="onPageChange($event)"
+        [first]="first"
         [rows]="1"
         [totalRecords]="4"
         [style]="{ background: '#EDF3F6' }"
