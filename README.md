@@ -113,7 +113,7 @@ Somos equipo **s9-07-ft-java-angular**, conformado por:
 
 <hr/>
 
-#### 🧑‍💻 <img src="https://static.vecteezy.com/system/resources/thumbnails/006/173/028/small/computer-repair-logo-template-computer-pixels-logo-software-development-design-free-vector.jpg" width=50/> Develoment Tools:
+#### <img src="https://static.vecteezy.com/system/resources/thumbnails/006/173/028/small/computer-repair-logo-template-computer-pixels-logo-software-development-design-free-vector.jpg" width=50/> Develoment Tools:
 
 <p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/IntelliJ_IDEA_Icon.svg/1200px-IntelliJ_IDEA_Icon.svg.png" width=50/> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" width=50/><img src="https://cdn.worldvectorlogo.com/logos/postman.svg" width=60/><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Figma-logo.svg/1667px-Figma-logo.svg.png" width=40/> <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png" width=50/> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Trello-logo-blue.svg/2560px-Trello-logo-blue.svg.png" width=150/></p>
 
