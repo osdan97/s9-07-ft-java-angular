@@ -65,3 +65,9 @@ select {
   padding-top: 100px;
   padding-bottom: 70px;
 }
+
+@include media-up(mobile) {
+  .filter-card {
+    flex-direction: column;
+  }
+}
