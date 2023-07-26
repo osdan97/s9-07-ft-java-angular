@@ -83,7 +83,13 @@ public class SecurityConfig {
 
                 .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
                 .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
+                .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**",
+                        "api/favorites/deletebyproduct/**",
+                        "api/favorites/deletefavorite").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
                 .requestMatchers(HttpMethod.DELETE,"/api/favorites/deletebyid/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
+
 
                 .requestMatchers("/api/authentication/sign-in",
                         "/api/authentication/sign-up",

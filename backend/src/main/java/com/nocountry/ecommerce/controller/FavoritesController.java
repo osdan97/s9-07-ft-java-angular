@@ -87,5 +87,16 @@ public class FavoritesController {
         }
 
     }
+    @DeleteMapping("/deletefavorite")
+    public ResponseEntity<?> deleteFavorite(@RequestBody FavoritesDto favoritesDto) {
+        try {
+            String account_uuid = favoritesDto.getCustomers();
+            String product_uuid = favoritesDto.getProduct();
+            favoritesService.deleteByCustomerAndProduct(account_uuid,product_uuid);
+            return new ResponseEntity(new Mensaje("favorites deleted successfully"), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(new Mensaje("error occurred") + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 
