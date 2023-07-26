@@ -66,6 +66,24 @@ export class DataService {
       );
   }
 
+  getTotalPages(
+    page: number,
+    country?: string,
+    category?: string
+  ): Observable<number> {
+    let params = new HttpParams().set('page', page.toString());
+
+    if (country) {
+      params = params.set('country', country);
+    }
+
+    if (category) {
+      params = params.set('category', category);
+    }
+
+    return this.http.get<any>(`${this.baseUrl}products/totalpages`, { params });
+  }
+
   getProductById(id: string): Observable<ProductById> {
     return this.http.get<ProductById>(`${this.baseUrl}products/product/${id}`);
   }

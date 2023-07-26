@@ -16,7 +16,11 @@
   </div>
   <div class="productos-contenedor">
     <div class="producto">
-      <app-content-card [products]="products()"></app-content-card>
+      <app-content-card
+        [products]="products()"
+        [country]="country"
+        [totalPageNumber]="totalPageNumber"
+      ></app-content-card>
     </div>
   </div>
 </section>
