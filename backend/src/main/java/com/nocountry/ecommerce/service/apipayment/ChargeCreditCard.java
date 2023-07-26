@@ -1,23 +1,30 @@
 package com.nocountry.ecommerce.service.apipayment;
 
+import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import com.nocountry.ecommerce.dto.EmailPayment;
 import com.nocountry.ecommerce.dto.Mensaje;
+import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.model.Orders;
 import com.nocountry.ecommerce.model.Pay;
 import com.nocountry.ecommerce.repository.PayRepository;
+import com.nocountry.ecommerce.service.AccountService;
+import com.nocountry.ecommerce.service.EmailService;
 import com.nocountry.ecommerce.service.OrdersService;
 import com.nocountry.ecommerce.util.enums.TransactionState;
+import jakarta.mail.MessagingException;
 import net.authorize.Environment;
 import net.authorize.api.contract.v1.*;
 import net.authorize.api.controller.base.ApiOperationBase;
 import net.authorize.api.controller.CreateTransactionController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,7 +37,11 @@ public class ChargeCreditCard {
     String loginId;
     @Value("${spring.net.authorize.transactionkey}")
     String transactionKey;
-    public ANetApiResponse run(Pay pay) {
+    @Autowired
+    private AccountService accountService;
+    @Autowired
+    private EmailService emailService;
+    public ANetApiResponse run(Pay pay) throws MessagingException, UnsupportedEncodingException {
 
         // Set the request to operate in either the sandbox or production environment
         ApiOperationBase.setEnvironment(Environment.SANDBOX);
@@ -133,6 +144,7 @@ public class ChargeCreditCard {
                         savePayment.setDescription(result.getMessages().getMessage().get(0).getDescription() + " - " + result.getTransId());
                         savePayment.setAuth_code(result.getAuthCode());
                         payRepository.save(savePayment);
+                        this.sendEmailPayment(savePayment);
                     } else {
                         System.out.println("Failed Transaction.");
                         if (response.getTransactionResponse().getErrors() != null) {
@@ -176,5 +188,33 @@ public class ChargeCreditCard {
                 return "1";
             }
         }
+    }
+    public EmailPayment sendEmailPayment(Pay emailPayment) throws MessagingException, UnsupportedEncodingException {
+
+        String email = emailPayment.getOrders().getAccount().getEmail();
+        String customerUuid = emailPayment.getOrders().getAccount().getAccountUuid();
+
+        Customers customersRequest = accountService.findByUuid(customerUuid)
+                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + customerUuid));
+
+        EmailPayment emailValues = new EmailPayment();
+
+        emailValues.setMailTo(email);
+
+        String fullName = customersRequest.getName() + " " + customersRequest.getLastName();
+        emailValues.setFullName(fullName);
+
+        double total = emailPayment.getTotal();
+        emailValues.setTotal(total);
+
+        String currencyCode = emailPayment.getCurrencyCode();
+        emailValues.setCurrencyCode(currencyCode);
+
+        String subject = " Thank you for your purchase.";
+        emailValues.setSubject(subject);
+
+        emailService.sendEmailPayment(emailValues);
+
+        return  emailValues;
     }
 }
