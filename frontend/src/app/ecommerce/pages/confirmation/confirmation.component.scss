@@ -199,7 +199,7 @@
 //Responsive:
 .contenedor3 {
   width: 80%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 32px;
@@ -208,6 +208,7 @@
   border-radius: 8px;
   margin: 0 auto;
   margin-bottom: 60px;
+  
 }
 
 .barra1 {
@@ -248,6 +249,7 @@
   .barra {
     display: none;
   }
+
 
 }
 
@@ -297,6 +299,7 @@
   .barra {
     display: none;
   }
+
 }
 
 @include media-up(screenXs) {
@@ -317,19 +320,37 @@
     margin-bottom: 25px;
   }
 
+  .contenedor3 {
+    display: flex;
+  }
+  .barra {
+    display: none;
+  }
+}
+@include media-up(screen) {
+  .contenedor1 {
+    width: 90%;
+    align-items: center;
+    margin: auto;
+  }
+
+  .titulo {
+    margin-left: 40px;
+  }
+
+  .carrito {
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+
+  .contenedor3 {
+    display: flex;
+  }
   .barra {
     display: none;
   }
 }
 
-@include media-up(screen) {
-  .contenedor3 {
-    display: none;
-  }
-}
 
-@include media-up(desktop) {
-  .contenedor3 {
-    display: none;
-  }
-}

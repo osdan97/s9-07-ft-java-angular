@@ -146,6 +146,7 @@ $breakpoints: (
   screenXs: 880px,
   screen: 1024px,
   desktop: 1200px,
+  large: 1440px,
 );
 
 @mixin media-up($breakpoint) {
