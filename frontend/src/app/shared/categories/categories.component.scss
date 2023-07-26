@@ -1,8 +1,8 @@
 @import "src/styles.scss";
 
 .categories__container {
-  width: 95%;
-  max-width: $max-width;
+  width: 100%;
+  // max-width: $max-width;
   margin: 0 auto;
   min-height: 200px;
   display: flex;
@@ -10,6 +10,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 80px;
+  position: relative;
+  overflow: hidden;
 
   .categories__content {
     display: flex;
@@ -17,6 +19,7 @@
     gap: 1rem;
     cursor: pointer;
     color: $background-primary;
+    z-index: 10;
 
     .categories__card {
       width: 120px;
@@ -34,6 +37,19 @@
 
     p {
       text-align: center;
+    }
+  }
+
+  .image__container {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    img {
+      width: 100%;
+      object-fit: cover;
     }
   }
 }

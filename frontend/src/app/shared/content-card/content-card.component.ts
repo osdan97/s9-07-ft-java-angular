@@ -1,4 +1,4 @@
-import { Component, Input, inject } from '@angular/core';
+import { Component, Input, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data/data.service';
 
@@ -14,7 +14,7 @@ interface PageEvent {
   templateUrl: './content-card.component.html',
   styleUrls: ['./content-card.component.scss'],
 })
-export class ContentCardComponent {
+export class ContentCardComponent implements OnInit {
   @Input() products!: any[];
 
   first = 0;
@@ -22,10 +22,16 @@ export class ContentCardComponent {
   dataSerivice = inject(DataService);
   router = inject(Router);
 
+  ngOnInit(): void {
+    this.first = JSON.parse(sessionStorage.getItem('page') || '0');
+  }
+
   onPageChange(event: any) {
     const page = event.page + 1;
 
-    this.first = event.first;
+    if (sessionStorage.getItem('page') !== event.page.toString()) {
+      sessionStorage.setItem('page', event.page.toString());
+    }
 
     if (this.router.url === '/') {
       this.router.navigate(['products']);
