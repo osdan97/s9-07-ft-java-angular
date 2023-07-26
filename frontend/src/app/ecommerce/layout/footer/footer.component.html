@@ -7,35 +7,34 @@
           <i class="pi pi-instagram"></i>
         </div>
         <div>
-          <i class="pi pi-whatsapp"></i>
+          <a href="https://api.WhatsApp.com/send?phone=5411111111&amp;text= Bienvenidos, Somos DeLatinos "><i  class="pi pi-whatsapp" ></i></a>
         </div>
       </div>
-      <a href="#"><p>Número de teléfono</p></a>
       <a href="#"><p>E-mail</p></a>
     </div>
     <div class="container-div">
       <h4>AYUDA</h4>
       <div class="anchor">
-        <a href="#">Envíos</a>
-        <a href="#">Preguntas frecuentes</a>
-        <a href="#">Devoluciones</a>
+
+
+        <a [routerLink]="['/shipping-info']">Envíos</a>
+        <a [routerLink]="['/preguntas-frecuentes']" >Preguntas frecuentes</a>
       </div>
     </div>
     <div class="container-div">
       <h4 class="title">NOSOTROS</h4>
       <div class="anchor">
-        <a href="#">Quienes somos</a>
-        <a href="#">Trabaja con nosotros</a>
+        <a [routerLink]="['/quienessomos']">Quienes somos</a>
       </div>
     </div>
     <div class="container-div">
       <h4 class="title">LEGALES</h4>
-      <div class="anchor">
-        <a href="#">Términos y condiciones</a>
-        <a href="#">Políticas de privacidad</a>
+      <div class="anchor anchor_news">
+        <a [routerLink]="['/terminos-condiciones']">Términos y condiciones</a>
+        <a [routerLink]="['/legales']">Políticas de privacidad</a>
       </div>
     </div>
-    <div>
+    <div class="news">
       <br />
       <span class="p-input-icon-right">
         <i class="pi pi-envelope"></i>
@@ -44,7 +43,7 @@
     </div>
 
   </div>
-  <div class="container">
+  <div class="container copy_footer">
     <h5>Copyright ® - 2023. Todos los derechos reservados.</h5>
   </div>
 

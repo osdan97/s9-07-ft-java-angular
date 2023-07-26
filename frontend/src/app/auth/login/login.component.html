@@ -1,5 +1,5 @@
 <article class="login__container">
-  <div class="login__header">
+  <div class="login__header" *ngIf="isNormalLogin; else FavView">
     <img
       src="../../../assets/images/logov2.svg"
       alt="deLatinos"
@@ -101,5 +101,14 @@
     *ngIf="loginForm.get('password')?.hasError('minlength')"
   >
     La contraseña debe tener al menos 6 caracteres.
+  </div>
+</ng-template>
+
+<ng-template #FavView>
+  <div class="login__header">
+    <p class="login__fav">
+      Para agregar tu producto a favoritos, por favor inicia sesión o crea una
+      cuenta
+    </p>
   </div>
 </ng-template>

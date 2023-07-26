@@ -6,7 +6,7 @@
         Ordenar por:
         <select name="filter" id="filter">
           <option value="prime1">Precio: menor a mayor</option>
-          <option value="prime1">prime1</option>
+          <!-- <option value="prime1">prime1</option> -->
         </select>
       </label>
     </div>
@@ -19,9 +19,10 @@
   <div class="flex align-items-center justify-content-center">
     <div class="flex-1">
       <p-paginator
-        [rows]="10"
-        [totalRecords]="120"
-        [showFirstLastIcon]="false"
+        (onPageChange)="onPageChange($event)"
+        [first]="first"
+        [rows]="1"
+        [totalRecords]="totalPageNumber"
         [style]="{ background: '#EDF3F6' }"
       ></p-paginator>
     </div>

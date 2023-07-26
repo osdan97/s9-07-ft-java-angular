@@ -1,5 +1,9 @@
 <div class="navbar__categories">
-  <div class="categories__content" *ngFor="let category of categories()">
+  <div
+    class="categories__content"
+    *ngFor="let category of categories()"
+    [routerLink]="'products/' + category.rute"
+  >
     <div class="categories__card">
       <img [src]="category.image" [alt]="category.name" />
     </div>

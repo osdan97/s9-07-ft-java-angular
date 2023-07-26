@@ -14,6 +14,15 @@ import { CartComponent } from './cart/cart.component';
 import { FormAddressComponent } from './form-address/form-address.component';
 import { StockPipe } from './pipes/stock.pipe';
 import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
+import { FormPersonComponent } from './form-person/form-person.component';
+import { FormCasaComponent } from './form-casa/form-casa.component';
+import { QuantityPipe } from './pipes/quantity.pipe';
+import { CategoriesComponent } from './categories/categories.component';
+import { AuthModule } from '../auth/auth.module';
+import { PaisesComponent } from './paises/paises.component';
+import { InfoCasaComponent } from './info-casa/info-casa.component';
+import { InfoPersonComponent } from './info-person/info-person.component';
+import { NumberPhonePipe } from './pipes/number-phone.pipe';
 
 @NgModule({
   declarations: [
@@ -27,6 +36,14 @@ import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
     FormAddressComponent,
     StockPipe,
     ImageByCountryPipe,
+    FormPersonComponent,
+    FormCasaComponent,
+    QuantityPipe,
+    CategoriesComponent,
+    PaisesComponent,
+    InfoCasaComponent,
+    InfoPersonComponent,
+    NumberPhonePipe,
   ],
   imports: [
     CommonModule,
@@ -34,6 +51,7 @@ import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
     RouterModule,
     ReactiveFormsModule,
     FormsModule,
+    AuthModule,
   ],
   exports: [
     CardComponent,
@@ -43,6 +61,14 @@ import { ImageByCountryPipe } from './pipes/image-by-country.pipe';
     DetalleProductoComponent,
     CartComponent,
     FormAddressComponent,
+    FormPersonComponent,
+    FormCasaComponent,
+    CategoriesComponent,
+    QuantityPipe,
+    PaisesComponent,
+    InfoCasaComponent,
+    InfoPersonComponent,
+    NumberPhonePipe,
   ],
 })
 export class SharedModule {}

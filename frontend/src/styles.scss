@@ -94,10 +94,6 @@ html,
 body {
   height: 100%;
 }
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}
 
 .button {
   width: 138px;
@@ -133,4 +129,27 @@ body {
   background-color: $background-complementary;
   color: $background-primary;
   border: $border-primary;
+}
+
+.required::after {
+  content: "*";
+  font-size: 1.2rem;
+  padding-left: 0.3rem;
+  color: red;
+}
+
+$breakpoints: (
+  mobileXs: 400px,
+  mobile: 480px,
+  tablet: 768px,
+  ipad: 820px,
+  screenXs: 880px,
+  screen: 1024px,
+  desktop: 1200px,
+);
+
+@mixin media-up($breakpoint) {
+  @media screen and (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
 }

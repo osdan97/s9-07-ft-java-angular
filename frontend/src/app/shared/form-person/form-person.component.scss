@@ -1,0 +1,219 @@
+@import "src/styles.scss";
+
+section {
+  //display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: $text-color-primary;
+}
+
+.contenedor1 {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: $background-white;
+  box-shadow: $card-shadow;
+}
+
+input {
+  width: 302px;
+  height: 40px;
+  border-radius: 4px;
+  border: 0.5px solid $background-primary;
+  margin: 0;
+  padding-left: 15px;
+  background-color: #e7e7e7;
+  color: $background-primary;
+}
+.campo-input {
+  width: 140px;
+}
+.posicion-input {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.input-label {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding-top: 30px;
+}
+
+.input__label-left {
+  justify-content: start;
+}
+.numTel {
+  margin-top: 30px;
+  text-align: left;
+  font-size: $heading2;
+  font-weight: 500;
+  line-height: 25px;
+}
+
+h2 {
+  //styleName: Heading 1 - titulos;
+  font-size: $heading1;
+  font-weight: 500;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  padding: 45px 0 30px;
+}
+
+.title {
+  //styleName: Heading 2 - titulos 2;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 0em;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  span {
+    color: $text-color-disabled;
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+  .correo {
+    color: #353535;
+
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: right;
+  }
+}
+.icono {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0px;
+  text-align: left;
+  gap: 5px;
+}
+.indicaciones {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding-left: 55px;
+  gap: 50px;
+  font-size: $heading4;
+  font-weight: 400;
+  line-height: 17px;
+  margin-top: 3px;
+}
+.tres {
+  margin-left: 22px;
+}
+
+.check-input {
+  height: 18px;
+  width: 18px;
+  border-radius: 2px;
+  border: 2px solid #565656 !important;
+}
+
+.check {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0 20px 0;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0.3px;
+  text-align: left;
+}
+
+.space-buton {
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
+  width: 191px;
+  height: 40px;
+  border-radius: 7px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+
+input.ng-touched.ng-invalid {
+  border-color: red;
+}
+
+input.ng-dirty.ng-invalid {
+  border-color: red;
+}
+
+.required::after {
+  content: "*";
+  font-size: 1.2rem;
+  padding-left: 0.3rem;
+  color: red;
+}
+
+.modal__container {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  color: $text-color-primary;
+
+  .modal__logo {
+    padding: 2rem;
+    background-color: $background-complementary;
+    border-radius: 1rem;
+    i {
+      font-size: 30px;
+      color: $text-color-white;
+      font-weight: 900;
+    }
+  }
+
+  .modal__text {
+    h2 {
+      padding: 0 0 0.5rem 0;
+    }
+  }
+
+  h2,
+  p {
+    text-align: center;
+  }
+
+  .custom__button--fill {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 250px;
+  }
+}
+.campo {
+  font-size: $heading4;
+  color: $text-color-disabled;
+}

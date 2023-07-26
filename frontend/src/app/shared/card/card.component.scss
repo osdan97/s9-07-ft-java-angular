@@ -12,8 +12,23 @@
   overflow: hidden;
   background-color: $background-white;
   color: $text-color-primary;
+  position: relative;
 }
+.favorite__button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
 
+  i {
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.3);
+      color: $background-complementary;
+    }
+  }
+}
 .imagen-text {
   width: 100%;
   height: 162px;

@@ -1,4 +1,4 @@
-<section class="detalle-producto">
+<section class="detalle-producto" *ngIf="product">
   <p-messages
     [(value)]="messages"
     [enableService]="false"
@@ -9,58 +9,43 @@
   </div>
 
   <div class="descripcion-producto">
+    <div class="titulo-heart-movile">
+      <h2>{{ product.name }}</h2>
+    </div>
     <div class="imagen-producto">
-      <div class="imagen-chica-producto">
-        <img
-          class="foto-chica-producto"
-          src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
-          alt="imagen producto"
-        />
-
-        <img
-          class="foto-chica-producto"
-          src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
-          alt="imagen producto"
-        />
-
-        <img
-          class="foto-chica-producto"
-          src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=140"
-          alt="imagen producto"
-        />
-      </div>
-
       <div class="imagen-grande-producto">
         <img
           class="foto-producto"
-          src="https://images.pexels.com/photos/3680219/pexels-photo-3680219.jpeg?auto=compress&cs=tinysrgb&w=400"
+          [src]="product.image"
           alt="imagen producto"
         />
       </div>
     </div>
     <div class="texto-producto">
       <div class="titulo-heart">
-        <h2>Titulo del producto</h2>
+        <h2>{{ product.name }}</h2>
         <i class="pi pi-heart"></i>
       </div>
 
-      <h2><b>€ 10,95</b></h2>
+      <h2>
+        <b>€ {{ product.price }}</b>
+      </h2>
 
-      <p class="description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium quo
-        tenetur corrupti consequuntur animi, aspernatur consequatur officia
-        eaque? Distinctio exercitationem quia eaque sit! Dignissimos ab,
-        voluptate nesciunt exercitationem rerum sint!
-      </p>
-      <span class="stock chip">EN STOCK</span>
-      <div class="button__container">
-        <button class="button custom__button--line">Finalizar compra</button>
-        <app-input-cart
-          [changeClass]="false"
-          (addCart)="showQuantityProduc($event)"
-          [changeWidth]="'224px'"
-          [width]="'66px'"
-        ></app-input-cart>
+      <p class="description">{{ product.description }}</p>
+      <div class="botones">
+        <div class="button__container">
+          <app-input-cart
+            [changeClass]="false"
+            [changeWidth]="'224px'"
+            [width]="'66px'"
+            [product]="product"
+            (addCart)="showQuantityProduc($event)"
+          ></app-input-cart>
+        </div>
+        <div class="botonesCompra">
+          <span class="stock chip">{{ product.stock | stock }}</span>
+          <button class="button custom__button--line">Finalizar compra</button>
+        </div>
       </div>
     </div>
   </div>

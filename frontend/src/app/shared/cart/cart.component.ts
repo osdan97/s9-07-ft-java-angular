@@ -1,12 +1,24 @@
-import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+  signal,
+  OnInit,
+  inject,
+} from '@angular/core';
+import { CartProduct } from 'src/app/core/interfaces/products.interfaces';
+import { CartService } from 'src/app/core/services/cart/cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-export class CartComponent {
+export class CartComponent implements OnInit {
   @Output() visibleCart = new EventEmitter<boolean>();
+
+  // @Input() cartProducts!: CartProduct[];
   @Input() changeButton = true;
   @Input() showBorder = false;
   @Input() isLogued = false;
@@ -16,28 +28,22 @@ export class CartComponent {
   @Input() isHidden = false;
   @Input() details = true;
   @Input() disableShadow = false;
+  @Input() showPaymentView = true;
+  @Input() showTrash = true;
+
+  cartProduct = signal<CartProduct[]>([]);
+  totalPriceProduct = 0;
+  totalProductToCart = 0;
+  totalProductWeight = 0;
 
   boton1 = 'Ver detalle';
   boton2 = 'Finalizar compra';
 
-  cart = signal<any>([
-    {
-      userId: 1,
-      id: 1,
-      name: 'Lorem ipsum kafkjbasblnnadlnsakn',
-      price: 5,
-      quantity: 2,
-      image: 'https://via.placeholder.com/150',
-    },
-    {
-      userId: 2,
-      id: 2,
-      name: 'Lorem ipsum kafkjbasblnnadlnsakn',
-      price: 3,
-      quantity: 1,
-      image: 'https://via.placeholder.com/150',
-    },
-  ]);
+  cartService = inject(CartService);
+
+  ngOnInit(): void {
+    this.getCart();
+  }
 
   estiloActivo = { boxShadow: 'none' };
   estiloInactivo = {};
@@ -48,5 +54,45 @@ export class CartComponent {
 
   backHistory() {
     window.history.back();
+  }
+
+  getCart() {
+    const products = this.cartService.getCart();
+    this.cartProduct.set(products);
+    this.totalPrice();
+    this.totalQuantity();
+    this.totalWeight();
+  }
+
+  totalPrice() {
+    let total = 0;
+    this.cartProduct().forEach((product) => {
+      total += product.price * product.quantity;
+    });
+
+    this.totalPriceProduct = total;
+  }
+
+  deleteItemCart(id: string) {
+    this.cartService.removeFromCart(id);
+    this.getCart();
+  }
+
+  totalQuantity() {
+    const totalProductos = this.cartProduct().reduce(
+      (total, producto) => total + producto.quantity,
+      0
+    );
+
+    this.totalProductToCart = totalProductos;
+  }
+
+  totalWeight() {
+    const totalProductos = this.cartProduct().reduce(
+      (total, producto) => total + producto.weight,
+      0
+    );
+
+    this.totalProductWeight = totalProductos;
   }
 }

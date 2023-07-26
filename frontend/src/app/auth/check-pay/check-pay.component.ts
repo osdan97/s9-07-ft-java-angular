@@ -1,54 +1,48 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, inject } from '@angular/core';
+import {
+  FormGroup,
+  FormControl,
+  Validators,
+  FormBuilder,
+} from '@angular/forms';
+import {
+  ShippingDetailsList,
+  UserData,
+} from 'src/app/core/interfaces/auth.interfaces';
+import { FormCheckout } from 'src/app/core/interfaces/checkout';
+import { CheckoutService } from 'src/app/core/services/checkout/checkout.service';
 
 @Component({
   selector: 'app-check-pay',
   templateUrl: './check-pay.component.html',
   styleUrls: ['./check-pay.component.scss'],
 })
-export class CheckPayComponent {
+export class CheckPayComponent implements OnInit {
+  shippingDetail!: FormGroup;
+  shippingMethod!: FormGroup;
+
+  userData!: UserData;
+  phoneNumber!: string;
+  shippingData!: ShippingDetailsList;
+
   show = false;
   show1 = false;
   show2 = false;
 
-  pais = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^[a-zA-Z ]+$/),
-  ]);
-  provincia = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^[a-zA-Z ]+$/),
-  ]);
-  postal = new FormControl('', Validators.required);
-  ciudad = new FormControl('', [
-    Validators.required,
-    Validators.pattern(/^[a-zA-Z ]+$/),
-  ]);
-  direccion = new FormControl('', Validators.required);
-  detalle_dir = new FormControl('');
-  check_fact = new FormControl('', Validators.requiredTrue);
-  envio = new FormControl('', Validators.required);
-  coment_envio = new FormControl('');
+  formBuilder = inject(FormBuilder);
+  chekautService = inject(CheckoutService);
+
+  ngOnInit(): void {
+    this.getUserData();
+    this.shippingDetail = this.initFormShippingDetail();
+    this.shippingMethod = this.initFormshippingMethod();
+  }
+
   sel_pay = new FormControl('');
   num_cre = new FormControl('');
   ven_cre = new FormControl('');
   cod_cre = new FormControl('');
   check_cre = new FormControl('');
-
-  form = new FormGroup({
-    pais: this.pais,
-    provincia: this.provincia,
-    postal: this.postal,
-    ciudad: this.ciudad,
-    direccion: this.direccion,
-    detalle_dir: this.detalle_dir,
-    check_fact: this.check_fact,
-  });
-
-  form1 = new FormGroup({
-    envio: this.envio,
-    coment_envio: this.coment_envio,
-  });
 
   form2 = new FormGroup({
     sel_pay: this.sel_pay,
@@ -59,55 +53,108 @@ export class CheckPayComponent {
   });
 
   form_person() {
-    if (this.form.valid) {
-      console.log(this.form.value);
+    if (this.shippingDetail.valid) {
       this.show = true;
     }
   }
 
   form_send() {
-    if (this.form1.valid) {
-      console.log(this.form1.value);
+    if (this.shippingMethod.valid) {
       this.show1 = true;
     }
   }
 
   form_pay() {
-    if (this.form2.valid) {
-      console.log(this.form2.value);
+    if (this.shippingMethod.valid) {
       this.show2 = true;
     }
   }
 
-  set_pay() {
-    if (this.form2.value.sel_pay === 'paypal') {
-      this.num_cre.reset();
-      this.num_cre.disable();
-      this.num_cre.clearValidators();
-      this.ven_cre.reset();
-      this.ven_cre.disable();
-      this.ven_cre.clearValidators();
-      this.cod_cre.reset();
-      this.cod_cre.disable();
-      this.cod_cre.clearValidators();
-      this.check_cre.reset();
-      this.check_cre.disable();
-      this.check_cre.clearValidators();
-    } else {
-      this.num_cre.enable();
-      this.num_cre.setValidators(Validators.required);
-      this.ven_cre.enable();
-      this.ven_cre.setValidators(Validators.required);
-      this.cod_cre.enable();
-      this.cod_cre.setValidators(Validators.required);
-      this.check_cre.enable();
-      this.check_cre.setValidators(Validators.requiredTrue);
-    }
-    this.form2.updateValueAndValidity();
-    this.form2.markAllAsTouched();
-    this.num_cre.updateValueAndValidity();
-    this.ven_cre.updateValueAndValidity();
-    this.cod_cre.updateValueAndValidity();
-    this.check_cre.updateValueAndValidity();
+  getUserData() {
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    this.userData = JSON.parse(localStorage.getItem('userData')!);
+
+    const arrayPhone = this.userData.phonesList[0];
+    const number = `+${arrayPhone.countryCode}-${arrayPhone.cityCode}-${arrayPhone.phoneNumber}`;
+
+    const shipping = this.userData.shippingDetailsList[0];
+
+    this.phoneNumber = number;
+    this.shippingData = shipping;
+  }
+
+  initFormShippingDetail(): FormGroup {
+    return this.formBuilder.group({
+      country: [
+        this.shippingData.country,
+        [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
+      ],
+      province: [
+        this.shippingData.provincia,
+        [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
+      ],
+      postalCode: [this.shippingData.postalCode, Validators.required],
+      city: [
+        this.shippingData.city,
+        [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
+      ],
+      address: [this.shippingData.address1, Validators.required],
+      addressDetail: [this.shippingData.address2, Validators.required],
+      checkFact: [''],
+    });
+  }
+
+  initFormshippingMethod(): FormGroup {
+    return this.formBuilder.group({
+      shippingMethod: ['', Validators.required],
+      commentShipping: [''],
+    });
+  }
+
+  sendData() {
+    const cart = JSON.parse(localStorage.getItem('cart') || '{}');
+
+    console.log(cart);
+
+    const body: any = {
+      account: {
+        accountUuid: this.userData.accountUuid,
+      },
+      shippingCost: 7.95,
+      orderDetailsList: [
+        {
+          product: {
+            id: '91ca771e-9329-4d24-ba20-e0e71cec9161',
+          },
+          quantity: 5,
+        },
+        {
+          product: {
+            id: '6e389e93-7d2a-411c-a3bb-f27f8ee9cf69',
+          },
+          quantity: 21,
+        },
+      ],
+      shippingDetails: {
+        shippingdetail_uuid: this.shippingData.shippingDetailUuid,
+        name: this.userData.name,
+        lastName: this.userData.lastName,
+        address1: this.shippingData.address1,
+        address2: this.shippingData.address2,
+        postalCode: this.shippingData.postalCode,
+        provincia: this.shippingData.provincia,
+        city: this.shippingData.city,
+        country: this.shippingData.country,
+        gift: false,
+      },
+    };
+
+    // localStorage.setItem(
+    //   'ordersData',
+    //   JSON.stringify(this.shippingDetail.value)
+    // );
+    this.chekautService.addOrder(body, this.userData.token).subscribe((res) => {
+      console.log(res);
+    });
   }
 }

@@ -20,12 +20,22 @@ footer {
   max-width: $max-width;
   width: 95%;
   margin: 0 auto;
-  gap: 3px;
-
+  gap: 10px;
+  /* @include media-up(mobile) {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction:column ;
+    margin:30px ;
+  } */
+  /*.container-div{
+  padding-bottom: 20px;
+}*/
   .contact__container {
     display: flex;
     flex-direction: column;
     gap: 0.2rem;
+    padding-bottom: 20px;
   }
 }
 
@@ -35,16 +45,27 @@ h4 {
   letter-spacing: 0em;
   text-align: left;
   color: #fff;
+  padding-bottom: 5px;
+  /*   @include media-up(mobile) {
+    font-size: $heading1;
+  } */
 }
 
-p,
-a {
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0em;
-  text-align: left;
-  color: #fff;
+p {
+  padding-bottom: 0px;
+
+  a {
+    font-size: $heading4;
+    font-weight: 400;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+/*     @include media-up(mobile) {
+      font-size: $heading2;
+      padding-bottom: 7px;
+    } */
+  }
 }
 
 .icon {
@@ -53,17 +74,17 @@ a {
   gap: 6px;
   padding-bottom: 3px;
   margin-top: 3px;
-
+  color: white;
 }
 
 .icon div {
   padding: 0.2rem 0.3rem;
-  background-color: #fff;
+  //background-color: #fff;
   border-radius: 2px;
   width: 24px;
   height: 24px;
 }
-.icono{
+.icono {
   margin: 2px 0.5px 0px;
   border-radius: 5px;
   display: flex;
@@ -72,7 +93,7 @@ a {
   cursor: pointer;
 }
 .anchor {
-  padding-top: 8px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,9 +108,9 @@ a:visited {
   color: white;
 }
 
-.title {
+/*.title {
   padding-bottom: 10px;
-}
+}*/
 
 input {
   width: 137px;
@@ -101,16 +122,71 @@ input {
   font-weight: 500;
   line-height: 13px;
   letter-spacing: 0em;
-
+/*   @include media-up(mobile) {
+    width: 150px;
+    height: 32px;
+  } */
 }
-input::placeholder{
+input::placeholder {
   font-weight: 500px;
-  color:#202020;
+  color: #202020;
+/*   @include media-up(mobile) {
+    font-size: $heading3;
+  } */
 }
 
-h5{
+/* .news {
+  @include media-up(mobile) {
+    display: flex;
+    font-size: 16px;
+    align-items: center;
+    font-size: $heading3;
+  }
+} */
+
+h5 {
   font-size: 12px;
   color: #fff;
   align-items: center;
   font-weight: 500;
+/*   @include media-up(mobile) {
+    display: flex;
+    font-size: 16px;
+  } */
+}
+
+@include media-up(mobile) {
+  .container {
+    max-width: 90%;
+    flex-direction: column;
+    
+  }
+  .copy_footer {
+    padding-top: 0;
+  }
+  .anchor_news {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@include media-up(tablet) {
+  .container {
+    padding: 20px;
+  }
+}
+
+@include media-up(ipad) {
+  .container {
+    padding: 20px;
+    gap: 15px;
+  }
+}
+
+@include media-up(screenXs) {
+  .copy_footer {
+    padding-bottom: 30px;
+    align-items: center;
+
+  }
 }

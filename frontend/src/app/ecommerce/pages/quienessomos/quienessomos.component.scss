@@ -1,0 +1,61 @@
+@import "src/styles.scss";
+.contenedor{
+    display: block;
+    justify-content: center;
+    padding-right: 10%;
+    padding-left: 10%;
+    font-family: 'Quicksand';
+}
+.caja1{
+    justify-content: center;
+    margin-top: 4%;
+}
+.caja1 p{
+    margin-top: 2%;
+    font-size: 20px;
+}
+
+.titulo{
+    font-weight: 800;
+    font-size: 25px;
+    margin-top: 2%;
+}
+.caja2{
+    display: flex;
+    width: 100%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.caja2 p{
+    margin-top: 20px;
+    font-size: 16px;
+}
+.caja-texto2{
+    width: 100%;
+    height: 100%;
+    margin-right: 20px;
+}
+.caja-imagen2{
+    border-radius: 13px;
+    height: 60%;
+    width: 50%;
+}
+.imagen2{
+    width: 80%;
+    
+}
+.caja3 p{
+    margin-bottom: 2%;
+    font-size: 16px;
+}
+.caja-logo{
+    margin-top: 4%;
+    text-align: center;
+    font-size: 20px;
+}
+.imgLogo{
+    width: 197px;
+    height: 121px;
+}
+
+

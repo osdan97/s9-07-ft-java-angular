@@ -1,7 +1,13 @@
+import { Product } from './../../core/interfaces/user.interfaces';
 import { Component, Input, OnInit, inject, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { take } from 'rxjs';
+import { ProductsResponse } from 'src/app/core/interfaces/products.interfaces';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-card',
@@ -14,13 +20,47 @@ export class CardComponent implements OnInit {
   @Input() changeWidth = '';
 
   addCartForm!: FormGroup;
+  isLogued = false;
+  changeRouter = false;
+  routeLink = '';
 
   quantity = signal<number>(1);
+  viewIsFavorite = signal<boolean>(false);
 
   formBuilder = inject(FormBuilder);
+  userService = inject(UserService);
+  cookieService = inject(CookieService);
+  route = inject(ActivatedRoute);
+  router = inject(Router);
 
   ngOnInit(): void {
     this.addCartForm = this.initForm();
+
+    const currentUrl = this.router.url;
+    const productRoute = currentUrl.split('/')[1];
+
+    if (this.router.url === '/') {
+      this.routeLink = 'product/';
+    } else if (productRoute === 'product') {
+      this.routeLink = '../../product/';
+    } else if (productRoute === 'products') {
+      this.routeLink = '../product/';
+    } else {
+      this.routeLink = '../product/';
+    }
+
+    this.userService.favorites$.subscribe((favorites) => {
+      const response = favorites.some(
+        (item: Product) => item.id === this.product.id
+      );
+      this.viewIsFavorite.set(!response);
+    });
+
+    if (productRoute === 'product') {
+      this.changeRouter = true;
+    } else {
+      this.changeRouter = false;
+    }
   }
 
   initForm(): FormGroup {
@@ -48,10 +88,43 @@ export class CardComponent implements OnInit {
       id: this.product.id,
       quantity: this.addCartForm.value.quantity,
     };
-    console.log(body);
   }
 
   showMessageFailed(): void {
     Notify.failure('Debes seleccionar al menos un producto');
+  }
+
+  isFavorite(product: ProductsResponse) {
+    const verifyToken = this.cookieService.check('accessToken');
+
+    if (!verifyToken) {
+      this.isLogued = true;
+      return;
+    } else {
+      this.isLogued = false;
+    }
+
+    const token = this.cookieService.get('accessToken');
+
+    this.userService.refreshFavorites(token);
+
+    if (this.viewIsFavorite()) {
+      this.userService.addFavoriteProduct(token, product.id).subscribe();
+    } else {
+      const token = this.cookieService.get('accessToken');
+
+      console.log(token);
+
+      this.userService
+        .removeFavoriteProduct(token, this.product)
+        .subscribe((res) => {
+          console.log(res);
+          this.userService.refreshFavorites(token);
+        });
+    }
+  }
+
+  closeDialog(): void {
+    this.isLogued = false;
   }
 }
