@@ -244,3 +244,17 @@ select {
     gap: 5px;
   }
 }
+
+@include media-up(tablet) {
+  img {
+    width: 44px;
+    height: auto;
+  }
+  .mobile {
+    display: none;
+  }
+  .input_info {
+    flex-direction: column-reverse;
+    gap: 5px;
+  }
+}
