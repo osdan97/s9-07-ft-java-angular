@@ -13,6 +13,7 @@ import { UserData } from 'src/app/core/interfaces/auth.interfaces';
 import { CartProduct } from 'src/app/core/interfaces/products.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CartService } from 'src/app/core/services/cart/cart.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -37,6 +38,7 @@ export class HeaderComponent implements OnInit {
   router = inject(Router);
   renderer = inject(Renderer2);
   elementRef = inject(ElementRef);
+  userService = inject(UserService);
   cartService = inject(CartService);
   authService = inject(AuthService);
   cookieService = inject(CookieService);
@@ -69,7 +71,7 @@ export class HeaderComponent implements OnInit {
       this.showCategories.set(true);
     }
 
-    if (this.router.url === '/home-productos') {
+    if (this.router.url === '/products') {
       this.showCategories.set(false);
     }
   }
@@ -151,6 +153,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logOut() {
+    const token = this.cookieService.get('accessToken');
+
+    this.userService.refreshFavorites(token);
     this.cookieService.delete('accessToken');
     localStorage.removeItem('userData');
     this.isLoged = false;

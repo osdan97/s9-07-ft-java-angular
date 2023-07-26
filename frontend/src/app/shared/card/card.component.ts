@@ -109,11 +109,7 @@ export class CardComponent implements OnInit {
     this.userService.refreshFavorites(token);
 
     if (this.viewIsFavorite()) {
-      this.userService
-        .addFavoriteProduct(token, product.id)
-        .subscribe((resp) => {
-          // sessionStorage.setItem('favorites', JSON.stringify(resp));
-        });
+      this.userService.addFavoriteProduct(token, product.id).subscribe();
     } else {
       const token = this.cookieService.get('accessToken');
 

@@ -16,6 +16,7 @@ import {
   UserData,
 } from 'src/app/core/interfaces/auth.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
   formBuilder = inject(FormBuilder);
   cookieService = inject(CookieService);
   router = inject(Router);
+  userService = inject(UserService);
 
   ngOnInit(): void {
     this.loginForm = this.initFormLogin();
@@ -90,6 +92,10 @@ export class LoginComponent implements OnInit {
 
         localStorage.setItem('userData', JSON.stringify(newUserData));
         this.authService.setAutenticate(true);
+
+        const token = this.cookieService.get('accessToken');
+
+        this.userService.refreshFavorites(token);
       });
   }
 
