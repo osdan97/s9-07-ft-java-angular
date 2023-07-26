@@ -233,3 +233,24 @@
   font-weight: 500;
   font-size: 20px;
 }
+
+@include media-up(mobileXs) {
+  .carrito {
+    flex-direction: column;
+  }
+
+}
+
+@include media-up(mobile) {
+  .carrito {
+    flex-direction: column;
+  }
+
+}
+
+@include media-up(tablet) {
+  .carrito {
+    flex-direction: column;
+  }
+
+}
