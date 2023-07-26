@@ -40,3 +40,15 @@
   margin: 0 0 40px 0;
   box-shadow: $card-shadow;
 }
+
+@include media-up(mobileXs) {
+  h2 {
+    font-size: 20px !important;
+  }
+}
+
+@include media-up(mobile) {
+  h2 {
+    font-size: 20px !important;
+  }
+}
