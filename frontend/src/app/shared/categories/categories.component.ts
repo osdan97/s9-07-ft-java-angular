@@ -9,7 +9,7 @@ export class CategoriesComponent {
   categories = signal([
     {
       name: 'argentina',
-      image: '../../../../../../assets/images/argentina.svg',
+      image: '../../../assets/images/argentinabandera.png',
     },
     {
       name: 'colombia',
