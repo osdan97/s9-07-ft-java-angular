@@ -30,7 +30,7 @@ public class EmailServiceImpl implements EmailService {
         String subject = emailValues.getSubject();
         String tokenPassword = emailValues.getToken();
 
-        String senderName = "Ecommerce Team";
+        String senderName = "DeLatinos Team";
         String mailContent = "<head>";
         mailContent += "<style>";
         mailContent += "a{";
@@ -83,7 +83,7 @@ public class EmailServiceImpl implements EmailService {
         String subject = emailValues.getSubject();
         String verificationCode = emailValues.getToken();
 
-        String senderName = "Ecommerce";
+        String senderName = "DeLatinos";
         String mailContent = "<head>";
         mailContent += "<style>";
         mailContent += "a{";
