@@ -145,16 +145,12 @@ export class CheckPayComponent implements OnInit {
       },
     };
 
-    // localStorage.setItem(
-    //   'ordersData',
-    //   JSON.stringify(this.shippingDetail.value)
-    // );
+    const shippingMethod = this.shippingMethod.value.shippingMethod;
 
-    // console.log(body);
+    localStorage.setItem('shippingMethod', JSON.stringify(shippingMethod));
 
     this.chekautService.addOrder(body, this.userData.token).subscribe((res) => {
       localStorage.setItem('order', JSON.stringify(res));
-      console.log(res);
     });
   }
 }

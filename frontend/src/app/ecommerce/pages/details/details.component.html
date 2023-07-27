@@ -23,7 +23,7 @@
           </div>
           <div class="items">
             <p class="items-negrita">Peso Total:</p>
-            <span>15kg</span>
+            <span>{{ totalProductWeight }}gr</span>
           </div>
           <div class="items">
             <p class="items-negrita">IVA:</p>
@@ -31,21 +31,27 @@
           </div>
           <div class="items">
             <p class="items-negrita">Fecha de pedido:</p>
-            <span>13:05 14/07/2023</span>
+            <span>{{ date | date }}</span>
           </div>
         </div>
         <div class="item2">
           <div class="items">
             <p class="items-negrita2">Subtotal</p>
-            <span><b>€8</b></span>
+            <span
+              ><b>{{ totalPriceProduct | currency : "€" }}</b></span
+            >
           </div>
           <div class="items">
             <p class="items-negrita2">Envio</p>
-            <span><b>€7</b></span>
+            <span><b>€7.95</b></span>
           </div>
           <div class="items">
             <p class="items-negrita2">Total</p>
-            <span><b>€15</b></span>
+            <span
+              ><b>{{
+                totalPriceProduct * 1.19 + 7.95 | currency : "€"
+              }}</b></span
+            >
           </div>
         </div>
       </div>
@@ -66,12 +72,14 @@
           </div>
 
           <div>
-            <p  style="text-align: start"><b>Mariano García Machado</b></p>
-            <p  style="text-align: start">Mariano_garcia@gmail.com</p>
+            <p style="text-align: start">
+              <b>{{ userData.name + userData.lastName }}</b>
+            </p>
+            <p style="text-align: start">{{ userData.email }}</p>
           </div>
         </div>
         <div class="numero">
-           <p class="num">+34.652.253.478</p>
+          <p class="num">{{ userData.phonesList | numberPhone }}</p>
         </div>
       </div>
     </div>
@@ -88,17 +96,24 @@
             />
           </div>
           <div>
-            <p style="text-align: start"><b>Argentina</b></p>
-            <p style="text-align: start">Calle falsa</p>
-            <p style="text-align: start">Mendoza</p>
+            <p style="text-align: start">
+              <b>{{ userData.shippingDetailsList[0].country }}</b>
+            </p>
+            <p style="text-align: start">
+              {{ userData.shippingDetailsList[0].address1 }}
+            </p>
+            <p style="text-align: start">
+              {{ userData.shippingDetailsList[0].city }}
+            </p>
           </div>
-            <div>
-              <p style="text-align: start">Mendoza</p>
-              <p style="text-align: start">123</p>
-              <p style="text-align: start">45555786</p>
-            </div>
-          
-  
+          <div>
+            <p style="text-align: start">
+              {{ userData.shippingDetailsList[0].city }}
+            </p>
+            <p style="text-align: start">
+              {{ userData.phonesList | numberPhone }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -110,23 +125,19 @@
       </div>
       <div class="seleccionado-envio">
         <div class="imagen-envio">
-          <img
-            class="imagen"
-            src="../../../../assets/images/ups.png"
-            alt="foto"
-          />
+          <img class="imagen" [src]="imagePath" alt="foto" />
         </div>
         <div class="empresa-envio">
-          <p>UPS</p>
+          <p>{{ shippingMethod | uppercase }}</p>
         </div>
         <div class="responsive">
-        <div class="demora">
-          <p>Entrega en 48 a 72 hs</p>
+          <div class="demora">
+            <p>Entrega en 48 a 72 hs</p>
+          </div>
+          <div class="costo-envio">
+            <p class="valor">€7.95</p>
+          </div>
         </div>
-        <div class="costo-envio">
-          <p class="valor">€7.95</p>
-        </div>
-      </div>
       </div>
     </div>
 
@@ -195,9 +206,13 @@
   </div>
 </section>
 
-<!-- <p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
-  <p class="m-0">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-</p-dialog> -->
+<p-dialog
+  header="Pago confirmado"
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p class="m-0">Se aprobó su pago con éxito!</p>
+</p-dialog>

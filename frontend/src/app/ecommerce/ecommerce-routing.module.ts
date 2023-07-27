@@ -117,14 +117,14 @@ const routes: Routes = [
         canMatch: [AuthGuard],
       },
       {
-        path: 'legales',
+        path: 'legal',
         loadChildren: () =>
           import('./pages/legales/legales.module').then((m) => m.LegalesModule),
         // canActivate: [AuthGuard],
         //canMatch: [AuthGuard],
       },
       {
-        path: 'preguntas-frecuentes',
+        path: 'frequent-questions',
         loadChildren: () =>
           import(
             './pages/preguntas-frecuentes/preguntas-frecuentes.module'
@@ -152,7 +152,7 @@ const routes: Routes = [
       },
 
       {
-        path: 'terminos-condiciones',
+        path: 'terms-and-conditions',
         loadChildren: () =>
           import(
             './pages/terminos-condiciones/terminos-condiciones.module'
@@ -161,7 +161,7 @@ const routes: Routes = [
         // canMatch: [AuthGuard],
       },
       {
-        path: 'quienessomos',
+        path: 'about-us',
         loadChildren: () =>
           import('./pages/quienessomos/quienessomos.module').then(
             (m) => m.QuienessomosModule
