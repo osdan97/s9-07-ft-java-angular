@@ -9,6 +9,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, String> {
@@ -19,6 +20,7 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     Page<Product> findAllByCategoryName(String category, Pageable pageable);
     Page<Product> findAllByCountryAndCategoryName(String country, String category, Pageable pageable);
     Optional<Product> findByName(String product);
+    List<Product> findByNameLike(String nameProduct);
     @Modifying
     @Query(value = "UPDATE PRODUCT SET stock=:stock, state=:state WHERE product_uuid=:product_uuid",
             nativeQuery = true)

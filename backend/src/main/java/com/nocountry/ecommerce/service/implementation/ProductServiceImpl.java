@@ -210,4 +210,9 @@ public class   ProductServiceImpl implements ProductService {
     public void updateStock(int newStock,String state, String productUuid){
         productRepository.updateStock(newStock, state, productUuid);
     }
+    @Override
+    public List<Product> findProductByName(String product){
+        String containsNameProduct = "%" + product + "%";
+        return productRepository.findByNameLike(containsNameProduct);
+    }
 }

@@ -101,7 +101,8 @@ public class SecurityConfig {
                         "/api/products/product/**",
                         "/api/products/totalproducts",
                         "/api/products/totalpages",
-                        "/api/favorites/deletebyproduct/**")
+                        "/api/favorites/deletebyproduct/**",
+                        "/api/products/name/**")
                 .permitAll()
                 .anyRequest().authenticated();
 
