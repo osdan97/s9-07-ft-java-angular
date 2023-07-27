@@ -129,6 +129,10 @@ public class ProductServiceImpl implements ProductService {
             pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
                     .descending());
         }
+        if (sort == null || sort.isEmpty()){
+            pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
+                    .ascending());
+        }
         Page<Product> productPage;
 
         if(category == null && country != null){
