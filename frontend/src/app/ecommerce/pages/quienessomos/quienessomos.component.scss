@@ -69,7 +69,7 @@
     .caja-imagen2{
         height: 100%;
         width: 100%;
-        margin: 20px 0px;
+        margin-top: 20px;
     }
     .imagen2{
         width: 100%;
@@ -86,7 +86,7 @@
     .caja-imagen2{
         height: 100%;
         width: max-content;
-        margin: 20px 0px;
+       // margin: 20px 0px;
     }
     .imagen2{
         width: max-content;
@@ -97,6 +97,9 @@
     .contenedor{
         padding: 20px;
     }
+    .caja2 {
+        display:flex;
+       }
     .caja-imagen2{
         height: 100%;
         width: 100%;
@@ -110,12 +113,17 @@
 
   @include media-up(tablet) {
     .caja2 {
-        display:inline;
+        display:flex;
+        flex-direction: column;
        }
     .contenedor{
         padding: 20px;
     }
+    .caja-texto2{
+        order: 2;
+    }
     .caja-imagen2{
+        order: 1;
         height: 80%;
         width: 80%;
         margin: 20px 0px;

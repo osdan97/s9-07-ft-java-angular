@@ -1,5 +1,6 @@
 <div class="main__container">
-   <app-header></app-header> 
+  <app-header *ngIf="screenWidth > 980"></app-header>
+  <app-header-mobile *ngIf="screenWidth < 981"></app-header-mobile>
 
   <div [@routeAnimations]="getAnimationState()">
     <router-outlet></router-outlet>

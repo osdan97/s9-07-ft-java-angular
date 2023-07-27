@@ -72,6 +72,12 @@
   border: 0.5px;
   box-shadow: $card-shadow;
   margin: 10px 40px;
+  @include media-up(tablet) {
+    flex-direction: column;
+    height: 100%;
+    margin: 0 auto;
+    gap: 1rem;
+  }
 }
 
 /*.imagen-reemplazo{

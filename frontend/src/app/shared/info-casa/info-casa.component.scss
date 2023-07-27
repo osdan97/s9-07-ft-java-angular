@@ -18,6 +18,12 @@
   flex-direction: row;
   justify-content: space-between;
   color: #2f3f61;
+  @include media-up(mobile) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
 
   .iconoCasa {
     display: flex;
@@ -69,17 +75,16 @@ i {
 }
 
 button {
-  width: 139px;
-  height: 40px;
-  border-radius: 8px;
-  background: #fff;
-  &:hover {
-    background: #2f3f61;
-    color: #fff;
-  }
-  &:active {
-    background: #4d5d81;
-    color: #fff;
-  }
+  // width: 139px;
+  // height: 40px;
+  // border-radius: 8px;
+  // background: #fff;
+  // &:hover {
+  //   background: #2f3f61;
+  //   color: #fff;
+  // }
+  // &:active {
+  //   background: #4d5d81;
+  //   color: #fff;
+  // }
 }
-

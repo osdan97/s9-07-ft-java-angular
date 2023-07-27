@@ -14,7 +14,9 @@ import { DialogModule } from 'primeng/dialog';
 import { AccordionModule } from 'primeng/accordion';
 
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { SidebarModule } from 'primeng/sidebar';
 
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   exports: [
@@ -27,6 +29,8 @@ import { RadioButtonModule } from 'primeng/radiobutton';
     DialogModule,
     AccordionModule,
     RadioButtonModule,
+    SidebarModule,
+    LayoutModule,
   ],
 })
 export class PrimeNgModule {}

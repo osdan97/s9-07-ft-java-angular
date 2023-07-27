@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, HostListener, OnInit, inject } from '@angular/core';
 import { AuthService } from '../core/services/auth/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
@@ -20,6 +20,8 @@ import { UserService } from '../core/services/user/user.service';
   ],
 })
 export class EcommerceComponent implements OnInit {
+  screenWidth = 0;
+
   productService = inject(DataService);
   authService = inject(AuthService);
   userService = inject(UserService);
@@ -41,6 +43,8 @@ export class EcommerceComponent implements OnInit {
     if (!products) {
       this.getProducts();
     }
+
+    this.screenWidth = window.innerWidth;
   }
 
   getAnimationState(): string {
@@ -62,5 +66,10 @@ export class EcommerceComponent implements OnInit {
     this.userService.favorites$.subscribe((favorites) => {
       // Hacer lo que necesites con los favoritos actualizados
     });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.screenWidth = event.target.innerWidth;
   }
 }
