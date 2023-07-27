@@ -29,10 +29,8 @@ export class DetailsComponent implements OnInit {
   }
 
   sendPay() {
-    const transaction = sessionStorage.getItem('order')!;
+    const transaction = JSON.parse(localStorage.getItem('order') || '{}');
     const token = this.cookieService.get('accessToken');
-
-    console.log(transaction);
 
     const body = {
       cardNumber: this.paymentForm.value.cardNumber,
@@ -40,7 +38,7 @@ export class DetailsComponent implements OnInit {
       cardCode: this.paymentForm.value.cardCode,
       currencyCode: 'EUR',
       orders: {
-        transactionUuid: 'ffa2beb7-5db3-42bb-b471-045340692432',
+        transactionUuid: transaction.transactionUuid,
       },
       transaction_type: 'PAID',
     };

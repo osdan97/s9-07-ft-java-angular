@@ -7,12 +7,14 @@ import {
   inject,
   signal,
 } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { UserData } from 'src/app/core/interfaces/auth.interfaces';
 import { CartProduct } from 'src/app/core/interfaces/products.interfaces';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
 import { CartService } from 'src/app/core/services/cart/cart.service';
+import { ProductsService } from 'src/app/core/services/products/products.service';
 import { UserService } from 'src/app/core/services/user/user.service';
 
 @Component({
@@ -23,7 +25,7 @@ import { UserService } from 'src/app/core/services/user/user.service';
 export class HeaderComponent implements OnInit {
   headerFixed = signal<boolean>(false);
   showCategories = signal<boolean>(false);
-  value: string | undefined;
+  searchForm!: FormGroup;
   totalProductToCart = signal<number>(0);
   cartProduct = signal<CartProduct[]>([]);
 
@@ -38,8 +40,10 @@ export class HeaderComponent implements OnInit {
   router = inject(Router);
   renderer = inject(Renderer2);
   elementRef = inject(ElementRef);
+  formBuilder = inject(FormBuilder);
   userService = inject(UserService);
   cartService = inject(CartService);
+  productService = inject(ProductsService);
   authService = inject(AuthService);
   cookieService = inject(CookieService);
 
@@ -51,7 +55,7 @@ export class HeaderComponent implements OnInit {
       this.visible = false;
       this.visibleMyAccount.set(false);
       this.visibleCart.set(false);
-      this.value = undefined;
+      // this.value = undefined;
       // if (event instanceof NavigationEnd) {
       // }
     });
@@ -61,6 +65,8 @@ export class HeaderComponent implements OnInit {
     this.isLogued();
 
     this.getProductsToCart();
+
+    this.searchForm = this.initSearchForm();
   }
 
   //Función para verificar si no se encuentra en la ruta principal para mostrar el header con el menú de categorías
@@ -174,6 +180,18 @@ export class HeaderComponent implements OnInit {
       );
 
       this.totalProductToCart.set(totalProductos);
+    });
+  }
+
+  initSearchForm(): FormGroup {
+    return this.formBuilder.group({
+      product: [''],
+    });
+  }
+
+  SearchFormProducts() {
+    this.router.navigate(['/search'], {
+      queryParams: { q: this.searchForm.value.product },
     });
   }
 }

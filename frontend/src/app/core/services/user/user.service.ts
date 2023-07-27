@@ -131,34 +131,4 @@ export class UserService {
       headers,
     });
   }
-
-  // getFavoriteProducts(token: string): Observable<Product[]> {
-  //   const accessToken: Payload = jwtDecode(token);
-
-  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //   return this.http
-  //     .get<FavoriteResponse[]>(
-  //       `${this.baseUrl}favorites/list/${accessToken.userId}`,
-  //       {
-  //         headers,
-  //       }
-  //     )
-  //     .pipe(map((res) => res.map((item) => item.product)));
-  // }
-
-  // addFavoriteProducts(token: string, product: string): Observable<Product> {
-  //   const accessToken: Payload = jwtDecode(token);
-
-  //   const body = {
-  //     customers: accessToken.userId,
-  //     product,
-  //   };
-
-  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //   return this.http
-  //     .post<FavoriteResponse>(`${this.baseUrl}favorites/create`, body, {
-  //       headers,
-  //     })
-  //     .pipe(map((res) => res.product));
-  // }
 }
