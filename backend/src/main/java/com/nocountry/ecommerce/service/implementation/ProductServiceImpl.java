@@ -120,19 +120,18 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getProducts(Integer page, String country, String category, String sort) {
-        PageRequest pageRequest = null;
-        if (sort == "smaller") {
+        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
+                .ascending());
+
+        if (sort.equals("smaller")) {
            pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
                     .ascending());
         }
-        if (sort == "greater") {
+        if (sort.equals("greater")) {
             pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
                     .descending());
         }
-        if (sort == null || sort.isEmpty()){
-            pageRequest = PageRequest.of(page - 1, 8, Sort.by("name")
-                    .ascending());
-        }
+
         Page<Product> productPage;
 
         if(category == null && country != null){
