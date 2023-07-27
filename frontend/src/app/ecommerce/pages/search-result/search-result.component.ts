@@ -22,7 +22,6 @@ export class SearchResultComponent implements OnInit {
 
       this.productService.searchProduct(queryParamQ).subscribe((res) => {
         this.products.set(res);
-        console.log(res.length);
       });
     });
   }

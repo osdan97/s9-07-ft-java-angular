@@ -49,7 +49,7 @@ export class EcommerceComponent implements OnInit {
   }
 
   private getProducts() {
-    this.productService.getProducts(1).subscribe((res) => {
+    this.productService.getProducts(1, '').subscribe((res) => {
       // Los productos ya han sido guardados en el sessionStorage en el servicio
     });
   }

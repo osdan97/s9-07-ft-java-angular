@@ -1,5 +1,6 @@
-import { Component, Input, inject, OnInit } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { Component, Input, inject, OnInit, signal } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { DataService } from 'src/app/core/services/data/data.service';
 
@@ -21,9 +22,15 @@ export class ContentCardComponent implements OnInit {
 
   @Input() totalPageNumber!: number;
 
+  page = signal<number>(0);
+  order = signal<string>('');
+
+  selectForm!: FormGroup;
+
   first = 0;
 
   dataSerivice = inject(DataService);
+  formBuilder = inject(FormBuilder);
   router = inject(Router);
 
   ngOnInit(): void {
@@ -32,6 +39,8 @@ export class ContentCardComponent implements OnInit {
     if (this.router.url === '/' || this.router.url === '/products') {
       this.getTotalPages(this.first + 1, this.country);
     }
+
+    this.selectForm = this.initselectForm();
   }
 
   onPageChange(event: any) {
@@ -45,13 +54,23 @@ export class ContentCardComponent implements OnInit {
       this.router.navigate(['products']);
     }
 
-    this.getDataProduct(page, this.country);
+    this.page.set(page);
+
+    this.getDataProduct(page, this.order(), this.country, undefined);
   }
 
-  getDataProduct(page: number, country?: string) {
-    this.dataSerivice.getProducts2(page, country).subscribe((res) => {
-      this.products = res;
-    });
+  getDataProduct(
+    page: number,
+    sort: string,
+    country?: string,
+    category?: string
+  ) {
+    this.dataSerivice
+      .getProducts2(page, sort, country, category)
+      .subscribe((res) => {
+        this.products = res;
+        console.log(res);
+      });
   }
 
   getTotalPages(page: number, country?: string) {
@@ -59,8 +78,21 @@ export class ContentCardComponent implements OnInit {
       .getTotalPages(page, country)
       .pipe(take(1))
       .subscribe((res) => {
-        console.log(res);
         this.totalPageNumber = res;
       });
+  }
+
+  initselectForm(): FormGroup {
+    return this.formBuilder.group({
+      filter: [''],
+    });
+  }
+
+  obtenerValorSeleccionado() {
+    const page = this.page() + 1;
+
+    const valorSeleccionado = this.selectForm.value.filter;
+    this.order.set(valorSeleccionado);
+    this.getDataProduct(page, valorSeleccionado, this.country, undefined);
   }
 }

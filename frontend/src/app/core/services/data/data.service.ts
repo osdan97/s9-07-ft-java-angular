@@ -19,10 +19,13 @@ export class DataService {
 
   getProducts(
     page: number,
+    sort: string,
     country?: string,
     category?: string
   ): Observable<ProductsResponse[]> {
-    let params = new HttpParams().set('page', page.toString());
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('sort', sort.toString());
 
     if (country) {
       params = params.set('country', country);
@@ -44,10 +47,13 @@ export class DataService {
 
   getProducts2(
     page: number,
+    sort: string,
     country?: string,
     category?: string
   ): Observable<ProductsResponse[]> {
-    let params = new HttpParams().set('page', page.toString());
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('sort', sort.toString());
 
     if (country) {
       params = params.set('country', country);

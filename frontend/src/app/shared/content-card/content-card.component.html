@@ -1,15 +1,20 @@
 <section>
   <div class="filter-card">
     <h2>Todos los productos</h2>
-    <div>
+    <form [formGroup]="selectForm">
       <label for="filter">
         Ordenar por:
-        <select name="filter" id="filter">
-          <option value="prime1">Precio: menor a mayor</option>
-          <!-- <option value="prime1">prime1</option> -->
+        <select
+          formControlName="filter"
+          id="filter"
+          (change)="obtenerValorSeleccionado()"
+        >
+          <option selected value="">Alfabéticamente</option>
+          <option value="smaller">Precio: menor a mayor</option>
+          <option value="greater">Precio: mayor a menor</option>
         </select>
       </label>
-    </div>
+    </form>
   </div>
   <div class="list-card">
     <app-card *ngFor="let product of products" [product]="product"></app-card>
