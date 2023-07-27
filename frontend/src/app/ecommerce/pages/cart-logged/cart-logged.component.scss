@@ -33,6 +33,10 @@
 .cart__container {
   width: 100%;
   max-width: 500px;
+
+  @include media-up(tablet) {
+    max-width: none;
+  }
 }
 .carrito {
   width: 100%;
@@ -42,6 +46,11 @@
   border-radius: 8px;
   background-color: $background-white;
   box-shadow: $card-shadow;
+
+  @include media-up(tablet) {
+    flex-direction: column;
+    margin: 0;
+  }
 }
 .item {
   display: flex;
@@ -55,6 +64,10 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 2rem 2rem 1rem 2rem;
+
+  @include media-up(tablet) {
+    max-width: none;
+  }
 }
 
 .botone3 {
@@ -62,6 +75,10 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  @include media-up(tablet) {
+    margin-top: 1rem;
+  }
 }
 
 .boton3 {

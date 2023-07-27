@@ -8,9 +8,15 @@ import { RouterModule } from '@angular/router';
 import { NavbarCategoriesComponent } from './header/components/navbar-categories/navbar-categories.component';
 import { AuthModule } from 'src/app/auth/auth.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { HeaderMobileComponent } from './header-mobile/header-mobile.component';
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, NavbarCategoriesComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    NavbarCategoriesComponent,
+    HeaderMobileComponent,
+  ],
   imports: [
     CommonModule,
     PrimeNgModule,
@@ -20,6 +26,6 @@ import { SharedModule } from 'src/app/shared/shared.module';
     SharedModule,
     ReactiveFormsModule,
   ],
-  exports: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent, HeaderMobileComponent],
 })
 export class LayoutModule {}

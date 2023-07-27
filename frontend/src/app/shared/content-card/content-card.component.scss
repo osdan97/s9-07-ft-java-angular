@@ -69,5 +69,6 @@ select {
 @include media-up(mobile) {
   .filter-card {
     flex-direction: column;
+    padding: 5rem 0;
   }
 }
