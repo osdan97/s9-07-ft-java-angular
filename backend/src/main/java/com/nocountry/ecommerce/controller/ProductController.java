@@ -165,9 +165,12 @@ public class ProductController {
             return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
     @GetMapping("/product/{id}")
     public ResponseEntity<?> getProduct(@PathVariable String id){
             return new ResponseEntity<>(productService.getProductByUuid(id), HttpStatus.OK);
+    }
+    @GetMapping("/name/{producto}")
+    public ResponseEntity<?> getProductByName(@PathVariable String producto){
+        return new ResponseEntity<>(productService.findProductByName(producto), HttpStatus.OK);
     }
 }

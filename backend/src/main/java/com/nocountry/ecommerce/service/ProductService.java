@@ -21,5 +21,7 @@ public interface ProductService {
 
     @Transactional
     void updateStock(int newStock, String state, String productUuid);
+
+    List<Product> findProductByName(String product);
 }
 
