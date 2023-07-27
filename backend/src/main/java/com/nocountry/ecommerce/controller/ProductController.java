@@ -127,9 +127,6 @@ public class ProductController {
             if(page < 1){
                 return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            if(sort != null){
-                return new ResponseEntity<>(productService.getProducts(page, country, category, sort), HttpStatus.OK);
-            }
             return new ResponseEntity<>(productService.getProducts(page, country, category, sort), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
