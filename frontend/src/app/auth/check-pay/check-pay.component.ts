@@ -9,7 +9,6 @@ import {
   ShippingDetailsList,
   UserData,
 } from 'src/app/core/interfaces/auth.interfaces';
-import { FormCheckout } from 'src/app/core/interfaces/checkout';
 import { CheckoutService } from 'src/app/core/services/checkout/checkout.service';
 
 @Component({
@@ -53,6 +52,8 @@ export class CheckPayComponent implements OnInit {
   });
 
   form_person() {
+    console.log(this.shippingDetail.valid);
+
     if (this.shippingDetail.valid) {
       this.show = true;
     }
@@ -85,19 +86,10 @@ export class CheckPayComponent implements OnInit {
 
   initFormShippingDetail(): FormGroup {
     return this.formBuilder.group({
-      country: [
-        this.shippingData.country,
-        [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
-      ],
-      province: [
-        this.shippingData.provincia,
-        [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
-      ],
+      country: [this.shippingData.country, [Validators.required]],
+      province: [this.shippingData.provincia, [Validators.required]],
       postalCode: [this.shippingData.postalCode, Validators.required],
-      city: [
-        this.shippingData.city,
-        [Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)],
-      ],
+      city: [this.shippingData.city, [Validators.required]],
       address: [this.shippingData.address1, Validators.required],
       addressDetail: [this.shippingData.address2, Validators.required],
       checkFact: [''],
@@ -122,8 +114,6 @@ export class CheckPayComponent implements OnInit {
         quantity: item.quantity,
       };
     });
-
-    console.log(cart);
 
     const body: any = {
       account: {
