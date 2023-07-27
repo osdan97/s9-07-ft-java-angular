@@ -2,8 +2,8 @@
 .contenedor{
     display: block;
     justify-content: center;
-    padding-right: 10%;
-    padding-left: 10%;
+    padding-right: 8%;
+    padding-left: 8%;
     font-family: 'Quicksand';
 }
 .caja1{
@@ -12,12 +12,11 @@
 }
 .caja1 p{
     margin-top: 2%;
-    font-size: 20px;
 }
 
 .titulo{
     font-weight: 800;
-    font-size: 25px;
+    font-size: 30px;
     margin-top: 2%;
 }
 .caja2{
@@ -37,11 +36,13 @@
 }
 .caja-imagen2{
     border-radius: 13px;
-    height: 60%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
 }
 .imagen2{
-    width: 80%;
+    width: 100%;
+    max-width: 550px;
+    max-height: 300px;
     
 }
 .caja3 p{
@@ -58,4 +59,70 @@
     height: 121px;
 }
 
+@include media-up(screen) {
+    .contenedor{
+        padding: 20px;
+    }
+    .caja2 {
+     display: flex;
+    }
+    .caja-imagen2{
+        height: 100%;
+        width: 100%;
+        margin: 20px 0px;
+    }
+    .imagen2{
+        width: 100%;
+    }
+  }
+
+  @include media-up(screenXs) {
+    .contenedor{
+        padding: 20px;
+    }
+    .caja2 {
+     display:flex;
+    }
+    .caja-imagen2{
+        height: 100%;
+        width: max-content;
+        margin: 20px 0px;
+    }
+    .imagen2{
+        width: max-content;
+    }
+  }
+  
+@include media-up(desktop) {
+    .contenedor{
+        padding: 20px;
+    }
+    .caja-imagen2{
+        height: 100%;
+        width: 100%;
+        margin: 20px 0px;
+    }
+
+    .imagen2{
+        width: 100%;
+    }
+  }
+
+  @include media-up(tablet) {
+    .caja2 {
+        display:inline;
+       }
+    .contenedor{
+        padding: 20px;
+    }
+    .caja-imagen2{
+        height: 80%;
+        width: 80%;
+        margin: 20px 0px;
+    }
+    .imagen2{
+        width: 100%;
+        height:100% ;
+    }
+  }
 

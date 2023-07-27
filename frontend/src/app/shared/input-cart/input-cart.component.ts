@@ -23,6 +23,7 @@ import { CartService } from 'src/app/core/services/cart/cart.service';
 })
 export class InputCartComponent implements OnInit {
   @Output() addCart = new EventEmitter<any>();
+  @Output() sendQuantity = new EventEmitter<number>();
   @Input() product!: ProductsResponse | CartProduct;
   @Input() showButton = true;
   @Input() changeClass = true;
@@ -59,6 +60,7 @@ export class InputCartComponent implements OnInit {
 
     this.quantity.update((actualValue) => actualValue + value);
     this.addCartForm.controls['quantity'].setValue(this.quantity());
+    this.sendQuantity.emit(this.addCartForm.value.quantity);
   }
 
   changeValueCart(value: number): void {

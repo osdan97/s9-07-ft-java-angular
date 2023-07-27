@@ -37,8 +37,10 @@ export class ProductoComponent implements OnInit {
   }
 
   getDataProduct(category: string) {
-    this.dataSerivice.getProducts2(1, undefined, category).subscribe((res) => {
-      this.products.set(res);
-    });
+    this.dataSerivice
+      .getProducts2(1, '', undefined, category)
+      .subscribe((res) => {
+        this.products.set(res);
+      });
   }
 }

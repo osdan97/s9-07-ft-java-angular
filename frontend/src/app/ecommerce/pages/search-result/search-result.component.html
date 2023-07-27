@@ -1,19 +1,30 @@
 <div class="container-search">
-    <div class="search">
+  <div class="search">
     <div class="search-title">
-        <h2>Resultados para tu búsqueda: “ Bizcochitos Jorgito”</h2>
-      </div>
-      <div class="result">
-        <i class="pi pi-search"></i><span class="text_result">Lo lamentamos, no encontramos productos que concuerden con la selección.</span>
-      </div>
-      <div class="botonS">
-      <button class="s_button" [routerLink]="['/producto']">Ver todos los productos</button>
+      <h2>Resultados para tu búsqueda: “{{ params() }}”</h2>
     </div>
+    <div class="result" *ngIf="products().length === 0">
+      <i class="pi pi-search"></i
+      ><span class="text_result"
+        >Lo lamentamos, no encontramos productos que concuerden con la
+        selección.</span
+      >
     </div>
+
+    <div class="products__container">
+      <app-card
+        [product]="product"
+        *ngFor="let product of products()"
+      ></app-card>
+    </div>
+
+    <div class="botonS">
+      <button
+        class="button custom__button--fill"
+        [routerLink]="['../producto']"
+      >
+        Ver todos los productos
+      </button>
+    </div>
+  </div>
 </div>
-  
-
-
-      
-    
-  

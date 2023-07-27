@@ -19,10 +19,14 @@
         <button routerLink="shipping-info">Info de Envíos</button>
       </div>
 
-      <span class="p-input-icon-right">
+      <form
+        [formGroup]="searchForm"
+        (ngSubmit)="SearchFormProducts()"
+        class="p-input-icon-right"
+      >
         <i class="pi pi-search"></i>
-        <input type="text" pInputText [(ngModel)]="value" />
-      </span>
+        <input type="text" formControlName="product" />
+      </form>
 
       <div class="option__user">
         <h3 *ngIf="!isLoged; else loguedUser">

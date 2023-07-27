@@ -126,9 +126,10 @@ body {
 }
 
 .chip {
-  background-color: $background-complementary;
+  background-color: #b7fbef;
   color: $background-primary;
   border: $border-primary;
+  font-weight: 500;
 }
 
 .required::after {
@@ -146,6 +147,7 @@ $breakpoints: (
   screenXs: 880px,
   screen: 1024px,
   desktop: 1200px,
+  large: 1440px,
 );
 
 @mixin media-up($breakpoint) {

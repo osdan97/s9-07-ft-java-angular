@@ -27,7 +27,7 @@
 
 .cart {
   width: 100%;
-  max-width: 500px;
+   //max-width: 500px;
   display: flex;
   flex-direction: column;
 }
@@ -70,6 +70,7 @@
   border-radius: 8px;
   background-color: white;
   box-shadow: $card-shadow;
+  padding:32px;
 }
 
 .item {
@@ -81,14 +82,16 @@
   display: flex;
   float: right;
   flex-direction: column;
+  
 }
 
 .menu-detalle {
   width: 100%;
   display: flex;
-  padding: 2rem;
+  padding: 2rem 1rem;
   justify-content: space-between;
-  align-items: center;
+  //align-items: center;
+  
 }
 
 .items {
@@ -199,7 +202,7 @@
 //Responsive:
 .contenedor3 {
   width: 80%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   padding: 32px;
@@ -208,6 +211,7 @@
   border-radius: 8px;
   margin: 0 auto;
   margin-bottom: 60px;
+  
 }
 
 .barra1 {
@@ -248,6 +252,14 @@
   .barra {
     display: none;
   }
+  .menu-detalle{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .item2{
+    align-items:flex-end;
+    //VER ESTO!!!!!!!!!!!
+  }
 
 }
 
@@ -272,7 +284,13 @@
   .barra {
     display: none;
   }
-
+  .menu-detalle{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .item2{
+    align-items:end;
+  }
 
 }
 
@@ -297,6 +315,14 @@
   .barra {
     display: none;
   }
+  .menu-detalle{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .item2{
+    align-items:end;
+  }
+
 }
 
 @include media-up(screenXs) {
@@ -317,19 +343,51 @@
     margin-bottom: 25px;
   }
 
+  .contenedor3 {
+    display: flex;
+  }
   .barra {
     display: none;
   }
+  .menu-detalle{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .item2{
+    align-items:end;
+  }
 }
-
 @include media-up(screen) {
+  .contenedor1 {
+    width: 90%;
+    align-items: center;
+    margin: auto;
+  }
+
+  .titulo {
+    margin-left: 40px;
+  }
+
+  .carrito {
+    width: 90%;
+    margin: auto;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+
   .contenedor3 {
+    display: flex;
+  }
+  .barra {
     display: none;
+  }
+  .menu-detalle{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .item2{
+    align-items:end;
   }
 }
 
-@include media-up(desktop) {
-  .contenedor3 {
-    display: none;
-  }
-}
+

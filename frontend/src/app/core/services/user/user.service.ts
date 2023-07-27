@@ -100,10 +100,15 @@ export class UserService {
 
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-    return this.http.delete<any>(
-      `${this.baseUrl}favorites/deletebyproduct/${userId}/${product.id}`,
-      { headers }
-    );
+    const body = {
+      customers: userId,
+      product: product.id,
+    };
+
+    return this.http.delete<any>(`${this.baseUrl}favorites/deletefavorite`, {
+      headers,
+      body,
+    });
   }
 
   addUserData(body: any, token: string): Observable<any> {
@@ -117,33 +122,13 @@ export class UserService {
     );
   }
 
-  // getFavoriteProducts(token: string): Observable<Product[]> {
-  //   const accessToken: Payload = jwtDecode(token);
+  getHistoryOrders(token: string): Observable<any> {
+    const { userId }: Payload = jwtDecode(token);
 
-  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //   return this.http
-  //     .get<FavoriteResponse[]>(
-  //       `${this.baseUrl}favorites/list/${accessToken.userId}`,
-  //       {
-  //         headers,
-  //       }
-  //     )
-  //     .pipe(map((res) => res.map((item) => item.product)));
-  // }
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
 
-  // addFavoriteProducts(token: string, product: string): Observable<Product> {
-  //   const accessToken: Payload = jwtDecode(token);
-
-  //   const body = {
-  //     customers: accessToken.userId,
-  //     product,
-  //   };
-
-  //   const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-  //   return this.http
-  //     .post<FavoriteResponse>(`${this.baseUrl}favorites/create`, body, {
-  //       headers,
-  //     })
-  //     .pipe(map((res) => res.product));
-  // }
+    return this.http.get<any>(`${this.baseUrl}orders/by-account/${userId}`, {
+      headers,
+    });
+  }
 }

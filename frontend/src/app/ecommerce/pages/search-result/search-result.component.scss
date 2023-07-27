@@ -1,57 +1,56 @@
 @import "src/styles.scss";
 
 .container-search {
-    width: 100%;
-    max-width: 920px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
 }
 
 .search {
-    width:87%;
-    display: flex;
-    flex-direction: column;
-    margin: 40px 90px;
-    
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  margin: 40px 90px;
 }
 
 h2 {
-    font-size: $heading1;
-    color: #000;
-    font-family: "Quicksand";
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    align-items: left;
-    margin:40px auto;
+  font-size: $heading1;
+  color: #000;
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  align-items: left;
+  margin: 40px auto;
 }
 
 .result {
-    width:100%;
-    height: 54px;
-    background-color: #B7FBEF;
-    border-radius: 4px;
-    margin: 80px 0;
-    flex-direction: column;
-    align-self: center;
-    i {
-      margin: 20px;
-      align-self: left;
-    }
-    .text_result {
-        color: #000;
-        font-family: "Quicksand";
-        font-size: $heading2;
-        font-style: normal;
-        font-weight: 500;
-        line-height: normal;
-        align-self: left;
-    }
+  width: 100%;
+  height: 54px;
+  background-color: #b7fbef;
+  border-radius: 4px;
+  margin: 80px 0;
+  flex-direction: column;
+  align-self: center;
+  i {
+    margin: 20px;
+    align-self: left;
+  }
+  .text_result {
+    color: #000;
+    font-family: "Quicksand";
+    font-size: $heading2;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    align-self: left;
+  }
 }
 
-.botonS{
-    align-self: center;
-    margin: 75px 0;
-    .s_button {
+.botonS {
+  align-self: center;
+  margin: 75px 0;
+  .s_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,6 +60,18 @@ h2 {
     flex-shrink: 0;
     border-radius: 7px;
     border: 1px solid #000;
-    background: #D8D8D8;
- }
+    background: #d8d8d8;
+  }
+
+  .button {
+    width: 224px;
+  }
+}
+
+.products__container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }

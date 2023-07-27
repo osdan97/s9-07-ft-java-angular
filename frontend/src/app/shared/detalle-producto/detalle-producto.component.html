@@ -9,7 +9,7 @@
   </div>
 
   <div class="descripcion-producto">
-    <div class="titulo-heart-movile">
+    <div class="titulo-heart-movile mb-6">
       <h2>{{ product.name }}</h2>
     </div>
     <div class="imagen-producto">
@@ -40,11 +40,18 @@
             [width]="'66px'"
             [product]="product"
             (addCart)="showQuantityProduc($event)"
+            (sendQuantity)="getQuantity($event)"
           ></app-input-cart>
         </div>
         <div class="botonesCompra">
           <span class="stock chip">{{ product.stock | stock }}</span>
-          <button class="button custom__button--line">Finalizar compra</button>
+          <button
+            class="button custom__button--line"
+            (click)="payment()"
+            routerLink="/payment"
+          >
+            Finalizar compra
+          </button>
         </div>
       </div>
     </div>

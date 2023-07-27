@@ -23,6 +23,7 @@ import { PaisesComponent } from './paises/paises.component';
 import { InfoCasaComponent } from './info-casa/info-casa.component';
 import { InfoPersonComponent } from './info-person/info-person.component';
 import { NumberPhonePipe } from './pipes/number-phone.pipe';
+import { StatePayPipe } from './pipes/state-pay.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { NumberPhonePipe } from './pipes/number-phone.pipe';
     InfoCasaComponent,
     InfoPersonComponent,
     NumberPhonePipe,
+    StatePayPipe,
   ],
   imports: [
     CommonModule,
@@ -69,6 +71,7 @@ import { NumberPhonePipe } from './pipes/number-phone.pipe';
     InfoCasaComponent,
     InfoPersonComponent,
     NumberPhonePipe,
+    StatePayPipe,
   ],
 })
 export class SharedModule {}

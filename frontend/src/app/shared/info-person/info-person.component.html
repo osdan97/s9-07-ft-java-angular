@@ -8,20 +8,26 @@
         <div>
           <div>
             <p class="title">Datos personales</p>
-            <p class="subtitle">Mariano García Machado</p>
-            <p class="subtitle2">Mariano_garcia@gmail.com</p>
-            <p class="subtitle2">+34.652.253.478</p>
+            <p class="subtitle">
+              {{ userData.name + " " + userData.lastName }}
+            </p>
+            <p class="subtitle2">{{ userData.email }}</p>
+            <p class="subtitle2">{{ userData.phonesList | numberPhone }}</p>
           </div>
         </div>
       </div>
 
       <div>
-        <div class="flex align-items-center gap-2">
-          <button type="button" class="flex align-items-center gap-1 p-1 m-0 flex-col" [routerLink]="['/changepassword']" >
-            <i class="pi pi-lock" style="font-size: 10px;"></i>
+        <div class="flex gap-2 edit">
+          <button
+            type="button"
+            class="flex align-items-center gap-1 p-1 m-0 flex-col btn-password"
+            [routerLink]="['/changepassword']"
+          >
+            <i class="pi pi-lock" style="font-size: 10px"></i>
             Cambiar contraseña
           </button>
-          <i class="pi pi-pencil" (click)="On_click1()" ></i>
+          <i class="pi pi-pencil" (click)="On_click1()"></i>
         </div>
       </div>
     </div>

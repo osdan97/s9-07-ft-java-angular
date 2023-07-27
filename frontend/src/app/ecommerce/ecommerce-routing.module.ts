@@ -100,7 +100,7 @@ const routes: Routes = [
         canMatch: [AuthGuard],
       },
       {
-        path: 'search-result',
+        path: 'search',
         loadChildren: () =>
           import('./pages/search-result/search-result.module').then(
             (m) => m.SearchResultModule
@@ -120,7 +120,7 @@ const routes: Routes = [
         path: 'legales',
         loadChildren: () =>
           import('./pages/legales/legales.module').then((m) => m.LegalesModule),
-       // canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         //canMatch: [AuthGuard],
       },
       {
@@ -129,8 +129,8 @@ const routes: Routes = [
           import(
             './pages/preguntas-frecuentes/preguntas-frecuentes.module'
           ).then((m) => m.PreguntasFrecuentesModule),
-       // canActivate: [AuthGuard],
-       // canMatch: [AuthGuard],
+        // canActivate: [AuthGuard],
+        // canMatch: [AuthGuard],
       },
 
       {
@@ -157,8 +157,8 @@ const routes: Routes = [
           import(
             './pages/terminos-condiciones/terminos-condiciones.module'
           ).then((m) => m.TerminosCondicionesModule),
-       // canActivate: [AuthGuard],
-       // canMatch: [AuthGuard],
+        // canActivate: [AuthGuard],
+        // canMatch: [AuthGuard],
       },
       {
         path: 'quienessomos',

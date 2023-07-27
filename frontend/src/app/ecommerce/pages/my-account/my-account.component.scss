@@ -1,14 +1,19 @@
 @import "src/styles.scss";
 
 .contenedora {
-  width: 100%;
-  max-width: 800px;
+  width: 95%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 0 80px;
   //display:flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Quicksand";
+}
+
+.my__account {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 .mi-cuenta {
   font-size: $heading1;
@@ -22,11 +27,14 @@
 
 .historial {
   width: 100%;
-  height: 258px;
+  min-height: 258px;
+  // max-height: 500px;
   flex-shrink: 0;
   border-radius: 8px;
   background: #fff;
   box-shadow: $card-shadow;
+  padding: 1rem;
+  // overflow-y: scroll;
 
   .bloque-historial {
     display: flex;
@@ -34,7 +42,6 @@
     padding-top: 20px;
     .titleHistorial {
       color: #000;
-      font-family: "Quicksand";
       font-size: $heading2;
       font-style: normal;
       font-weight: 500;
@@ -43,7 +50,6 @@
   }
   .text-fav {
     color: #2f3f61;
-    font-family: "Quicksand";
     font-size: $heading4;
     font-style: normal;
     font-weight: 400;
@@ -52,7 +58,6 @@
   span {
     font-size: $heading4;
     font-weight: 600;
-    font-family: "Quicksand";
     margin: 20px;
   }
 }
@@ -77,8 +82,8 @@
 .fav-container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 0 80px;
+  margin: 2rem auto;
+  // padding: 20px 0 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -95,7 +100,6 @@
 .favTitle {
   font-size: $heading2;
   font-weight: 500;
-  font-family: "Quicksand";
   line-height: 25px;
   letter-spacing: 0em;
   text-align: left;
@@ -139,4 +143,13 @@
   h4 {
     font-weight: 400;
   }
+}
+
+.message__content--history {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $text-color-primary;
 }

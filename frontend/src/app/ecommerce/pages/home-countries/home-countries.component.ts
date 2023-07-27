@@ -26,7 +26,7 @@ export class HomeCountriesComponent implements OnInit {
 
   getDataProduct(country: string) {
     const data = JSON.parse(sessionStorage.getItem('products') || '[]');
-    this.dataSerivice.getProducts2(1, country).subscribe((res) => {
+    this.dataSerivice.getProducts2(1, '', country).subscribe((res) => {
       this.products.set(res);
     });
     if (!data) return;
