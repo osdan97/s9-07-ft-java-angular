@@ -118,7 +118,8 @@ public class ProductController {
     @GetMapping("/list")
     public ResponseEntity<?> getProducts(@RequestParam("page") Integer page,
                                          @RequestParam(value = "country", required = false) String country,
-                                         @RequestParam(value = "category",required = false) String category){
+                                         @RequestParam(value = "category",required = false) String category,
+                                         @RequestParam(value = "sort", required = false) String sort){
         try{
             if(page == null){
                 return new ResponseEntity<>(new Mensaje("Page can't be null"), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -126,7 +127,7 @@ public class ProductController {
             if(page < 1){
                 return new ResponseEntity<>(new Mensaje("Page can't be less than 1"), HttpStatus.INTERNAL_SERVER_ERROR);
             }
-            return new ResponseEntity<>(productService.getProducts(page, country, category), HttpStatus.OK);
+            return new ResponseEntity<>(productService.getProducts(page, country, category, sort), HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(new Mensaje(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }

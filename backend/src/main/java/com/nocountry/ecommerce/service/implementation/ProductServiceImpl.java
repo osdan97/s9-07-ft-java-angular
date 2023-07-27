@@ -19,7 +19,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Service
-public class   ProductServiceImpl implements ProductService {
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
@@ -119,13 +119,20 @@ public class   ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getProducts(Integer page, String country, String category) {
-        PageRequest pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
-                .ascending());
+    public List<Product> getProducts(Integer page, String country, String category, String sort) {
+        PageRequest pageRequest = null;
+        if (sort == "smaller") {
+           pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
+                    .ascending());
+        }
+        if (sort == "greater") {
+            pageRequest = PageRequest.of(page - 1, 8, Sort.by("price")
+                    .descending());
+        }
         Page<Product> productPage;
 
         if(category == null && country != null){
-            productPage = productRepository.findAllByCountry(country,pageRequest);
+            productPage = productRepository.findAllByCountry(country, pageRequest);
             return productPage.getContent();
         }
         if(category != null && country == null){

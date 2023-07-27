@@ -13,7 +13,7 @@ public interface ProductService {
     Product updateProduct(String id, ProductDto productDto);
     void changeStateProduct (String id);
     void deleteProduct(String id);
-    List<Product> getProducts(Integer page, String country, String category);
+    List<Product> getProducts(Integer page, String country, String category, String sort);
     long getTotalProducts(Integer page, String country, String category);
     int getTotalPage(Integer page, String country, String category);
     Optional<Product> getProduct(String product);
