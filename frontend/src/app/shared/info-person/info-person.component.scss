@@ -90,3 +90,41 @@ button {
 img {
   padding-top: 5px;
 }
+
+.edit{
+  align-items:center;
+}
+
+
+
+
+@include media-up(mobile) {
+  .contenedor2 {
+    padding: 30px;
+  }
+.edit{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap:3px;
+}
+.btn-password{
+  width: 130px;
+}
+
+}
+@include media-up(tablet) {
+  .contenedor2 {
+    padding: 30px;
+  }
+.edit{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap:3px;
+}
+.btn-password{
+  width: 130px;
+}
+
+}
