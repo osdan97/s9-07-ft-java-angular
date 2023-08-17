@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setName(name);
         String description = productDto.getDescription();
         saveProduct.setDescription(description);
-        saveProduct.setStock(0);
+        saveProduct.setStock(150);
         String image = productDto.getImage();
         saveProduct.setImage(image);
         Double price = productDto.getPrice();
@@ -46,7 +46,7 @@ public class ProductServiceImpl implements ProductService {
         saveProduct.setCountry(country);
         Integer minStock = productDto.getMinStock();
         saveProduct.setMinStock(minStock);
-        saveProduct.setState(ProductState.U);
+        saveProduct.setState(ProductState.A);
         String category = productDto.getCategory();
         Category categoryEntity = categoryRepository.getByName(category);
 
@@ -208,8 +208,12 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Optional<Product> getProduct(String productName) {
-        return productRepository.findByName(productName);
+    public Optional<Product> getProduct(String id) {
+        return productRepository.findById(id);
+    }
+    @Override
+    public Optional<Product> getProductByName(String name) {
+        return productRepository.findByName(name);
     }
     @Override
     public Optional<Product> getProductByUuid(String id) {

@@ -21,7 +21,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 @Configuration
-public class SecurityConfig {
+public class   SecurityConfig {
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
@@ -49,45 +49,11 @@ public class SecurityConfig {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeHttpRequests()
-                .requestMatchers(HttpMethod.PUT,"/api/account/change/**",
-                        "api/account/findallcustomerlist",
-                        "api/category/updatebyname/**",
-                        "api/category/update/**",
-                        "api/inventory/update/**",
-                        "api/products/update/**")
-                .hasRole(Role.ADMIN.name())
 
-                .requestMatchers(HttpMethod.POST,"api/inventory/create",
-                        "api/category/create",
-                        "api/transaction/inventory",
-                        "/api/products/add")
-                .hasRole(Role.ADMIN.name())
-
-                .requestMatchers(HttpMethod.GET, "api/inventory/list",
-                        "api/transaction/inventory/**").hasRole(Role.ADMIN.name())
-
-                .requestMatchers(HttpMethod.DELETE,"api/category/delete/**",
-                        "api/category/deletebyname/**",
-                        "api/products/delete/**")
-                .hasRole(Role.ADMIN.name())
-
-                .requestMatchers(HttpMethod.PATCH, "api/products/update-state/**").hasRole(Role.USER.name())
-
-                .requestMatchers(HttpMethod.PUT, "/api/account/updateAccount/**").hasRole(Role.USER.name())
-
-                .requestMatchers(HttpMethod.POST, "api/orders",
-                        "/api/pay")
-                .hasRole(Role.USER.name())
-                .requestMatchers(HttpMethod.GET, "/customer/**",
-                        "/api/orders/by-account/**").hasRole(Role.USER.name())
-
-                .requestMatchers(HttpMethod.POST,"/api/favorites/create").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
-                .requestMatchers(HttpMethod.GET,"/api/favorites/list/**").hasAnyRole(Role.USER.name(),Role.ADMIN.name())
-
-                .requestMatchers(HttpMethod.DELETE,"/api/favorites/**").hasRole(Role.USER.name())
 
                 .requestMatchers("/api/authentication/sign-in",
                         "/api/authentication/sign-up",
+                        "/api/customer/**",
                         "/api/user/sign-up",
                         "/api/authentication/forgot-password",
                         "/api/authentication/change-password",
@@ -102,7 +68,11 @@ public class SecurityConfig {
                         "/api/products/totalproducts",
                         "/api/products/totalpages",
                         "/api/favorites/deletebyproduct/**",
-                        "/api/products/name/**")
+                        "/api/products/name/**",
+                        "/api/products/**",
+                        "api/orders/**",
+                        "/api/pay",
+                        "/api/category/**")
                 .permitAll()
                 .anyRequest().authenticated();
 

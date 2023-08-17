@@ -5,6 +5,7 @@ import com.nocountry.ecommerce.dto.ShippingDetailsCustomerRegistration;
 import com.nocountry.ecommerce.model.Customers;
 import com.nocountry.ecommerce.model.ShippingDetailsCustomer;
 import com.nocountry.ecommerce.repository.AccountRepository;
+import com.nocountry.ecommerce.repository.CustomerRepository;
 import com.nocountry.ecommerce.repository.ShippingDetailsCustomerRepository;
 import com.nocountry.ecommerce.service.AccountService;
 import com.nocountry.ecommerce.service.ShippingDetailsCustomerService;
@@ -18,16 +19,20 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class ShippingAddressCustomerServiceImpl implements ShippingDetailsCustomerService {
+public class     ShippingAddressCustomerServiceImpl implements ShippingDetailsCustomerService {
     @Autowired
     private AccountService accountService;
     @Autowired
     private AccountRepository accountRepository;
+
+    @Autowired
+    private CustomerRepository customerRepository;
     @Autowired
     private ShippingDetailsCustomerRepository shippingDetailsCustomerRepository;
     @Transactional
     @Override
     public ShippingDetailsCustomerRegistration addShippingAddress(String accountUuid, ShippingDetailsCustomer shippingDetails) {
+
 
         Customers customerResponse = accountService.findByUuid(accountUuid)
                 .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + accountUuid));

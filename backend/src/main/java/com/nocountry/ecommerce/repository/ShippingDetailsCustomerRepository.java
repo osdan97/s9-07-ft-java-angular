@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
-public interface ShippingDetailsCustomerRepository extends JpaRepository<ShippingDetailsCustomer, String> {
+public interface  ShippingDetailsCustomerRepository extends JpaRepository<ShippingDetailsCustomer, String> {
     @Query(
             value = "select * from SHIPPING_DETAILS_CUSTOMER s where s.account_uuid=:customerUuid",
             nativeQuery = true

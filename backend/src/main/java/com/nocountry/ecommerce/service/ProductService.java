@@ -17,6 +17,9 @@ public interface ProductService {
     long getTotalProducts(Integer page, String country, String category);
     int getTotalPage(Integer page, String country, String category);
     Optional<Product> getProduct(String product);
+
+    Optional<Product> getProductByName(String name);
+
     Optional<Product> getProductByUuid(String id);
 
     @Transactional

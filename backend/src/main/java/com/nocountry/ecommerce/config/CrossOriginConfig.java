@@ -8,7 +8,7 @@ public class CrossOriginConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("https://s9-07-ft-java-angular-git-front-develop-nocountry-c11-16.vercel.app/", "https://s9-07-ft-java-angular.vercel.app/")
+                .allowedOrigins("https://localhost:4200/")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD", "TRACE", "CONNECT")
                 .allowedHeaders("*");
 

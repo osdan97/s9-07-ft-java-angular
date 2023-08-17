@@ -35,6 +35,7 @@ public class OrdersServiceImpl implements OrdersService {
     private TransactionRepository transactionRepository;
     @Autowired
     private AccountService accountService;
+   
     @Autowired
     private ProductService productService;
     @Autowired
@@ -49,7 +50,7 @@ public class OrdersServiceImpl implements OrdersService {
         String uuid = orderRequest.getAccount().getAccountUuid();
         String shipping_uuid = orderRequest.getShippingDetails().getShippingDetailUuid();
         Customers customersRequest = accountService.findByUuid(uuid)
-                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist." + uuid));
+                .orElseThrow(() -> new UsernameNotFoundException("The account does not exist " + uuid));
 
         ShippingDetailsCustomer shippingCustomerUuid = shippingDetailsCustomerService.findShippingDetailsCustomerByCustomerAndShipping(uuid, shipping_uuid);
 
@@ -59,6 +60,7 @@ public class OrdersServiceImpl implements OrdersService {
         String transactionUuid = UUID.randomUUID().toString();
         orderRegistration.setTransactionUuid(transactionUuid);
         order.setTransactionUuid(transactionUuid);
+
 
         LocalDateTime createdDate = LocalDateTime.now();
         order.setCreatedDate(createdDate);
@@ -72,6 +74,8 @@ public class OrdersServiceImpl implements OrdersService {
         String number = currentYear + "-" + numeration;
         order.setNumber(number);
         orderRegistration.setNumber(number);
+
+
 
         String name = customersRequest.getName();
         String lastName = customersRequest.getLastName();
@@ -98,7 +102,7 @@ public class OrdersServiceImpl implements OrdersService {
                 String productUuid = orderDetail.getProduct().getId();
 
                 Product product = productService.getProductByUuid(productUuid)
-                        .orElseThrow(() -> new EntityNotFoundException("The account does not exist." + productUuid));
+                        .orElseThrow(() -> new EntityNotFoundException("The product does not exist." + productUuid));
 
                 String stateProduct = product.getState().name();
                 if (stateProduct == ProductState.U.name()){
@@ -146,8 +150,8 @@ public class OrdersServiceImpl implements OrdersService {
                 OrderDetails orderDetails = new OrderDetails();
                 orderDetails.setOrderDetailUuid(UUID.randomUUID().toString());
                 String productName = registration.getProductName();
-                Product product = productService.getProduct(productName)
-                        .orElseThrow(() -> new EntityNotFoundException("The account does not exist." + productName));
+                Product product = productService.getProductByName(productName)
+                        .orElseThrow(() -> new EntityNotFoundException("The product2 does not exist :" + productName));
                 orderDetails.setProduct(product);
                 orderDetails.setQuantity(registration.getQuantity());
                 orderDetails.setPrice(registration.getPrice());
